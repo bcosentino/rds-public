@@ -180,5 +180,6 @@ statistical-testing-reinforces-gamification-in-science
 statistical-significance-is-not-the-same-thing-as-practical-significance
 type-i-errors-become-more-likely-with-multiple-tests
 the-null-hypothesis-is-almost-certainly-wrong
-the-null-hypothesis-is-too-constrained
+the-null-hypothesis-focuses-on-data-you-did-not-observe
+a-single-null-and-alternative-hypothesis-is-too-constraining
 the-p-value-is-not-the-probability-we-want

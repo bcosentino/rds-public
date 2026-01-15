@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="uncertainty-from-sampling.html"/>
-<link rel="next" href="estimation.html"/>
+<link rel="next" href="bayesian-estimation-and-inference.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -199,16 +199,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="describing-data.html"><a href="describing-data.html"><i class="fa fa-check"></i><b>4</b> Describing data</a>
 <ul>
-<li class="chapter" data-level="4.0.1" data-path="describing-data.html"><a href="describing-data.html#defining-the-population"><i class="fa fa-check"></i><b>4.0.1</b> Defining the population</a></li>
-<li class="chapter" data-level="4.0.2" data-path="describing-data.html"><a href="describing-data.html#loading-data-into-r"><i class="fa fa-check"></i><b>4.0.2</b> Loading data into R</a></li>
-<li class="chapter" data-level="4.0.3" data-path="describing-data.html"><a href="describing-data.html#inspecting-the-dataset"><i class="fa fa-check"></i><b>4.0.3</b> Inspecting the dataset</a></li>
-<li class="chapter" data-level="4.0.4" data-path="describing-data.html"><a href="describing-data.html#describing-single-qualitative-variables"><i class="fa fa-check"></i><b>4.0.4</b> Describing single qualitative variables</a></li>
-<li class="chapter" data-level="4.0.5" data-path="describing-data.html"><a href="describing-data.html#describing-single-quantitative-variables"><i class="fa fa-check"></i><b>4.0.5</b> Describing single quantitative variables</a></li>
-<li class="chapter" data-level="4.0.6" data-path="describing-data.html"><a href="describing-data.html#describing-relationships-between-variables"><i class="fa fa-check"></i><b>4.0.6</b> Describing relationships between variables</a></li>
-<li class="chapter" data-level="4.0.7" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-variables"><i class="fa fa-check"></i><b>4.0.7</b> Associations between quantitative variables</a></li>
-<li class="chapter" data-level="4.0.8" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-and-qualitative-variables"><i class="fa fa-check"></i><b>4.0.8</b> Associations between quantitative and qualitative variables</a></li>
-<li class="chapter" data-level="4.0.9" data-path="describing-data.html"><a href="describing-data.html#associations-between-qualitative-variables"><i class="fa fa-check"></i><b>4.0.9</b> Associations between qualitative variables</a></li>
-<li class="chapter" data-level="4.0.10" data-path="describing-data.html"><a href="describing-data.html#this-is-just-the-beginning"><i class="fa fa-check"></i><b>4.0.10</b> This is just the beginning</a></li>
+<li class="chapter" data-level="4.1" data-path="describing-data.html"><a href="describing-data.html#defining-the-population"><i class="fa fa-check"></i><b>4.1</b> Defining the population</a></li>
+<li class="chapter" data-level="4.2" data-path="describing-data.html"><a href="describing-data.html#loading-data-into-r"><i class="fa fa-check"></i><b>4.2</b> Loading data into R</a></li>
+<li class="chapter" data-level="4.3" data-path="describing-data.html"><a href="describing-data.html#inspecting-the-dataset"><i class="fa fa-check"></i><b>4.3</b> Inspecting the dataset</a></li>
+<li class="chapter" data-level="4.4" data-path="describing-data.html"><a href="describing-data.html#describing-single-variables"><i class="fa fa-check"></i><b>4.4</b> Describing single variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="describing-data.html"><a href="describing-data.html#qualitative-variables"><i class="fa fa-check"></i><b>4.4.1</b> Qualitative variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="describing-data.html"><a href="describing-data.html#quantitative-variables"><i class="fa fa-check"></i><b>4.4.2</b> Quantitative variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="describing-data.html"><a href="describing-data.html#describing-relationships-between-variables"><i class="fa fa-check"></i><b>4.5</b> Describing relationships between variables</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-variables"><i class="fa fa-check"></i><b>4.5.1</b> Associations between quantitative variables</a></li>
+<li class="chapter" data-level="4.5.2" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-and-qualitative-variables"><i class="fa fa-check"></i><b>4.5.2</b> Associations between quantitative and qualitative variables</a></li>
+<li class="chapter" data-level="4.5.3" data-path="describing-data.html"><a href="describing-data.html#associations-between-qualitative-variables"><i class="fa fa-check"></i><b>4.5.3</b> Associations between qualitative variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="describing-data.html"><a href="describing-data.html#next-steps"><i class="fa fa-check"></i><b>4.6</b> Next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html"><i class="fa fa-check"></i><b>5</b> Uncertainty from sampling</a>
 <ul>
@@ -250,45 +255,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.4" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions-1"><i class="fa fa-check"></i><b>6.3.4</b> Sampling from probability distributions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation</a>
+<li class="chapter" data-level="7" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html"><i class="fa fa-check"></i><b>7</b> Bayesian estimation and inference</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="estimation.html"><a href="estimation.html#scientific-workflow-for-the-problem"><i class="fa fa-check"></i><b>7.1</b> Scientific workflow for the problem</a>
+<li class="chapter" data-level="7.1" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#scientific-workflow-for-the-problem"><i class="fa fa-check"></i><b>7.1</b> Scientific workflow for the problem</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="estimation.html"><a href="estimation.html#theory-and-the-research-question"><i class="fa fa-check"></i><b>7.1.1</b> Theory and the research question</a></li>
-<li class="chapter" data-level="7.1.2" data-path="estimation.html"><a href="estimation.html#generative-model-and-estimand"><i class="fa fa-check"></i><b>7.1.2</b> Generative model and estimand</a></li>
-<li class="chapter" data-level="7.1.3" data-path="estimation.html"><a href="estimation.html#statistical-model-and-estimate"><i class="fa fa-check"></i><b>7.1.3</b> Statistical model and estimate</a></li>
+<li class="chapter" data-level="7.1.1" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#theory-and-the-research-question"><i class="fa fa-check"></i><b>7.1.1</b> Theory and the research question</a></li>
+<li class="chapter" data-level="7.1.2" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#generative-model-and-estimand"><i class="fa fa-check"></i><b>7.1.2</b> Generative model and estimand</a></li>
+<li class="chapter" data-level="7.1.3" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#statistical-model-and-estimate"><i class="fa fa-check"></i><b>7.1.3</b> Statistical model and estimate</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#bayes-theorem"><i class="fa fa-check"></i><b>7.2</b> Bayes Theorem</a></li>
-<li class="chapter" data-level="7.3" data-path="estimation.html"><a href="estimation.html#applying-bayes-theorem-to-statistical-analysis"><i class="fa fa-check"></i><b>7.3</b> Applying Bayes Theorem to statistical analysis</a></li>
-<li class="chapter" data-level="7.4" data-path="estimation.html"><a href="estimation.html#steps-of-estimation-with-bayesian-inference"><i class="fa fa-check"></i><b>7.4</b> Steps of estimation with Bayesian inference</a>
+<li class="chapter" data-level="7.2" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#bayes-theorem"><i class="fa fa-check"></i><b>7.2</b> Bayes Theorem</a></li>
+<li class="chapter" data-level="7.3" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#applying-bayes-theorem-to-statistical-analysis"><i class="fa fa-check"></i><b>7.3</b> Applying Bayes Theorem to statistical analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#steps-of-estimation-with-bayesian-inference"><i class="fa fa-check"></i><b>7.4</b> Steps of estimation with Bayesian inference</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="estimation.html"><a href="estimation.html#specify-the-prior-distribution"><i class="fa fa-check"></i><b>7.4.1</b> Specify the prior distribution</a></li>
-<li class="chapter" data-level="7.4.2" data-path="estimation.html"><a href="estimation.html#quantify-the-likelihood-of-the-data"><i class="fa fa-check"></i><b>7.4.2</b> Quantify the likelihood of the data</a></li>
-<li class="chapter" data-level="7.4.3" data-path="estimation.html"><a href="estimation.html#quantify-the-total-probability-of-the-data-marginal-likelihood"><i class="fa fa-check"></i><b>7.4.3</b> Quantify the total probability of the data (marginal likelihood)</a></li>
-<li class="chapter" data-level="7.4.4" data-path="estimation.html"><a href="estimation.html#quantify-the-posterior-distribution"><i class="fa fa-check"></i><b>7.4.4</b> Quantify the posterior distribution</a></li>
+<li class="chapter" data-level="7.4.1" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#specify-the-prior-distribution"><i class="fa fa-check"></i><b>7.4.1</b> Specify the prior distribution</a></li>
+<li class="chapter" data-level="7.4.2" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#quantify-the-likelihood-of-the-data"><i class="fa fa-check"></i><b>7.4.2</b> Quantify the likelihood of the data</a></li>
+<li class="chapter" data-level="7.4.3" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#quantify-the-total-probability-of-the-data-marginal-likelihood"><i class="fa fa-check"></i><b>7.4.3</b> Quantify the total probability of the data (marginal likelihood)</a></li>
+<li class="chapter" data-level="7.4.4" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#quantify-the-posterior-distribution"><i class="fa fa-check"></i><b>7.4.4</b> Quantify the posterior distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="estimation.html"><a href="estimation.html#summarizing-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5</b> Summarizing the posterior distribution</a>
+<li class="chapter" data-level="7.5" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#summarizing-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5</b> Summarizing the posterior distribution</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="estimation.html"><a href="estimation.html#sampling-from-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5.1</b> Sampling from the posterior distribution</a></li>
-<li class="chapter" data-level="7.5.2" data-path="estimation.html"><a href="estimation.html#central-tendency-and-variance"><i class="fa fa-check"></i><b>7.5.2</b> Central tendency and variance</a></li>
-<li class="chapter" data-level="7.5.3" data-path="estimation.html"><a href="estimation.html#intervals"><i class="fa fa-check"></i><b>7.5.3</b> Intervals</a></li>
+<li class="chapter" data-level="7.5.1" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#sampling-from-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5.1</b> Sampling from the posterior distribution</a></li>
+<li class="chapter" data-level="7.5.2" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#central-tendency-and-variance"><i class="fa fa-check"></i><b>7.5.2</b> Central tendency and variance</a></li>
+<li class="chapter" data-level="7.5.3" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#intervals"><i class="fa fa-check"></i><b>7.5.3</b> Intervals</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="estimation.html"><a href="estimation.html#specifying-priors"><i class="fa fa-check"></i><b>7.6</b> Specifying priors</a></li>
-<li class="chapter" data-level="7.7" data-path="estimation.html"><a href="estimation.html#decision-making"><i class="fa fa-check"></i><b>7.7</b> Decision making</a></li>
-<li class="chapter" data-level="7.8" data-path="estimation.html"><a href="estimation.html#specifying-and-fitting-statistical-models-with-bayes"><i class="fa fa-check"></i><b>7.8</b> Specifying and fitting statistical models with Bayes</a>
+<li class="chapter" data-level="7.6" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#specifying-priors"><i class="fa fa-check"></i><b>7.6</b> Specifying priors</a></li>
+<li class="chapter" data-level="7.7" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#decision-making"><i class="fa fa-check"></i><b>7.7</b> Decision making</a></li>
+<li class="chapter" data-level="7.8" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#specifying-and-fitting-statistical-models-with-bayes"><i class="fa fa-check"></i><b>7.8</b> Specifying and fitting statistical models with Bayes</a>
 <ul>
-<li class="chapter" data-level="7.8.1" data-path="estimation.html"><a href="estimation.html#statistical-model-specification"><i class="fa fa-check"></i><b>7.8.1</b> Statistical model specification</a></li>
-<li class="chapter" data-level="7.8.2" data-path="estimation.html"><a href="estimation.html#fitting-models-with-brms"><i class="fa fa-check"></i><b>7.8.2</b> Fitting models with <em>brms</em></a></li>
+<li class="chapter" data-level="7.8.1" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#statistical-model-specification"><i class="fa fa-check"></i><b>7.8.1</b> Statistical model specification</a></li>
+<li class="chapter" data-level="7.8.2" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#fitting-models-with-brms"><i class="fa fa-check"></i><b>7.8.2</b> Fitting models with <em>brms</em></a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="estimation.html"><a href="estimation.html#estimation-for-a-continuous-random-variable"><i class="fa fa-check"></i><b>7.9</b> Estimation for a continuous random variable</a></li>
-<li class="chapter" data-level="7.10" data-path="estimation.html"><a href="estimation.html#next-steps"><i class="fa fa-check"></i><b>7.10</b> Next steps</a></li>
+<li class="chapter" data-level="7.9" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#estimation-for-a-continuous-random-variable"><i class="fa fa-check"></i><b>7.9</b> Estimation for a continuous random variable</a></li>
+<li class="chapter" data-level="7.10" data-path="bayesian-estimation-and-inference.html"><a href="bayesian-estimation-and-inference.html#next-steps-1"><i class="fa fa-check"></i><b>7.10</b> Next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html"><i class="fa fa-check"></i><b>8</b> Bayesian Workflow</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-distribution-choices"><i class="fa fa-check"></i><b>8.1</b> Prior distribution choices</a></li>
 <li class="chapter" data-level="8.2" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-predictive-checks"><i class="fa fa-check"></i><b>8.2</b> Prior predictive checks</a></li>
 <li class="chapter" data-level="8.3" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#posterior-predictive-checks"><i class="fa fa-check"></i><b>8.3</b> Posterior predictive checks</a></li>
-<li class="chapter" data-level="8.4" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#next-steps-1"><i class="fa fa-check"></i><b>8.4</b> Next steps</a></li>
+<li class="chapter" data-level="8.4" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#next-steps-2"><i class="fa fa-check"></i><b>8.4</b> Next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>9</b> The linear model</a>
 <ul>
@@ -921,7 +926,7 @@ The negative value of <span class="math inline">\(Z\)</span> indicates the obser
         </div>
       </div>
 <a href="uncertainty-from-sampling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bayesian-estimation-and-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

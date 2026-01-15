@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Describing data | Research Design and Statistics</title>
+  <meta name="description" content="An introduction to research design and statistics" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Describing data | Research Design and Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="An introduction to research design and statistics" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Describing data | Research Design and Statistics" />
+  
+  <meta name="twitter:description" content="An introduction to research design and statistics" />
+  
+
+<meta name="author" content="Bradley J. Cosentino" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-data-and-r.html"/>
+<link rel="next" href="uncertainty-from-sampling.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#work-in-progress"><i class="fa fa-check"></i>Work in progress</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i>About the Author</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html"><i class="fa fa-check"></i><b>1</b> Why Statistics? The Problem of Uncertainty</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#the-nature-of-science"><i class="fa fa-check"></i><b>1.1</b> The nature of science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#goals-of-scientific-research"><i class="fa fa-check"></i><b>1.2</b> Goals of scientific research</a></li>
+<li class="chapter" data-level="1.3" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#three-general-goals-of-scientific-research"><i class="fa fa-check"></i><b>1.3</b> Three general goals of scientific research</a></li>
+<li class="chapter" data-level="1.4" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#research-design-and-statistical-analysis-depend-on-your-goal"><i class="fa fa-check"></i><b>1.4</b> Research design and statistical analysis depend on your goal</a></li>
+<li class="chapter" data-level="1.5" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#you-cant-escape-uncertainty-in-science"><i class="fa fa-check"></i><b>1.5</b> You can’t escape uncertainty in science</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html"><i class="fa fa-check"></i><b>2</b> Scientific workflow: Connecting ideas to data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#research-questions"><i class="fa fa-check"></i><b>2.1</b> Research questions</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#clarify-your-primary-goal-description-prediction-or-explanation"><i class="fa fa-check"></i><b>2.1.1</b> Clarify your primary goal: description, prediction, or explanation?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#identify-the-scope-of-inference-the-who-what-when-and-where-of-your-study."><i class="fa fa-check"></i><b>2.1.2</b> Identify the scope of inference: The who, what, when, and where of your study.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-it-interesting"><i class="fa fa-check"></i><b>2.1.3</b> Make it interesting</a></li>
+<li class="chapter" data-level="2.1.4" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-it-answerable-with-data"><i class="fa fa-check"></i><b>2.1.4</b> Make it answerable with data</a></li>
+<li class="chapter" data-level="2.1.5" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#ground-it-in-theory"><i class="fa fa-check"></i><b>2.1.5</b> Ground it in theory</a></li>
+<li class="chapter" data-level="2.1.6" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-sure-its-feasible"><i class="fa fa-check"></i><b>2.1.6</b> Make sure it’s feasible</a></li>
+<li class="chapter" data-level="2.1.7" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#avoid-analyzing-the-data-before-stating-your-question"><i class="fa fa-check"></i><b>2.1.7</b> Avoid analyzing the data before stating your question</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#connecting-ideas-to-data"><i class="fa fa-check"></i><b>2.2</b> Connecting ideas to data</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#theory"><i class="fa fa-check"></i><b>2.2.1</b> Theory</a></li>
+<li class="chapter" data-level="2.2.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#research-question"><i class="fa fa-check"></i><b>2.2.2</b> Research question</a></li>
+<li class="chapter" data-level="2.2.3" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#generative-model"><i class="fa fa-check"></i><b>2.2.3</b> Generative model</a></li>
+<li class="chapter" data-level="2.2.4" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#study-design"><i class="fa fa-check"></i><b>2.2.4</b> Study design</a></li>
+<li class="chapter" data-level="2.2.5" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#estimand"><i class="fa fa-check"></i><b>2.2.5</b> Estimand</a></li>
+<li class="chapter" data-level="2.2.6" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#target-population"><i class="fa fa-check"></i><b>2.2.6</b> Target population</a></li>
+<li class="chapter" data-level="2.2.7" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#sample-data"><i class="fa fa-check"></i><b>2.2.7</b> Sample data</a></li>
+<li class="chapter" data-level="2.2.8" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#statistical-model"><i class="fa fa-check"></i><b>2.2.8</b> Statistical model</a></li>
+<li class="chapter" data-level="2.2.9" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#estimate"><i class="fa fa-check"></i><b>2.2.9</b> Estimate</a></li>
+<li class="chapter" data-level="2.2.10" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#summary"><i class="fa fa-check"></i><b>2.2.10</b> Summary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html"><i class="fa fa-check"></i><b>3</b> Introduction to Data and R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#an-introduction-to-data"><i class="fa fa-check"></i><b>3.1</b> An introduction to data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#variables-and-observations"><i class="fa fa-check"></i><b>3.1.1</b> Variables and observations</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#types-of-variables"><i class="fa fa-check"></i><b>3.1.2</b> Types of variables</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#relationships-between-variables"><i class="fa fa-check"></i><b>3.1.3</b> Relationships between variables</a></li>
+<li class="chapter" data-level="3.1.4" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#variable-naming-conventions-and-metadata"><i class="fa fa-check"></i><b>3.1.4</b> Variable naming conventions and metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#introduction-to-r"><i class="fa fa-check"></i><b>3.2</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>3.2.1</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#the-rstudio-interface"><i class="fa fa-check"></i><b>3.2.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="3.2.3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#basic-data-manipulation-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Basic data manipulation in R</a></li>
+<li class="chapter" data-level="3.2.4" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#scripting"><i class="fa fa-check"></i><b>3.2.4</b> Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="describing-data.html"><a href="describing-data.html"><i class="fa fa-check"></i><b>4</b> Describing data</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="describing-data.html"><a href="describing-data.html#defining-the-population"><i class="fa fa-check"></i><b>4.0.1</b> Defining the population</a></li>
+<li class="chapter" data-level="4.0.2" data-path="describing-data.html"><a href="describing-data.html#loading-data-into-r"><i class="fa fa-check"></i><b>4.0.2</b> Loading data into R</a></li>
+<li class="chapter" data-level="4.0.3" data-path="describing-data.html"><a href="describing-data.html#inspecting-the-dataset"><i class="fa fa-check"></i><b>4.0.3</b> Inspecting the dataset</a></li>
+<li class="chapter" data-level="4.0.4" data-path="describing-data.html"><a href="describing-data.html#describing-single-qualitative-variables"><i class="fa fa-check"></i><b>4.0.4</b> Describing single qualitative variables</a></li>
+<li class="chapter" data-level="4.0.5" data-path="describing-data.html"><a href="describing-data.html#describing-single-quantitative-variables"><i class="fa fa-check"></i><b>4.0.5</b> Describing single quantitative variables</a></li>
+<li class="chapter" data-level="4.0.6" data-path="describing-data.html"><a href="describing-data.html#describing-relationships-between-variables"><i class="fa fa-check"></i><b>4.0.6</b> Describing relationships between variables</a></li>
+<li class="chapter" data-level="4.0.7" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-variables"><i class="fa fa-check"></i><b>4.0.7</b> Associations between quantitative variables</a></li>
+<li class="chapter" data-level="4.0.8" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-and-qualitative-variables"><i class="fa fa-check"></i><b>4.0.8</b> Associations between quantitative and qualitative variables</a></li>
+<li class="chapter" data-level="4.0.9" data-path="describing-data.html"><a href="describing-data.html#associations-between-qualitative-variables"><i class="fa fa-check"></i><b>4.0.9</b> Associations between qualitative variables</a></li>
+<li class="chapter" data-level="4.0.10" data-path="describing-data.html"><a href="describing-data.html#this-is-just-the-beginning"><i class="fa fa-check"></i><b>4.0.10</b> This is just the beginning</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html"><i class="fa fa-check"></i><b>5</b> Uncertainty from sampling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#sampling-requires-estimation"><i class="fa fa-check"></i><b>5.1</b> Sampling requires estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#parameters-estimates-estimands"><i class="fa fa-check"></i><b>5.2</b> Parameters, estimates, estimands</a></li>
+<li class="chapter" data-level="5.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#sources-of-uncertainty-from-sampling"><i class="fa fa-check"></i><b>5.3</b> Sources of uncertainty from sampling</a></li>
+<li class="chapter" data-level="5.4" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#accuracy-and-precision"><i class="fa fa-check"></i><b>5.4</b> Accuracy and precision</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#accuracy"><i class="fa fa-check"></i><b>5.4.1</b> Accuracy</a></li>
+<li class="chapter" data-level="5.4.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#precision"><i class="fa fa-check"></i><b>5.4.2</b> Precision</a></li>
+<li class="chapter" data-level="5.4.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#considering-accuracy-and-precision-together"><i class="fa fa-check"></i><b>5.4.3</b> Considering accuracy and precision together</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#maximizing-accuracy-and-precision-of-estimates"><i class="fa fa-check"></i><b>5.5</b> Maximizing accuracy and precision of estimates</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#random-sampling"><i class="fa fa-check"></i><b>5.5.1</b> Random sampling</a></li>
+<li class="chapter" data-level="5.5.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#replication"><i class="fa fa-check"></i><b>5.5.2</b> Replication</a></li>
+<li class="chapter" data-level="5.5.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#take-home-points"><i class="fa fa-check"></i><b>5.5.3</b> Take-home points</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html"><i class="fa fa-check"></i><b>6</b> Probability as the Language of Uncertainty</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#defining-probability"><i class="fa fa-check"></i><b>6.1</b> Defining probability</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#frequentist-definition"><i class="fa fa-check"></i><b>6.1.1</b> Frequentist definition</a></li>
+<li class="chapter" data-level="6.1.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#bayesian-definition"><i class="fa fa-check"></i><b>6.1.2</b> Bayesian definition</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#probability-rules"><i class="fa fa-check"></i><b>6.2</b> Probability rules</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#individual-events"><i class="fa fa-check"></i><b>6.2.1</b> Individual events</a></li>
+<li class="chapter" data-level="6.2.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#joint-events"><i class="fa fa-check"></i><b>6.2.2</b> Joint events</a></li>
+<li class="chapter" data-level="6.2.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#general-addition-rule"><i class="fa fa-check"></i><b>6.2.3</b> General addition rule</a></li>
+<li class="chapter" data-level="6.2.4" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#quantifying-marginal-probabilities"><i class="fa fa-check"></i><b>6.2.4</b> Quantifying marginal probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions"><i class="fa fa-check"></i><b>6.3</b> Sampling from probability distributions</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-populations-is-probabalistic"><i class="fa fa-check"></i><b>6.3.1</b> Sampling from populations is probabalistic</a></li>
+<li class="chapter" data-level="6.3.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#discrete-random-variables"><i class="fa fa-check"></i><b>6.3.2</b> Discrete random variables</a></li>
+<li class="chapter" data-level="6.3.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#continuous-random-variables"><i class="fa fa-check"></i><b>6.3.3</b> Continuous random variables</a></li>
+<li class="chapter" data-level="6.3.4" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions-1"><i class="fa fa-check"></i><b>6.3.4</b> Sampling from probability distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="estimation.html"><a href="estimation.html#scientific-workflow-for-the-problem"><i class="fa fa-check"></i><b>7.1</b> Scientific workflow for the problem</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="estimation.html"><a href="estimation.html#theory-and-the-research-question"><i class="fa fa-check"></i><b>7.1.1</b> Theory and the research question</a></li>
+<li class="chapter" data-level="7.1.2" data-path="estimation.html"><a href="estimation.html#generative-model-and-estimand"><i class="fa fa-check"></i><b>7.1.2</b> Generative model and estimand</a></li>
+<li class="chapter" data-level="7.1.3" data-path="estimation.html"><a href="estimation.html#statistical-model-and-estimate"><i class="fa fa-check"></i><b>7.1.3</b> Statistical model and estimate</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#bayes-theorem"><i class="fa fa-check"></i><b>7.2</b> Bayes Theorem</a></li>
+<li class="chapter" data-level="7.3" data-path="estimation.html"><a href="estimation.html#applying-bayes-theorem-to-statistical-analysis"><i class="fa fa-check"></i><b>7.3</b> Applying Bayes Theorem to statistical analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="estimation.html"><a href="estimation.html#steps-of-estimation-with-bayesian-inference"><i class="fa fa-check"></i><b>7.4</b> Steps of estimation with Bayesian inference</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="estimation.html"><a href="estimation.html#specify-the-prior-distribution"><i class="fa fa-check"></i><b>7.4.1</b> Specify the prior distribution</a></li>
+<li class="chapter" data-level="7.4.2" data-path="estimation.html"><a href="estimation.html#quantify-the-likelihood-of-the-data"><i class="fa fa-check"></i><b>7.4.2</b> Quantify the likelihood of the data</a></li>
+<li class="chapter" data-level="7.4.3" data-path="estimation.html"><a href="estimation.html#quantify-the-total-probability-of-the-data-marginal-likelihood"><i class="fa fa-check"></i><b>7.4.3</b> Quantify the total probability of the data (marginal likelihood)</a></li>
+<li class="chapter" data-level="7.4.4" data-path="estimation.html"><a href="estimation.html#quantify-the-posterior-distribution"><i class="fa fa-check"></i><b>7.4.4</b> Quantify the posterior distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="estimation.html"><a href="estimation.html#summarizing-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5</b> Summarizing the posterior distribution</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="estimation.html"><a href="estimation.html#sampling-from-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5.1</b> Sampling from the posterior distribution</a></li>
+<li class="chapter" data-level="7.5.2" data-path="estimation.html"><a href="estimation.html#central-tendency-and-variance"><i class="fa fa-check"></i><b>7.5.2</b> Central tendency and variance</a></li>
+<li class="chapter" data-level="7.5.3" data-path="estimation.html"><a href="estimation.html#intervals"><i class="fa fa-check"></i><b>7.5.3</b> Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="estimation.html"><a href="estimation.html#specifying-priors"><i class="fa fa-check"></i><b>7.6</b> Specifying priors</a></li>
+<li class="chapter" data-level="7.7" data-path="estimation.html"><a href="estimation.html#decision-making"><i class="fa fa-check"></i><b>7.7</b> Decision making</a></li>
+<li class="chapter" data-level="7.8" data-path="estimation.html"><a href="estimation.html#specifying-and-fitting-statistical-models-with-bayes"><i class="fa fa-check"></i><b>7.8</b> Specifying and fitting statistical models with Bayes</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="estimation.html"><a href="estimation.html#statistical-model-specification"><i class="fa fa-check"></i><b>7.8.1</b> Statistical model specification</a></li>
+<li class="chapter" data-level="7.8.2" data-path="estimation.html"><a href="estimation.html#fitting-models-with-brms"><i class="fa fa-check"></i><b>7.8.2</b> Fitting models with <em>brms</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="estimation.html"><a href="estimation.html#estimation-for-a-continuous-random-variable"><i class="fa fa-check"></i><b>7.9</b> Estimation for a continuous random variable</a></li>
+<li class="chapter" data-level="7.10" data-path="estimation.html"><a href="estimation.html#next-steps"><i class="fa fa-check"></i><b>7.10</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html"><i class="fa fa-check"></i><b>8</b> Bayesian Workflow</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-distribution-choices"><i class="fa fa-check"></i><b>8.1</b> Prior distribution choices</a></li>
+<li class="chapter" data-level="8.2" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-predictive-checks"><i class="fa fa-check"></i><b>8.2</b> Prior predictive checks</a></li>
+<li class="chapter" data-level="8.3" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#posterior-predictive-checks"><i class="fa fa-check"></i><b>8.3</b> Posterior predictive checks</a></li>
+<li class="chapter" data-level="8.4" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#next-steps-1"><i class="fa fa-check"></i><b>8.4</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>9</b> The linear model</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="the-linear-model.html"><a href="the-linear-model.html#statistical-models"><i class="fa fa-check"></i><b>9.1</b> Statistical models</a></li>
+<li class="chapter" data-level="9.2" data-path="the-linear-model.html"><a href="the-linear-model.html#linear-model"><i class="fa fa-check"></i><b>9.2</b> Linear model</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="the-linear-model.html"><a href="the-linear-model.html#basic-structure-of-the-linear-model"><i class="fa fa-check"></i><b>9.2.1</b> Basic structure of the linear model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="the-linear-model.html"><a href="the-linear-model.html#fitting-the-linear-model-in-brms"><i class="fa fa-check"></i><b>9.2.2</b> Fitting the linear model in brms</a></li>
+<li class="chapter" data-level="9.2.3" data-path="the-linear-model.html"><a href="the-linear-model.html#how-a-frequentist-might-do-it"><i class="fa fa-check"></i><b>9.2.3</b> How a frequentist might do it</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="the-linear-model.html"><a href="the-linear-model.html#linear-models-with-categorical-predictors"><i class="fa fa-check"></i><b>9.3</b> Linear models with categorical predictors</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="the-linear-model.html"><a href="the-linear-model.html#binary-explanatory-variables"><i class="fa fa-check"></i><b>9.3.1</b> Binary explanatory variables</a></li>
+<li class="chapter" data-level="9.3.2" data-path="the-linear-model.html"><a href="the-linear-model.html#categorical-predictors-with-more-than-two-categories"><i class="fa fa-check"></i><b>9.3.2</b> Categorical predictors with more than two categories</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html"><i class="fa fa-check"></i><b>10</b> Graphical Causal Models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#directed-acyclic-graphs-dags"><i class="fa fa-check"></i><b>10.1</b> Directed acyclic graphs (DAGs)</a></li>
+<li class="chapter" data-level="10.2" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#three-causal-structures-in-dags"><i class="fa fa-check"></i><b>10.2</b> Three causal structures in DAGs</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-fork-confounders"><i class="fa fa-check"></i><b>10.2.1</b> The fork: confounders</a></li>
+<li class="chapter" data-level="10.2.2" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-pipe-mediators"><i class="fa fa-check"></i><b>10.2.2</b> The pipe: mediators</a></li>
+<li class="chapter" data-level="10.2.3" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-inverted-fork-colliders"><i class="fa fa-check"></i><b>10.2.3</b> The inverted fork: colliders</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#closing-backdoor-paths"><i class="fa fa-check"></i><b>10.3</b> Closing backdoor paths</a></li>
+<li class="chapter" data-level="10.4" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#like-all-models-dags-require-assumptions"><i class="fa fa-check"></i><b>10.4</b> Like all models, DAGs require assumptions</a></li>
+<li class="chapter" data-level="10.5" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#types-of-study-designs"><i class="fa fa-check"></i><b>10.5</b> Types of Study Designs</a></li>
+<li class="chapter" data-level="10.6" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#experimental-studies"><i class="fa fa-check"></i><b>10.6</b> Experimental studies</a></li>
+<li class="chapter" data-level="10.7" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#observational-studies"><i class="fa fa-check"></i><b>10.7</b> Observational studies</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#pros-and-cons-of-prospective-vs.-retrospective-studies-planned"><i class="fa fa-check"></i><b>10.7.1</b> Pros and cons of prospective vs. retrospective studies (planned)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html"><i class="fa fa-check"></i><b>11</b> Causal inference with linear models</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#linear-models-with-multiple-predictor-variables"><i class="fa fa-check"></i><b>11.1</b> Linear models with multiple predictor variables</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#generic-linear-model-with-two-predictors"><i class="fa fa-check"></i><b>11.1.1</b> Generic linear model with two predictors</a></li>
+<li class="chapter" data-level="11.1.2" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#multiple-regression-model-for-the-ice-cream-and-drownings-example"><i class="fa fa-check"></i><b>11.1.2</b> Multiple regression model for the ice cream and drownings example</a></li>
+<li class="chapter" data-level="11.1.3" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#prior-predictive-check"><i class="fa fa-check"></i><b>11.1.3</b> Prior predictive check</a></li>
+<li class="chapter" data-level="11.1.4" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#fitting-the-multiple-regression-model"><i class="fa fa-check"></i><b>11.1.4</b> Fitting the multiple regression model</a></li>
+<li class="chapter" data-level="11.1.5" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#prediction-plots-for-multiple-regression-models"><i class="fa fa-check"></i><b>11.1.5</b> Prediction plots for multiple regression models</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#dag-informed-predictors-categorical-variables-what-multiple-regression-is-doing-with-predictor-residual-plot"><i class="fa fa-check"></i><b>11.2</b> DAG-informed predictors, categorical variables, what multiple regression is doing with predictor residual plot</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="interaction-effects.html"><a href="interaction-effects.html"><i class="fa fa-check"></i><b>12</b> Interaction effects</a></li>
+<li class="chapter" data-level="13" data-path="generalized-linear-models.html"><a href="generalized-linear-models.html"><i class="fa fa-check"></i><b>13</b> Generalized linear models</a></li>
+<li class="chapter" data-level="14" data-path="multilevel-models.html"><a href="multilevel-models.html"><i class="fa fa-check"></i><b>14</b> Multilevel models</a></li>
+<li class="chapter" data-level="15" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html"><i class="fa fa-check"></i><b>15</b> Estimation with frequentist inference</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#frequentist-estimates-are-point-estimates"><i class="fa fa-check"></i><b>15.1</b> Frequentist estimates are point estimates</a></li>
+<li class="chapter" data-level="15.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions"><i class="fa fa-check"></i><b>15.2</b> Sampling distributions</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions-are-centered-on-the-true-parameter-value"><i class="fa fa-check"></i><b>15.2.1</b> Sampling distributions are centered on the true parameter value</a></li>
+<li class="chapter" data-level="15.2.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions-allow-us-to-estimate-precision"><i class="fa fa-check"></i><b>15.2.2</b> Sampling distributions allow us to estimate precision</a></li>
+<li class="chapter" data-level="15.2.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sample-size-affects-the-shape-of-sampling-distributions"><i class="fa fa-check"></i><b>15.2.3</b> Sample size affects the shape of sampling distributions</a></li>
+<li class="chapter" data-level="15.2.4" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#summary-points-on-sampling-distributions"><i class="fa fa-check"></i><b>15.2.4</b> Summary points on sampling distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#quantifying-uncertainty-standard-error-and-confidence-intervals"><i class="fa fa-check"></i><b>15.3</b> Quantifying uncertainty: standard error and confidence intervals</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#standard-error"><i class="fa fa-check"></i><b>15.3.1</b> Standard error</a></li>
+<li class="chapter" data-level="15.3.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>15.3.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="15.3.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#the-standard-normal-approximation-does-not-work-well-under-low-sample-size"><i class="fa fa-check"></i><b>15.3.3</b> The standard normal approximation does not work well under low sample size</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html"><i class="fa fa-check"></i><b>16</b> Decision-making with frequentist estimates</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#framework-of-classical-hypothesis-testing"><i class="fa fa-check"></i><b>16.1</b> Framework of classical hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#state-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>16.1.1</b> State null and alternative hypotheses</a></li>
+<li class="chapter" data-level="16.1.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#assume-the-null-hypothesis-is-true"><i class="fa fa-check"></i><b>16.1.2</b> Assume the null hypothesis is true</a></li>
+<li class="chapter" data-level="16.1.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#quantify-the-likelihood-of-the-data-under-the-null-hypothesis-p-values"><i class="fa fa-check"></i><b>16.1.3</b> Quantify the likelihood of the data under the null hypothesis: P-values</a></li>
+<li class="chapter" data-level="16.1.4" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#making-a-decision-based-on-the-p-value-and-significance-value"><i class="fa fa-check"></i><b>16.1.4</b> Making a decision based on the P-value and significance value</a></li>
+<li class="chapter" data-level="16.1.5" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#decision-errors-happen"><i class="fa fa-check"></i><b>16.1.5</b> Decision errors happen</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#making-decisions-with-confidence-intervals"><i class="fa fa-check"></i><b>16.2</b> Making decisions with confidence intervals</a></li>
+<li class="chapter" data-level="16.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#issues-with-the-null-hypothesis-framework"><i class="fa fa-check"></i><b>16.3</b> Issues with the null hypothesis framework</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#significance-testing-reinforces-binary-thinking"><i class="fa fa-check"></i><b>16.3.1</b> Significance testing reinforces binary thinking</a></li>
+<li class="chapter" data-level="16.3.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#statistical-testing-reinforces-gamification-in-science"><i class="fa fa-check"></i><b>16.3.2</b> Statistical testing reinforces gamification in science</a></li>
+<li class="chapter" data-level="16.3.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#statistical-significance-is-not-the-same-thing-as-practical-significance"><i class="fa fa-check"></i><b>16.3.3</b> Statistical significance is not the same thing as practical significance</a></li>
+<li class="chapter" data-level="16.3.4" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#type-i-errors-become-more-likely-with-multiple-tests"><i class="fa fa-check"></i><b>16.3.4</b> Type I errors become more likely with multiple tests</a></li>
+<li class="chapter" data-level="16.3.5" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-null-hypothesis-is-almost-certainly-wrong"><i class="fa fa-check"></i><b>16.3.5</b> The null hypothesis is almost certainly wrong</a></li>
+<li class="chapter" data-level="16.3.6" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-null-hypothesis-focuses-on-data-you-did-not-observe"><i class="fa fa-check"></i><b>16.3.6</b> The null hypothesis focuses on data you did not observe</a></li>
+<li class="chapter" data-level="16.3.7" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#a-single-null-and-alternative-hypothesis-is-too-constraining"><i class="fa fa-check"></i><b>16.3.7</b> A single null and alternative hypothesis is too constraining</a></li>
+<li class="chapter" data-level="16.3.8" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-p-value-is-not-the-probability-we-want"><i class="fa fa-check"></i><b>16.3.8</b> The P-value is not the probability we want</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Research Design and Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="describing-data" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Describing data<a href="describing-data.html#describing-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Now that we have a basic understanding of data, in this chapter we look at elementary approaches for describing data graphically and numerically with statistics. At a basic level, a statistic is just a numerica description of data. Description may not make for the most thrilling science, but simple descriptions are essential for decision-making. For example, politicians may use the poverty rate to inform decisions about budget priorities, including funding for food assistance, educational programming, and other services. Without simple descriptive statistics like the poverty rate, we risk decisions being made based on <strong>anecdotes</strong>, which are individual observations often made by a single person. A single politician who lives in a wealthy part of town may think the poverty rate is low based on his personal experience. Statistics, when based on sound study designs, provide a more accurate description than any one individual’s experience.</p>
+<div id="defining-the-population" class="section level3 hasAnchor" number="4.0.1">
+<h3><span class="header-section-number">4.0.1</span> Defining the population<a href="describing-data.html#defining-the-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Even when the research goal is something simple like description, remember that it remains critical to define the population of interest when analyzing and interpreting the data. The population defines who the data should be collected from, and who we can draw inferences about. In this chapter we will investigate descriptive research questions where the population of interest is small enough that we can collect data from everyone in the population.</p>
+<p>For example, consider a small municipality with 1000 residents. The population of interest is this single municipality, and it is small enough that everyone in the population can be measured when describing quantities of interest. In cases like this, the research question can be answered with near certainty. If 87 of 1000 residents meet the definition for poverty, then the poverty rate in this municipality is simply</p>
+<p><span class="math display">\[
+\frac{87}{1000} = 0.087
+\]</span></p>
+<p>Now we can’t be <em>completely certain</em> that 0.087 is the correct proportion. Perhaps the records used to determine the poverty status of residents are inaccurate. But, setting aside the issue of measurement error, we can often be confident that the degree of uncertainty about descriptive measures is limited when everyone in the population is measured. As we’ll see in the coming chapters, there is much more uncertainty when we can’t measure everyone in a population, and we will look at methods to minimize and quantify that uncertainty. For now, we will keep things simple and focus on the different ways we can describe data.</p>
+</div>
+<div id="loading-data-into-r" class="section level3 hasAnchor" number="4.0.2">
+<h3><span class="header-section-number">4.0.2</span> Loading data into R<a href="describing-data.html#loading-data-into-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In 2013 there were 336,776 flights that departed airports in New York City (NYC) to destinations in the United States (Wickham 2022). We’ll begin by describing some basic information about these departing flights, such as their departing times, departure delays, and more. Because the dataset includes all departing flights of interest in 2013, the descriptive statistics we quantify essentially represent the truth about this population.</p>
+<p>To explore the data, the first thing we need to do is load the dataset into R. There are multiple types of files that can be loaded into R. A common file type is the <strong>comma separated values (CSV)</strong> file. CSV files have data organized in columns separated by commas, with separate rows for each row in a data table. CSV files can be generated with a simple text editor, or in spreadsheet software like Excel or Google Sheets.</p>
+<p>I created a CSV of the NYC flight data called <code>nycflights13.csv</code>. To load the CSV into R, you need to tell R where the file is stored. This location is called the <strong>working directory</strong>, which is simply a folder on your computer. For example, suppose I stored the CSV directly on my desktop. I would begin by setting the working directory to my desktop, using the <code>setwd</code> function:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="describing-data.html#cb87-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="st">&quot;/Users/cosentino/Desktop&quot;</span>)   <span class="co">#Mac example</span></span>
+<span id="cb87-2"><a href="describing-data.html#cb87-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="st">&quot;C:/Users/cosentino/Desktop&quot;</span>) <span class="co">#PC example</span></span></code></pre></div>
+<p>Once the working directory is set, I can then load the CSV with the <code>read.csv</code> function, naming the results data frame <code>d</code>:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="describing-data.html#cb88-1" tabindex="-1"></a><span class="sc">&gt;</span> d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;nycflights13.csv&quot;</span>)</span></code></pre></div>
+<p>If you prefer not to set a generic working directory for a script, you can always load files by specifying the entire directory:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="describing-data.html#cb89-1" tabindex="-1"></a><span class="sc">&gt;</span> d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;/Users/cosentino/Desktop/nycflights.csv&quot;</span>)   <span class="co">#Mac example</span></span>
+<span id="cb89-2"><a href="describing-data.html#cb89-2" tabindex="-1"></a><span class="sc">&gt;</span> d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/cosentino/Desktop/nycflights.csv&quot;</span>) <span class="co">#PC example</span></span></code></pre></div>
+<div class="alert alert-block alert-info">
+<p><b>Note for Posit Cloud users</b></p>
+<p>If you’re working in RStudio on Posit Cloud, the working directory is automatically set to the root of your project when you open it. That means you usually do <strong>not</strong> need to use <code>setwd()</code>. As long as your data files are saved inside the project (for example in a <code>data/</code> folder), you can just use a relative path: <code>sq &lt;- read.csv("data/nycflights13.csv")</code></p>
+</div>
+<p>Another common data format you can load into R is an <strong>.RData</strong> file. This type of file is specific to R and has one or more data object stored directly in the file. The ability to store multiple objects is a nice feature of RData files.For example, an RData file could include two different dataframes. This can be handy when working with multiple datasets that are related to each other as part of an analysis. I generated an RData file that has the <code>nycflights13</code> dataset stored as a data frame named <code>d</code> data frame, which you can load in the following way using the <code>load</code> function:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="describing-data.html#cb90-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">load</span>(<span class="st">&quot;nycflights13.RData&quot;</span>)</span></code></pre></div>
+<p>Once you’ve loaded the RData file in this way, the <code>d</code> data frame should appear in your working environment.</p>
+</div>
+<div id="inspecting-the-dataset" class="section level3 hasAnchor" number="4.0.3">
+<h3><span class="header-section-number">4.0.3</span> Inspecting the dataset<a href="describing-data.html#inspecting-the-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you’ve loaded a file and named a data frame for it, it’s a good idea to inspect the structure of a new data frame to confirm that everything loaded properly and as you expect it:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="describing-data.html#cb91-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">str</span>(d)</span>
+<span id="cb91-2"><a href="describing-data.html#cb91-2" tabindex="-1"></a>tibble [<span class="dv">336</span>,<span class="dv">776</span> × <span class="dv">19</span>] (S3<span class="sc">:</span> tbl_df<span class="sc">/</span>tbl<span class="sc">/</span>data.frame)</span>
+<span id="cb91-3"><a href="describing-data.html#cb91-3" tabindex="-1"></a> <span class="sc">$</span> year          <span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> <span class="dv">2013</span> ...</span>
+<span id="cb91-4"><a href="describing-data.html#cb91-4" tabindex="-1"></a> <span class="sc">$</span> month         <span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
+<span id="cb91-5"><a href="describing-data.html#cb91-5" tabindex="-1"></a> <span class="sc">$</span> day           <span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
+<span id="cb91-6"><a href="describing-data.html#cb91-6" tabindex="-1"></a> <span class="sc">$</span> dep_time      <span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">517</span> <span class="dv">533</span> <span class="dv">542</span> <span class="dv">544</span> <span class="dv">554</span> <span class="dv">554</span> <span class="dv">555</span> <span class="dv">557</span> <span class="dv">557</span> <span class="dv">558</span> ...</span>
+<span id="cb91-7"><a href="describing-data.html#cb91-7" tabindex="-1"></a> <span class="sc">$</span> sched_dep_time<span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">515</span> <span class="dv">529</span> <span class="dv">540</span> <span class="dv">545</span> <span class="dv">600</span> <span class="dv">558</span> <span class="dv">600</span> <span class="dv">600</span> <span class="dv">600</span> <span class="dv">600</span> ...</span>
+<span id="cb91-8"><a href="describing-data.html#cb91-8" tabindex="-1"></a> <span class="sc">$</span> dep_delay     <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">2</span> <span class="dv">4</span> <span class="dv">2</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">-</span><span class="dv">6</span> <span class="sc">-</span><span class="dv">4</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">-</span><span class="dv">3</span> <span class="sc">-</span><span class="dv">3</span> <span class="sc">-</span><span class="dv">2</span> ...</span>
+<span id="cb91-9"><a href="describing-data.html#cb91-9" tabindex="-1"></a> <span class="sc">$</span> arr_time      <span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">830</span> <span class="dv">850</span> <span class="dv">923</span> <span class="dv">1004</span> <span class="dv">812</span> <span class="dv">740</span> <span class="dv">913</span> <span class="dv">709</span> <span class="dv">838</span> <span class="dv">753</span> ...</span>
+<span id="cb91-10"><a href="describing-data.html#cb91-10" tabindex="-1"></a> <span class="sc">$</span> sched_arr_time<span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">819</span> <span class="dv">830</span> <span class="dv">850</span> <span class="dv">1022</span> <span class="dv">837</span> <span class="dv">728</span> <span class="dv">854</span> <span class="dv">723</span> <span class="dv">846</span> <span class="dv">745</span> ...</span>
+<span id="cb91-11"><a href="describing-data.html#cb91-11" tabindex="-1"></a> <span class="sc">$</span> arr_delay     <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">11</span> <span class="dv">20</span> <span class="dv">33</span> <span class="sc">-</span><span class="dv">18</span> <span class="sc">-</span><span class="dv">25</span> <span class="dv">12</span> <span class="dv">19</span> <span class="sc">-</span><span class="dv">14</span> <span class="sc">-</span><span class="dv">8</span> <span class="dv">8</span> ...</span>
+<span id="cb91-12"><a href="describing-data.html#cb91-12" tabindex="-1"></a> <span class="sc">$</span> carrier       <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="st">&quot;UA&quot;</span> <span class="st">&quot;UA&quot;</span> <span class="st">&quot;AA&quot;</span> <span class="st">&quot;B6&quot;</span> ...</span>
+<span id="cb91-13"><a href="describing-data.html#cb91-13" tabindex="-1"></a> <span class="sc">$</span> flight        <span class="sc">:</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">1545</span> <span class="dv">1714</span> <span class="dv">1141</span> <span class="dv">725</span> <span class="dv">461</span> <span class="dv">1696</span> <span class="dv">507</span> <span class="dv">5708</span> <span class="dv">79</span> <span class="dv">301</span> ...</span>
+<span id="cb91-14"><a href="describing-data.html#cb91-14" tabindex="-1"></a> <span class="sc">$</span> tailnum       <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="st">&quot;N14228&quot;</span> <span class="st">&quot;N24211&quot;</span> <span class="st">&quot;N619AA&quot;</span> <span class="st">&quot;N804JB&quot;</span> ...</span>
+<span id="cb91-15"><a href="describing-data.html#cb91-15" tabindex="-1"></a> <span class="sc">$</span> origin        <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="st">&quot;EWR&quot;</span> <span class="st">&quot;LGA&quot;</span> <span class="st">&quot;JFK&quot;</span> <span class="st">&quot;JFK&quot;</span> ...</span>
+<span id="cb91-16"><a href="describing-data.html#cb91-16" tabindex="-1"></a> <span class="sc">$</span> dest          <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="st">&quot;IAH&quot;</span> <span class="st">&quot;IAH&quot;</span> <span class="st">&quot;MIA&quot;</span> <span class="st">&quot;BQN&quot;</span> ...</span>
+<span id="cb91-17"><a href="describing-data.html#cb91-17" tabindex="-1"></a> <span class="sc">$</span> air_time      <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">227</span> <span class="dv">227</span> <span class="dv">160</span> <span class="dv">183</span> <span class="dv">116</span> <span class="dv">150</span> <span class="dv">158</span> <span class="dv">53</span> <span class="dv">140</span> <span class="dv">138</span> ...</span>
+<span id="cb91-18"><a href="describing-data.html#cb91-18" tabindex="-1"></a> <span class="sc">$</span> distance      <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">1400</span> <span class="dv">1416</span> <span class="dv">1089</span> <span class="dv">1576</span> <span class="dv">762</span> ...</span>
+<span id="cb91-19"><a href="describing-data.html#cb91-19" tabindex="-1"></a> <span class="sc">$</span> hour          <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">5</span> <span class="dv">5</span> <span class="dv">5</span> <span class="dv">5</span> <span class="dv">6</span> <span class="dv">5</span> <span class="dv">6</span> <span class="dv">6</span> <span class="dv">6</span> <span class="dv">6</span> ...</span>
+<span id="cb91-20"><a href="describing-data.html#cb91-20" tabindex="-1"></a> <span class="sc">$</span> minute        <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>] <span class="dv">15</span> <span class="dv">29</span> <span class="dv">40</span> <span class="dv">45</span> <span class="dv">0</span> <span class="dv">58</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> ...</span>
+<span id="cb91-21"><a href="describing-data.html#cb91-21" tabindex="-1"></a> <span class="sc">$</span> time_hour     <span class="sc">:</span> POSIXct[<span class="dv">1</span><span class="sc">:</span><span class="dv">336776</span>], format<span class="sc">:</span> <span class="st">&quot;2013-01-01 05:00:00&quot;</span> <span class="st">&quot;2013-01-01 05:00:00&quot;</span> ...</span></code></pre></div>
+<p>We see there are 336,776 observations and 19 variables. Some of the variables are numeric, such as the departure delay (<code>dep_delay</code>), and others are characters, such as the destination airport (<code>dest</code>). We also see some new data classes in this file type. For example, multiple variables are defined as integer (<code>int</code>). These are simply discrete quantitative variables. The difference from a numeric variable in R is largely inconsequential; it’s just R’s way of differentiating between quantitative variables that do or do not have decimals. We also see the variable <code>time_hour</code> is stored as <code>POSIXct</code>, which is a format for dates and times.</p>
+</div>
+<div id="describing-single-qualitative-variables" class="section level3 hasAnchor" number="4.0.4">
+<h3><span class="header-section-number">4.0.4</span> Describing single qualitative variables<a href="describing-data.html#describing-single-qualitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Describing single variables in isolation is really a simple exercise. What are the possible values the variable could take on, and what is the relatively likelihood of those values? In other words, describing a single variable is an exercise in characterizing its <strong>distribution</strong>. What values are most likely, which values are least likely, and how much variation is there among the values?</p>
+<p>Flights from NYC depart from three major airports: Newark Liberty International Airport (EWR), LaGuardia Airport (LGA), and John F. Kennedy International Airport (JFK). The origin airport is defined by the variable <code>origin</code>, which we see is classified as a character (<code>chr</code>). How might we describe this variable? The first thing we could do is look at the different levels present in the <code>origin</code> variable. The <code>unique</code> function will show you each unique level present in a character or factor variable:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="describing-data.html#cb92-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">unique</span>(d<span class="sc">$</span>origin)</span>
+<span id="cb92-2"><a href="describing-data.html#cb92-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;EWR&quot;</span> <span class="st">&quot;LGA&quot;</span> <span class="st">&quot;JFK&quot;</span></span></code></pre></div>
+<p>Here we can see the airport codes for each of the three NYC airports. Now we might want to know how many flights are departing from each airport, or whether most departing flights from one of the airports. In R we can see the <strong>frequency distribution</strong> of a categorical variable with the <code>table</code> function.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="describing-data.html#cb93-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(d<span class="sc">$</span>origin)</span>
+<span id="cb93-2"><a href="describing-data.html#cb93-2" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="describing-data.html#cb93-3" tabindex="-1"></a>   EWR    JFK    LGA </span>
+<span id="cb93-4"><a href="describing-data.html#cb93-4" tabindex="-1"></a><span class="dv">120835</span> <span class="dv">111279</span> <span class="dv">104662</span> </span></code></pre></div>
+<p>A frequency distribution is simply the raw count of each observation. We can see each airport had between 104,000 and 121,000 departing flights in 2013. These are staggering numbers. EWR has the most departing flights, but not be much. The distribution of departing flights appears relatively even among the three airports.</p>
+<p>We can quantify the <em>relative</em> distribution of observations more directly with a <strong>relative frequency distribution</strong>. In other words, how common are departing flights from one airport relative to the other airports. Relative frequency of a qualitative variable is called a <strong>proportion</strong>, quantified as</p>
+<p><span class="math display">\[
+p = \frac{x}{n},
+\]</span></p>
+<p>where <span class="math inline">\(p\)</span> is the proportion, <span class="math inline">\(x\)</span> is the observed number of observations for the category of interest (often called <strong>successes</strong>), and <span class="math inline">\(n\)</span> is the total number of observations in the dataset. Let’s quantify the proportion of flights departing from EWR. We know there were 336,776 departing flights(<span class="math inline">\(n\)</span>), and 120,835 were from EWR (<span class="math inline">\(x\)</span>), so the proportion of flights from EWR in 2013 was</p>
+<p><span class="math display">\[
+p = \frac{120835}{336776} = 0.359,
+\]</span></p>
+<p>We see that just over one third of departing flights came from EWR. Proportions are probabilities, so one way of interpreting the outcome here is that, of all departing flights from NYC in 2013, the probability of any one flight departing from EWR was 0.359. Proportions can be converted to percentages by multiplying the proportion by 100. Of the departing flights in 2013, 35.9% were from EWR.</p>
+<p>What about the proportion of flights departing from JFK and LGA? Rather than computing the proportions for each airport separately, we can ask R to compute the proportions using the <code>prop.table</code> function:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="describing-data.html#cb94-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(d<span class="sc">$</span>origin))</span>
+<span id="cb94-2"><a href="describing-data.html#cb94-2" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="describing-data.html#cb94-3" tabindex="-1"></a>      EWR       JFK       LGA </span>
+<span id="cb94-4"><a href="describing-data.html#cb94-4" tabindex="-1"></a><span class="fl">0.3587993</span> <span class="fl">0.3304244</span> <span class="fl">0.3107763</span> </span></code></pre></div>
+<p>Here we wrapped the <code>table</code> function of the frequency of each coat color in the <code>prop.table</code> function, and now we can see the entire relative distribution of primary fur color. Most flights originated from EWR (35.8%), followed by JFK (33.0%) and LGA (31.1%).</p>
+<p>Patterns in data are often easier to see and communicate graphically than numerically. Rather than reporting a table of frequencies or relative proportions, we could create a bar graph. R has built-in functions that can be used to create graphs, but in most cases for this book, we will use functions from a specialized package called <code>ggplot2</code> developed specifically for creating graphs. When you want to use functions from a specialized package in R, you first have to install the package with those functions with the <code>install.packages</code> function. The main argument of the <code>install.packages</code> function is a character vector of the packages you want to install. If you only want to install a single package, just write the name of the package as a character:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="describing-data.html#cb95-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<p>When you execute the code, you’ll see R will download the package and install it. After you’ve installed a package, you don’t have to install it again, but to use functions from the package you do need to load the package with the <code>library</code> function:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="describing-data.html#cb96-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>Once you execute this code to load the package, you can then use any function from <code>ggplot2</code> just as you’d use functions from base R. The main function for creating graphics in <code>ggplot2</code> is called <code>ggplot</code>. Let’s walk through the basic steps of using the <code>ggplot</code> function, in this case to create a frequency distribution plots of departing flights by NYC airport in 2013.</p>
+<ol style="list-style-type: decimal">
+<li>The first thing we need to do is create a dataframe organizing the data that we want to plot. In this case we’re plotting the frequency of departing flights originating from NYC airports, so we’ll create a data frame of these frequencies:</li>
+</ol>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="describing-data.html#cb97-1" tabindex="-1"></a>origin_freq <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(d<span class="sc">$</span>origin))</span>
+<span id="cb97-2"><a href="describing-data.html#cb97-2" tabindex="-1"></a><span class="fu">colnames</span>(origin_freq) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;origin&quot;</span>, <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb97-3"><a href="describing-data.html#cb97-3" tabindex="-1"></a>origin_freq <span class="co">#display to see how the data are organized</span></span></code></pre></div>
+<pre><code>##   origin      n
+## 1    EWR 120835
+## 2    JFK 111279
+## 3    LGA 104662</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Next we use the <code>ggplot</code> function to code our plot. The first argument in the <code>ggplot</code> function should specify the data frame containing the data (<code>origin_freq</code>), and we usually include a second argument mapping variables to axes. After the <code>ggplot</code> function, we add a set of hierarchical layers, each specified with the <code>+</code> operator. Here’s the full code needed for a basic bar graph:</li>
+</ol>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="describing-data.html#cb99-1" tabindex="-1"></a><span class="fu">ggplot</span>(origin_freq, <span class="fu">aes</span>(<span class="at">x =</span> origin, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb99-2"><a href="describing-data.html#cb99-2" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb99-3"><a href="describing-data.html#cb99-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;NYC airport&quot;</span>,</span>
+<span id="cb99-4"><a href="describing-data.html#cb99-4" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Departing flights in 2013&quot;</span>)</span></code></pre></div>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_chunk14-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>We see the code created a graph with two axes, the horizontal x-axis and the vertical y-axis. The variables are mapped to the <code>x</code> and <code>y</code> axes by the <code>aes</code> function. The <code>geom_col</code> layer is included to specify a bar chart where the actual frequencies of each category are displayed on the y-axis, and the <code>labs</code> layer lets you define the x- and y-axis labels. Note that the <code>aes</code> function can be added as a layer outside the <code>ggplot</code> function. Including <code>aes</code> as an argument within the <code>ggplot</code> function is more common because it applies the axis mapping as the default for all subsequent layers.</p>
+<p>What if you want the y-axis to show proportions instead of frequencies? Easy. Simply quantify the proportions when creating your dataframe:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="describing-data.html#cb100-1" tabindex="-1"></a>origin_prop <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(d<span class="sc">$</span>origin)))</span>
+<span id="cb100-2"><a href="describing-data.html#cb100-2" tabindex="-1"></a><span class="fu">colnames</span>(origin_prop) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;origin&quot;</span>, <span class="st">&quot;p&quot;</span>)</span>
+<span id="cb100-3"><a href="describing-data.html#cb100-3" tabindex="-1"></a></span>
+<span id="cb100-4"><a href="describing-data.html#cb100-4" tabindex="-1"></a><span class="fu">ggplot</span>(origin_prop, <span class="fu">aes</span>(<span class="at">x =</span> origin, <span class="at">y =</span> p)) <span class="sc">+</span></span>
+<span id="cb100-5"><a href="describing-data.html#cb100-5" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb100-6"><a href="describing-data.html#cb100-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;NYC airport&quot;</span>,</span>
+<span id="cb100-7"><a href="describing-data.html#cb100-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Proportion departing flights in 2013&quot;</span>)</span></code></pre></div>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_chunk15-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>Note that I added a <code>fill</code> argument here in <code>geom_col</code> to specify a different color for the bars. There are many more arguments you can use to customize these figures. Throughout the book I’ll add various options like this to plots and point them out.</p>
+</div>
+<div id="describing-single-quantitative-variables" class="section level3 hasAnchor" number="4.0.5">
+<h3><span class="header-section-number">4.0.5</span> Describing single quantitative variables<a href="describing-data.html#describing-single-quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s turn our attention to describing quantitative variables. For this section, we’ll narrow our focus on departing flights operated by Alaska Airlines departing Newark, so first we will subset the dataset to flights where the <code>carrier</code> is <code>WN</code> and <code>origin</code> is <code>EWR</code>:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="describing-data.html#cb101-1" tabindex="-1"></a>d.as <span class="ot">&lt;-</span> <span class="fu">subset</span>(d, carrier <span class="sc">==</span> <span class="st">&quot;AS&quot;</span> <span class="sc">&amp;</span> origin <span class="sc">==</span> <span class="st">&quot;EWR&quot;</span>)</span></code></pre></div>
+<p>There 714 Alaska flights that departed Newark. If you’re taking an Alaska flight out of Newark - perhaps to visit family out west - you might be interested in whether or not their flights typically depart on time. Let’s take a look at the distribution of departure delays. The <code>dep_delay</code> variable is the departure delay in minutes. The value of <code>dep_delay</code> is positive when a flight was delayed, negative when the flight left early, and 0 when the flight departed on time.</p>
+<p>Characterizing the distribution of a quantitative variable is more involved than for a qualitative variable. When we were describing flight departures by airport, we easily computed the proportion of all NYC departures by airport. That was an easy task because categories are discrete units. Quantitative variables, on the other hand, are more tricky because often the data are not discrete, and even when they are discrete, there are so many possible values that there will be few observations for each particular value. For example, there won’t be many Southwest flights with a departure delay of exactly 2.45364 minutes.</p>
+<p>One of the most common graphs used to illustrate the distribution of a single quantitative variable is a <strong>histogram</strong>, so let’s start there:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="describing-data.html#cb102-1" tabindex="-1"></a><span class="fu">ggplot</span>(d.as, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay)) <span class="sc">+</span></span>
+<span id="cb102-2"><a href="describing-data.html#cb102-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>,  <span class="co"># 10-minute bins</span></span>
+<span id="cb102-3"><a href="describing-data.html#cb102-3" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="dv">0</span>,</span>
+<span id="cb102-4"><a href="describing-data.html#cb102-4" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb102-5"><a href="describing-data.html#cb102-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Departure delay (minutes)&quot;</span>,</span>
+<span id="cb102-6"><a href="describing-data.html#cb102-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of Alaska flights&quot;</span>)</span></code></pre></div>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_c69-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>A histogram combines multiple observations into bins of a particular size and shows the frequency of those observations. In this histogram, I set the <code>binwidth</code> to 10 minutes. I also set the <code>boundary</code> to 0, which forces 0 to be a boundary between bins, allowing us to clearly differentiate between early- and late-departing flights. You don’t need to set these values, but sometimes it helps when you want to make the bin size meaningful. Just beware that setting bin sizes too small or too large will make it impossible to see the shape of the distribution.</p>
+<p>What can we learn from our histogram of departure delays among Alaska flights from Newark? Impressively, we see there were about 400 Alaska flights that departed 0-10 minutes early, the most common observations in the dataset (which is called the <strong>mode</strong>). We also see a significant number of flights (just over 1500) that departed 10-20 minutes early, or 0-10 minutes late. And then of course there are the occasional flights have long delays, sometimes an hour or more.</p>
+<p>It’s worth pointing out the shape of the histogram. The majority of observations of departure delay are clustered around zero, but there is a long <em>tail</em> of observations to the right, corresponding to longer delays. We can describe this kind of distribution as <em>skewed to the right</em>, or as one having <em>positive skew</em>. So although the vast majority of flights depart slightly early or slightly late, there’s a small chance of departure delays that last for hours. In contrast, we never see flights that depart hours early, which of course makes sense given that people don’t arrive many hours before a flight anticipating an early departure.</p>
+<p>The shape of distributions of quantitative variables can vary substantially from variable to variable, or population to population. The figure below shows the most common shapes:</p>
+<p>-<em>Bell-shaped</em> distributions have a single peak around the most typical values, with a similar number of of observations above and below the most typical values -<em>Bimodal</em> distributions have two peaks that can be distinguished with a gap of fewer observations in between. -<em>Skewed</em> distributions have a long tail of observations extending above (skewed to the right) or below (skewed to the left) the most typical values. -<em>Uniform</em> distributions have a similar nubmer of observations in each bin.</p>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_chunk18-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>Like qualitative data, we can summarize quantitative data using the absolute count of observations as we’ve done, or we can display the relative frequency (probability) of each bin. To do this we use the same code as our initial histogram, but add a y-axis computing proportions for each bin with the <code>after_stat</code> function.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="describing-data.html#cb103-1" tabindex="-1"></a><span class="fu">ggplot</span>(d.as, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay,</span>
+<span id="cb103-2"><a href="describing-data.html#cb103-2" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">after_stat</span>(..count.. <span class="sc">/</span> <span class="fu">sum</span>(..count..)))) <span class="sc">+</span></span>
+<span id="cb103-3"><a href="describing-data.html#cb103-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>,  <span class="co"># 10-minute bins</span></span>
+<span id="cb103-4"><a href="describing-data.html#cb103-4" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="dv">0</span>,</span>
+<span id="cb103-5"><a href="describing-data.html#cb103-5" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb103-6"><a href="describing-data.html#cb103-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Departure delay (minutes)&quot;</span>,</span>
+<span id="cb103-7"><a href="describing-data.html#cb103-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>)</span></code></pre></div>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_chunk19-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>We don’t learn anything new about the shape of the distribution, but now we can see, for example, that over half of Alaska flights depart on time or early, and just over half depart late. With so many observations, it was difficult to eyeball those proportions when plotting the absolute counts.</p>
+<div id="numerical-descriptions-of-central-tendency" class="section level4 hasAnchor" number="4.0.5.1">
+<h4><span class="header-section-number">4.0.5.1</span> Numerical descriptions of central tendency<a href="describing-data.html#numerical-descriptions-of-central-tendency" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Distributions of quantitative variables contain a lot of information, and so it can be helpful to summarize the distributions numerically. One aspect of a distribution is its <strong>central tendency</strong>. In other words, what are the typical values of a variable? One numeric summary of central tendency is the <strong>mean</strong>:</p>
+<p><span class="math display">\[
+\mu = \frac{\sum_{i=1}^n x_i}{n},
+\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the mean of the variable, <span class="math inline">\(x_i\)</span> is each observed value of the variable, and <span class="math inline">\(n\)</span> is the total number of observations. The Greek letter sigma is mathematical notation for summation. The formula says to quantify the mean, you need to sum the value of each observation <em>i</em> in the population, then divide by the total number of observations. The <em>i</em> is simply a subscript representing each observation of the variable, from the first (<span class="math inline">\(i = 1\)</span>) to the last (<span class="math inline">\(i = n\)</span>). For example, if we have a dataset of {3, 5, 7, 9, 10}, the mean is quantified as</p>
+<p><span class="math display">\[
+\mu = \frac{3+5+7+9+10}{5}=6.8
+\]</span></p>
+<p>In R, the mean can be quantified with the <code>mean</code> function:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="describing-data.html#cb104-1" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">+</span><span class="dv">5</span><span class="sc">+</span><span class="dv">7</span><span class="sc">+</span><span class="dv">9</span><span class="sc">+</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 6.8</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="describing-data.html#cb106-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">10</span>))</span></code></pre></div>
+<pre><code>## [1] 6.8</code></pre>
+<p>Let’s quantify the mean departure delay for Alaska flights. One thing to be aware of is that the departure delay variable has some missing observations, which are coded as <code>NA</code> in R. These are for flights that were cancelled. The <code>mean</code> function in R will not work unless you tell it how to handle the missing observations. We can simply remove those missing observations to quantify the mean by setting the <code>na.rm</code> argument to <code>TRUE</code>:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="describing-data.html#cb108-1" tabindex="-1"></a><span class="fu">mean</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 5.804775</code></pre>
+<p>We see the mean departure delay for United flights was 5.8 minutes. Let’s compare that to another common metric of central tendency: the <strong>median</strong>. The median is the middle value of a distribution. Consider again the made-up dataset of {3, 5, 7, 9, 10}. The value in the middle is 7, so that’s the median. If there’s an even number of observations in a dataset, the median can be computed mean of the two middle numbers. For example, if a dataset had observations of {3, 5, 7, 8, 9, 10}, the median is the average of 7 and 8: 7.5. Let’s compute the median departure delay for United flights, again telling R to remove missing observations:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="describing-data.html#cb110-1" tabindex="-1"></a><span class="fu">median</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] -3</code></pre>
+<p>Fascinating. The median departure delay is -3 minute, or a departure time of three minutes early. How is it possible that these two different statistics paint different pictures of the typical departure delay? It turns out that the mean and median characterizd central tendency in different ways. Let’s break this down. The mean is a ratio of two numbers: the sum of all observations divided by the number of observations. In our example, the mean is a ratio of the total number of minutes flights were delayed over the number of flights. Notice that the magnitude of every observation in the dataset can influence the mean. Indeed, if we change one of the values, the mean should change. Let’s try that. There were 30 Alaska flights that departed exactly on time (<code>dep_delay</code> = 0). Let’s quantify the mean as if one of them had left 500 minutes late.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="describing-data.html#cb112-1" tabindex="-1"></a><span class="co">#actual mean departure delay</span></span>
+<span id="cb112-2"><a href="describing-data.html#cb112-2" tabindex="-1"></a>mean.numerator <span class="ot">&lt;-</span> <span class="fu">sum</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm =</span> T)</span>
+<span id="cb112-3"><a href="describing-data.html#cb112-3" tabindex="-1"></a>mean.denominator <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(d.as<span class="sc">$</span>dep_delay))</span>
+<span id="cb112-4"><a href="describing-data.html#cb112-4" tabindex="-1"></a>mean.numerator<span class="sc">/</span>mean.denominator</span></code></pre></div>
+<pre><code>## [1] 5.804775</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="describing-data.html#cb114-1" tabindex="-1"></a><span class="co">#mean if one on-time flight left 500 minutes late</span></span>
+<span id="cb114-2"><a href="describing-data.html#cb114-2" tabindex="-1"></a>mean.numerator <span class="ot">&lt;-</span> <span class="fu">sum</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm =</span> T) <span class="sc">+</span> <span class="dv">500</span></span>
+<span id="cb114-3"><a href="describing-data.html#cb114-3" tabindex="-1"></a>mean.denominator <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(d.as<span class="sc">$</span>dep_delay))</span>
+<span id="cb114-4"><a href="describing-data.html#cb114-4" tabindex="-1"></a>mean.numerator<span class="sc">/</span>mean.denominator</span></code></pre></div>
+<pre><code>## [1] 6.507022</code></pre>
+<p>Just by changing one departure delay value from 0 to 500, we see the mean departure delay changes from 5.8 to 6.5 minutes. The mean is sensitive to the magnitude of each observation, and thus it’s particularly sensitive to extreme observations. Because the mean is sensitive to extreme observations, it’s not always a useful indicator of typical values. Indeed, we can see in the histogram that it’s much more likely for an Alaska flight to leave 0-10 minutes early than 0-10 minutes late.</p>
+<p>Let’s contrast with the median. The median is simply the value in the dataset where 50% of observations are greater and 50% of observations are lower. The magnitude of the values above or below the mean don’t matter. Let’s prove this with our example of a single departure delay changing from 0 to 500 minutes:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="describing-data.html#cb116-1" tabindex="-1"></a><span class="co">#actual median</span></span>
+<span id="cb116-2"><a href="describing-data.html#cb116-2" tabindex="-1"></a><span class="fu">median</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] -3</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="describing-data.html#cb118-1" tabindex="-1"></a><span class="co">#median if one on-time flight left 500 minutes late</span></span>
+<span id="cb118-2"><a href="describing-data.html#cb118-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> d.as<span class="sc">$</span>dep_delay <span class="co">#create a vector x of the actual departure delays</span></span>
+<span id="cb118-3"><a href="describing-data.html#cb118-3" tabindex="-1"></a>x[<span class="fu">which</span>(x <span class="sc">==</span> <span class="dv">0</span>)[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="dv">500</span> <span class="co">#change the first on-time flight to 500 min late</span></span>
+<span id="cb118-4"><a href="describing-data.html#cb118-4" tabindex="-1"></a><span class="fu">median</span>(x, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] -3</code></pre>
+<p>The median doesn’t budge at all. We could have changed that late flight’s departure delay to 1000, 5000, or an entire month late, and the median would stay the same. In this way, the median is robust to extreme observations, and so it’s a handy statistic to characterize the central tendency of distributions that are strongly skewed (i.e., those with extreme observations), or those where we are interested in the most typical observations.</p>
+<p>One last point about the mean and median. When the distribution of a quantitative variable is bell-shaped, the mean and median will be similar. For example, the distribution of air time for Alaska flights is approximately bell-shaped:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="describing-data.html#cb120-1" tabindex="-1"></a><span class="fu">ggplot</span>(d.as, <span class="fu">aes</span>(<span class="at">x =</span> air_time,</span>
+<span id="cb120-2"><a href="describing-data.html#cb120-2" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">after_stat</span>(..count.. <span class="sc">/</span> <span class="fu">sum</span>(..count..)))) <span class="sc">+</span></span>
+<span id="cb120-3"><a href="describing-data.html#cb120-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>,  <span class="co"># 10-minute bins</span></span>
+<span id="cb120-4"><a href="describing-data.html#cb120-4" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb120-5"><a href="describing-data.html#cb120-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Air time (minutes)&quot;</span>,</span>
+<span id="cb120-6"><a href="describing-data.html#cb120-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>)</span></code></pre></div>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_chunk25-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>Because there are not extreme values with strong skew towards one end of the distribution, the mean and median will be similar.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="describing-data.html#cb121-1" tabindex="-1"></a><span class="fu">mean</span>(d.as<span class="sc">$</span>air_time, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 325.6178</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="describing-data.html#cb123-1" tabindex="-1"></a><span class="fu">median</span>(d.as<span class="sc">$</span>air_time, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 324</code></pre>
+<p>Here the mean and median air time are only one minutes apart. Indeed, if the distribution was <em>perfectly</em> bell-shaped, the mean and median (and mode!) would all be identical. In contrast, when a variable has a skewed distribution, the mean and median diverge from each other, with the mean being drawn out in the direction of the skew.</p>
+</div>
+<div id="numerical-descriptions-of-variation" class="section level4 hasAnchor" number="4.0.5.2">
+<h4><span class="header-section-number">4.0.5.2</span> Numerical descriptions of variation<a href="describing-data.html#numerical-descriptions-of-variation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Statistics of central tendency are useful for describing the most typical values of a quantitative variable, but sometimes we’re interested in the variaation among observations. Two distributions can have the same central tendency, but different levels of variation. For example, datasets X = {4, 5, 5, 5, 6} and Y = {1, 2, 5, 8, 9} both have a mean and median of 5, but clearly the observations in Y are more variable than the observations in X. One way of quantifying variation among observations is the <strong>variance</strong>:</p>
+<p><span class="math display">\[
+{\sigma}^2 = \frac{\sum_{i=1}^n (x_i - \mu)^2}{n}
+\]</span></p>
+<p>Let’s take a look at what the variance is doing. We take each observation <span class="math inline">\(x\)</span>, subtract the mean from that value, and then square the term. This value is called a <strong>squared deviation</strong>, and the variance sums those squared deviations and then divides by the sample size. Effectively what’s happening here is that the variance is quantifying the mean of the squared deviations from the mean. The more the observations are far away from the mean, the greater the squared deviations, the greater the mean. The variance with our made-up dataset, {3, 5, 7, 9, 10}:</p>
+<p><span class="math display">\[
+\sigma^2 = \frac{(3 - 6.8)^2 + (5 - 6.8)^2 + (7 - 6.8)^2 + (9 - 6.8)^2 + (10 - 6.8)^2}{5} = 6.56
+\]</span></p>
+<p>This way of quantifying the variance assumes the dataset includes all observations from the pouplation. In practice, most statistical software assumes you don’t have all observations from the population, and in those cases, the variance is quantified with the denominator <em>n-1</em> instead of <em>n</em>. The quantity <span class="math inline">\(n-1\)</span> is a bias correction factor when quantifying the variance with a subset of observations from the population, and we’ll explore this topic further when we introduce the concept of sampling in a later chapter.</p>
+<p>For practical purposes, we can use the more typical calculation of variance with the denominator <em>n-1</em>, which is exactly what the <code>var</code> function applied in R. Let’s go ahead and quantify the variance in air time among flights:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="describing-data.html#cb125-1" tabindex="-1"></a><span class="fu">var</span>(d.as<span class="sc">$</span>air_time, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 261.3608</code></pre>
+<p>We see the variance in arrival time is 251.4. Because we’re squaring the deviation of each observation from the mean, the units of variance is the square of the original unit. Thus, the variance of air time is 261.4 <span class="math inline">\(min^2\)</span>. Squared units can be difficult to comprehend, but we can put this metric back on the scale of the original units by taking the square root of the variance, which is called the <strong>standard deviation</strong>:</p>
+<p><span class="math display">\[
+\sigma = \sqrt{\frac{\sum_{i=1}^n (x_i - \mu)^2}{n}}=\sqrt{\sigma^2}
+\]</span>The standard deviation can be quantified in R with the <code>sd</code> function. Like the variance, R’s <code>sd</code> function uses the bias correction factor in the denominator.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="describing-data.html#cb127-1" tabindex="-1"></a><span class="fu">sd</span>(d.as<span class="sc">$</span>air_time, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 16.16666</code></pre>
+<p>We see now that the standard deviation of air time is 16.2 <em>min</em>. The standard deviation is back in the original units of the variable, which is good, but it’s still not obvious how we should interpret this number. For practical purposes, you can think of the standard deviation as the average difference in an observation from the mean. In other words, if you randomly picked values from the dataset, on average how far would those value be from the mean air time of 325.6 <em>min</em>? For Alasaka airline flights, the average difference in air time from the mean is 16.2 <em>min</em>.</p>
+<p>Because standard deviations (and variances) are quantified based on the mean, they have the same weaknesses as the mean, namely they are sensitive to extreme observations. Consider, for example, the standard deviation in departure delay for Alaska flights:</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="describing-data.html#cb129-1" tabindex="-1"></a><span class="fu">sd</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 31.36303</code></pre>
+<p>The meaning here is that we should expect an average difference of 31.4 min from the mean departure delay of 5.8 min. That suggests quit a bit of variation. Indeed, based on the mean and standard deviation alone, we shouldn’t be surprised to see departure delays around 35-40 minutes late, or 30-35 minutes early. Yet if we look again at the histogram for departure delay, we see that Alaska flights rarely leave more than 35 mintues late or 30 minutes early. Indeed, most of the variation in departure delays is clustered between -20 and 20 minutes. The standard deviation here seems too high to describe the typical variation in the dataset, and that’s because the standard deviation is being increased by the rare but extreme cases of very long delays.</p>
+<p>A more flexible way of describing variation in a quantitative variable is to use <strong>percentiles</strong>. A percentile is the observation in the dataset for which a specified percentage of the data falls below that value. We’ve actually already seen a percentile. The median is the 50th percentile because 50% of the observations fall below that value. But you can quantify a percentile for any level of percentage. In R, percentiles are quantified with the <code>quantile</code> function . Here are some percentiles for the departure delay data:</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="describing-data.html#cb131-1" tabindex="-1"></a><span class="do">## Report just the 50th percentile (i.e., the median)</span></span>
+<span id="cb131-2"><a href="describing-data.html#cb131-2" tabindex="-1"></a><span class="fu">quantile</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">probs =</span> <span class="fl">0.5</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 50% 
+##  -3</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="describing-data.html#cb133-1" tabindex="-1"></a><span class="do">## Report the 0th, 25th, 50th, 75th, and 100th percentiles:</span></span>
+<span id="cb133-2"><a href="describing-data.html#cb133-2" tabindex="-1"></a><span class="fu">quantile</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+##  -21   -7   -3    3  225</code></pre>
+<p>So we can see that there are no observations below -21 <em>min</em>, 25% of the observations are below -7 <em>min</em>, 50% of the observations are below -3 <em>min</em>, and so on. Note that the 0th and 100th percentiles are the <strong>minimum</strong> and <strong>maximum</strong> observations in the data, respectively. The percentiles nicely describe variation despite the strong skew in the dataset. For example, we can see from the percentiles that the bulk of the observations - 75% in fact - are between -21 and 3. So if you have a departing flight with Alaska Airlines, you can interpret this as meaning there’s a 75% chance that your flight will depart anytime from 21 minutes early to 3 minutes late. The remaining 25% of observations are between 3 and 225 minute delays.</p>
+<p>The percentiles are sometimes used to quantify numerical indices of variation. Two common metrics are the <strong>range</strong> and the <strong>interquartile range (IQR)</strong>. The range is simply the difference between the maximum and minimum observation, whereas the IQR is the difference between the 75th and 25th percentiles. Here are some relevant R functions that you’ll find of use:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="describing-data.html#cb135-1" tabindex="-1"></a><span class="do">## report the minimum and maximum</span></span>
+<span id="cb135-2"><a href="describing-data.html#cb135-2" tabindex="-1"></a><span class="fu">range</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] -21 225</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="describing-data.html#cb137-1" tabindex="-1"></a><span class="do">## report the range as max - min</span></span>
+<span id="cb137-2"><a href="describing-data.html#cb137-2" tabindex="-1"></a><span class="fu">max</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 246</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="describing-data.html#cb139-1" tabindex="-1"></a><span class="do">## IQR</span></span>
+<span id="cb139-2"><a href="describing-data.html#cb139-2" tabindex="-1"></a><span class="fu">IQR</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="describing-data.html#cb141-1" tabindex="-1"></a><span class="do">## IQR calculated with the quantile function</span></span>
+<span id="cb141-2"><a href="describing-data.html#cb141-2" tabindex="-1"></a>q<span class="fl">.75</span> <span class="ot">&lt;-</span> <span class="fu">quantile</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>, <span class="at">probs=</span><span class="fl">0.75</span>) </span>
+<span id="cb141-3"><a href="describing-data.html#cb141-3" tabindex="-1"></a>q<span class="fl">.25</span> <span class="ot">&lt;-</span> <span class="fu">quantile</span>(d.as<span class="sc">$</span>dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>, <span class="at">probs=</span><span class="fl">0.25</span>) </span>
+<span id="cb141-4"><a href="describing-data.html#cb141-4" tabindex="-1"></a><span class="fu">as.numeric</span>(q<span class="fl">.75</span> <span class="sc">-</span> q<span class="fl">.25</span>)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>The range is commonly reported for variables to define the bounds of the observed data, but note that the range will be strongly sensitive to extreme observations. For distributions with extreme observations or strong skew, the IQR can be a useful summary statistic to describe variation. Both the range and the IQR have the same units as the original variable.</p>
+</div>
+<div id="summary-function" class="section level4 hasAnchor" number="4.0.5.3">
+<h4><span class="header-section-number">4.0.5.3</span> Summary function<a href="describing-data.html#summary-function" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>summary</code> function is handy for quickly evaluating the quantiles and mean of a numeric variable. You can apply it to a single vector, or to an entire data frame to summarize all the objects in the data frame at once. If there are characters in the data frame, the <code>summary</code> function will simply indicate that the object is a character of a specific length.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="describing-data.html#cb143-1" tabindex="-1"></a><span class="do">## Summary for a single variable</span></span>
+<span id="cb143-2"><a href="describing-data.html#cb143-2" tabindex="-1"></a><span class="fu">summary</span>(d.as<span class="sc">$</span>dep_delay)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+## -21.000  -7.000  -3.000   5.805   3.000 225.000       2</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="describing-data.html#cb145-1" tabindex="-1"></a><span class="do">## Summary for the entire data frame</span></span>
+<span id="cb145-2"><a href="describing-data.html#cb145-2" tabindex="-1"></a><span class="fu">summary</span>(d.as)</span></code></pre></div>
+<pre><code>##       year          month             day           dep_time     
+##  Min.   :2013   Min.   : 1.000   Min.   : 1.00   Min.   : 651.0  
+##  1st Qu.:2013   1st Qu.: 3.000   1st Qu.: 8.00   1st Qu.: 717.8  
+##  Median :2013   Median : 6.000   Median :16.00   Median :1805.0  
+##  Mean   :2013   Mean   : 6.415   Mean   :15.79   Mean   :1294.6  
+##  3rd Qu.:2013   3rd Qu.: 9.000   3rd Qu.:23.00   3rd Qu.:1825.0  
+##  Max.   :2013   Max.   :12.000   Max.   :31.00   Max.   :2205.0  
+##                                                  NA&#39;s   :2       
+##  sched_dep_time   dep_delay          arr_time    sched_arr_time
+##  Min.   : 705   Min.   :-21.000   Min.   :   3   Min.   :1015  
+##  1st Qu.: 720   1st Qu.: -7.000   1st Qu.:1003   1st Qu.:1025  
+##  Median :1815   Median : -3.000   Median :2043   Median :2125  
+##  Mean   :1285   Mean   :  5.805   Mean   :1565   Mean   :1595  
+##  3rd Qu.:1825   3rd Qu.:  3.000   3rd Qu.:2128   3rd Qu.:2145  
+##  Max.   :1835   Max.   :225.000   Max.   :2355   Max.   :2158  
+##                 NA&#39;s   :2         NA&#39;s   :2                    
+##    arr_delay         carrier              flight         tailnum         
+##  Min.   :-74.000   Length:714         Min.   :  5.00   Length:714        
+##  1st Qu.:-32.000   Class :character   1st Qu.:  7.00   Class :character  
+##  Median :-17.000   Mode  :character   Median :  7.00   Mode  :character  
+##  Mean   : -9.931                      Mean   : 12.19                     
+##  3rd Qu.:  2.000                      3rd Qu.: 15.00                     
+##  Max.   :198.000                      Max.   :915.00                     
+##  NA&#39;s   :5                                                               
+##     origin              dest              air_time        distance   
+##  Length:714         Length:714         Min.   :277.0   Min.   :2402  
+##  Class :character   Class :character   1st Qu.:314.0   1st Qu.:2402  
+##  Mode  :character   Mode  :character   Median :324.0   Median :2402  
+##                                        Mean   :325.6   Mean   :2402  
+##                                        3rd Qu.:336.0   3rd Qu.:2402  
+##                                        Max.   :392.0   Max.   :2402  
+##                                        NA&#39;s   :5                     
+##       hour           minute        time_hour                  
+##  Min.   : 7.00   Min.   : 5.00   Min.   :2013-01-01 07:00:00  
+##  1st Qu.: 7.00   1st Qu.:20.00   1st Qu.:2013-03-31 09:45:00  
+##  Median :18.00   Median :25.00   Median :2013-06-28 12:30:00  
+##  Mean   :12.62   Mean   :22.18   Mean   :2013-06-29 05:05:27  
+##  3rd Qu.:18.00   3rd Qu.:25.00   3rd Qu.:2013-09-25 15:15:00  
+##  Max.   :18.00   Max.   :35.00   Max.   :2013-12-31 18:00:00  
+## </code></pre>
+</div>
+<div id="other-common-graphical-approaches-to-display-quantitative-variables" class="section level4 hasAnchor" number="4.0.5.4">
+<h4><span class="header-section-number">4.0.5.4</span> Other common graphical approaches to display quantitative variables<a href="describing-data.html#other-common-graphical-approaches-to-display-quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>I want to introduce two additional types of graphs that are useful for displaying the distributions of quantitative variables, specifically a <strong>box plot</strong> and <strong>stripchart</strong>. The graph below shows the distribution of air time using both plots. Box plots show the distribution of quantitative variables by displaying numerical summaries.</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="describing-data.html#cb147-1" tabindex="-1"></a><span class="fu">ggplot</span>(d.as, <span class="fu">aes</span>(<span class="at">y =</span> air_time)) <span class="sc">+</span></span>
+<span id="cb147-2"><a href="describing-data.html#cb147-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb147-3"><a href="describing-data.html#cb147-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb147-4"><a href="describing-data.html#cb147-4" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Air time (minutes)&quot;</span>)</span></code></pre></div>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_chunk33-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p>Median: represented by the thick horizontal line as a metric of central tendency.</p></li>
+<li><p>IQR: represented by the edges of the box, where the lower edge is the 25th percentile and the upper edge is the 75th percentile. The box displays the bounds of the middle 50% of the data, giving you a sense for variation.</p></li>
+<li><p>Variation in the tails: Values in the tails of the distribution are displayed by the whiskers, which extend up to 1.5 times the IQR from the box. Any values outside the whiskers are defined as <strong>outliers</strong> and are displayed by points.</p></li>
+</ul>
+<p>The shape of a distribution can be inferred from a box plot based on the symmetry of the box and whiskers. If the box and whiskers are largely symmetrical - as is the case for air time - then the distribution has a bell shape. If the box and whisker extends far from the median to one end of the distribution, then the distribution is skewed.</p>
+<p>A stripchart shows each individual observation as a cluster of points along the x- or y-axis (I’ve chosen the y-axis in this case). It’s a nice option if you want to display all the data while still getting a sense for the shape of the distribution. In this case we can see clustering of the arrival times around 325 minutes with fewer observations about equally represented above and below the mean, suggesting a bell shape. Stripcharts can be supplemented with numerical descriptions as well. In this case, the circle with error bars around it represents the mean and one standard deviation above and below the mean.</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="describing-data.html#cb148-1" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb148-2"><a href="describing-data.html#cb148-2" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb148-3"><a href="describing-data.html#cb148-3" tabindex="-1"></a>    <span class="at">data =</span> d.as,</span>
+<span id="cb148-4"><a href="describing-data.html#cb148-4" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> air_time),</span>
+<span id="cb148-5"><a href="describing-data.html#cb148-5" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.01</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.4</span></span>
+<span id="cb148-6"><a href="describing-data.html#cb148-6" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb148-7"><a href="describing-data.html#cb148-7" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb148-8"><a href="describing-data.html#cb148-8" tabindex="-1"></a>    <span class="at">data =</span> d.as,</span>
+<span id="cb148-9"><a href="describing-data.html#cb148-9" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">0.02</span>, <span class="at">y =</span> air_time),</span>
+<span id="cb148-10"><a href="describing-data.html#cb148-10" tabindex="-1"></a>    <span class="at">fun.data =</span> <span class="cf">function</span>(y) {</span>
+<span id="cb148-11"><a href="describing-data.html#cb148-11" tabindex="-1"></a>      m <span class="ot">&lt;-</span> <span class="fu">mean</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb148-12"><a href="describing-data.html#cb148-12" tabindex="-1"></a>      s <span class="ot">&lt;-</span> <span class="fu">sd</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb148-13"><a href="describing-data.html#cb148-13" tabindex="-1"></a>      <span class="fu">data.frame</span>(<span class="at">y =</span> m, <span class="at">ymin =</span> m <span class="sc">-</span> s, <span class="at">ymax =</span> m <span class="sc">+</span> s)</span>
+<span id="cb148-14"><a href="describing-data.html#cb148-14" tabindex="-1"></a>    },</span>
+<span id="cb148-15"><a href="describing-data.html#cb148-15" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;linerange&quot;</span>,</span>
+<span id="cb148-16"><a href="describing-data.html#cb148-16" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.8</span></span>
+<span id="cb148-17"><a href="describing-data.html#cb148-17" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb148-18"><a href="describing-data.html#cb148-18" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb148-19"><a href="describing-data.html#cb148-19" tabindex="-1"></a>    <span class="at">data =</span> d.as,</span>
+<span id="cb148-20"><a href="describing-data.html#cb148-20" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">0.02</span></span>
+<span id="cb148-21"><a href="describing-data.html#cb148-21" tabindex="-1"></a>        , <span class="at">y =</span> air_time),</span>
+<span id="cb148-22"><a href="describing-data.html#cb148-22" tabindex="-1"></a>    <span class="at">fun =</span> <span class="cf">function</span>(y) <span class="fu">mean</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb148-23"><a href="describing-data.html#cb148-23" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>,</span>
+<span id="cb148-24"><a href="describing-data.html#cb148-24" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">16</span>,</span>
+<span id="cb148-25"><a href="describing-data.html#cb148-25" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span></span>
+<span id="cb148-26"><a href="describing-data.html#cb148-26" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb148-27"><a href="describing-data.html#cb148-27" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb148-28"><a href="describing-data.html#cb148-28" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Air time (minutes)&quot;</span>)</span></code></pre></div>
+<p><img src="ch04_descriptiveStats_files/figure-html/c04_chunk34-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="describing-relationships-between-variables" class="section level3 hasAnchor" number="4.0.6">
+<h3><span class="header-section-number">4.0.6</span> Describing relationships between variables<a href="describing-data.html#describing-relationships-between-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Whether your goal is causal explanation or prediction, much of science involves examining relationships between variables. So far we have looked at different ways of describing a single variable. But perhaps the distribution is associated with another variable. Those associations may or may not be causal, and teasing out causal vs. non-causal associations will be a major topic later in the book. At this point we simply need some basic approaches to describe associations between variables.</p>
+</div>
+<div id="associations-between-quantitative-variables" class="section level3 hasAnchor" number="4.0.7">
+<h3><span class="header-section-number">4.0.7</span> Associations between quantitative variables<a href="describing-data.html#associations-between-quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Does learning something about the departure delay of a fligth tell us anything about the arrival delay? The first step to examine the association between two quantitative variables is to create a <strong>scatterplot</strong>, where each point in the graph displays the values of the two variables for each individual in the dataset.</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="describing-data.html#cb149-1" tabindex="-1"></a><span class="fu">ggplot</span>(d.as, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay, <span class="at">y =</span> arr_delay)) <span class="sc">+</span></span>
+<span id="cb149-2"><a href="describing-data.html#cb149-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb149-3"><a href="describing-data.html#cb149-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Departure delay (minutes)&quot;</span>,</span>
+<span id="cb149-4"><a href="describing-data.html#cb149-4" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Arrival delay (minutes)&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="ch04_descriptiveStats_files/figure-html/c04_c83-1.png" alt="TODO: caption" width="384" />
+<p class="caption">
+(#fig:c04_c83)TODO: caption
+</p>
+</div>
+<p>The scatterplot shows a clear and expected pattern. When a flight has a long departure delay, it tends to have a long arrival delay. In other words, we see a positive relationship between the two variables. Scatterplots can also reveal a negative relationships, where the value of one variable tends to decrease as the value of the other variable increases.</p>
+<p>The figure below shows a range of possible patterns that one might encounter in scatterplots. Note that in addition to describing the nature of the relationship between variables, we can also describe the magnitude of the relationship. For example, the graph shows two positive relationships in the top row, but the pattern looks much stronger in the scatterplot on the left than the scatterplot on the right.</p>
+<div class="figure" style="text-align: center">
+<img src="ch04_descriptiveStats_files/figure-html/c04_c84-1.png" alt="TODO: caption" width="384" />
+<p class="caption">
+(#fig:c04_c84)TODO: caption
+</p>
+</div>
+<p>The <strong>correlation coefficient (r)</strong> is a numerical metric used to describe both the direction and strength of an association. It has a bit of a messy formula:</p>
+<p><span class="math display">\[
+r = \frac{\frac{1}{n-1} \sum_{i=1}^n (x_i - \mu_x)(y_i - \mu_y)}{{\sigma}_x \sigma_y}
+\]</span></p>
+<p>At a basic level, the correlation coefficient is based on the <strong>covariance</strong>, which is the numerator in the formula for the correlation coefficient. The covariance is a cross product of the deviation between each value of variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> from their mean. When <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> values have a common relationship to their mean, the covariance is positive. This would reflect a positive association, where high values of <span class="math inline">\(x\)</span> correspond to high values of <span class="math inline">\(y\)</span>, and vice versa. When <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> values have opposite relationship to their mean, the covariance is negative. This would reflect a negative association, where high values of <span class="math inline">\(x\)</span> correspond to low values of <span class="math inline">\(y\)</span>, and vice versa. When there’s no association between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, the covariance is 0. Covariance has awkward units. The correlation coefficient divides the covariance by the standard deviations of each variable, which standardizes the association to be between -1 and 1. The values <span class="math inline">\(r&lt;0\)</span> indicate negative associations, <span class="math inline">\(r&gt;0\)</span> indicate positive values, and <span class="math inline">\(r=0\)</span> reflects no association. The strength of the association is reflected by how close the value of <span class="math inline">\(r\)</span> is to 1 or -1. Stronger associations have values of <span class="math inline">\(r\)</span> close to 1 or -1. You can see this in the example scatterplots, where stronger associations reflect less scatter among the points. When <span class="math inline">\(r\)</span> is exactly 1 or -1, the points all fall on a perfect line.</p>
+<p>Does it matter which variable we place on each axis when examining the association between two quantitative variables? It can. If your goal is causal explanation, the general practice is to place the explanatory variable on the x-axis and the response variable on the y-axis. The departure delay is almost certainly a cause the the arrival delay, so it makes sense that we placed departure delay on the x-axis. But don’t assume that an association between two variables is causal! When we describe associations between variables, all we are doing is describing patterns. We’ll need additional tools to say whether or not the patterns we find in the data reflect some kind of causal process. More on that in later chapters.</p>
+</div>
+<div id="associations-between-quantitative-and-qualitative-variables" class="section level3 hasAnchor" number="4.0.8">
+<h3><span class="header-section-number">4.0.8</span> Associations between quantitative and qualitative variables<a href="describing-data.html#associations-between-quantitative-and-qualitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s look at how to compare quantitative data between categories of a qualitative variable. The idea here is to visually inspect how the distribution of the quantitative variable differs between categories of the qualitative variable. As an example, let’s compare the distance of flights departing from each of the three airports in New York.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="describing-data.html#cb150-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> distance)) <span class="sc">+</span></span>
+<span id="cb150-2"><a href="describing-data.html#cb150-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">300</span>, <span class="at">boundary =</span> <span class="dv">0</span>, </span>
+<span id="cb150-3"><a href="describing-data.html#cb150-3" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb150-4"><a href="describing-data.html#cb150-4" tabindex="-1"></a>  <span class="fu">facet_grid</span>(origin <span class="sc">~</span> .) <span class="sc">+</span></span>
+<span id="cb150-5"><a href="describing-data.html#cb150-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Flight distance (miles)&quot;</span>,</span>
+<span id="cb150-6"><a href="describing-data.html#cb150-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of flights&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="ch04_descriptiveStats_files/figure-html/c04_chunk37-1.png" alt="TODO: caption" width="70%" />
+<p class="caption">
+(#fig:c04_chunk37)TODO: caption
+</p>
+</div>
+<p>What can we learn from this figure. First, we can see that the shape of the distribution of flight distance varies among airports. LGA has a largely bell-shaped distribution with no skew, whereas the EWR and JFK distributions are more bimodal (perhaps trimodal for JFK). The peak of flight distances between 2000-3000 miles for EWR and JFK suggests those airports specialize more in long-haul flights in comparison to LGA. Indeed, the most common flight distance out of JFK is about 2500 miles.</p>
+<p>Although in this case I’ve plotted a stacked panel of histograms to compare flight distance among categories of airport, we could have used other types of figures. Here’s the same association displayed as a set of boxplots. The box plots show the same general shape of the distributions, but they additionally show some useful quantitative summaries. For example, we can see the median distance is greater for JFK than EWR and LGA. It’s also clear from this plot that variation in distance among flights is greatest for JFK and lowest for LGA.</p>
+</div>
+<div id="associations-between-qualitative-variables" class="section level3 hasAnchor" number="4.0.9">
+<h3><span class="header-section-number">4.0.9</span> Associations between qualitative variables<a href="describing-data.html#associations-between-qualitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What about associations between two categorical variables? One type of plot for this purpose is a <strong>mosaic plot</strong>, which shows the relative frequencies of each category for one variable by the categories of the other variable. For example, the plot below shows the percentages of each carrier with departing flights from each airport. To simplify the plot, I’ve combined small carriers (defined as those with &lt;1000 departing flights) into an “other” category.</p>
+<p>It’s quite apparent that the distribution of carriers differs quite a bit among airports. The top carrier at EWR is United Airlines (UA), but ExpressJet (EV) wasn’t close behing. ExpressJet was an airline that flew contracted flights for other carriers. At JFK we see JetBlue (B6) is clearly the most common carrier. Delta is the most common carrier departing LGA, but it appears there’s a much more even distribution of carriers operating at LGA compared to EWR and JFK.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="describing-data.html#cb151-1" tabindex="-1"></a><span class="co">#collapse small carriers (&lt;1000 flights)</span></span>
+<span id="cb151-2"><a href="describing-data.html#cb151-2" tabindex="-1"></a>n_carrier <span class="ot">&lt;-</span> <span class="fu">table</span>(d<span class="sc">$</span>carrier)</span>
+<span id="cb151-3"><a href="describing-data.html#cb151-3" tabindex="-1"></a>small_carriers <span class="ot">&lt;-</span> <span class="fu">names</span>(n_carrier[n_carrier <span class="sc">&lt;</span> <span class="dv">1000</span>])</span>
+<span id="cb151-4"><a href="describing-data.html#cb151-4" tabindex="-1"></a></span>
+<span id="cb151-5"><a href="describing-data.html#cb151-5" tabindex="-1"></a><span class="co"># collapsed carrier variable</span></span>
+<span id="cb151-6"><a href="describing-data.html#cb151-6" tabindex="-1"></a>d<span class="sc">$</span>carrier2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(d<span class="sc">$</span>carrier <span class="sc">%in%</span> small_carriers, </span>
+<span id="cb151-7"><a href="describing-data.html#cb151-7" tabindex="-1"></a>                     <span class="st">&quot;Other&quot;</span>, <span class="fu">as.character</span>(d<span class="sc">$</span>carrier))</span>
+<span id="cb151-8"><a href="describing-data.html#cb151-8" tabindex="-1"></a></span>
+<span id="cb151-9"><a href="describing-data.html#cb151-9" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb151-10"><a href="describing-data.html#cb151-10" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> origin, <span class="at">fill =</span> carrier2)) <span class="sc">+</span></span>
+<span id="cb151-11"><a href="describing-data.html#cb151-11" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb151-12"><a href="describing-data.html#cb151-12" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb151-13"><a href="describing-data.html#cb151-13" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">paste0</span>(<span class="dv">100</span> <span class="sc">*</span> x, <span class="st">&quot;%&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb151-14"><a href="describing-data.html#cb151-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Origin&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Proportion of flights&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Carrier&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="ch04_descriptiveStats_files/figure-html/c04_c87-1.png" alt="TODO: caption" width="384" />
+<p class="caption">
+(#fig:c04_c87)TODO: caption
+</p>
+</div>
+</div>
+<div id="this-is-just-the-beginning" class="section level3 hasAnchor" number="4.0.10">
+<h3><span class="header-section-number">4.0.10</span> This is just the beginning<a href="describing-data.html#this-is-just-the-beginning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this chapter we’ve barely scratched the surface of ways to describe and display data. The approaches in this chapter are common, but certainly not the only options, and we will encounter new types of statistics figures in the coming chapters.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-data-and-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="uncertainty-from-sampling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true,
+    "toc_depth": 2
+  },
+  "toolbar": {
+    "position": "fixed"
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

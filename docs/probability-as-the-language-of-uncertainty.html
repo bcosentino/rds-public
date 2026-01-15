@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Probability as the Language of Uncertainty | Research Design and Statistics</title>
+  <meta name="description" content="An introduction to research design and statistics" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Probability as the Language of Uncertainty | Research Design and Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="An introduction to research design and statistics" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Probability as the Language of Uncertainty | Research Design and Statistics" />
+  
+  <meta name="twitter:description" content="An introduction to research design and statistics" />
+  
+
+<meta name="author" content="Bradley J. Cosentino" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="uncertainty-from-sampling.html"/>
+<link rel="next" href="estimation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#work-in-progress"><i class="fa fa-check"></i>Work in progress</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i>About the Author</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html"><i class="fa fa-check"></i><b>1</b> Why Statistics? The Problem of Uncertainty</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#the-nature-of-science"><i class="fa fa-check"></i><b>1.1</b> The nature of science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#goals-of-scientific-research"><i class="fa fa-check"></i><b>1.2</b> Goals of scientific research</a></li>
+<li class="chapter" data-level="1.3" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#three-general-goals-of-scientific-research"><i class="fa fa-check"></i><b>1.3</b> Three general goals of scientific research</a></li>
+<li class="chapter" data-level="1.4" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#research-design-and-statistical-analysis-depend-on-your-goal"><i class="fa fa-check"></i><b>1.4</b> Research design and statistical analysis depend on your goal</a></li>
+<li class="chapter" data-level="1.5" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#you-cant-escape-uncertainty-in-science"><i class="fa fa-check"></i><b>1.5</b> You can’t escape uncertainty in science</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html"><i class="fa fa-check"></i><b>2</b> Scientific workflow: Connecting ideas to data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#research-questions"><i class="fa fa-check"></i><b>2.1</b> Research questions</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#clarify-your-primary-goal-description-prediction-or-explanation"><i class="fa fa-check"></i><b>2.1.1</b> Clarify your primary goal: description, prediction, or explanation?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#identify-the-scope-of-inference-the-who-what-when-and-where-of-your-study."><i class="fa fa-check"></i><b>2.1.2</b> Identify the scope of inference: The who, what, when, and where of your study.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-it-interesting"><i class="fa fa-check"></i><b>2.1.3</b> Make it interesting</a></li>
+<li class="chapter" data-level="2.1.4" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-it-answerable-with-data"><i class="fa fa-check"></i><b>2.1.4</b> Make it answerable with data</a></li>
+<li class="chapter" data-level="2.1.5" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#ground-it-in-theory"><i class="fa fa-check"></i><b>2.1.5</b> Ground it in theory</a></li>
+<li class="chapter" data-level="2.1.6" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-sure-its-feasible"><i class="fa fa-check"></i><b>2.1.6</b> Make sure it’s feasible</a></li>
+<li class="chapter" data-level="2.1.7" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#avoid-analyzing-the-data-before-stating-your-question"><i class="fa fa-check"></i><b>2.1.7</b> Avoid analyzing the data before stating your question</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#connecting-ideas-to-data"><i class="fa fa-check"></i><b>2.2</b> Connecting ideas to data</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#theory"><i class="fa fa-check"></i><b>2.2.1</b> Theory</a></li>
+<li class="chapter" data-level="2.2.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#research-question"><i class="fa fa-check"></i><b>2.2.2</b> Research question</a></li>
+<li class="chapter" data-level="2.2.3" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#generative-model"><i class="fa fa-check"></i><b>2.2.3</b> Generative model</a></li>
+<li class="chapter" data-level="2.2.4" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#study-design"><i class="fa fa-check"></i><b>2.2.4</b> Study design</a></li>
+<li class="chapter" data-level="2.2.5" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#estimand"><i class="fa fa-check"></i><b>2.2.5</b> Estimand</a></li>
+<li class="chapter" data-level="2.2.6" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#target-population"><i class="fa fa-check"></i><b>2.2.6</b> Target population</a></li>
+<li class="chapter" data-level="2.2.7" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#sample-data"><i class="fa fa-check"></i><b>2.2.7</b> Sample data</a></li>
+<li class="chapter" data-level="2.2.8" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#statistical-model"><i class="fa fa-check"></i><b>2.2.8</b> Statistical model</a></li>
+<li class="chapter" data-level="2.2.9" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#estimate"><i class="fa fa-check"></i><b>2.2.9</b> Estimate</a></li>
+<li class="chapter" data-level="2.2.10" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#summary"><i class="fa fa-check"></i><b>2.2.10</b> Summary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html"><i class="fa fa-check"></i><b>3</b> Introduction to Data and R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#an-introduction-to-data"><i class="fa fa-check"></i><b>3.1</b> An introduction to data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#variables-and-observations"><i class="fa fa-check"></i><b>3.1.1</b> Variables and observations</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#types-of-variables"><i class="fa fa-check"></i><b>3.1.2</b> Types of variables</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#relationships-between-variables"><i class="fa fa-check"></i><b>3.1.3</b> Relationships between variables</a></li>
+<li class="chapter" data-level="3.1.4" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#variable-naming-conventions-and-metadata"><i class="fa fa-check"></i><b>3.1.4</b> Variable naming conventions and metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#introduction-to-r"><i class="fa fa-check"></i><b>3.2</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>3.2.1</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#the-rstudio-interface"><i class="fa fa-check"></i><b>3.2.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="3.2.3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#basic-data-manipulation-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Basic data manipulation in R</a></li>
+<li class="chapter" data-level="3.2.4" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#scripting"><i class="fa fa-check"></i><b>3.2.4</b> Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="describing-data.html"><a href="describing-data.html"><i class="fa fa-check"></i><b>4</b> Describing data</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="describing-data.html"><a href="describing-data.html#defining-the-population"><i class="fa fa-check"></i><b>4.0.1</b> Defining the population</a></li>
+<li class="chapter" data-level="4.0.2" data-path="describing-data.html"><a href="describing-data.html#loading-data-into-r"><i class="fa fa-check"></i><b>4.0.2</b> Loading data into R</a></li>
+<li class="chapter" data-level="4.0.3" data-path="describing-data.html"><a href="describing-data.html#inspecting-the-dataset"><i class="fa fa-check"></i><b>4.0.3</b> Inspecting the dataset</a></li>
+<li class="chapter" data-level="4.0.4" data-path="describing-data.html"><a href="describing-data.html#describing-single-qualitative-variables"><i class="fa fa-check"></i><b>4.0.4</b> Describing single qualitative variables</a></li>
+<li class="chapter" data-level="4.0.5" data-path="describing-data.html"><a href="describing-data.html#describing-single-quantitative-variables"><i class="fa fa-check"></i><b>4.0.5</b> Describing single quantitative variables</a></li>
+<li class="chapter" data-level="4.0.6" data-path="describing-data.html"><a href="describing-data.html#describing-relationships-between-variables"><i class="fa fa-check"></i><b>4.0.6</b> Describing relationships between variables</a></li>
+<li class="chapter" data-level="4.0.7" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-variables"><i class="fa fa-check"></i><b>4.0.7</b> Associations between quantitative variables</a></li>
+<li class="chapter" data-level="4.0.8" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-and-qualitative-variables"><i class="fa fa-check"></i><b>4.0.8</b> Associations between quantitative and qualitative variables</a></li>
+<li class="chapter" data-level="4.0.9" data-path="describing-data.html"><a href="describing-data.html#associations-between-qualitative-variables"><i class="fa fa-check"></i><b>4.0.9</b> Associations between qualitative variables</a></li>
+<li class="chapter" data-level="4.0.10" data-path="describing-data.html"><a href="describing-data.html#this-is-just-the-beginning"><i class="fa fa-check"></i><b>4.0.10</b> This is just the beginning</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html"><i class="fa fa-check"></i><b>5</b> Uncertainty from sampling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#sampling-requires-estimation"><i class="fa fa-check"></i><b>5.1</b> Sampling requires estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#parameters-estimates-estimands"><i class="fa fa-check"></i><b>5.2</b> Parameters, estimates, estimands</a></li>
+<li class="chapter" data-level="5.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#sources-of-uncertainty-from-sampling"><i class="fa fa-check"></i><b>5.3</b> Sources of uncertainty from sampling</a></li>
+<li class="chapter" data-level="5.4" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#accuracy-and-precision"><i class="fa fa-check"></i><b>5.4</b> Accuracy and precision</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#accuracy"><i class="fa fa-check"></i><b>5.4.1</b> Accuracy</a></li>
+<li class="chapter" data-level="5.4.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#precision"><i class="fa fa-check"></i><b>5.4.2</b> Precision</a></li>
+<li class="chapter" data-level="5.4.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#considering-accuracy-and-precision-together"><i class="fa fa-check"></i><b>5.4.3</b> Considering accuracy and precision together</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#maximizing-accuracy-and-precision-of-estimates"><i class="fa fa-check"></i><b>5.5</b> Maximizing accuracy and precision of estimates</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#random-sampling"><i class="fa fa-check"></i><b>5.5.1</b> Random sampling</a></li>
+<li class="chapter" data-level="5.5.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#replication"><i class="fa fa-check"></i><b>5.5.2</b> Replication</a></li>
+<li class="chapter" data-level="5.5.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#take-home-points"><i class="fa fa-check"></i><b>5.5.3</b> Take-home points</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html"><i class="fa fa-check"></i><b>6</b> Probability as the Language of Uncertainty</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#defining-probability"><i class="fa fa-check"></i><b>6.1</b> Defining probability</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#frequentist-definition"><i class="fa fa-check"></i><b>6.1.1</b> Frequentist definition</a></li>
+<li class="chapter" data-level="6.1.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#bayesian-definition"><i class="fa fa-check"></i><b>6.1.2</b> Bayesian definition</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#probability-rules"><i class="fa fa-check"></i><b>6.2</b> Probability rules</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#individual-events"><i class="fa fa-check"></i><b>6.2.1</b> Individual events</a></li>
+<li class="chapter" data-level="6.2.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#joint-events"><i class="fa fa-check"></i><b>6.2.2</b> Joint events</a></li>
+<li class="chapter" data-level="6.2.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#general-addition-rule"><i class="fa fa-check"></i><b>6.2.3</b> General addition rule</a></li>
+<li class="chapter" data-level="6.2.4" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#quantifying-marginal-probabilities"><i class="fa fa-check"></i><b>6.2.4</b> Quantifying marginal probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions"><i class="fa fa-check"></i><b>6.3</b> Sampling from probability distributions</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-populations-is-probabalistic"><i class="fa fa-check"></i><b>6.3.1</b> Sampling from populations is probabalistic</a></li>
+<li class="chapter" data-level="6.3.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#discrete-random-variables"><i class="fa fa-check"></i><b>6.3.2</b> Discrete random variables</a></li>
+<li class="chapter" data-level="6.3.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#continuous-random-variables"><i class="fa fa-check"></i><b>6.3.3</b> Continuous random variables</a></li>
+<li class="chapter" data-level="6.3.4" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions-1"><i class="fa fa-check"></i><b>6.3.4</b> Sampling from probability distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="estimation.html"><a href="estimation.html#scientific-workflow-for-the-problem"><i class="fa fa-check"></i><b>7.1</b> Scientific workflow for the problem</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="estimation.html"><a href="estimation.html#theory-and-the-research-question"><i class="fa fa-check"></i><b>7.1.1</b> Theory and the research question</a></li>
+<li class="chapter" data-level="7.1.2" data-path="estimation.html"><a href="estimation.html#generative-model-and-estimand"><i class="fa fa-check"></i><b>7.1.2</b> Generative model and estimand</a></li>
+<li class="chapter" data-level="7.1.3" data-path="estimation.html"><a href="estimation.html#statistical-model-and-estimate"><i class="fa fa-check"></i><b>7.1.3</b> Statistical model and estimate</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#bayes-theorem"><i class="fa fa-check"></i><b>7.2</b> Bayes Theorem</a></li>
+<li class="chapter" data-level="7.3" data-path="estimation.html"><a href="estimation.html#applying-bayes-theorem-to-statistical-analysis"><i class="fa fa-check"></i><b>7.3</b> Applying Bayes Theorem to statistical analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="estimation.html"><a href="estimation.html#steps-of-estimation-with-bayesian-inference"><i class="fa fa-check"></i><b>7.4</b> Steps of estimation with Bayesian inference</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="estimation.html"><a href="estimation.html#specify-the-prior-distribution"><i class="fa fa-check"></i><b>7.4.1</b> Specify the prior distribution</a></li>
+<li class="chapter" data-level="7.4.2" data-path="estimation.html"><a href="estimation.html#quantify-the-likelihood-of-the-data"><i class="fa fa-check"></i><b>7.4.2</b> Quantify the likelihood of the data</a></li>
+<li class="chapter" data-level="7.4.3" data-path="estimation.html"><a href="estimation.html#quantify-the-total-probability-of-the-data-marginal-likelihood"><i class="fa fa-check"></i><b>7.4.3</b> Quantify the total probability of the data (marginal likelihood)</a></li>
+<li class="chapter" data-level="7.4.4" data-path="estimation.html"><a href="estimation.html#quantify-the-posterior-distribution"><i class="fa fa-check"></i><b>7.4.4</b> Quantify the posterior distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="estimation.html"><a href="estimation.html#summarizing-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5</b> Summarizing the posterior distribution</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="estimation.html"><a href="estimation.html#sampling-from-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5.1</b> Sampling from the posterior distribution</a></li>
+<li class="chapter" data-level="7.5.2" data-path="estimation.html"><a href="estimation.html#central-tendency-and-variance"><i class="fa fa-check"></i><b>7.5.2</b> Central tendency and variance</a></li>
+<li class="chapter" data-level="7.5.3" data-path="estimation.html"><a href="estimation.html#intervals"><i class="fa fa-check"></i><b>7.5.3</b> Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="estimation.html"><a href="estimation.html#specifying-priors"><i class="fa fa-check"></i><b>7.6</b> Specifying priors</a></li>
+<li class="chapter" data-level="7.7" data-path="estimation.html"><a href="estimation.html#decision-making"><i class="fa fa-check"></i><b>7.7</b> Decision making</a></li>
+<li class="chapter" data-level="7.8" data-path="estimation.html"><a href="estimation.html#specifying-and-fitting-statistical-models-with-bayes"><i class="fa fa-check"></i><b>7.8</b> Specifying and fitting statistical models with Bayes</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="estimation.html"><a href="estimation.html#statistical-model-specification"><i class="fa fa-check"></i><b>7.8.1</b> Statistical model specification</a></li>
+<li class="chapter" data-level="7.8.2" data-path="estimation.html"><a href="estimation.html#fitting-models-with-brms"><i class="fa fa-check"></i><b>7.8.2</b> Fitting models with <em>brms</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="estimation.html"><a href="estimation.html#estimation-for-a-continuous-random-variable"><i class="fa fa-check"></i><b>7.9</b> Estimation for a continuous random variable</a></li>
+<li class="chapter" data-level="7.10" data-path="estimation.html"><a href="estimation.html#next-steps"><i class="fa fa-check"></i><b>7.10</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html"><i class="fa fa-check"></i><b>8</b> Bayesian Workflow</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-distribution-choices"><i class="fa fa-check"></i><b>8.1</b> Prior distribution choices</a></li>
+<li class="chapter" data-level="8.2" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-predictive-checks"><i class="fa fa-check"></i><b>8.2</b> Prior predictive checks</a></li>
+<li class="chapter" data-level="8.3" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#posterior-predictive-checks"><i class="fa fa-check"></i><b>8.3</b> Posterior predictive checks</a></li>
+<li class="chapter" data-level="8.4" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#next-steps-1"><i class="fa fa-check"></i><b>8.4</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>9</b> The linear model</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="the-linear-model.html"><a href="the-linear-model.html#statistical-models"><i class="fa fa-check"></i><b>9.1</b> Statistical models</a></li>
+<li class="chapter" data-level="9.2" data-path="the-linear-model.html"><a href="the-linear-model.html#linear-model"><i class="fa fa-check"></i><b>9.2</b> Linear model</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="the-linear-model.html"><a href="the-linear-model.html#basic-structure-of-the-linear-model"><i class="fa fa-check"></i><b>9.2.1</b> Basic structure of the linear model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="the-linear-model.html"><a href="the-linear-model.html#fitting-the-linear-model-in-brms"><i class="fa fa-check"></i><b>9.2.2</b> Fitting the linear model in brms</a></li>
+<li class="chapter" data-level="9.2.3" data-path="the-linear-model.html"><a href="the-linear-model.html#how-a-frequentist-might-do-it"><i class="fa fa-check"></i><b>9.2.3</b> How a frequentist might do it</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="the-linear-model.html"><a href="the-linear-model.html#linear-models-with-categorical-predictors"><i class="fa fa-check"></i><b>9.3</b> Linear models with categorical predictors</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="the-linear-model.html"><a href="the-linear-model.html#binary-explanatory-variables"><i class="fa fa-check"></i><b>9.3.1</b> Binary explanatory variables</a></li>
+<li class="chapter" data-level="9.3.2" data-path="the-linear-model.html"><a href="the-linear-model.html#categorical-predictors-with-more-than-two-categories"><i class="fa fa-check"></i><b>9.3.2</b> Categorical predictors with more than two categories</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html"><i class="fa fa-check"></i><b>10</b> Graphical Causal Models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#directed-acyclic-graphs-dags"><i class="fa fa-check"></i><b>10.1</b> Directed acyclic graphs (DAGs)</a></li>
+<li class="chapter" data-level="10.2" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#three-causal-structures-in-dags"><i class="fa fa-check"></i><b>10.2</b> Three causal structures in DAGs</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-fork-confounders"><i class="fa fa-check"></i><b>10.2.1</b> The fork: confounders</a></li>
+<li class="chapter" data-level="10.2.2" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-pipe-mediators"><i class="fa fa-check"></i><b>10.2.2</b> The pipe: mediators</a></li>
+<li class="chapter" data-level="10.2.3" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-inverted-fork-colliders"><i class="fa fa-check"></i><b>10.2.3</b> The inverted fork: colliders</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#closing-backdoor-paths"><i class="fa fa-check"></i><b>10.3</b> Closing backdoor paths</a></li>
+<li class="chapter" data-level="10.4" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#like-all-models-dags-require-assumptions"><i class="fa fa-check"></i><b>10.4</b> Like all models, DAGs require assumptions</a></li>
+<li class="chapter" data-level="10.5" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#types-of-study-designs"><i class="fa fa-check"></i><b>10.5</b> Types of Study Designs</a></li>
+<li class="chapter" data-level="10.6" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#experimental-studies"><i class="fa fa-check"></i><b>10.6</b> Experimental studies</a></li>
+<li class="chapter" data-level="10.7" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#observational-studies"><i class="fa fa-check"></i><b>10.7</b> Observational studies</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#pros-and-cons-of-prospective-vs.-retrospective-studies-planned"><i class="fa fa-check"></i><b>10.7.1</b> Pros and cons of prospective vs. retrospective studies (planned)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html"><i class="fa fa-check"></i><b>11</b> Causal inference with linear models</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#linear-models-with-multiple-predictor-variables"><i class="fa fa-check"></i><b>11.1</b> Linear models with multiple predictor variables</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#generic-linear-model-with-two-predictors"><i class="fa fa-check"></i><b>11.1.1</b> Generic linear model with two predictors</a></li>
+<li class="chapter" data-level="11.1.2" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#multiple-regression-model-for-the-ice-cream-and-drownings-example"><i class="fa fa-check"></i><b>11.1.2</b> Multiple regression model for the ice cream and drownings example</a></li>
+<li class="chapter" data-level="11.1.3" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#prior-predictive-check"><i class="fa fa-check"></i><b>11.1.3</b> Prior predictive check</a></li>
+<li class="chapter" data-level="11.1.4" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#fitting-the-multiple-regression-model"><i class="fa fa-check"></i><b>11.1.4</b> Fitting the multiple regression model</a></li>
+<li class="chapter" data-level="11.1.5" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#prediction-plots-for-multiple-regression-models"><i class="fa fa-check"></i><b>11.1.5</b> Prediction plots for multiple regression models</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#dag-informed-predictors-categorical-variables-what-multiple-regression-is-doing-with-predictor-residual-plot"><i class="fa fa-check"></i><b>11.2</b> DAG-informed predictors, categorical variables, what multiple regression is doing with predictor residual plot</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="interaction-effects.html"><a href="interaction-effects.html"><i class="fa fa-check"></i><b>12</b> Interaction effects</a></li>
+<li class="chapter" data-level="13" data-path="generalized-linear-models.html"><a href="generalized-linear-models.html"><i class="fa fa-check"></i><b>13</b> Generalized linear models</a></li>
+<li class="chapter" data-level="14" data-path="multilevel-models.html"><a href="multilevel-models.html"><i class="fa fa-check"></i><b>14</b> Multilevel models</a></li>
+<li class="chapter" data-level="15" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html"><i class="fa fa-check"></i><b>15</b> Estimation with frequentist inference</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#frequentist-estimates-are-point-estimates"><i class="fa fa-check"></i><b>15.1</b> Frequentist estimates are point estimates</a></li>
+<li class="chapter" data-level="15.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions"><i class="fa fa-check"></i><b>15.2</b> Sampling distributions</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions-are-centered-on-the-true-parameter-value"><i class="fa fa-check"></i><b>15.2.1</b> Sampling distributions are centered on the true parameter value</a></li>
+<li class="chapter" data-level="15.2.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions-allow-us-to-estimate-precision"><i class="fa fa-check"></i><b>15.2.2</b> Sampling distributions allow us to estimate precision</a></li>
+<li class="chapter" data-level="15.2.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sample-size-affects-the-shape-of-sampling-distributions"><i class="fa fa-check"></i><b>15.2.3</b> Sample size affects the shape of sampling distributions</a></li>
+<li class="chapter" data-level="15.2.4" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#summary-points-on-sampling-distributions"><i class="fa fa-check"></i><b>15.2.4</b> Summary points on sampling distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#quantifying-uncertainty-standard-error-and-confidence-intervals"><i class="fa fa-check"></i><b>15.3</b> Quantifying uncertainty: standard error and confidence intervals</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#standard-error"><i class="fa fa-check"></i><b>15.3.1</b> Standard error</a></li>
+<li class="chapter" data-level="15.3.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>15.3.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="15.3.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#the-standard-normal-approximation-does-not-work-well-under-low-sample-size"><i class="fa fa-check"></i><b>15.3.3</b> The standard normal approximation does not work well under low sample size</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html"><i class="fa fa-check"></i><b>16</b> Decision-making with frequentist estimates</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#framework-of-classical-hypothesis-testing"><i class="fa fa-check"></i><b>16.1</b> Framework of classical hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#state-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>16.1.1</b> State null and alternative hypotheses</a></li>
+<li class="chapter" data-level="16.1.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#assume-the-null-hypothesis-is-true"><i class="fa fa-check"></i><b>16.1.2</b> Assume the null hypothesis is true</a></li>
+<li class="chapter" data-level="16.1.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#quantify-the-likelihood-of-the-data-under-the-null-hypothesis-p-values"><i class="fa fa-check"></i><b>16.1.3</b> Quantify the likelihood of the data under the null hypothesis: P-values</a></li>
+<li class="chapter" data-level="16.1.4" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#making-a-decision-based-on-the-p-value-and-significance-value"><i class="fa fa-check"></i><b>16.1.4</b> Making a decision based on the P-value and significance value</a></li>
+<li class="chapter" data-level="16.1.5" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#decision-errors-happen"><i class="fa fa-check"></i><b>16.1.5</b> Decision errors happen</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#making-decisions-with-confidence-intervals"><i class="fa fa-check"></i><b>16.2</b> Making decisions with confidence intervals</a></li>
+<li class="chapter" data-level="16.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#issues-with-the-null-hypothesis-framework"><i class="fa fa-check"></i><b>16.3</b> Issues with the null hypothesis framework</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#significance-testing-reinforces-binary-thinking"><i class="fa fa-check"></i><b>16.3.1</b> Significance testing reinforces binary thinking</a></li>
+<li class="chapter" data-level="16.3.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#statistical-testing-reinforces-gamification-in-science"><i class="fa fa-check"></i><b>16.3.2</b> Statistical testing reinforces gamification in science</a></li>
+<li class="chapter" data-level="16.3.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#statistical-significance-is-not-the-same-thing-as-practical-significance"><i class="fa fa-check"></i><b>16.3.3</b> Statistical significance is not the same thing as practical significance</a></li>
+<li class="chapter" data-level="16.3.4" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#type-i-errors-become-more-likely-with-multiple-tests"><i class="fa fa-check"></i><b>16.3.4</b> Type I errors become more likely with multiple tests</a></li>
+<li class="chapter" data-level="16.3.5" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-null-hypothesis-is-almost-certainly-wrong"><i class="fa fa-check"></i><b>16.3.5</b> The null hypothesis is almost certainly wrong</a></li>
+<li class="chapter" data-level="16.3.6" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-null-hypothesis-focuses-on-data-you-did-not-observe"><i class="fa fa-check"></i><b>16.3.6</b> The null hypothesis focuses on data you did not observe</a></li>
+<li class="chapter" data-level="16.3.7" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#a-single-null-and-alternative-hypothesis-is-too-constraining"><i class="fa fa-check"></i><b>16.3.7</b> A single null and alternative hypothesis is too constraining</a></li>
+<li class="chapter" data-level="16.3.8" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-p-value-is-not-the-probability-we-want"><i class="fa fa-check"></i><b>16.3.8</b> The P-value is not the probability we want</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Research Design and Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probability-as-the-language-of-uncertainty" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Probability as the Language of Uncertainty<a href="probability-as-the-language-of-uncertainty.html#probability-as-the-language-of-uncertainty" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>One of the central goals of epidemiology is to monitor the prevalence of disease. Basic information on the prevalence of disease is used by public health officials to guide decision-making on interventions. Perhaps there’s no better example of this than the Covid-19 pandemic that started in late 2019 and led to dramatic measures intended to reduce the spread of the virus, such as social distancing, mask wearing, travel restrictions, school shutdowns, and quarantine. These interventions place significant limitations on the freedoms we tend to take for granted, and so the benefits of these measures to the public should outweigh the costs.</p>
+<p>Consider this scenario. Imagine you are the lead epidemiologist in a community of 10,000 people, working with public health officials to make decisions about interventions to minimize the spread of a new viral disease. Based on a cost-benefit analysis, public officials determined that interventions will be enforced if the prevalence of the disease reaches 10%. As the lead epidemiologist, your goal is to monitor the prevalence of the disease. Fortunately a test for the infection is available, and it’s completely fool proof. When someone has the virus, the test is always positive, and when someone doesn’t have the virus, the test is always negative. Diagnostic tests are of course rarely perfect in this way, but we’ll make this simplifying assumption for now.</p>
+<p>Knowing you can’t possibly test everyone in your population of 10,000, you decide on a strategy to sample individuals from the population for testing. Having studied statistics, you are well aware that the fundamental problem of statistics is the inevitable uncertainty about estimates made from samples. If you test only a sample of the individuals in the population, the proportion infected in the sample will differ from the true proportion infected due to sampling error or systematic biases. To minimize bias, you decide on a random sampling approach. In truth, random sampling in public health is hard to do, but it’s a useful starting point.</p>
+<p>Eager to get your first estimate, you test a random sample of individuals and find that 6.7% are infected. You share the finding with your public health colleagues, who are generally happy to see the number is under 10%. But one astute colleague looks at the estimate and asks you “How good is the estimate?”</p>
+<p>How good is your estimate? The question implies that your estimated proportion infected differ from the truth. Even though only 6.7% in the <em>sample</em> were infected, it’s still possible that more than 10% in the <em>population</em> are infected. Even with random sampling, we expect a difference between teh sample estimate and the truth because of sampling error. In this chapter, we directly confront this problem by examining how we can quantify uncertainty about our estimates in the language of <strong>probability</strong>.</p>
+<div id="defining-probability" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Defining probability<a href="probability-as-the-language-of-uncertainty.html#defining-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s start with some terms. When we test an individual for infection, the test is called a <em>trial</em>. A trial is simply any process that produces a probabilistic <em>outcome</em>. There are only two possible outcomes of the test: positive or negative. These outcomes are <strong>mutually exclusive</strong>, meaning that an individual cannot test positive <em>and</em> negative for the infection at the same time. The set of all possible mutually exclusive outcomes is called the <em>sample space</em>. The sample space is often denoted <span class="math inline">\(\Omega\)</span> and defined in brackets. For example, the sample space for infection status is <span class="math inline">\(\Omega\)</span> = {positive, negative}.</p>
+<p>When examining a probability, we are interested in the probability of a particular <em>event</em> that we a define. The event could be as simple as the occurrence of a single outcome, such as an individual testing positive. But events can also be defined as sets of outcomes. For example, consider tossing a six-sided die, where the sample space is <span class="math inline">\(\Omega\)</span> = {1,2,3,4,5,6}. Here we could define the event as rolling an even number, which includes three of the possible outcomes.</p>
+<p>Numerically, the values of probability are bounded between 0 and 1. A probability of 1 means that the event of interest is certain, whereas a probability of 0 means the event of interest is impossible. Mathematically probability is abbreviated as <em>P</em>, so we can say a certain event has <span class="math inline">\(P = 1\)</span> and an impossible event has <span class="math inline">\(P = 0\)</span>. The events of interest are usually appended parenthetically. For example, when you toss a coin with two sides, <em>head</em> and <em>tails</em>, you can be (reasonably) certain the probability of heads or tails is one:</p>
+<p><span class="math display">\[P(\text{heads or tails}) = 1\]</span></p>
+<p>Conversely, you can be (reasonably) certain that you won’t see something other than heads or tails, which can be written as</p>
+<p><span class="math display">\[P(\text{not heads or tails}) = 0\]</span></p>
+<p>Events can be any statement of interest. For our epidemiology example, we’re interested in the probability that an individual is infected: <span class="math inline">\(P(\text{infected})\)</span>. For this event, we probably won’t be as confident as we were for our coin tossing example, but we can express our confidence numerically as a probability. Because <span class="math inline">\(P=1\)</span> implies certainty and <span class="math inline">\(P=0\)</span> implies impossibility, all values of probability are bounded between 0 and 1. The higher the value of probability, the more likely it is that the event is true. The lower the value of probability, the more likely it is that the event is false. For example, the value <span class="math inline">\(P(\text{infected}) = 0.7\)</span> implies it is more likely than not that an individual is infected. The value <span class="math inline">\(P(\text{infected}) = 0.1\)</span> implies only a small chance of an individual being infected. What really matters here is that values other than <span class="math inline">\(P=1\)</span> and <span class="math inline">\(P=0\)</span> imply a <em>lack of knowledge</em> about an event, or in other words, uncertainty! <span class="math inline">\(P=1\)</span> and <span class="math inline">\(P=0\)</span> mean we are certain an event is true or false, and all other values mean we are uncertain, with the degree of certainty of the event being true scaling numerically with the value of probability.</p>
+<p>Although these simple rules of probability may appear straightforward, philosophically there has been much discussion about the meaning of probability. My goal here is not to provide an exhaustive overview of the various interpretations, but I do want to introduce two common interpretations that will be themes throughout the remainder of the book.</p>
+<div id="frequentist-definition" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Frequentist definition<a href="probability-as-the-language-of-uncertainty.html#frequentist-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>frequentist</strong> interpretation of probability is one that I suspect you might be familiar with: probability is the proportion of trials <em>n</em> where we observe the event of interest, <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+P(X) = \frac{X}{n}
+\]</span></p>
+<p>Let’s just assume for now that of the 10,000 people in the community, 500 are infected with the virus. Based on the frequentist definition, the probability of the infection (<span class="math inline">\(I\)</span>) is</p>
+<p><span class="math display">\[
+P(I) = \frac{I}{n} = \frac{500}{10000}=0.05
+\]</span></p>
+<p>The frequentist definition simply looks at the frequency of the event of interest relative to the total number of trials. A probability is a proportion, following the rules we’ve already established where values must be between 0 and 1. Probabilities can also be expressed as percentages. To do this, simply multiply the proportion by 100. Saying the probability of infection is 0.05 is the same as saying 5% of the population is infected.</p>
+<p>Now in practice, how do we know the frequentist probability? As the formula implies, we could go track down all <span class="math inline">\(n\)</span> individuals in the population and give them our fool proof test for the viral infection. But you know that tracking down every individual in the population is usually not feasible, so we usually need to estimate the probability of interest with a sample of data. For example, imagine you randomly sample <span class="math inline">\(n = 15\)</span> individuals and find one of the 15 tests are positive. In this case, the estimated probability of infection (<span class="math inline">\(\hat{p}\)</span>) is</p>
+<p><span class="math display">\[
+\hat{p}_{infected} = \frac{I}{n} = \frac{1}{15}=0.067
+\]</span></p>
+<p>Here the carrot symbol simply indicates that our quantity is an estimate based on a sample.</p>
+<p>There is a way of logically deriving frequentist probabilities, but this approach is restricted to only the most simple of examples, such as tossing a coin or rolling a die, where you can count the number of times the event of interest occurs out of the sample space. When we flip a coin, there are two sides, heads and tails. Assuming we have a fair coin and flip, the probability of heads must be 0.5, because heads represents half of the sample space. Similarly, if we roll a six-sided die with the numbers 1, 2, 3, 4, 5, and 6, the probability of seeing a “four” must be <span class="math inline">\(\frac{1}{6}\)</span>, because four represents one out of six possible outcomes. This approach to quantifying probabilities is called the <strong>principle of indifference</strong>, in which there is no reason to believe one possible outcome is any more or less likely than the other possible outcomes. Based on the principle of indifference, the probability of each outcome is equal, and so numerically the probability of each outcome is just one divided by the total number of possible outcomes.</p>
+<p>But as I already mentioned, this logic of deriving probability is not widely applicable. Consider our test of whether an individual is infected with a virus. Here each individual is infected or not infected. In this limited sample space, infected represents one of two possible outcomes, so isn’t the probability of infection 0.5? No! When we apply the prinicple of indifference to coin tossing or die rolling, we make important assumptions, namely that we have fair coins and dice and that the coin flips and dice rolls are conducted in a random way. In other words, deriving probabilities mathematically from the sample space requires assumptions about the external forces that can affect the probability of heads, or the probability of rolling a four. If I do not give the coin a fair toss, for example by just dropping the coin flat with the heads face up, then the probability of heads will very likely <em>not</em> be 0.5. There are a multitude of external forces that affect the likelihood of an individual being infected with a virus, such as exposure, immune function, public health measures, and even the prevalence of the infection itself. In other words, the principle of indifference is a poor model of how infection works.</p>
+</div>
+<div id="bayesian-definition" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Bayesian definition<a href="probability-as-the-language-of-uncertainty.html#bayesian-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>Bayesian</strong> way of thinking about probability is as a strength of belief. What do you believe is the probability of infection? We make these kind of subjective probability assessments all the time. If you look outside and see storm clouds on the horizon, you might be inclined to believe it’s more likely than not that it will rain today. When you are deciding which route to take to work, you might notice it’s the middle of rush hour and conclude there’s a 90% chance that you’ll end up in stop-and-go traffic on the interstate. When watching your favorite college basketball team take on the #1 ranked team, you might conclude your team has only a 10% chance of winning.</p>
+<p>These subjective beliefs aren’t empirically computed by frequencies across multiple trials or from opportunity from the sample space. Rather, they are subjectively computed in your mind based on your knowledge, experience, and intuitions. If you’ve never heard of anyone being infected with the viral infection being investigated, you might be inclined to conclude it’s more likely than not that the prevalence of the virus is below 10%. In this case you’re assigning a subjective probability statement (&gt;50% strength of belief) about the frequentist value of a probability (the proportion of individuals infected being below 10%).</p>
+<p>In <a href="https://sites.google.com/site/doingbayesiandataanalysis/"><em>Doing Bayesian Data Analysis</em></a>, the author John Kruschke talks about how subjective beliefs about probability can be calibrated by comparing those beliefs with events that have known probabilities. For example, suppose I offer you two choices. You can win $20 if you flip a coin and the result is heads, or you can win $20 if your favorite college basketball team beats the #1 ranked team. If you choose the coin flip, you are implicitly concluding that the probability of your team winning is less than 50%.</p>
+<p>Now, Bayesian probabilities aren’t always completely subjective. Indeed, as we will soon find out, there methods for updating our subjective beliefs about a probability (which we will call a <em>prior probability</em>) with frequentist probabilities informed by data that we collect. More on that soon.</p>
+</div>
+</div>
+<div id="probability-rules" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Probability rules<a href="probability-as-the-language-of-uncertainty.html#probability-rules" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One can take an entire course on the mathematics and theory of probability, but here our goal is to apply some basic knowledge of probability to science and data analysis. That said, familiarity with some basic rules of probability is necessary to do applied statistics. We already know that probability is bounded between 0 and 1, but there are some additional rules we need to be familiar with in order to use probability for quantifying our uncertainty in data analysis. Importantly, these rules apply whether you interpret probability from a frequentist or Bayesian perspective. Let’s take a look at those rules [^ch07-1].</p>
+<div id="individual-events" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Individual events<a href="probability-as-the-language-of-uncertainty.html#individual-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We first look at two rules that apply when one is interested in the probability of a single event of interest in isolation. For example, suppose you’re driving into work and will go through one traffic light. Traffic lights in the United States can be red, yellow, or green. For the two rules that follow, we consider the probability of one of those outcomes in isolation, such as <span class="math inline">\(P(\text{red})\)</span>.</p>
+<div class="alert alert-block alert-info">
+<p><b>Addition rule</b></p>
+<p><span class="math display">\[
+P(A\ \text{or}\ B) = P(A) + P(B)
+\]</span> If outcomes A and B are <strong>mutually exclusive</strong>, then the probability of either A or B occurring is the sum of their individual probabilities.</p>
+</div>
+<p>Let’s apply the addition rule to an example. Consider the traffic light example, and let’s assume the probability of red is 0.48, the probability of yellow is 0.04, and the probability of green is 0.48. Each outcome is mutually exclusive, because the traffic light cannot - for example - be red and green at the same time (barring a malfunction). When events are mutually exclusive in this way, we can apply the addition rule to quantify the probability of one event or another. For example, the probability of the light being green or yellow when driving through it is:</p>
+<p><span class="math display">\[
+P(\text{green or yellow})= P(\text{green}) + P(\text{yellow}) = 0.48 + 0.04 = 0.52
+\]</span></p>
+<p>We can extend this rule beyond two events. For example, the probability of green, yellow, or red is</p>
+<p><span class="math display">\[
+P(\text{green or yellow or red})= P(\text{green}) + P(\text{yellow}) + P(\text{red}) = 0.48 + 0.04 + 0.48= 1
+\]</span> Here we see that the probabilities of each possible mutually exclusive outcome must sum to 1.</p>
+<div class="alert alert-block alert-info">
+<p><b>Not rule</b></p>
+<p><span class="math display">\[
+P(\text{not}\ A) = 1 - P(A)
+\]</span> The probability of an event not occurring is one minus the probability that it occurs.</p>
+</div>
+<p>The not rule simply states that once you know the probability of an event being true, you also know the probability that the event is false, computed as one minus the probability of the event being true. If the probability of the light being green or yellow is is 0.52, then the probability of it not being green or yellow is</p>
+<p><span class="math display">\[
+P(\text{not green or yellow}) = 1 - P(\text{green or yellow}) = 1 - 0.52 = 0.48
+\]</span></p>
+</div>
+<div id="joint-events" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Joint events<a href="probability-as-the-language-of-uncertainty.html#joint-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first two rules apply to mutually exclusive events in isolation, but often we are interested in the joint probability of multiple events occurring at the same time. For this situation, let’s return to the goal of estimating prevalence of a viral infection. The epidemiologist does not know the true prevalence, but let’s assume it is 5%. Let’s also assume that 10% of individuals in the population are left-handed. What is the probability of selecting an individual who tests positive and is left-handed? Here we are interested in a <strong>joint probability</strong>, namely the events “infected” and “being left-handed” at the same time.</p>
+<div id="independent-events" class="section level4 hasAnchor" number="6.2.2.1">
+<h4><span class="header-section-number">6.2.2.1</span> Independent events<a href="probability-as-the-language-of-uncertainty.html#independent-events" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In cases where the joint events are <strong>independent</strong>, we can apply the following rule to quantify the joint probability:</p>
+<div class="alert alert-block alert-info">
+<p><b>Multiplication rule</b></p>
+<p><span class="math display">\[
+P(A\ \text{and}\ B) = P(A)P(B)
+\]</span></p>
+<p>When events A and B are independent, the probability of A and B is the multiplication of the probabilities of A and B individually.</p>
+</div>
+<p>For events to be independent, one event must have no impact at all on the probability of another event. In the context of testing and handedness, this would mean that the handedness of a person must have no impact on infection status, and vice versa. If that’s the case, then we can quantify the probability of individual being infected and left-handed as</p>
+<p><span class="math display">\[
+P(\text{infected and left-handed}) = 0.05*0.10=0.005
+\]</span></p>
+<p>When the prevalence of the infection is 5%, the probability that an individual is infected and left-handed is only 0.5%. A rare event indeed!</p>
+</div>
+<div id="dependent-events-conditional-probability" class="section level4 hasAnchor" number="6.2.2.2">
+<h4><span class="header-section-number">6.2.2.2</span> Dependent events (conditional probability)<a href="probability-as-the-language-of-uncertainty.html#dependent-events-conditional-probability" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the last example, we assumed handedness gave us no information about the probability of infection (i.e., they are independent). Now let’s consider a different case: infection status and vaccine status. Unlike handedness, vaccine status plausibly gives us information about a person’s infection status. Indeed, vaccines are designed to reduce the likelihood of being infected, so we shouldn’t expect infection status and vaccine status are independent events. In other words, the probability of infection likely depends on vaccine status. This is getting interesting! Indeed, non-independence is at the heart of many research questions, particular those about causal explanation. Does vaccine status affect infection status? Such a question can be addressed quantitatively by examining joint probabilities under assumptions of independence vs. dependency between the events.</p>
+<p>To analyze joint probabilities of multiple events when those events are not independent, we need to define <strong>conditional probability</strong>. A conditional probability can be defined as the probability of event A given that know event B is true. Let’s formalize another rule:</p>
+<div class="alert alert-block alert-info">
+<p><b>Conditional probability</b></p>
+<p><span class="math display">\[
+P(A|B) = \frac{P(A\ \text{and}\ B)}{P(B)}
+\]</span></p>
+</div>
+<p>The vertical bar (|) means “given”, so <span class="math inline">\(P(A|B)\)</span> reads “the probability of A given B”. For example, the probability of infection status among vaccinated people can be written as <span class="math inline">\(P(\text{infected | vaccinated})\)</span>.</p>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+(#tab:c06_t1)<span style="color:black; font-weight:bold;">Counts of Infection Status vs. Vaccination (N = 10,000)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Vaccinated Count
+</th>
+<th style="text-align:right;">
+Unvaccinated Count
+</th>
+<th style="text-align:right;">
+Total Count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Infected
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+290
+</td>
+<td style="text-align:right;">
+500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Not Infected
+</td>
+<td style="text-align:right;">
+6790
+</td>
+<td style="text-align:right;">
+2710
+</td>
+<td style="text-align:right;">
+9500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+7000
+</td>
+<td style="text-align:right;">
+3000
+</td>
+<td style="text-align:right;">
+10000
+</td>
+</tr>
+</tbody>
+</table>
+<p>Consider Table @ref(tab:c06_t1), which shows our population of 10,000 people broken down by infection status and vaccine status. First, notice that the overall probability of infection is 5% as assumed (500 infected out of 10,000), and the overall probability of vaccination is 70% (7,000 vaccinated out of 10,000). These are <strong>marginal probabilities</strong> because they are computed by aggregating across the levels of the other variable. In other words, to compute the marginal probability of infection, we have to consider the number of people infected among those who are vaccinated (210) and not vaccinated (290). Together there are 500 people infected, which is 5% of the total population.</p>
+<p>Second, from these data we can compute the joint probabilities of each combination of events:</p>
+<p><span class="math display">\[
+\begin{array}{l c c c c}
+P(\text{infected and vaccinated})       &amp; = &amp; \dfrac{210}{10000}  &amp; = &amp; 0.021 \\
+P(\text{not infected and vaccinated})   &amp; = &amp; \dfrac{6790}{10000} &amp; = &amp; 0.679 \\
+P(\text{infected and unvaccinated})     &amp; = &amp; \dfrac{290}{10000}  &amp; = &amp; 0.029 \\
+P(\text{not infected and unvaccinated}) &amp; = &amp; \dfrac{2710}{10000} &amp; = &amp; 0.271
+\end{array}
+\]</span>
+These joint probabilities make up the entire sample space for the joint event “infection status and vaccination status”, so following our addition rule, they should sum to one.</p>
+<p>Now let’s examine the question of conditional probability. Are the events infection status and tattoo vaccination status independent or dependent events? If they are independent events, then the probability of infection should be the same for people are vaccinated and unvaccinated. Conversely, if they are dependent events, the probability of infection will differ between people who are vaccinated and unvaccinated. Let’s compute the conditional probabilities following our rule:</p>
+<p><span class="math display">\[
+P(\text{infected | vaccinated}) = \frac{P(\text{infected and vaccinated)}}{P(\text{vaccinated})}=\frac{210}{210+6790}=0.03
+\]</span></p>
+<p><span class="math display">\[
+P(\text{infected | unvaccinated}) = \frac{P(\text{infected and unvaccinated)}}{P(\text{unvaccinated})}=\frac{290}{290+2710}=0.0967
+\]</span> Here we clearly see that the probability of infection differs by vaccine status. The probability of infection is over three times as likely for unvaccinated than vaccinated people. In other words, infection status is <em>not</em> independent of vaccine status.</p>
+<p>How do we compute joint probabilities when events are not independent? There’s a rule for that!</p>
+<div class="alert alert-block alert-info">
+<p><b>General multiplication rule</b></p>
+<p><span class="math display">\[
+P(A\ \text{and}\ B) = P(A|B)P(B)
+\]</span></p>
+</div>
+<p>This general multiplication rule is derived from the rule on conditional probability by simply isolating <span class="math inline">\(P(A\ and\ B)\)</span>. As an example, if you knew that 3% of vaccinated people were infected and 70% of all people were infected, then you can quantify the joint probability of those who are vaccinated and infected as</p>
+<p><span class="math display">\[
+P(\text{infected and vaccinated)} = P(\text{infected | vaccinated)}*P(\text{vaccinated})=0.03*0.7=0.021
+\]</span></p>
+<p>Note that we can show infection status and infection status are not independent by testing the simple multiplication rule. The simple multiplication rule says the joint probability of independent events is the multiplication of their individual probabilities. Thus, if infection status and vaccine status are independent, the proportion of people who are infected and vaccinated should be <span class="math inline">\(0.05*0.70=0.035\)</span>. But we ust showed that’s not the case! The simple multiplication rule doesn’t work here because it assumes independence, when in reality infection status is conditional on vaccine status.</p>
+</div>
+</div>
+<div id="general-addition-rule" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> General addition rule<a href="probability-as-the-language-of-uncertainty.html#general-addition-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s revisit the situation when we want to know the probability of an one event <em>or</em> another event. When the events are mutually exclusive, the addition rule tells us to simply add the probabilities of each event. What if the events are not mutually exclusive? For example, what if we want to quantify the probability that a person is infected or vaccinated. These events are not mutually exclusive because some infected individuals are vaccinated. If we simply the probability of <span class="math inline">\(P(\text{infected})\)</span> <span class="math inline">\(P(\text{vaccinated})\)</span>, we will doulbe count the people who are both infected and vaccinated. To quantify the probability of event A or B when A and B are not mutually exclusive, we need to apply the <strong>general addition rule</strong>:</p>
+<div class="alert alert-block alert-info">
+<p><b>General addition rule</b></p>
+<p><span class="math display">\[
+P(A\ \text{or}\ B) = P(A) + P(B) - P(A\ \text{and}\ B)
+\]</span></p>
+</div>
+<p>Let’s apply this to the infection and tattoo example. Here I’ve abbreviated the events “infected” as “I” and “vaccinated” as “V”:</p>
+<p><span class="math display">\[
+P(\text{I or V}) = P(\text{I}) + P(\text{V}) -P(\text{I and V})=0.05+0.70-0.021=0.729
+\]</span></p>
+</div>
+<div id="quantifying-marginal-probabilities" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Quantifying marginal probabilities<a href="probability-as-the-language-of-uncertainty.html#quantifying-marginal-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When working with joint events, sometimes we want to work backwards from disaggregated probabilities to aggregated, or marginal probabilities. For example, suppose you knew the infection probability separately for vaccinated and unvaccinated individuals. What is the overall prevalence of infection? You might be tempted to compute the simple average of the two conditional probabilities <span class="math inline">\(P(\text{infected | vaccinated)} = 0.03\)</span> and <span class="math inline">\(P(\text{infected | vaccinated)} = 0.0967\)</span>, but the mean (0.063) is not correct. Why not? The mean does not weight the conditions of vaccination status correctly. We know 70% of the population is vaccinated, whereas 30% of the population is unvaccinated. We need to account for the fact that more of the population is vaccinated. To quantify the marginal probability of infection (i.e., marginalizing the probability of infection over the levels of tattoo status), we basically quantify a weighted mean. This is the <em>law of total probability</em>:</p>
+<div class="alert alert-block alert-info">
+<p><b>Law of total probability</b></p>
+<p><span class="math display">\[
+P(A) = \sum_{i=1}^n P(A|B_i)P(B_i),
+\]</span></p>
+<p>where <span class="math inline">\(A\)</span> is event A and <span class="math inline">\(B_i\)</span> is condition <em>i</em> of event <span class="math inline">\(B\)</span>.</p>
+</div>
+<p>Here we see the total (marginal) probability of event A is the weighted average of the probability of A across conditions of event B. Now let’s apply this rule to quantify the probability of infection across conditions of vaccination (abbreviated each of the events):</p>
+<p><span class="math display">\[
+P(\text{I}) = P(\text{I | V)}*P(\text{V}) + P(\text{I | UV)}*P(\text{UV})=0.03*0.7+0.0967*0.3=0.05
+\]</span></p>
+</div>
+</div>
+<div id="sampling-from-probability-distributions" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Sampling from probability distributions<a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have a basic handle on probability rules, let’s turn our attention to the topic that motivated this chapter. How can we use probability to describe uncertainty about estimates when we sample from populations? Recall that you’re the lead epidemiologist trying to estimate the prevalence of an infection in a community of 10000 people. You have a fool proof test, when you tested 15 people at random, you found one was positive, leading to an estimated prevalence of 6.7%. How good is that estimate? Are you confident the prevalence is truly under 10%, the threshold that would trigger public health interventions? How confident?</p>
+<p>Science is ultimately a process of making inferences about the world with data. Because the data we collect are almost always incomplete, being samples of the population of interest, those inferences must be made with uncertainty. In this section, I will outline how probability can be used to describe the uncertainty about the estimates we make with data.</p>
+<div id="sampling-from-populations-is-probabalistic" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Sampling from populations is probabalistic<a href="probability-as-the-language-of-uncertainty.html#sampling-from-populations-is-probabalistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s take a close look at how data are generated in the process of sampling a population for testing. We begin with a much simpler example than sampling a population of 10,000 people. In this example, assume we have a population of just four individuals, and we randomly select two individuals for testing. Each test returns a positive or negative result. To make matters more simple from a probability perspective, we assume individuals are selected from the population <strong>with replacement</strong>. This means each person is available to be selected for each of the two tests. This is analogous to randomly selecting multiple playing cards from a deck, but each time replacing the card you chose before you select a new one.</p>
+<p>Suppose you go ahead and randomly select two individuals and find that one of the two tests was positive, and one of the two tests was negative. In probability terms, we know there was <span class="math inline">\(X = 1\)</span> positive test out of <span class="math inline">\(n = 2\)</span> trials. Those are the observed data. What insight do these data provide into proportion of individuals infected in the broader population of four people? Do we simply conclude the prevalence of the disease is 50% because one out of two tests were positive, or is there more to the story?</p>
+<p>Let’s examine the issue by assuming the true prevalence of the infection is 25% (<span class="math inline">\(p_{infected} = 0.25\)</span>), meaning that just one of the four people in the population is infected. If only one of the four people are infected, how likely were we to see one positive out of two tests? To answer that question, let’s look at all the possible outcomes when we conduct two tests, given that only one individual is infected. Figure @ref(fig:c06_f1) shows these possibilities in the format of a branching tree.</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f1-1.png" alt="Probability tree showing the possible outcomes of testing when one of four people in the household are infected. Pink boxes with + indicate a positive test, and white boxes with - indicate a negative test." width="672" />
+<p class="caption">
+(#fig:c06_f1)Probability tree showing the possible outcomes of testing when one of four people in the household are infected. Pink boxes with + indicate a positive test, and white boxes with - indicate a negative test.
+</p>
+</div>
+<p>The boxes in each branch of the tree represents the four individuals in the population. Only one of the four members is truly infected in this scenario, so for the 1st test, we see there’s three more ways to see a negative test than a positive test. In other words, when we randomly select an individual for the first test, there’s a 25% chance of a positive test and a 75% chance of a negative test when one of four individuals is infected. We then repeat that process for the 2nd test. Because we’re sampling with replacement, the possibilities on the 2nd test are the same as the 1st test.</p>
+<p>We see that when only one of the four people is truly infected, there are 16 possible outcomes when we conduct two tests: one outcome where both tests are positive, six outcomes where one test is positive and one test is negative, and nine outcomes when both tests are negative. Of these 16 possible outcomes, six outcomes are consistent with the data we observed, one positive test and one negative test. In other words, there was a 6 in 16 chance (37.5%) of getting the data we observed. Those outcomes are highlighted with bold lines in Figure @ref(fig:c06_f2).</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f2-1.png" alt="Probability tree showing the possible outcomes of testing when one of four people in the household are infected, highlighting outcomes consistent with the observed data." width="672" />
+<p class="caption">
+(#fig:c06_f2)Probability tree showing the possible outcomes of testing when one of four people in the household are infected, highlighting outcomes consistent with the observed data.
+</p>
+</div>
+<p>Probability trees like this are really handy for looking at all the possible outcomes of joint events, but we can also apply our probability rules to compute the probability of one positive out of two tests when the probability of infection is 0.25. You might be tempted to apply the multiplication rule, because we want to know the probability of a positive test <em>and</em> a negative test. Applying that rule, we find <span class="math inline">\(P(+\ \text{and}\ -) = P(+)P(-) = 0.25*0.75=0.1875\)</span>. Why isn’t this correct? The problem is not independence. We can reasonably assume the test results are independent if we are randomly picking people for each test. The problem is that there are multiple ways of observing exactly one positive test and one negative test! You can see this in the probability tree. It could be that the first test is positive and the second test is negative (“+-”), which can happen in three ways, or it could be that the first test is negative and the second test is positive (“-+”), which can also happen in three ways. We can separately quantify <span class="math inline">\(P(+\ \text{and}\ -)\)</span> and <span class="math inline">\(P(-\ \text{and}\ +)\)</span>, and then apply our addition rule because these outcomes are mutually exclusive.</p>
+<p><span class="math display">\[
+P(\text{One +}\ \text{and}\ \text{One}\ - ) = P(+)*P(-) + P(-)*P(+)\\
+P(\text{One +}\ \text{and}\ \text{One}\ - ) = 0.25*0.75 + 0.75*0.25=0.375
+\]</span><br />
+</p>
+</div>
+<div id="discrete-random-variables" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Discrete random variables<a href="probability-as-the-language-of-uncertainty.html#discrete-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At this point I want to formalize some important concepts from the example of conducting two tests in a population of four. What we’ve shown is that <strong>the process of sampling from a population is probabilistic</strong>. When one of four people is infected and we take a sample of <span class="math inline">\(n = 2\)</span> tests, the outcome that we observe has an element of chance. The outcome <span class="math inline">\(X\)</span> positive tests is called a <strong>random variable</strong>, where the term <em>random</em> implies the element of chance in terms of how we observe the variable. When we conduct <span class="math inline">\(n=2\)</span> tests, we can observe one of three mutually exclusive outcomes: X = 0 positives, X = 1 positive, or X = 2 positives. Some of these outcomes are more likely than others, just like getting 5 heads when you flip a coin 10 times is more likely than getting one heads. But there’s an element of chance, which is ultimately what creates much of the uncertainty we face when we estimate a quantity.</p>
+<p>Random variable can be characterized by a <strong>probability distribution</strong>, which is the distribution of probabilities for each mutually exclusive outcome. Mathematically, we can define the probability that a random variable <span class="math inline">\(X\)</span> takes on each possible value <span class="math inline">\(x\)</span> as (<span class="math inline">\(P(X = x)\)</span>). For the random variable <span class="math inline">\(X\)</span> = <em>number of positives out of two tests</em>, the probability distribution consists of <span class="math inline">\(P(X = 0)\)</span>, <span class="math inline">\(P(X = 1)\)</span>, <span class="math inline">\(P(X = 2)\)</span>. First, we can quantify these probabilities by enumerating all of the possibilities in the sample space and count up the outcomes:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="probability-as-the-language-of-uncertainty.html#cb157-1" tabindex="-1"></a><span class="co">#P(X = 0 positives): 9 ways</span></span>
+<span id="cb157-2"><a href="probability-as-the-language-of-uncertainty.html#cb157-2" tabindex="-1"></a><span class="dv">9</span><span class="sc">/</span><span class="dv">16</span></span></code></pre></div>
+<pre><code>## [1] 0.5625</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="probability-as-the-language-of-uncertainty.html#cb159-1" tabindex="-1"></a><span class="co">#P(X = 1 positives): 6 ways</span></span>
+<span id="cb159-2"><a href="probability-as-the-language-of-uncertainty.html#cb159-2" tabindex="-1"></a><span class="dv">6</span><span class="sc">/</span><span class="dv">16</span></span></code></pre></div>
+<pre><code>## [1] 0.375</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="probability-as-the-language-of-uncertainty.html#cb161-1" tabindex="-1"></a><span class="co">#P(X = 2 positives): 1 way</span></span>
+<span id="cb161-2"><a href="probability-as-the-language-of-uncertainty.html#cb161-2" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="dv">16</span></span></code></pre></div>
+<pre><code>## [1] 0.0625</code></pre>
+<p>Second, we could apply our probability rules:</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="probability-as-the-language-of-uncertainty.html#cb163-1" tabindex="-1"></a><span class="co">#P(X = 0 positives) = P(negative and negative)</span></span>
+<span id="cb163-2"><a href="probability-as-the-language-of-uncertainty.html#cb163-2" tabindex="-1"></a>(<span class="fl">0.75</span><span class="sc">*</span><span class="fl">0.75</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5625</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="probability-as-the-language-of-uncertainty.html#cb165-1" tabindex="-1"></a><span class="co">#P(X = 1 positives) = P(positive and negative)</span></span>
+<span id="cb165-2"><a href="probability-as-the-language-of-uncertainty.html#cb165-2" tabindex="-1"></a>(<span class="fl">0.75</span><span class="sc">*</span><span class="fl">0.25</span>) <span class="sc">+</span> (<span class="fl">0.25</span><span class="sc">*</span><span class="fl">0.75</span>) <span class="co">#2 ways this can happen</span></span></code></pre></div>
+<pre><code>## [1] 0.375</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="probability-as-the-language-of-uncertainty.html#cb167-1" tabindex="-1"></a><span class="co">#P(X = 2 positives) = P(positive and positive)</span></span>
+<span id="cb167-2"><a href="probability-as-the-language-of-uncertainty.html#cb167-2" tabindex="-1"></a>(<span class="fl">0.25</span><span class="sc">*</span><span class="fl">0.25</span>) </span></code></pre></div>
+<pre><code>## [1] 0.0625</code></pre>
+<p>The probabilities for each possible of outcome, no matter how we quantify them, form a probability distribution. This particular example is a <strong>discrete probability distribution</strong> because the sample space is composed of discrete, mutually exclusive outcomes where we can quantify the probability of each as we have done. Figure @ref(fig:c06_f3) shows the probability distribution.</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f3-1.png" alt="Discrete probability distribution of the number of positive tests out of two trials." width="672" />
+<p class="caption">
+(#fig:c06_f3)Discrete probability distribution of the number of positive tests out of two trials.
+</p>
+</div>
+<p>The probability of discrete outcomes is referred to as <strong>probability mass</strong>, but as Figure @ref(fig:c06_f3) shows, the y-axis of discrete probability distributions will often just be labeled “probability”.</p>
+<div id="binomial-distribution" class="section level4 hasAnchor" number="6.3.2.1">
+<h4><span class="header-section-number">6.3.2.1</span> Binomial distribution<a href="probability-as-the-language-of-uncertainty.html#binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>It was straightforward to quantify the probability distribution for the number of positives out of only two tests. The sample space is so small that we could easily quantify those probabilities by applying our probability rules. But now let’s consider the larger sample of 15 tests from a community of 10,000. Manually enumerating the probability distribution for each possible number of positives would take considerable time! Fortunately we don’t have to do that.</p>
+<p>The random variable that we defined - the number of positives <em>X</em> out of <em>n</em> trials - is actually an example of a variable that follows a known mathematical function called the <strong>binomial distribution</strong>. A binomial distribution is a probability distribution for a binary variable where the outcome of that binary variable is examined across <em>n</em> trials, where each individual trial is called a <em>Bernoulli trial</em>. The sample space of each trial must be binary, for example heads and tails when flipping a coin, even or odd when rolling a die, and positive or negative when testing for a viral infection. The outcome being recorded is often generically referred to as a <strong>success</strong>. The <em>n</em> trials must be independent and have the same probability of success, <em>p</em>, which is the only parameter for the binomial distribution (e.g., probability of positive test). If those assumptions are met, the probability of <em>x</em> successes out of <em>n</em> trials can be computed with the binomial formula:</p>
+<p><span class="math display">\[
+P(X = x) = \binom{n}{x} p^x (1 - p)^{n - x}
+\]</span>
+The <span class="math inline">\(binom{n}{x}\)</span> part of the formula reads “n choose x” and represents the number of ways <em>x</em> successes can occur out of <em>n</em> trials without regard to order (i.e., <strong>combinations</strong>). For example, we’ve already seen that 1 positive test can occur in two ways based on 2 trials. The number of combinations can be quantified as</p>
+<p><span class="math display">\[
+\binom{n}{x} = \frac{n!}{x!(n-x)!}
+\]</span></p>
+<p>Let’s now consider the random sample of 15 people from our community of 10,000 where the prevalence of infection is 0.05. What’s the probability of observing exactly one infection out of 15? Just apply the binomial formula:</p>
+<p><span class="math display">\[
+P(X = 2) = \binom{15}{1} 0.05^1 (1 - 0.05)^{15 - 1}=0.366
+\]</span>
+I’m not going to go into details here, but if you work through this formula, you’ll see that all it’s doing is applying the multiplication rule for independent events and the addition rule for mutually exclusive outcomes. And fortunately for us, we don’t have to do these calculations by hand because R has a built-in function to compute the binomial probability: <code>dbinom</code>. For example, we can use the function to quantify the probability of 1 infections out of 15 trials:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="probability-as-the-language-of-uncertainty.html#cb169-1" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">prob =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<pre><code>## [1] 0.3657562</code></pre>
+<p>We can apply the <code>dbinom</code> formula to efficiently compute the binomial probability of all possible values of X positive tests out of 15 trials, when the probability of infection is 0.05, and then display the probability distribution in a graph (Figure @ref(fig:c06_f4)):</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f4-1.png" alt="Discrete probability distribution of the number of positive tests out of 15 trials when 5% of the population is infected." width="672" />
+<p class="caption">
+(#fig:c06_f4)Discrete probability distribution of the number of positive tests out of 15 trials when 5% of the population is infected.
+</p>
+</div>
+<p>The probability distribution shows that the most likely outcome is no positives out of 15 when the prevalence is 0.05, and the probability of each outcome decreases as the number of positives increases. In fact, there’s virtually no chance of observing six or more positives out of 15 tests when the true prevalence is only 5%. The probability distribution would look much different if 50% of the population was infected (Figure @ref(fig:c06_f5)).</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f5-1.png" alt="Discrete probability distribution of the number of positive tests out of 15 trials when 50% of the population is infected." width="672" />
+<p class="caption">
+(#fig:c06_f5)Discrete probability distribution of the number of positive tests out of 15 trials when 50% of the population is infected.
+</p>
+</div>
+<p>When 50% of the population is infected, the most likely outcomes are 7 or 8 tests out of 15, but note that many other values are plausible. In fact, it’s more likely that we’ll see a value other than 7 or 8 positives out of a sample of 15, even though X = 7 and X = 8 are the most likely outcomes:</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="probability-as-the-language-of-uncertainty.html#cb171-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">dbinom</span>(<span class="dv">7</span>, <span class="dv">15</span>, <span class="at">prob=</span><span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="dv">8</span>, <span class="dv">15</span>, <span class="at">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
+<pre><code>## [1] 0.6072388</code></pre>
+<p>Here we see there’s a 61% chance of observing a value other than 7 or 8 positive tests out of 15 when the prevalence of the disease is 50%. This is an excellent illustration of the problem of sampling error.</p>
+<div id="mean-for-a-binomial-random-variable" class="section level5 hasAnchor" number="6.3.2.1.1">
+<h5><span class="header-section-number">6.3.2.1.1</span> Mean for a binomial random variable<a href="probability-as-the-language-of-uncertainty.html#mean-for-a-binomial-random-variable" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>As we saw in Chapter 4, we can characterize the shape of distributions by their central tendency and variation. When examining probability distributions of random variables, central tendency is usually characterized by the mean, also known as the <strong>expected value</strong>. The expected value of each possible outcome <em>X</em> is</p>
+<p><span class="math display">\[
+E[X] = \sum_{X}P(X)X
+\]</span></p>
+<p>Expected value is simply weighing each possible outcome of the random variable <em>X</em> by its probability of occurring. Let’s quantify the expected value of the number of positives out of 15 tests when the prevalence is 50%:</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="probability-as-the-language-of-uncertainty.html#cb173-1" tabindex="-1"></a><span class="co">#create a vector of outcomes</span></span>
+<span id="cb173-2"><a href="probability-as-the-language-of-uncertainty.html#cb173-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb173-3"><a href="probability-as-the-language-of-uncertainty.html#cb173-3" tabindex="-1"></a></span>
+<span id="cb173-4"><a href="probability-as-the-language-of-uncertainty.html#cb173-4" tabindex="-1"></a><span class="co">#sum the products of each outcome and its probability</span></span>
+<span id="cb173-5"><a href="probability-as-the-language-of-uncertainty.html#cb173-5" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>x, <span class="at">size=</span><span class="dv">15</span>, <span class="at">prob=</span><span class="fl">0.5</span>)<span class="sc">*</span>x)</span></code></pre></div>
+<pre><code>## [1] 7.5</code></pre>
+<p>We see exactly what we expect. When the prevalence is 50% and we conduct 15 tests, we expect 7.5 positives on average. What if the prevalence was 5%?</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="probability-as-the-language-of-uncertainty.html#cb175-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>x, <span class="at">size=</span><span class="dv">15</span>, <span class="at">prob=</span><span class="fl">0.05</span>)<span class="sc">*</span>x)</span></code></pre></div>
+<pre><code>## [1] 0.75</code></pre>
+<p>When the prevalence is 5%, we expect 0.75 positives on average. Obviously you can’t observe 7.5 or 0.75 positives for a discrete random variable, so you need to think about the expected value of discrete random variables as the long run outcome. That is, if you could take thousands of samples of 15 and compute the mean of the number of positives across samples, you’d expect the mean to be 7.5 positives if the prevalence was 50% and 0.75 positives if the prevalence was 5%.
+For binomial random variables, the mean of the probability distribution is equal to the true probability of success, so the expected value of a binomial random variable can be quantified simply as <span class="math inline">\(E(X) = np\)</span>, where <span class="math inline">\(n\)</span> is the number of trials and <span class="math inline">\(p\)</span> is the probability of success. For example, when we take <span class="math inline">\(n = 15\)</span> tests from a population with <span class="math inline">\(p_{infection} = 0.05\)</span>, the expected value can be computed as <span class="math inline">\(E(X) = np=15*0.05=0.75\)</span>.</p>
+</div>
+<div id="variance-for-a-binomial-random-variable" class="section level5 hasAnchor" number="6.3.2.1.2">
+<h5><span class="header-section-number">6.3.2.1.2</span> Variance for a binomial random variable<a href="probability-as-the-language-of-uncertainty.html#variance-for-a-binomial-random-variable" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Recall that variance is a measure of variation in an outcome relative to the mean. The variance will be large when outcomes of the random variable can range widely around the mean, and it will be small when the outcomes show little variation around the mean. For a discrete random variable, the variance is quantified as</p>
+<p><span class="math display">\[
+V[X]=\sum_{X}P(X)(X-E[X])^2
+\]</span></p>
+<p>What does this mean? Just like we saw in the variance formula before, we’re looking at how far each value of X is away from the mean, quantified as the squared difference between <span class="math inline">\(X\)</span> and <span class="math inline">\(E[X]\)</span>. We weigh each of those squared deviations by the probability of X, <span class="math inline">\(P(X)\)</span>, and then we sum them up. Intuitively, you should see that the variance will increase as there are highly probable values of <span class="math inline">\(X\)</span> far from the mean.</p>
+<p>The variance formula for a binomial random variable can be simplified to the following:</p>
+<p><span class="math display">\[
+V[X]=np(1-p)
+\]</span></p>
+<p>From this formula we can see that the variance of a binomial random variable will be greatest when the probability of success is closer to 0.5. When <span class="math inline">\(p=0.5\)</span> and <span class="math inline">\(n\)</span> = 15, the variance is <span class="math inline">\(V[X]=15*0.5*(1-0.5)=3.75\)</span>. Any deviation from <span class="math inline">\(p = 0.5\)</span> leads to lower variance. For example, when <span class="math inline">\(p=0.05\)</span> (e.g., 5% prevalence of infection), the variance is <span class="math inline">\(V[X]=15*0.05*(1-0.05)=0.7125\)</span>. At the extremes, when <span class="math inline">\(p = 0\)</span> or <span class="math inline">\(p = 1\)</span>, the variance by definition must be 0. What this means is that probability distribution for binomial random variables will be somewhat bell-shaped with long tails when the probability of success is close to 0.5, and it will become skewed as the probability distribution deviates from 0.5.</p>
+</div>
+</div>
+</div>
+<div id="continuous-random-variables" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Continuous random variables<a href="probability-as-the-language-of-uncertainty.html#continuous-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Discrete probability distributions are straightforward because we can quantify the probability mass for each discrete outcome in the sample space. When we test an individual for a viral infection, the outcome is either positive or negative with probabilities <span class="math inline">\(p_{positive}\)</span> and <span class="math inline">\(p_negative\)</span>. But not all random variables are so simple. Many variables form <strong>continuous</strong> probability distributions, such as height, weight, air temperature, and many more. The challenge of characterizing probability distributions for continuous variables is that there’s an <em>infinite</em> number of potential outcomes in the sample space.</p>
+<p>Consider the incubation period for a viral illness, which is the time between exposure to the pathogen and onset of symptoms. Incubation period is a continuous random variable because there’s an infinite number of possibilities in the sample space. The incubation might be 2, 2.1, 2.15, 2.154, 2.1547 days, and so on. The probability of the incubation period being a particular value (e.g., 2.154794667 days) is 0 because there’s an infinite number of possible values. If there’s an infinite number of possible values in the sample space and each possibility had a non-zero probability, then the sum of the probability of all the mutually exclusive outcomes would be infinity, violating our rules of probability.</p>
+<div id="probability-density-function" class="section level4 hasAnchor" number="6.3.3.1">
+<h4><span class="header-section-number">6.3.3.1</span> Probability density function<a href="probability-as-the-language-of-uncertainty.html#probability-density-function" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To characterize probability distributions for continuous variables, we use the concept of <strong>probability density</strong>. A <strong>probability density function (pdf)</strong> describes how probability is distributed across the possible values of a continuous random variable. Instead of assigning probabilities to individual points, the <em>pdf</em> reflects how “dense” the probability is at different values of the random variable.</p>
+<p>To visualize this concept, we can approximate a continuous variable by discretizing the sample space into intervals. Figure @ref(fig:c06_f6) shows a simulated distribution of incubation times for 10,000 individuals, grouped into bins of 0.1 days. You can see this distribution has a slight positive skew, which makes sense given that time must be positive. The highlighted bin for 1.4-1.5 days contains 1,375 observations, meaning the probability <em>mass</em> for this interval is:</p>
+<p><span class="math display">\[
+\frac{1234}{10000}=0.1234
+\]</span></p>
+<p>The probability density is defined as the ratio of the probability mass to the bin width, in this case:</p>
+<p><span class="math display">\[
+\frac{0.1234}{0.1}=1.234
+\]</span></p>
+<p>Here we see that probability densities can be greater than 1. That’s because probability density is a measure of how concentrated the probability is within a particular interval (a density!) rather than a probability of a particular observation. In this way probability density is similar to measuring human population density in a city. A city can have densities well over one person per square kilometer, even though the probability of finding one person in a randomly selected square kilometer is very low.</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f6-1.png" alt="Probability distribution of incubation period with intervals of 0.1 days." width="672" />
+<p class="caption">
+(#fig:c06_f6)Probability distribution of incubation period with intervals of 0.1 days.
+</p>
+</div>
+<p>If we can quantify probability mass for a discrete interval, why do we use probability density? We use probability density because we want to describe the distribution continuously, without being constrained by arbitrary interval sizes. Narrower intervals result in smaller probability masses, approaching zero as the interval size approaches zero. The pdf allows us to describe the relative likelihood of observations without relying on a fixed bin size. Given a pdf, we can quantify the probability mass of <em>any</em> interval by applying integrals from calculus, which represents the area under the curve of the pdf over the interval of interest. The total probability over the entire sample space remains one, satisfying the basic rules of probability.</p>
+</div>
+<div id="normal-distribution" class="section level4 hasAnchor" number="6.3.3.2">
+<h4><span class="header-section-number">6.3.3.2</span> Normal distribution<a href="probability-as-the-language-of-uncertainty.html#normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Perhaps the most well-known probability density function for a continuous random variable is the <strong>normal distribution</strong>, also known as a <strong>Gaussian distribution</strong>. The normal distribution is bell-shaped and symmetric, such that it has no skew. It is widely used in science because many variables are well described by a normal distribution can be used to describe continuous variables with positive or negative values. Variables tend to have a normal distribution when the outcome is shaped by many factors each with small effect, and that characterizes a lot of variables!</p>
+<p>As an example, consider body temperature among people with an active viral temperature. Body temperature reflects many small influences (e.g., hydration, time of day, ambient temperature), so the distribution of body temperature is often approximately normal.</p>
+<p>For a normal random variable, the probability density of any value X is quantified as</p>
+<p><span class="math display">\[
+f(X) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+\]</span></p>
+<p>where <span class="math inline">\(f(X)\)</span> is the probabilty density of value <span class="math inline">\(X\)</span>, <span class="math inline">\(\mu\)</span> is the mean, and <span class="math inline">\(\sigma^2\)</span> is the variance (<span class="math inline">\(\sigma\)</span> is the standard deviation) of the random variable. This is an ugly equation, but don’t fret. The main takeaway here is that a normal distribution has two parameters. The mean (<span class="math inline">\(\mu\)</span>) controls the central tendency of the distribution, and the standard deviation (<span class="math inline">\(\sigma\)</span>) controls the spread.</p>
+<p>In R we can use the <code>dnorm</code> function to compute the probability density of <span class="math inline">\(X\)</span> given values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. For example, suppose body temperature of people with a viral infection follows a normal distribution with <span class="math inline">\(\mu\)</span> = 100.4°F and <span class="math inline">\(\sigma\)</span> = 0.8°F.</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f7-1.png" alt="Probability density function assuming a normal distribution of incubation period mean = 100.4 and SD = 0.8 days." width="672" />
+<p class="caption">
+(#fig:c06_f7)Probability density function assuming a normal distribution of incubation period mean = 100.4 and SD = 0.8 days.
+</p>
+</div>
+<p>Figure @ref(fig:c06_f7) shows the resulting probability density function, which we can use to highlight important characteristics of the normal distribution:</p>
+<ol style="list-style-type: decimal">
+<li>Symmetry around the mean. The normal distribution is bell-shaped and symmetric around the mean. In other words, the probability that body temperature is below 100.4°F is the same as the probability of body temperature being above 100.4°F (both 0.5). We can verify this with the <code>pnorm</code> function</li>
+</ol>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="probability-as-the-language-of-uncertainty.html#cb177-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">100.4</span>, <span class="at">mean =</span> <span class="fl">100.4</span>, <span class="at">sd =</span> <span class="fl">0.8</span>, <span class="at">lower.tail=</span><span class="cn">TRUE</span>) <span class="co"># P(X &lt; 100.4)</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="probability-as-the-language-of-uncertainty.html#cb179-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">100.4</span>, <span class="at">mean =</span> <span class="fl">100.4</span>, <span class="at">sd =</span> <span class="fl">0.8</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>) <span class="co"># P(X &gt; 100.4)</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>The <code>pnorm</code> function computes probability mass for an interval as the area under the curve for that interval. We can quantify probability mass for any interval in this way. For example, what is the probability that body temperature is less than 99°F?</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="probability-as-the-language-of-uncertainty.html#cb181-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">99</span>, <span class="at">mean =</span> <span class="fl">100.4</span>, <span class="at">sd =</span> <span class="fl">0.8</span>, <span class="at">lower.tail=</span><span class="cn">TRUE</span>) <span class="co"># P(X &lt; 99)</span></span></code></pre></div>
+<pre><code>## [1] 0.04005916</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The mean controls location. The mean is the expected value of the normal distribution and specifies the central tendency of the distribution. Figure @ref(fig:c06_f8) shows three normal distributions each with different means. Notice the changing <span class="math inline">\(\mu\)</span> shifts the center of the distribution but leaves its width unchanged.</li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f8-1.png" alt="Probability density functions with varying means but identical standard deviations." width="672" />
+<p class="caption">
+(#fig:c06_f8)Probability density functions with varying means but identical standard deviations.
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>The standard deviation controls spread. The standard deviation <span class="math inline">\(\sigma\)</span> affects how variable the observations are around the mean. Figure @ref(fig:c06_f9) shows three normal distributions each with identical means but different standard deviations. Notice how the width of the normal distribution grows as the standard deviation increases.</li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f9-1.png" alt="Probability density functions with identical means but varying standard deviations." width="672" />
+<p class="caption">
+(#fig:c06_f9)Probability density functions with identical means but varying standard deviations.
+</p>
+</div>
+<div id="probability-mass-and-the-empirical-rule" class="section level5 hasAnchor" number="6.3.3.2.1">
+<h5><span class="header-section-number">6.3.3.2.1</span> Probability mass and the empirical rule<a href="probability-as-the-language-of-uncertainty.html#probability-mass-and-the-empirical-rule" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Recall that we can quantify probability mass as area under the probability density function for any interval of interest. Consider again the normal distribution with <span class="math inline">\(\mu = 100.4°F\)</span> and <span class="math inline">\(\sigma = 0.8°F\)</span>. What’s the probability that body tempearture is between 99.6°F and 101.2°F? The interval of interest is shaded in the probability density function in Figure @ref(fig:c06_f10).</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f10-1.png" alt="Probability density function highlighting the interval 99.6°F to 101.2°F" width="672" />
+<p class="caption">
+(#fig:c06_f10)Probability density function highlighting the interval 99.6°F to 101.2°F
+</p>
+</div>
+<p>We can compute the probability mass with <code>pnorm</code>:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="probability-as-the-language-of-uncertainty.html#cb183-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">101.2</span>, <span class="fl">100.4</span>, <span class="fl">0.8</span>, <span class="at">lower.tail=</span><span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">99.6</span>, <span class="fl">100.4</span>, <span class="fl">0.8</span>, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.6826895</code></pre>
+<p>This interval encompasses exactly one standard deviation above and below the mean and includes 68.3% of the observations. Let’s expand the interval to include values between 98.8°F and 102°F (Figure @ref(fig:c06_f11)))?</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f11-1.png" alt="Probability density function highlighting the interval 98.8°F to 102°F" width="672" />
+<p class="caption">
+(#fig:c06_f11)Probability density function highlighting the interval 98.8°F to 102°F
+</p>
+</div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="probability-as-the-language-of-uncertainty.html#cb185-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">102.0</span>, <span class="fl">100.4</span>, <span class="fl">0.8</span>, <span class="at">lower.tail=</span><span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">98.8</span>, <span class="fl">100.4</span>, <span class="fl">0.8</span>, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9544997</code></pre>
+<p>This interval encompasses exactly two standard deviations above and below the mean and includes 95.4% of the observations.</p>
+<p>This illustrates what’s nown as the <strong>emprical rule</strong>. For a normal distribution, about 68% of the observations are within 1 standard deviation of the mean (i.e., <span class="math inline">\(\mu \pm 1\sigma\)</span>), whereas about 95% of the observations are within 2 standard deviations of the mean (i.e., <span class="math inline">\(\mu \pm 2\sigma\)</span>). Figure @ref(fig:c06_f12) shows the empirical rule graphically for our example normal distribution of body temperature.</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f12-1.png" alt="Normal probability density function showing the empirical rule, namely that about 68% of observations are within one standard deviation of the mean, and about 95% of observations are within two standard deviations of the mean. In this example, the mean body temperature is 100.4°F and the standard deviation is 0.8°F." width="672" />
+<p class="caption">
+(#fig:c06_f12)Normal probability density function showing the empirical rule, namely that about 68% of observations are within one standard deviation of the mean, and about 95% of observations are within two standard deviations of the mean. In this example, the mean body temperature is 100.4°F and the standard deviation is 0.8°F.
+</p>
+</div>
+</div>
+<div id="standard-normal-distribution" class="section level5 hasAnchor" number="6.3.3.2.2">
+<h5><span class="header-section-number">6.3.3.2.2</span> Standard normal distribution<a href="probability-as-the-language-of-uncertainty.html#standard-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Any combination of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> produces a unique normal distribution, so there’s an infinite variety of possible normal distributions. However, any normal distribution can be converted to a <strong>standard normal distribution</strong>, which is a normal distribution with <span class="math inline">\(\mu = 0\)</span> and <span class="math inline">\(\sigma = 1\)</span> (Figure @ref(fig:c06_f13)). Because the standard deviation is one, the values of the standard normal distribution are in units of standard deviations. The values of a standard normal distribution are denoted <span class="math inline">\(Z\)</span>, or <span class="math inline">\(Z-scores\)</span>.</p>
+<div class="figure" style="text-align: center">
+<img src="ch06_probability_files/figure-html/c06_f13-1.png" alt="Standard normal distribution with mean = 0 and standard deviation = 1. The values Z of a standard normal distribution are in units of standard deviations away from the mean." width="672" />
+<p class="caption">
+(#fig:c06_f13)Standard normal distribution with mean = 0 and standard deviation = 1. The values Z of a standard normal distribution are in units of standard deviations away from the mean.
+</p>
+</div>
+<p>We can convert any observation <span class="math inline">\(X\)</span> drawn from a normal distribution to a Z-score using the following formula:</p>
+<p><span class="math display">\[
+Z = \frac{X-\mu}{\sigma}
+\]</span></p>
+<p>Consider the normal distribution of body temperature with <span class="math inline">\(\mu = 100.4°F\)</span> and <span class="math inline">\(\sigma=0.8°F\)</span>. Let’s say we have an observation <span class="math inline">\(X\)</span> of 101.2°F. The corresponding Z-score is thus</p>
+<p><span class="math display">\[
+Z = \frac{X-\mu}{\sigma} =\frac{101.2-100.4}{0.8}=1
+\]</span></p>
+<p>In other words, the value 101.2°F is one standard deviation above the mean. If another person has a temperature of 99.2°F, then</p>
+<p><span class="math display">\[
+Z = \frac{X-\mu}{\sigma} =\frac{99.2-100.4}{0.8}=-1.5
+\]</span>
+The negative value of <span class="math inline">\(Z\)</span> indicates the observation <span class="math inline">\(X\)</span> is below the mean, so can say the observation of 99.2°F is 1.5 standard deviations below the mean. The standard normal distribution is perfectly symmetric around 0, so half the observations are positive and half are negative.</p>
+<p>The standard normal distribution is useful as a common language to talk about any normal distribution, but there’s also practical value that we’ll encounter in statistics of converting variables to Z-scores. The process of transforming a variable to Z-scores is called <strong>standardization</strong>, and in R we can use the <code>scale</code> function to make the conversion. For example, here I generate a dataset of 10 values, which I then convert to z-scores:</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="probability-as-the-language-of-uncertainty.html#cb187-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb187-2"><a href="probability-as-the-language-of-uncertainty.html#cb187-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">scale</span>(x)</span>
+<span id="cb187-3"><a href="probability-as-the-language-of-uncertainty.html#cb187-3" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>##             [,1]
+##  [1,] -1.6673586
+##  [2,] -1.3585885
+##  [3,] -0.7410483
+##  [4,] -0.1235080
+##  [5,]  0.1852621
+##  [6,]  0.1852621
+##  [7,]  0.4940322
+##  [8,]  0.4940322
+##  [9,]  1.1115724
+## [10,]  1.4203425
+## attr(,&quot;scaled:center&quot;)
+## [1] 5.4
+## attr(,&quot;scaled:scale&quot;)
+## [1] 3.238655</code></pre>
+<p>The scale function returns each value <span class="math inline">\(X\)</span> as a Z-score, and it also computes the mean (<code>scaled:center</code>) and standard deviation (<code>scaled:scale</code>). Note that if we standardize the value directly, we’d get the same Z-scores:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="probability-as-the-language-of-uncertainty.html#cb189-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x)</span>
+<span id="cb189-2"><a href="probability-as-the-language-of-uncertainty.html#cb189-2" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>##  [1] -1.6673586 -1.3585885 -0.7410483 -0.1235080  0.1852621  0.1852621
+##  [7]  0.4940322  0.4940322  1.1115724  1.4203425</code></pre>
+</div>
+</div>
+</div>
+<div id="sampling-from-probability-distributions-1" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> Sampling from probability distributions<a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Why does any of this matter?! Well, keep in mind that when we collect data to test scientific hypotheses, we’re almost always sampling from a broader population. Imagine if I’m conducting a study to estimate the mean incubation period for a viral illness. I’d love to track down every single person who has the viral illness and record the incubation, but I can’t do that. Instead, we rely on sampling. We know that sampling is a stochastic, or random process. In other words, the variables that we observe should be considered <em>random</em> variables, and if we sample in an unbiased way, the values of the variable we observe through sampling are drawn from a probability distribution.</p>
+<p>What probability distribution are observations of random variables drawn from? Often we don’t know with certainty! We usually have to make some assumptions, ideally informed by knowledge of your particular discipline. I’ve introduced two broad types of probability distributions - discrete and random - and particular probability distribution of each type, the binomial (discrete) and normal (continuous) distributions. In reality, there are many more probability distributions one can choose from, and we’ll encounter some others throughout the book, but the binomial and normal distributions provide a useful starting point. They may not be a perfect fit for a particular random variable (for example, a normal distribution allows for negative values, but incubation period can’t be negative), but often these distributions can be useful approximations.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="uncertainty-from-sampling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true,
+    "toc_depth": 2
+  },
+  "toolbar": {
+    "position": "fixed"
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

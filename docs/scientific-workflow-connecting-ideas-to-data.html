@@ -1,0 +1,2837 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Scientific workflow: Connecting ideas to data | Research Design and Statistics</title>
+  <meta name="description" content="An introduction to research design and statistics" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Scientific workflow: Connecting ideas to data | Research Design and Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="An introduction to research design and statistics" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Scientific workflow: Connecting ideas to data | Research Design and Statistics" />
+  
+  <meta name="twitter:description" content="An introduction to research design and statistics" />
+  
+
+<meta name="author" content="Bradley J. Cosentino" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="why-statistics-the-problem-of-uncertainty.html"/>
+<link rel="next" href="introduction-to-data-and-r.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#work-in-progress"><i class="fa fa-check"></i>Work in progress</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i>About the Author</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html"><i class="fa fa-check"></i><b>1</b> Why Statistics? The Problem of Uncertainty</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#the-nature-of-science"><i class="fa fa-check"></i><b>1.1</b> The nature of science</a></li>
+<li class="chapter" data-level="1.2" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#goals-of-scientific-research"><i class="fa fa-check"></i><b>1.2</b> Goals of scientific research</a></li>
+<li class="chapter" data-level="1.3" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#three-general-goals-of-scientific-research"><i class="fa fa-check"></i><b>1.3</b> Three general goals of scientific research</a></li>
+<li class="chapter" data-level="1.4" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#research-design-and-statistical-analysis-depend-on-your-goal"><i class="fa fa-check"></i><b>1.4</b> Research design and statistical analysis depend on your goal</a></li>
+<li class="chapter" data-level="1.5" data-path="why-statistics-the-problem-of-uncertainty.html"><a href="why-statistics-the-problem-of-uncertainty.html#you-cant-escape-uncertainty-in-science"><i class="fa fa-check"></i><b>1.5</b> You can’t escape uncertainty in science</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html"><i class="fa fa-check"></i><b>2</b> Scientific workflow: Connecting ideas to data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#research-questions"><i class="fa fa-check"></i><b>2.1</b> Research questions</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#clarify-your-primary-goal-description-prediction-or-explanation"><i class="fa fa-check"></i><b>2.1.1</b> Clarify your primary goal: description, prediction, or explanation?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#identify-the-scope-of-inference-the-who-what-when-and-where-of-your-study."><i class="fa fa-check"></i><b>2.1.2</b> Identify the scope of inference: The who, what, when, and where of your study.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-it-interesting"><i class="fa fa-check"></i><b>2.1.3</b> Make it interesting</a></li>
+<li class="chapter" data-level="2.1.4" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-it-answerable-with-data"><i class="fa fa-check"></i><b>2.1.4</b> Make it answerable with data</a></li>
+<li class="chapter" data-level="2.1.5" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#ground-it-in-theory"><i class="fa fa-check"></i><b>2.1.5</b> Ground it in theory</a></li>
+<li class="chapter" data-level="2.1.6" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#make-sure-its-feasible"><i class="fa fa-check"></i><b>2.1.6</b> Make sure it’s feasible</a></li>
+<li class="chapter" data-level="2.1.7" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#avoid-analyzing-the-data-before-stating-your-question"><i class="fa fa-check"></i><b>2.1.7</b> Avoid analyzing the data before stating your question</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#connecting-ideas-to-data"><i class="fa fa-check"></i><b>2.2</b> Connecting ideas to data</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#theory"><i class="fa fa-check"></i><b>2.2.1</b> Theory</a></li>
+<li class="chapter" data-level="2.2.2" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#research-question"><i class="fa fa-check"></i><b>2.2.2</b> Research question</a></li>
+<li class="chapter" data-level="2.2.3" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#generative-model"><i class="fa fa-check"></i><b>2.2.3</b> Generative model</a></li>
+<li class="chapter" data-level="2.2.4" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#study-design"><i class="fa fa-check"></i><b>2.2.4</b> Study design</a></li>
+<li class="chapter" data-level="2.2.5" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#estimand"><i class="fa fa-check"></i><b>2.2.5</b> Estimand</a></li>
+<li class="chapter" data-level="2.2.6" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#target-population"><i class="fa fa-check"></i><b>2.2.6</b> Target population</a></li>
+<li class="chapter" data-level="2.2.7" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#sample-data"><i class="fa fa-check"></i><b>2.2.7</b> Sample data</a></li>
+<li class="chapter" data-level="2.2.8" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#statistical-model"><i class="fa fa-check"></i><b>2.2.8</b> Statistical model</a></li>
+<li class="chapter" data-level="2.2.9" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#estimate"><i class="fa fa-check"></i><b>2.2.9</b> Estimate</a></li>
+<li class="chapter" data-level="2.2.10" data-path="scientific-workflow-connecting-ideas-to-data.html"><a href="scientific-workflow-connecting-ideas-to-data.html#summary"><i class="fa fa-check"></i><b>2.2.10</b> Summary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html"><i class="fa fa-check"></i><b>3</b> Introduction to Data and R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#an-introduction-to-data"><i class="fa fa-check"></i><b>3.1</b> An introduction to data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#variables-and-observations"><i class="fa fa-check"></i><b>3.1.1</b> Variables and observations</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#types-of-variables"><i class="fa fa-check"></i><b>3.1.2</b> Types of variables</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#relationships-between-variables"><i class="fa fa-check"></i><b>3.1.3</b> Relationships between variables</a></li>
+<li class="chapter" data-level="3.1.4" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#variable-naming-conventions-and-metadata"><i class="fa fa-check"></i><b>3.1.4</b> Variable naming conventions and metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#introduction-to-r"><i class="fa fa-check"></i><b>3.2</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>3.2.1</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#the-rstudio-interface"><i class="fa fa-check"></i><b>3.2.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="3.2.3" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#basic-data-manipulation-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Basic data manipulation in R</a></li>
+<li class="chapter" data-level="3.2.4" data-path="introduction-to-data-and-r.html"><a href="introduction-to-data-and-r.html#scripting"><i class="fa fa-check"></i><b>3.2.4</b> Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="describing-data.html"><a href="describing-data.html"><i class="fa fa-check"></i><b>4</b> Describing data</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="describing-data.html"><a href="describing-data.html#defining-the-population"><i class="fa fa-check"></i><b>4.0.1</b> Defining the population</a></li>
+<li class="chapter" data-level="4.0.2" data-path="describing-data.html"><a href="describing-data.html#loading-data-into-r"><i class="fa fa-check"></i><b>4.0.2</b> Loading data into R</a></li>
+<li class="chapter" data-level="4.0.3" data-path="describing-data.html"><a href="describing-data.html#inspecting-the-dataset"><i class="fa fa-check"></i><b>4.0.3</b> Inspecting the dataset</a></li>
+<li class="chapter" data-level="4.0.4" data-path="describing-data.html"><a href="describing-data.html#describing-single-qualitative-variables"><i class="fa fa-check"></i><b>4.0.4</b> Describing single qualitative variables</a></li>
+<li class="chapter" data-level="4.0.5" data-path="describing-data.html"><a href="describing-data.html#describing-single-quantitative-variables"><i class="fa fa-check"></i><b>4.0.5</b> Describing single quantitative variables</a></li>
+<li class="chapter" data-level="4.0.6" data-path="describing-data.html"><a href="describing-data.html#describing-relationships-between-variables"><i class="fa fa-check"></i><b>4.0.6</b> Describing relationships between variables</a></li>
+<li class="chapter" data-level="4.0.7" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-variables"><i class="fa fa-check"></i><b>4.0.7</b> Associations between quantitative variables</a></li>
+<li class="chapter" data-level="4.0.8" data-path="describing-data.html"><a href="describing-data.html#associations-between-quantitative-and-qualitative-variables"><i class="fa fa-check"></i><b>4.0.8</b> Associations between quantitative and qualitative variables</a></li>
+<li class="chapter" data-level="4.0.9" data-path="describing-data.html"><a href="describing-data.html#associations-between-qualitative-variables"><i class="fa fa-check"></i><b>4.0.9</b> Associations between qualitative variables</a></li>
+<li class="chapter" data-level="4.0.10" data-path="describing-data.html"><a href="describing-data.html#this-is-just-the-beginning"><i class="fa fa-check"></i><b>4.0.10</b> This is just the beginning</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html"><i class="fa fa-check"></i><b>5</b> Uncertainty from sampling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#sampling-requires-estimation"><i class="fa fa-check"></i><b>5.1</b> Sampling requires estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#parameters-estimates-estimands"><i class="fa fa-check"></i><b>5.2</b> Parameters, estimates, estimands</a></li>
+<li class="chapter" data-level="5.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#sources-of-uncertainty-from-sampling"><i class="fa fa-check"></i><b>5.3</b> Sources of uncertainty from sampling</a></li>
+<li class="chapter" data-level="5.4" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#accuracy-and-precision"><i class="fa fa-check"></i><b>5.4</b> Accuracy and precision</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#accuracy"><i class="fa fa-check"></i><b>5.4.1</b> Accuracy</a></li>
+<li class="chapter" data-level="5.4.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#precision"><i class="fa fa-check"></i><b>5.4.2</b> Precision</a></li>
+<li class="chapter" data-level="5.4.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#considering-accuracy-and-precision-together"><i class="fa fa-check"></i><b>5.4.3</b> Considering accuracy and precision together</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#maximizing-accuracy-and-precision-of-estimates"><i class="fa fa-check"></i><b>5.5</b> Maximizing accuracy and precision of estimates</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#random-sampling"><i class="fa fa-check"></i><b>5.5.1</b> Random sampling</a></li>
+<li class="chapter" data-level="5.5.2" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#replication"><i class="fa fa-check"></i><b>5.5.2</b> Replication</a></li>
+<li class="chapter" data-level="5.5.3" data-path="uncertainty-from-sampling.html"><a href="uncertainty-from-sampling.html#take-home-points"><i class="fa fa-check"></i><b>5.5.3</b> Take-home points</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html"><i class="fa fa-check"></i><b>6</b> Probability as the Language of Uncertainty</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#defining-probability"><i class="fa fa-check"></i><b>6.1</b> Defining probability</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#frequentist-definition"><i class="fa fa-check"></i><b>6.1.1</b> Frequentist definition</a></li>
+<li class="chapter" data-level="6.1.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#bayesian-definition"><i class="fa fa-check"></i><b>6.1.2</b> Bayesian definition</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#probability-rules"><i class="fa fa-check"></i><b>6.2</b> Probability rules</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#individual-events"><i class="fa fa-check"></i><b>6.2.1</b> Individual events</a></li>
+<li class="chapter" data-level="6.2.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#joint-events"><i class="fa fa-check"></i><b>6.2.2</b> Joint events</a></li>
+<li class="chapter" data-level="6.2.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#general-addition-rule"><i class="fa fa-check"></i><b>6.2.3</b> General addition rule</a></li>
+<li class="chapter" data-level="6.2.4" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#quantifying-marginal-probabilities"><i class="fa fa-check"></i><b>6.2.4</b> Quantifying marginal probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions"><i class="fa fa-check"></i><b>6.3</b> Sampling from probability distributions</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-populations-is-probabalistic"><i class="fa fa-check"></i><b>6.3.1</b> Sampling from populations is probabalistic</a></li>
+<li class="chapter" data-level="6.3.2" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#discrete-random-variables"><i class="fa fa-check"></i><b>6.3.2</b> Discrete random variables</a></li>
+<li class="chapter" data-level="6.3.3" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#continuous-random-variables"><i class="fa fa-check"></i><b>6.3.3</b> Continuous random variables</a></li>
+<li class="chapter" data-level="6.3.4" data-path="probability-as-the-language-of-uncertainty.html"><a href="probability-as-the-language-of-uncertainty.html#sampling-from-probability-distributions-1"><i class="fa fa-check"></i><b>6.3.4</b> Sampling from probability distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="estimation.html"><a href="estimation.html#scientific-workflow-for-the-problem"><i class="fa fa-check"></i><b>7.1</b> Scientific workflow for the problem</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="estimation.html"><a href="estimation.html#theory-and-the-research-question"><i class="fa fa-check"></i><b>7.1.1</b> Theory and the research question</a></li>
+<li class="chapter" data-level="7.1.2" data-path="estimation.html"><a href="estimation.html#generative-model-and-estimand"><i class="fa fa-check"></i><b>7.1.2</b> Generative model and estimand</a></li>
+<li class="chapter" data-level="7.1.3" data-path="estimation.html"><a href="estimation.html#statistical-model-and-estimate"><i class="fa fa-check"></i><b>7.1.3</b> Statistical model and estimate</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#bayes-theorem"><i class="fa fa-check"></i><b>7.2</b> Bayes Theorem</a></li>
+<li class="chapter" data-level="7.3" data-path="estimation.html"><a href="estimation.html#applying-bayes-theorem-to-statistical-analysis"><i class="fa fa-check"></i><b>7.3</b> Applying Bayes Theorem to statistical analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="estimation.html"><a href="estimation.html#steps-of-estimation-with-bayesian-inference"><i class="fa fa-check"></i><b>7.4</b> Steps of estimation with Bayesian inference</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="estimation.html"><a href="estimation.html#specify-the-prior-distribution"><i class="fa fa-check"></i><b>7.4.1</b> Specify the prior distribution</a></li>
+<li class="chapter" data-level="7.4.2" data-path="estimation.html"><a href="estimation.html#quantify-the-likelihood-of-the-data"><i class="fa fa-check"></i><b>7.4.2</b> Quantify the likelihood of the data</a></li>
+<li class="chapter" data-level="7.4.3" data-path="estimation.html"><a href="estimation.html#quantify-the-total-probability-of-the-data-marginal-likelihood"><i class="fa fa-check"></i><b>7.4.3</b> Quantify the total probability of the data (marginal likelihood)</a></li>
+<li class="chapter" data-level="7.4.4" data-path="estimation.html"><a href="estimation.html#quantify-the-posterior-distribution"><i class="fa fa-check"></i><b>7.4.4</b> Quantify the posterior distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="estimation.html"><a href="estimation.html#summarizing-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5</b> Summarizing the posterior distribution</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="estimation.html"><a href="estimation.html#sampling-from-the-posterior-distribution"><i class="fa fa-check"></i><b>7.5.1</b> Sampling from the posterior distribution</a></li>
+<li class="chapter" data-level="7.5.2" data-path="estimation.html"><a href="estimation.html#central-tendency-and-variance"><i class="fa fa-check"></i><b>7.5.2</b> Central tendency and variance</a></li>
+<li class="chapter" data-level="7.5.3" data-path="estimation.html"><a href="estimation.html#intervals"><i class="fa fa-check"></i><b>7.5.3</b> Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="estimation.html"><a href="estimation.html#specifying-priors"><i class="fa fa-check"></i><b>7.6</b> Specifying priors</a></li>
+<li class="chapter" data-level="7.7" data-path="estimation.html"><a href="estimation.html#decision-making"><i class="fa fa-check"></i><b>7.7</b> Decision making</a></li>
+<li class="chapter" data-level="7.8" data-path="estimation.html"><a href="estimation.html#specifying-and-fitting-statistical-models-with-bayes"><i class="fa fa-check"></i><b>7.8</b> Specifying and fitting statistical models with Bayes</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="estimation.html"><a href="estimation.html#statistical-model-specification"><i class="fa fa-check"></i><b>7.8.1</b> Statistical model specification</a></li>
+<li class="chapter" data-level="7.8.2" data-path="estimation.html"><a href="estimation.html#fitting-models-with-brms"><i class="fa fa-check"></i><b>7.8.2</b> Fitting models with <em>brms</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="estimation.html"><a href="estimation.html#estimation-for-a-continuous-random-variable"><i class="fa fa-check"></i><b>7.9</b> Estimation for a continuous random variable</a></li>
+<li class="chapter" data-level="7.10" data-path="estimation.html"><a href="estimation.html#next-steps"><i class="fa fa-check"></i><b>7.10</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html"><i class="fa fa-check"></i><b>8</b> Bayesian Workflow</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-distribution-choices"><i class="fa fa-check"></i><b>8.1</b> Prior distribution choices</a></li>
+<li class="chapter" data-level="8.2" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#prior-predictive-checks"><i class="fa fa-check"></i><b>8.2</b> Prior predictive checks</a></li>
+<li class="chapter" data-level="8.3" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#posterior-predictive-checks"><i class="fa fa-check"></i><b>8.3</b> Posterior predictive checks</a></li>
+<li class="chapter" data-level="8.4" data-path="bayesian-workflow.html"><a href="bayesian-workflow.html#next-steps-1"><i class="fa fa-check"></i><b>8.4</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>9</b> The linear model</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="the-linear-model.html"><a href="the-linear-model.html#statistical-models"><i class="fa fa-check"></i><b>9.1</b> Statistical models</a></li>
+<li class="chapter" data-level="9.2" data-path="the-linear-model.html"><a href="the-linear-model.html#linear-model"><i class="fa fa-check"></i><b>9.2</b> Linear model</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="the-linear-model.html"><a href="the-linear-model.html#basic-structure-of-the-linear-model"><i class="fa fa-check"></i><b>9.2.1</b> Basic structure of the linear model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="the-linear-model.html"><a href="the-linear-model.html#fitting-the-linear-model-in-brms"><i class="fa fa-check"></i><b>9.2.2</b> Fitting the linear model in brms</a></li>
+<li class="chapter" data-level="9.2.3" data-path="the-linear-model.html"><a href="the-linear-model.html#how-a-frequentist-might-do-it"><i class="fa fa-check"></i><b>9.2.3</b> How a frequentist might do it</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="the-linear-model.html"><a href="the-linear-model.html#linear-models-with-categorical-predictors"><i class="fa fa-check"></i><b>9.3</b> Linear models with categorical predictors</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="the-linear-model.html"><a href="the-linear-model.html#binary-explanatory-variables"><i class="fa fa-check"></i><b>9.3.1</b> Binary explanatory variables</a></li>
+<li class="chapter" data-level="9.3.2" data-path="the-linear-model.html"><a href="the-linear-model.html#categorical-predictors-with-more-than-two-categories"><i class="fa fa-check"></i><b>9.3.2</b> Categorical predictors with more than two categories</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html"><i class="fa fa-check"></i><b>10</b> Graphical Causal Models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#directed-acyclic-graphs-dags"><i class="fa fa-check"></i><b>10.1</b> Directed acyclic graphs (DAGs)</a></li>
+<li class="chapter" data-level="10.2" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#three-causal-structures-in-dags"><i class="fa fa-check"></i><b>10.2</b> Three causal structures in DAGs</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-fork-confounders"><i class="fa fa-check"></i><b>10.2.1</b> The fork: confounders</a></li>
+<li class="chapter" data-level="10.2.2" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-pipe-mediators"><i class="fa fa-check"></i><b>10.2.2</b> The pipe: mediators</a></li>
+<li class="chapter" data-level="10.2.3" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#the-inverted-fork-colliders"><i class="fa fa-check"></i><b>10.2.3</b> The inverted fork: colliders</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#closing-backdoor-paths"><i class="fa fa-check"></i><b>10.3</b> Closing backdoor paths</a></li>
+<li class="chapter" data-level="10.4" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#like-all-models-dags-require-assumptions"><i class="fa fa-check"></i><b>10.4</b> Like all models, DAGs require assumptions</a></li>
+<li class="chapter" data-level="10.5" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#types-of-study-designs"><i class="fa fa-check"></i><b>10.5</b> Types of Study Designs</a></li>
+<li class="chapter" data-level="10.6" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#experimental-studies"><i class="fa fa-check"></i><b>10.6</b> Experimental studies</a></li>
+<li class="chapter" data-level="10.7" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#observational-studies"><i class="fa fa-check"></i><b>10.7</b> Observational studies</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="graphical-causal-models.html"><a href="graphical-causal-models.html#pros-and-cons-of-prospective-vs.-retrospective-studies-planned"><i class="fa fa-check"></i><b>10.7.1</b> Pros and cons of prospective vs. retrospective studies (planned)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html"><i class="fa fa-check"></i><b>11</b> Causal inference with linear models</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#linear-models-with-multiple-predictor-variables"><i class="fa fa-check"></i><b>11.1</b> Linear models with multiple predictor variables</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#generic-linear-model-with-two-predictors"><i class="fa fa-check"></i><b>11.1.1</b> Generic linear model with two predictors</a></li>
+<li class="chapter" data-level="11.1.2" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#multiple-regression-model-for-the-ice-cream-and-drownings-example"><i class="fa fa-check"></i><b>11.1.2</b> Multiple regression model for the ice cream and drownings example</a></li>
+<li class="chapter" data-level="11.1.3" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#prior-predictive-check"><i class="fa fa-check"></i><b>11.1.3</b> Prior predictive check</a></li>
+<li class="chapter" data-level="11.1.4" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#fitting-the-multiple-regression-model"><i class="fa fa-check"></i><b>11.1.4</b> Fitting the multiple regression model</a></li>
+<li class="chapter" data-level="11.1.5" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#prediction-plots-for-multiple-regression-models"><i class="fa fa-check"></i><b>11.1.5</b> Prediction plots for multiple regression models</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="causal-inference-with-linear-models.html"><a href="causal-inference-with-linear-models.html#dag-informed-predictors-categorical-variables-what-multiple-regression-is-doing-with-predictor-residual-plot"><i class="fa fa-check"></i><b>11.2</b> DAG-informed predictors, categorical variables, what multiple regression is doing with predictor residual plot</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="interaction-effects.html"><a href="interaction-effects.html"><i class="fa fa-check"></i><b>12</b> Interaction effects</a></li>
+<li class="chapter" data-level="13" data-path="generalized-linear-models.html"><a href="generalized-linear-models.html"><i class="fa fa-check"></i><b>13</b> Generalized linear models</a></li>
+<li class="chapter" data-level="14" data-path="multilevel-models.html"><a href="multilevel-models.html"><i class="fa fa-check"></i><b>14</b> Multilevel models</a></li>
+<li class="chapter" data-level="15" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html"><i class="fa fa-check"></i><b>15</b> Estimation with frequentist inference</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#frequentist-estimates-are-point-estimates"><i class="fa fa-check"></i><b>15.1</b> Frequentist estimates are point estimates</a></li>
+<li class="chapter" data-level="15.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions"><i class="fa fa-check"></i><b>15.2</b> Sampling distributions</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions-are-centered-on-the-true-parameter-value"><i class="fa fa-check"></i><b>15.2.1</b> Sampling distributions are centered on the true parameter value</a></li>
+<li class="chapter" data-level="15.2.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sampling-distributions-allow-us-to-estimate-precision"><i class="fa fa-check"></i><b>15.2.2</b> Sampling distributions allow us to estimate precision</a></li>
+<li class="chapter" data-level="15.2.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#sample-size-affects-the-shape-of-sampling-distributions"><i class="fa fa-check"></i><b>15.2.3</b> Sample size affects the shape of sampling distributions</a></li>
+<li class="chapter" data-level="15.2.4" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#summary-points-on-sampling-distributions"><i class="fa fa-check"></i><b>15.2.4</b> Summary points on sampling distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#quantifying-uncertainty-standard-error-and-confidence-intervals"><i class="fa fa-check"></i><b>15.3</b> Quantifying uncertainty: standard error and confidence intervals</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#standard-error"><i class="fa fa-check"></i><b>15.3.1</b> Standard error</a></li>
+<li class="chapter" data-level="15.3.2" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>15.3.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="15.3.3" data-path="estimation-with-frequentist-inference.html"><a href="estimation-with-frequentist-inference.html#the-standard-normal-approximation-does-not-work-well-under-low-sample-size"><i class="fa fa-check"></i><b>15.3.3</b> The standard normal approximation does not work well under low sample size</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html"><i class="fa fa-check"></i><b>16</b> Decision-making with frequentist estimates</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#framework-of-classical-hypothesis-testing"><i class="fa fa-check"></i><b>16.1</b> Framework of classical hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#state-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>16.1.1</b> State null and alternative hypotheses</a></li>
+<li class="chapter" data-level="16.1.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#assume-the-null-hypothesis-is-true"><i class="fa fa-check"></i><b>16.1.2</b> Assume the null hypothesis is true</a></li>
+<li class="chapter" data-level="16.1.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#quantify-the-likelihood-of-the-data-under-the-null-hypothesis-p-values"><i class="fa fa-check"></i><b>16.1.3</b> Quantify the likelihood of the data under the null hypothesis: P-values</a></li>
+<li class="chapter" data-level="16.1.4" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#making-a-decision-based-on-the-p-value-and-significance-value"><i class="fa fa-check"></i><b>16.1.4</b> Making a decision based on the P-value and significance value</a></li>
+<li class="chapter" data-level="16.1.5" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#decision-errors-happen"><i class="fa fa-check"></i><b>16.1.5</b> Decision errors happen</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#making-decisions-with-confidence-intervals"><i class="fa fa-check"></i><b>16.2</b> Making decisions with confidence intervals</a></li>
+<li class="chapter" data-level="16.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#issues-with-the-null-hypothesis-framework"><i class="fa fa-check"></i><b>16.3</b> Issues with the null hypothesis framework</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#significance-testing-reinforces-binary-thinking"><i class="fa fa-check"></i><b>16.3.1</b> Significance testing reinforces binary thinking</a></li>
+<li class="chapter" data-level="16.3.2" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#statistical-testing-reinforces-gamification-in-science"><i class="fa fa-check"></i><b>16.3.2</b> Statistical testing reinforces gamification in science</a></li>
+<li class="chapter" data-level="16.3.3" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#statistical-significance-is-not-the-same-thing-as-practical-significance"><i class="fa fa-check"></i><b>16.3.3</b> Statistical significance is not the same thing as practical significance</a></li>
+<li class="chapter" data-level="16.3.4" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#type-i-errors-become-more-likely-with-multiple-tests"><i class="fa fa-check"></i><b>16.3.4</b> Type I errors become more likely with multiple tests</a></li>
+<li class="chapter" data-level="16.3.5" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-null-hypothesis-is-almost-certainly-wrong"><i class="fa fa-check"></i><b>16.3.5</b> The null hypothesis is almost certainly wrong</a></li>
+<li class="chapter" data-level="16.3.6" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-null-hypothesis-focuses-on-data-you-did-not-observe"><i class="fa fa-check"></i><b>16.3.6</b> The null hypothesis focuses on data you did not observe</a></li>
+<li class="chapter" data-level="16.3.7" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#a-single-null-and-alternative-hypothesis-is-too-constraining"><i class="fa fa-check"></i><b>16.3.7</b> A single null and alternative hypothesis is too constraining</a></li>
+<li class="chapter" data-level="16.3.8" data-path="decision-making-with-frequentist-estimates.html"><a href="decision-making-with-frequentist-estimates.html#the-p-value-is-not-the-probability-we-want"><i class="fa fa-check"></i><b>16.3.8</b> The P-value is not the probability we want</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Research Design and Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="scientific-workflow-connecting-ideas-to-data" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Scientific workflow: Connecting ideas to data<a href="scientific-workflow-connecting-ideas-to-data.html#scientific-workflow-connecting-ideas-to-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The collection and analysis of data is a means to an end. I could devote the next year of my life to visiting city parks and recording the number of bird species that I see at each park, but who cares? In doing science, our goal is to use empirical data to derive understanding about how the world works. Understanding about what, exactly? That’s up to you! Knowledge and understanding aren’t gained from the data alone. The analysis and interpretation of data is only meaningful in light of a <strong>research question</strong>.</p>
+<p>In science, a research question is a question about how the natural world works, and therefore a question that can be addressed with empirical data. In this chapter, I will describe different types of research questions one can ask and elements of what makes for a <em>good</em> research question. Then I will provide a high-level overview of how we will go about using data to provide insight into our questions. Together, the process of defining a reserach question and using data to address the question is what I will refer to as <strong>scientific workflow</strong>.</p>
+<div id="research-questions" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Research questions<a href="scientific-workflow-connecting-ideas-to-data.html#research-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="clarify-your-primary-goal-description-prediction-or-explanation" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Clarify your primary goal: description, prediction, or explanation?<a href="scientific-workflow-connecting-ideas-to-data.html#clarify-your-primary-goal-description-prediction-or-explanation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A good research question clearly identifies the main task for using data. Do you want to describe some aspect of the world? Do you want to forecast a future event? Or, do you want to explain some phenomenon? Again, these are not necessarily mutually exclusive goals, but many research questions will fall into one of these buckets.</p>
+<p>Consider the general topic of birds and city parks again. There are plenty of research questions one could ask about that study system. Table @ref(tab:c02_t1) provides a classification of research questions by primary goal, illustrating how different types of questions align with descriptions, predictions, and explanations.</p>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+(#tab:c02_t1)<span style="color:black; font-weight:bold;">Classification of research questions by primary goal</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Description
+</th>
+<th style="text-align:left;">
+Prediction
+</th>
+<th style="text-align:left;">
+Explanation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+What is the average number of bird species in city parks?
+</td>
+<td style="text-align:left;">
+How many bird species will be in a park with particular attributes, such as size, amount of forest, or number of visitors?
+</td>
+<td style="text-align:left;">
+Does increasing the size of parks increase the number of bird species?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How different are the types of bird species from park to park?
+</td>
+<td style="text-align:left;">
+What will the total number of birds be in the park next year?
+</td>
+<td style="text-align:left;">
+Will adding forest to parks change the types of bird species present?
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="identify-the-scope-of-inference-the-who-what-when-and-where-of-your-study." class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Identify the scope of inference: The who, what, when, and where of your study.<a href="scientific-workflow-connecting-ideas-to-data.html#identify-the-scope-of-inference-the-who-what-when-and-where-of-your-study." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s take a look at one of the simple descriptive research questions from Table @ref(tab:c02_t1): What is the average number of bird species in city parks? Now, this isn’t the most Earth-shattering research question, but it’s simplicity will help make it clear why it’s important to be specific about your question. The design of your research - how you go about collecting the data - should follow clearly from your research question. This requires you to clearly define the scope of inference for your question, namely who the question is about, what needs to be measured, when you need to measure it, and where you need to measure it.</p>
+<p>The “who” and “what” parts of our research question are rather clear. We want to know about birds (who), and specifically, the mean number of city parks (what). But we need more. Where and when will we measure the mean number of bird species? We’ve answered the where question in part: city parks. But what city parks? Every city park in the world? City parks in Prague, Czech Republic? Moreover, when will you do the measuring? All we need to do is add some more detail on when and where. For example: What is the <em>current</em> mean number of bird species in city parks <em>within the boundary of Chicago, IL</em>?</p>
+<p>Why do we need such specificity in our research questions? At the most basic level, specificity will help make it clear how to approach the process of collecting data. But at a broader level, the who, what, when, and where also defines the scope of inference of your research question. In statistics, the scope of inference is defined by the <strong>population</strong>. It’s the entire group that we want to generalize about when asking a research question. In some cases, the population is rather small. For example, I might define the population as three particular city parks in Chicago: Union Park, Arrigo Park, and Eckhart Park. In other cases, the population will be very large, such as all the parks in Chicago.</p>
+<p>Why does this matter? Defining the population, or the scope of your question, affects the types of generalizations you can make based on your research. Suppose I’m working on a research question involving causation, such as “What is the effect of screen time on cognitive performance?” In this case the hypothesis might be that the amount of time people spend on their phones, tablets, computers, and other devices affects there performance on cognitive tests. A study finding an effect of screen time on cognitive performance would be of great interest to the public. But what’s the population for the study? If you address this question with a study on children, then you can’t use the study to make generalizations about the effect of screen time on cognitive performance in adults. If you are interested in the effect of screen time on cognitive performance in adults, and you collect data from children, you’re not really addressing the question.</p>
+<p>So let’s make this clear: When you state a research question, it is crucial to define the who, what, when, and where of your research question. These components don’t necessarily need to be stated all at once in a single sentence. For example, it it’s ok to frame your question as “What’s the mean number of birds in Chicago city parks?”, and then then clarify the timescale and the particular city parks you want to generalize about. Some of those details would be included in the Methods section of a paper on your study. Nonetheless, it’s important to think about these questions as you start to articulate your research questions because it will help you design the methods of collecting data, and it will clarify the scope of inferences you can make based on your study.</p>
+<p>I teach a statistics class as part of a biology curriculum. Most students who take my class are biology majors, but sometimes students from other majors that require statistics enroll in my course. In any given semester, I might ask: What proportion of the students in my class are biology majors? That’s a research question. It may not be a very interesting research question because it’s purely descriptive, but simple descriptions are often useful. For example, I could report the fraction of non-biology majors taking my statistics course to administrators who want to know how my department contributes to academic programs other than biology.</p>
+<p>There are many examples like this. A company might first want to summarize the wages of their employees before considering a pay increase. A hospital might track the proportion of patients who return with post-surgical complications. A conservation biologist might calculate the average population size of a species in different habitat types.</p>
+<p>In this chapter we’ll look at some basic numerical and graphical quantities that can be used to describe data. But before we dig in, I want to distinguish between two scenarios with very difficult implications for how we should interpret <em>descriptive statistics</em>. Consider my question about the proportion of students in my statistics class majoring in biology. That question is very specific about <em>who</em> I want to make conclusions about. What proportion of the students in <em>my class</em> are biology majors? This is an example of a research question that is very limited in scope. In a typical semester, I have about 25 students in my statistics class. For my research question, those 25 students represent the <strong>population</strong> of interest.</p>
+<p>The population defines the group from which data will be collected and inferences will be drawn. This is a critical concept because the population of interest defines the scope of inferences that can be made with data. All scientific studies involve making inferences with data, so it’s critical that we define who we’re making inferences about, and therefore who we <em>can’t</em> make inferences about. For example, suppose I find that 60% of students in my class are biology majors. I can’t use that observation to draw any conclusions about the proportion of biology majors in other statistics classes. Similarly, if a company wishes to describe the wages of its employees, the population is clearly its employees, and the data collected can’t be used to describe wages at other companies.</p>
+</div>
+<div id="make-it-interesting" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Make it interesting<a href="scientific-workflow-connecting-ideas-to-data.html#make-it-interesting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember how science is a public process? The knowledge gained from science is not decided by any one individual. Thus, if you want your science to contribute to the advancement of knowledge, your science has to be of interest to others.</p>
+<p>I’m not going to claim to be the final authority about what makes a question interesting; any given research question can be of interest to some and not to others. That said, I think interesting questions tend to have broader appeal to the public, addressing longstanding uncertainty or real-world problems (e.g., climate change, social equity). “What factors caused the evolution of <em>Homo sapiens</em> from our chimpanzee ancestors?” is an interesting question because many people want to know where human beings came from. “How does the SARS-CoV-2 virus infect people?” was an interesting question in 2019 because it had direct relevance for policy decisions about how to slow the COVID-19 pandemic.</p>
+<p>Questions about causal explanation tend to be of greater interest than descriptive questions. Consider the causal questions in Table @ref(tab:c02_t1). Although they require some more detail on timescale and the population of interest, those questions could be of interest to others because they can inform public policy about urban design and biodiversity (and because a lot of people think birds are cool). If we know that adding forest will change the type of bird species present, then we might prioritize restoring forest to some parks to support certain species of birds.</p>
+<p>Contrast the causal questions in Table @ref(tab:c02_t1) with this question: “How many bird species are in Union Park?”. That’s a valid research question, but it’s purely descriptive and much more narrow in scope, and thus probably of less interest. Now, that’s not to say descriptive research questions are never of interest! In 2018 the New York Times, the paper of record in the United States, “<a href="https://www.nytimes.com/2018/10/06/nyregion/squirrels-central-park.html">published an article</a>” about a research team that was attempting to answer the question “How many squirrels are in Central Park?”. That’s a purely descriptive research question, but it happened to be about a species and a place that is of broad public appeal.</p>
+</div>
+<div id="make-it-answerable-with-data" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Make it answerable with data<a href="scientific-workflow-connecting-ideas-to-data.html#make-it-answerable-with-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember that the confrontation of ideas with empirical data is really what distinguishes science from non-science. Thus, good <em>scientific</em> research questions are ones that can be addressed by collecting and analyzing data. My question about the amount of forest in urban parks and the types of birds can clearly be addressed by collecting data on forest cover and the types of birds present.</p>
+<p>The challenge here is that even though a question might address a phenomenon in the natural world, there might not be an obvious type of empirical data that can settle the question. Questions about opinion are challenging for this reason. “What is the best style of pizza?” New York style? Chicago deep dish? Neapolitan? Detroit? This is an extremely important question! The problem is that there’s not a definitive empirical definition of “best”. Whereas I can clearly count bird species and ask where the number of bird species is maximized, I cannot clearly define what makes the “best pizza” because it is a matter of opinion. This is not to say that questions about opinion are off limits. “What style of pizza do people like the most?” is a question that we can address by collecting data on public opinion. Similarly, “What style of pizza is purchased the most in the world?” can clearly be addressed with data. Sometimes a question needs to be revised to make it more precise and tractable.</p>
+</div>
+<div id="ground-it-in-theory" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> Ground it in theory<a href="scientific-workflow-connecting-ideas-to-data.html#ground-it-in-theory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Good research questions focused on explanation tend to follow logically from broader scientific theories. A scientific <strong>theory</strong> is a broad explanation about some aspect of the natural world. In other words, theories are explanations for <em>why</em> something happens the way it does. The theory of evolution is a well-substantiated set of ideas about how living things change over time. The theory or relativity is a well-substantiated set of ideas about space, time, and gravity. Good questions tend to fall under these broader theories, connecting a specific situation (the focus of your research question) to a more general idea about how the world works.</p>
+<p>Consider the causal question in Table @ref(tab:c02_t1): “Does increasing the size of parks increase the number of bird species?”. One relevant theory in ecology for this question is the theory of island biogeography. According to this theory, the number of species in patches of habitat should be determined by the balance of species immigrating to the patch and going extinct from the patch. The theory suggests that the size and proximity of habitat patches to other habitat play an important role in affecting immigration and extinction, and thus the number of species. In line with this theory, I might hypothesize that bird diversity in urban parks will be affected by the size of the parks and their proximity to other parks. A <strong>hypothesis</strong> is a specific statement about a particular system of interest that is grounded in a broader theory. In this case, the specific situation is about urban parks and birds, and my idea about urban parks and birds is grounded in island biogeography theory.</p>
+<p>I can take this one step further and make a <strong>prediction</strong> about what I expect to observe in the data if my hypothesis is true. For example, I might predict that bird diversity is greatest in the biggest parks and parks that are the least isolated from other parks. If I don’t find that pattern in the data, then I might want to revisit the broader theory. Maybe island biogeography theory is not sufficient, and I need to consider other broader ideas that could be applied to the specific case of urban parks and birds. Maybe it’s not just the size of the habitat patch that matters, but also the types of vegetation in the patch, for example.</p>
+<p>The key here is that your research question should have a logical connection to broader ideas in your discipline. Those broader ideas typically occur in a nested hierarchy. For example, the theory of island biogeography is part of the broader theory of biogeography, which consist of the set of ideas that help us explain the distribution of species on Earth. The logical connection between your research question and hypothesis to these broader ideas is critical to make your question coherent and relevant to other scientists.</p>
+</div>
+<div id="make-sure-its-feasible" class="section level3 hasAnchor" number="2.1.6">
+<h3><span class="header-section-number">2.1.6</span> Make sure it’s feasible<a href="scientific-workflow-connecting-ideas-to-data.html#make-sure-its-feasible" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Good research questions are logistically feasible. Consider this extreme case: “What is the effect of removing humans from the Earth on biodiversity?” It’s certainly an interesting question to ponder what biodiversity would look like if there were no humans, but this is not a feasible research study. Clearly it is not ethical to experimentally remove humans from the Earth, and even an observational design examining specific geographic areas where humans don’t live would be challenging because human impacts on biodiversity occur across massive spatial scales (e.g., global climate change). Any comparison of areas with and without humans also carries the caveat that the places without humans don’t really address the question, which is about how <em>removing</em> humans affects biodiversity.</p>
+<p>Feasibility also matters at a smaller scale. For questions about urban parks and birds, I have to consider whether I can find enough urban parks that vary in the characteristics of interest to answer the question. Do I have the appropriate expertise to identify birds? Do I have access to the resources required to pull off the project (funding, equipment, time, etc.)? If my research question involves a temporal component, such as how urban park characteristics cause change in bird communities, will I be able to monitor bird populations for enough time to see a change, should one occur (potentially years, if not decades)? If I don’t have the resources to do sampling on my own, is there an adequate dataset that’s publicly available?</p>
+<p>So good research questions are ones that are interesting, addressable with data, and grounded in theory, but also logistically feasible. This book will directly address how to design a study and analyze the data given a research question, and I suspect you will have a much better sense for the feasibility of particular research questions after exploring those issues.</p>
+</div>
+<div id="avoid-analyzing-the-data-before-stating-your-question" class="section level3 hasAnchor" number="2.1.7">
+<h3><span class="header-section-number">2.1.7</span> Avoid analyzing the data before stating your question<a href="scientific-workflow-connecting-ideas-to-data.html#avoid-analyzing-the-data-before-stating-your-question" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes researchers try to look for patterns in the data before clarifying their question and hypothesis. In the literature this has been called HARKing, or “hypothesizing after the results are known” (<a href="https://journals.sagepub.com/doi/abs/10.1207/s15327957pspr0203_4">Kerr 1998</a>). The main problem with this research practice is that it increases the risk of making erroneous conclusions. As we will find out in coming chapters, sometimes patterns in the data occur simply by chance, in which case researchers will propose a causal hypothesis for a pattern that actually isn’t real. Also remember that patterns in the data don’t always reflect direct causal effects, as we saw with beta carotene and lung cancer risk.</p>
+<p>So is it every OK to search for patterns in the data? Yes, absolutely. Consider this question: <em>“Why do some people recover more quickly from viral infections than others?”</em> The nature of this question is clearly causal. Indeed, the interest is in <em>explaining</em> why some people recover faster from viruses than others. Yet, no potential explanation has been proposed! This type of causal question is really a starting point. If there is little theoretical work on the question in the primary literature, then some initial exploratory analysis might be warranted, in which patterns of viral recovery among people are simply described. These questions are sometimes called “reverse causal questions” (<a href="https://www.nber.org/papers/w19614">Gelman and Imbens 2013</a>, <a href="https://www.nature.com/articles/s41562-024-01939-z">Bailey et al. 2024</a>), in contrast to “forward causal questions” where a clear cause and effect are specified. Reverse causal questions can have an important place in science because identifying patterns can motivate or inform the development of more specific causal hypotheses.</p>
+<p>The field of data science is very much focused on pattern recognition in the data, often for the goal of prediction. Consider this question: <em>“Does exercise predict a person’s recovery time from viral infections?”</em> This question is clearly about prediction - “predict” is right in the question. Here the goal is to determine if the amount of exercise predict’s a person’s recovery. Maybe people who exercise more recover from viruses more rapidly. That doesn’t mean exercise <em>causes</em> faster recovery, as exercise might be caused by some other factor that also affects viral recovery. Noncausal associations in the data can be very helpful for making accurate predictions, such as who is most likely to suffer from depression, who is most likely to earn a PhD, or whether the stock market is likely to tumble in the next five years. But it’s critical to state up front that the goal in these causes is prediction and <em>not</em> causal explanations.</p>
+<p>Consider this commonly used example. Suppose you want to predict how many people will go swimming at the beach. You scour through the data, and you find that one of the strongest predictors of whether people will swim is if they are wearing shorts. Great! You can collect data on shorts-wearing that will accurately predict the number of people swimming at your beach. But of course, wearing shorts doesn’t cause swimming. Warm temperature is probably a common cause of shorts-wearing and swimming.</p>
+<p>So it’s really important to state your research question first, and to make it clear what your goal is. Causal questions in particular should be highly specific and grounded in theory. <em>“Does smoking slow a person’s recovery time from viral respiratory infections”</em>. That’s a very specific, forward causal question grounded in theory with a clearly identified cause (smoking) and effect (recovery time). If your questions are more about description or prediction, you simply need to be clear about that goal to avoid confusion.</p>
+<div class="alert alert-block alert-info">
+<p><b>Explore More</b></p>
+<p>Huntington-Klein. The effect. Lipowski. E.E. 2008. Developing great research questions. Am J Health-Syst. Pharm.</p>
+<p>Farrugia, P. et al. 2010. Research questions, hypotheses and objectives. Canadian Journal of Surgery.</p>
+</div>
+</div>
+</div>
+<div id="connecting-ideas-to-data" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Connecting ideas to data<a href="scientific-workflow-connecting-ideas-to-data.html#connecting-ideas-to-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Identifying a good research question is hard. What comes after the question isn’t much easier, but it is at least goal-driven: once you know what you want to learn, you can design a study and analysis that have a chance of answering it. In this section, I sketch an overview of <strong>scientific workflow</strong>, starting with a research question and showing how it guides decisions about study design, data collection, and data analysis. The goal here is not to provide a deep dive on components of the workflow, but rather to sketch the <em>big picture</em> of how to connect data to ideas. We will work through the details of each component of the reserach design and analysis steps in the remainder of the book. As an example for our big picture overview, we’ll use a question from the medical literature on diet and blood pressure:</p>
+<blockquote>
+<p><em>Does a DASH diet lower systolic blood pressure compared to a typical diet?</em></p>
+</blockquote>
+<p>DASH stands for Dietary Approaches to Stop Hypertension and emphasizes fruits and vegetables. This topic has been studied extensively (e.g., Appel et al. 1997: <a href="https://www.nejm.org/doi/full/10.1056/NEJM199704173361601" class="uri">https://www.nejm.org/doi/full/10.1056/NEJM199704173361601</a>), but the design and data used are synthetic so we can focus on workflow rather than details of any one study.</p>
+<p>The image below describes a high-level overview of scientific workflow showing how connections can be made between ideas and data. The figure is a simplified version of a workflow published by Deffner et al. (2024). The arrows illustrate logical connections between different components of a research project, linking elements that are largely “science side” (idea generation) and “statistics side” (data collection and analysis). The general idea is that theory should inform a research question and assumptions about causal relationships among variables relevant to the question (the <strong>generative model</strong>). Given a research question and causal assumptions, we can design a study and analysis, and then use the results to update our understanding of the system. The workflow emphasizes that science is iterative: conclusions from data can revise our beliefs and refine theory.</p>
+<p><img src="images/02_workflow.png" /></p>
+<p>Let’s walk through these components using our example question on the DASH diet and systolic blood pressure.</p>
+<div id="theory" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Theory<a href="scientific-workflow-connecting-ideas-to-data.html#theory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Theory</strong> represents scientific knowledge that motivates the research question and informs the causal effects we think are plausible. There is a vast literature on cardiovascular disease and the risks of high blood pressure. Theory and prior evidence has suggested that diet should influence cardiovascular health via multiple physiological pathways, and more specifically, that that increasing fruit and vegetable intake (as emphasized in DASH) could reduce hypertension.</p>
+<p>Theory also reminds us that diet is not the only factor expected to affect blood pressure. Age, exercise, smoking history, medication use, stress, and many other factors have been linked to hypertension. Indeed, most processes in the natural and social sciences are <em>multicausal</em>, meaning there’s more than one cause of an outcome of interest. The challenge we face is that some factors create roadblocks to understanding the causal effects we actually care about. As just one example, consider the possibility that diet and exercise both influence blood pressure. That’s not necessarily a problem, but it becomes a huge problem if diet and exercise are causally related to each other. For example, perhaps people vary in their degree of health consciousness, and people who are more health conscious tend to eat lots of fruits and vegetables and also exercise a lot. If we find a relationship between diet and blood pressure, is that because diet is having a causal effect on blood pressure, or is it actually an effect of exercise, and people who exercise a lot tend to have more healthy diets? In this example, health consciousness confounds the analysis, and we need to be aware of the issue so that we can use a research design or analysis to addresses the issue.</p>
+<p>In this book we will use a variety of examples from across the sciences. I don’t expect the reader to have deep knowledge of theory in those various fields, and I will do my best to provide sufficient theoretical background so that we can keep the focus on research design and analysis. But my point here is that effective research design and analysis requires knowledge of theory and prior research in your field.</p>
+</div>
+<div id="research-question" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Research question<a href="scientific-workflow-connecting-ideas-to-data.html#research-question" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What is your question? This one is pretty straightforward:</p>
+<blockquote>
+<p>Does a DASH diet lower systolic blood pressure relative to a typical diet?</p>
+</blockquote>
+<p>As discussed earlier in the chapter, a good research question is grounded in theory and has a clearly defined scope of inference (who, what, when, and where).</p>
+</div>
+<div id="generative-model" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Generative model<a href="scientific-workflow-connecting-ideas-to-data.html#generative-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>generative model</strong> is a simplified story about how the data could be generated. In this book, we’ll express causal assumptions using <strong>directed acyclic graphs (DAGs)</strong>. DAGs are graphical models that represent variables as nodes and causal relationships as arrows. They include not only the causal effect(s) of interest (here the effect of diet on change in blood pressure), but also those other factors that could confound the analysis.</p>
+<p>The structure of a DAG is informed by one’s domain knowledge - the body of theory and prior research in your particular field. Recall that in real-world settings, we expect that people vary in health consciousness, and that health consciousness affects both diet and exercise. We can use a DAG to communicate those causal assumptions. Below is a simple DAG that includes the variables health consciousness, diet, exercise, and blood pressure.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-1" tabindex="-1"></a>dag_obs <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;</span></span>
+<span id="cb1-2"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-2" tabindex="-1"></a><span class="st">dag {</span></span>
+<span id="cb1-3"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-3" tabindex="-1"></a><span class="st">bb=&quot;0,0,1,1&quot;</span></span>
+<span id="cb1-4"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-5" tabindex="-1"></a><span class="st">&quot;Health consciousness&quot; [pos=&quot;0.25,-0.5&quot;]</span></span>
+<span id="cb1-6"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-6" tabindex="-1"></a><span class="st">Exercise              [pos=&quot;0.3,0&quot;]</span></span>
+<span id="cb1-7"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-7" tabindex="-1"></a><span class="st">&quot;Diet&quot; [pos=&quot;0.2,0.0&quot;]</span></span>
+<span id="cb1-8"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-8" tabindex="-1"></a><span class="st">&quot;Change in systolic BP&quot; [pos=&quot;0.25,0.50&quot;]</span></span>
+<span id="cb1-9"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-10" tabindex="-1"></a><span class="st">&quot;Health consciousness&quot; -&gt; Exercise</span></span>
+<span id="cb1-11"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-11" tabindex="-1"></a><span class="st">&quot;Health consciousness&quot; -&gt; &quot;Diet&quot;</span></span>
+<span id="cb1-12"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-12" tabindex="-1"></a><span class="st">Exercise -&gt; &quot;Change in systolic BP&quot;</span></span>
+<span id="cb1-13"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-13" tabindex="-1"></a><span class="st">&quot;Diet&quot; -&gt; &quot;Change in systolic BP&quot;</span></span>
+<span id="cb1-14"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-14" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb1-15"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-15" tabindex="-1"></a><span class="st">&#39;</span>)</span>
+<span id="cb1-16"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-16" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-17" tabindex="-1"></a>ex <span class="ot">&lt;-</span> <span class="fu">edges</span>(dag_obs)</span>
+<span id="cb1-18"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-18" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-19" tabindex="-1"></a><span class="co"># Highlight the confounding structure (backdoor paths into Diet and BP)</span></span>
+<span id="cb1-20"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-20" tabindex="-1"></a>highlight_obs <span class="ot">&lt;-</span> (ex<span class="sc">$</span>v <span class="sc">==</span> <span class="st">&quot;Health consciousness&quot;</span> <span class="sc">&amp;</span> ex<span class="sc">$</span>w <span class="sc">==</span> <span class="st">&quot;Diet&quot;</span>) <span class="sc">|</span></span>
+<span id="cb1-21"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-21" tabindex="-1"></a>                 (ex<span class="sc">$</span>v <span class="sc">==</span> <span class="st">&quot;Health consciousness&quot;</span> <span class="sc">&amp;</span> ex<span class="sc">$</span>w <span class="sc">==</span> <span class="st">&quot;Exercise&quot;</span>) <span class="sc">|</span></span>
+<span id="cb1-22"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-22" tabindex="-1"></a>                 (ex<span class="sc">$</span>v <span class="sc">==</span> <span class="st">&quot;Exercise&quot;</span> <span class="sc">&amp;</span> ex<span class="sc">$</span>w <span class="sc">==</span> <span class="st">&quot;Change in systolic BP&quot;</span>)</span>
+<span id="cb1-23"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-23" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-24" tabindex="-1"></a>rethinking<span class="sc">::</span><span class="fu">drawdag</span>(</span>
+<span id="cb1-25"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-25" tabindex="-1"></a>  dag_obs,</span>
+<span id="cb1-26"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-26" tabindex="-1"></a>  <span class="at">col_arrow =</span> <span class="fu">ifelse</span>(highlight_obs, <span class="st">&quot;firebrick&quot;</span>, <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb1-27"><a href="scientific-workflow-connecting-ideas-to-data.html#cb1-27" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="ch02_workflow_files/figure-html/c02_dag_observational-1.png" alt="Observational setting: health consciousness confounds the relationship between diet and blood pressure change" width="672" />
+<p class="caption">
+(#fig:c02_dag_observational)Observational setting: health consciousness confounds the relationship between diet and blood pressure change
+</p>
+</div>
+<p>This DAG implies that a simple association between diet and blood pressure change could reflect not only the effect of diet, but also differences in health consciousness and exercise between people who eat different diets. This is the basic idea of <strong>confounding</strong>: other variables can create associations that complicate causal interpretation. The confounding pathway is highlighted in red in the DAG. One value of creating a DAG like this is that it tells the researcher and scientific community alike that the confounding effect of health consciousness must be controlled either as part of the study design or statistical analysis.</p>
+</div>
+<div id="study-design" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Study design<a href="scientific-workflow-connecting-ideas-to-data.html#study-design" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given a research question and generative model, we should then make decisions about how to collect data. In this book we will differentiate between two main types of study designs: <strong>experiments</strong> and <strong>observational studies</strong>. Essentially, experiments involve collecting data from individuals to which treatments (such as diet) have been randomly assigned. In contrast, observational studies involve collecting data from individuals in their natural settings without randomly assigning treatments.</p>
+<p>Experiments are more powerful than observational studies for identifying causal effects because the process of randomizing treatments to individuals breaks up confounding between the treatment and other variables that affect the outcome of interest. Remember the generative model for the blood pressure example identified health consciousness as a confounding variable. People who eat more fruits and vegetables may be more health conscious and exercise a lot, and an association between diet and blood pressure may in part reflect the causal effect of exercise. But we’re not interested in the effect of exercise for this study. We want to know the effect of <em>diet</em>.</p>
+<p>Experiments offer a design solution. If we can <em>randomly</em> assign diets to individuals in an experiment, then we expect to have individuals of varying health consciousness (and thus exercise level) in each diet treatment. Randomization of diet to individuals blocks the arrow from health consciousness to diet in the DAG, such that any association between change in blood pressure and diet would be attributed to <em>diet</em>. If we used an observational design where we simply recorded diet and blood pressure among individuals in their natural settings - where people freely choose their diets and exercise levels - we would need to use statistical model that controls for the confounding effect of health consciousness.</p>
+<p>We’ll learn how to use statistical models with controls later in the book, but for now let’s keep things simple and assume we use an experiment. Imagine we recruit 120 adults with elevated blood pressure, and we randomly assign 60 to a DASH diet and 60 to a typical diet. Each person maintains their diet for 8 weeks, and then we measure the change in systolic blood pressure from before to after the study. Pairing the measurements of blood pressure on each individual is a useful design approach because it helps control for other differences among individuals that could affect blood pressure.</p>
+</div>
+<div id="estimand" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Estimand<a href="scientific-workflow-connecting-ideas-to-data.html#estimand" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To use data to answer a research question, we need to identify the <strong>estimand</strong>: the target quantity (or quantities) we want to learn about from the data that will address the research question. For our blood pressure study, we define the estimand as the difference in the average change in systolic blood pressure during the study between the DASH diet and the typical diet. Importantly, estimands are <em>not</em> the quantities computed from a particular sample. They are quantities we want to know about in the <strong>population of interest</strong>.</p>
+</div>
+<div id="target-population" class="section level3 hasAnchor" number="2.2.6">
+<h3><span class="header-section-number">2.2.6</span> Target population<a href="scientific-workflow-connecting-ideas-to-data.html#target-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Every research question needs a defined scope of inference called the <strong>target population</strong> (the who, what, when, and where discussed earlier in this chapter). For our blood pressure study, we might define the target population as adults with elevated blood pressure recruited from clinics in the United States during a defined time period. Target populations vary from study to study, but identifying the target population is essential because it determines who we can—and cannot—make claims about based on the study.</p>
+</div>
+<div id="sample-data" class="section level3 hasAnchor" number="2.2.7">
+<h3><span class="header-section-number">2.2.7</span> Sample data<a href="scientific-workflow-connecting-ideas-to-data.html#sample-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One of the fundamental problems of statistics is that we typically cannot measure every individual in the target population. Instead, we collect data from a <strong>sample</strong> of individuals drawn from the target population. For reasons we will discuss later, ideally we select individuals <em>randomly</em> from the population to be included in the sample. Because we observe only a subset of randomly-drawn individuals, the quantities we compute based on the sample data will vary from sample to sample. This is a major source of uncertainty in the quantities we estimate from sample data, and it’s a topic we will address throughout the book.</p>
+<p>Let’s take a look at how the sample data might look for our study. Datasets are generally organized in tables with rows representing subjects and columns representing variables. Below are the first eight lines of a synthetic dataset, each having observations for five variables:</p>
+<ul>
+<li><p><code>id</code> = a unique ID code for each subject</p></li>
+<li><p><code>diet</code> = the type of diet randomly assigned to the individual</p></li>
+<li><p><code>sbp_pre</code> = systolic blood pressure measured at the beginning of the study</p></li>
+<li><p><code>sbp_post</code> = systolic blood pressure measured at the end of the study</p></li>
+<li><p><code>sbp_change</code> = difference in systolic blood pressure between the beginning and end of the study.</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb2-2"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb2-4"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-4" tabindex="-1"></a>diet <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;DASH&quot;</span>, <span class="st">&quot;Typical&quot;</span>), <span class="at">each =</span> n<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb2-5"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-6" tabindex="-1"></a><span class="co"># Baseline systolic BP (elevated)</span></span>
+<span id="cb2-7"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-7" tabindex="-1"></a>sbp.pre <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">150</span>, <span class="at">sd =</span> <span class="dv">12</span>)</span>
+<span id="cb2-8"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-9" tabindex="-1"></a><span class="co"># Average change by group (negative = decrease)</span></span>
+<span id="cb2-10"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-10" tabindex="-1"></a>mu.change <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(diet <span class="sc">==</span> <span class="st">&quot;DASH&quot;</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb2-11"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-11" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-12" tabindex="-1"></a><span class="co"># Individual variation in response</span></span>
+<span id="cb2-13"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-13" tabindex="-1"></a>sbp.change <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> mu.change, <span class="at">sd =</span> <span class="dv">8</span>)</span>
+<span id="cb2-14"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-14" tabindex="-1"></a>sbp.post <span class="ot">&lt;-</span> sbp.pre <span class="sc">+</span> sbp.change</span>
+<span id="cb2-15"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-15" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-16" tabindex="-1"></a>d_toy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-17"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-17" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb2-18"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-18" tabindex="-1"></a>  <span class="at">diet =</span> <span class="fu">factor</span>(diet, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Typical&quot;</span>, <span class="st">&quot;DASH&quot;</span>)),</span>
+<span id="cb2-19"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-19" tabindex="-1"></a>  <span class="at">sbp.pre =</span> <span class="fu">round</span>(sbp.pre, <span class="dv">1</span>),</span>
+<span id="cb2-20"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-20" tabindex="-1"></a>  <span class="at">sbp.post =</span> <span class="fu">round</span>(sbp.post, <span class="dv">1</span>),</span>
+<span id="cb2-21"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-21" tabindex="-1"></a>  <span class="at">sbp.change =</span> <span class="fu">round</span>(sbp.change, <span class="dv">1</span>)</span>
+<span id="cb2-22"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-22" tabindex="-1"></a>)</span>
+<span id="cb2-23"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-23" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-24" tabindex="-1"></a>d_toy <span class="sc">%&gt;%</span></span>
+<span id="cb2-25"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-25" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb2-26"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-26" tabindex="-1"></a>    <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb2-27"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-27" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">&quot;c&quot;</span>,</span>
+<span id="cb2-28"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-28" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;diet&quot;</span>, <span class="st">&quot;sbp.pre&quot;</span>, <span class="st">&quot;sbp.post&quot;</span>, <span class="st">&quot;sbp.change&quot;</span>),</span>
+<span id="cb2-29"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-29" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Toy dataset for the DASH example (synthetic values): one row per participant.&quot;</span></span>
+<span id="cb2-30"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-30" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-31"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-31" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
+<span id="cb2-32"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-32" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>),</span>
+<span id="cb2-33"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-33" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-34"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-34" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;center&quot;</span></span>
+<span id="cb2-35"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-35" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-36"><a href="scientific-workflow-connecting-ideas-to-data.html#cb2-36" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">height =</span> <span class="st">&quot;300px&quot;</span>)</span></code></pre></div>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+(#tab:c02_toy_data)Toy dataset for the DASH example (synthetic values): one row per participant.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+id
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+diet
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+sbp.pre
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+sbp.post
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+sbp.change
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+156.2
+</td>
+<td style="text-align:center;">
+163.5
+</td>
+<td style="text-align:center;">
+7.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+137.0
+</td>
+<td style="text-align:center;">
+146.1
+</td>
+<td style="text-align:center;">
+9.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+151.7
+</td>
+<td style="text-align:center;">
+145.5
+</td>
+<td style="text-align:center;">
+-6.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+149.0
+</td>
+<td style="text-align:center;">
+148.2
+</td>
+<td style="text-align:center;">
+-0.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+142.0
+</td>
+<td style="text-align:center;">
+120.1
+</td>
+<td style="text-align:center;">
+-21.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+119.8
+</td>
+<td style="text-align:center;">
+115.6
+</td>
+<td style="text-align:center;">
+-4.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+141.2
+</td>
+<td style="text-align:center;">
+128.8
+</td>
+<td style="text-align:center;">
+-12.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+137.8
+</td>
+<td style="text-align:center;">
+128.4
+</td>
+<td style="text-align:center;">
+-9.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+151.4
+</td>
+<td style="text-align:center;">
+147.8
+</td>
+<td style="text-align:center;">
+-3.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+144.3
+</td>
+<td style="text-align:center;">
+144.6
+</td>
+<td style="text-align:center;">
+0.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+145.1
+</td>
+<td style="text-align:center;">
+136.7
+</td>
+<td style="text-align:center;">
+-8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+141.2
+</td>
+<td style="text-align:center;">
+154.3
+</td>
+<td style="text-align:center;">
+13.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+147.3
+</td>
+<td style="text-align:center;">
+144.1
+</td>
+<td style="text-align:center;">
+-3.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+147.3
+</td>
+<td style="text-align:center;">
+137.7
+</td>
+<td style="text-align:center;">
+-9.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+119.4
+</td>
+<td style="text-align:center;">
+115.0
+</td>
+<td style="text-align:center;">
+-4.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+166.2
+</td>
+<td style="text-align:center;">
+157.4
+</td>
+<td style="text-align:center;">
+-8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+157.4
+</td>
+<td style="text-align:center;">
+140.6
+</td>
+<td style="text-align:center;">
+-16.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+152.6
+</td>
+<td style="text-align:center;">
+148.6
+</td>
+<td style="text-align:center;">
+-4.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+140.3
+</td>
+<td style="text-align:center;">
+139.9
+</td>
+<td style="text-align:center;">
+-0.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+158.3
+</td>
+<td style="text-align:center;">
+153.3
+</td>
+<td style="text-align:center;">
+-4.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+146.1
+</td>
+<td style="text-align:center;">
+141.0
+</td>
+<td style="text-align:center;">
+-5.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+148.0
+</td>
+<td style="text-align:center;">
+141.3
+</td>
+<td style="text-align:center;">
+-6.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+133.3
+</td>
+<td style="text-align:center;">
+132.1
+</td>
+<td style="text-align:center;">
+-1.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+167.6
+</td>
+<td style="text-align:center;">
+149.3
+</td>
+<td style="text-align:center;">
+-18.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+150.6
+</td>
+<td style="text-align:center;">
+151.8
+</td>
+<td style="text-align:center;">
+1.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+172.9
+</td>
+<td style="text-align:center;">
+157.6
+</td>
+<td style="text-align:center;">
+-15.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+170.8
+</td>
+<td style="text-align:center;">
+165.5
+</td>
+<td style="text-align:center;">
+-5.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+150.7
+</td>
+<td style="text-align:center;">
+148.9
+</td>
+<td style="text-align:center;">
+-1.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+157.7
+</td>
+<td style="text-align:center;">
+151.6
+</td>
+<td style="text-align:center;">
+-6.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+170.7
+</td>
+<td style="text-align:center;">
+150.2
+</td>
+<td style="text-align:center;">
+-20.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+143.7
+</td>
+<td style="text-align:center;">
+135.8
+</td>
+<td style="text-align:center;">
+-7.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+152.0
+</td>
+<td style="text-align:center;">
+146.7
+</td>
+<td style="text-align:center;">
+-5.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+146.9
+</td>
+<td style="text-align:center;">
+146.9
+</td>
+<td style="text-align:center;">
+-0.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+154.0
+</td>
+<td style="text-align:center;">
+150.0
+</td>
+<td style="text-align:center;">
+-4.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+152.2
+</td>
+<td style="text-align:center;">
+148.8
+</td>
+<td style="text-align:center;">
+-3.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+164.0
+</td>
+<td style="text-align:center;">
+165.1
+</td>
+<td style="text-align:center;">
+1.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+157.1
+</td>
+<td style="text-align:center;">
+143.5
+</td>
+<td style="text-align:center;">
+-13.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+139.3
+</td>
+<td style="text-align:center;">
+126.4
+</td>
+<td style="text-align:center;">
+-12.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+156.9
+</td>
+<td style="text-align:center;">
+148.9
+</td>
+<td style="text-align:center;">
+-8.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+140.1
+</td>
+<td style="text-align:center;">
+134.8
+</td>
+<td style="text-align:center;">
+-5.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+136.1
+</td>
+<td style="text-align:center;">
+139.4
+</td>
+<td style="text-align:center;">
+3.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+159.3
+</td>
+<td style="text-align:center;">
+144.4
+</td>
+<td style="text-align:center;">
+-14.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+135.5
+</td>
+<td style="text-align:center;">
+120.6
+</td>
+<td style="text-align:center;">
+-15.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+153.7
+</td>
+<td style="text-align:center;">
+151.9
+</td>
+<td style="text-align:center;">
+-1.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+140.0
+</td>
+<td style="text-align:center;">
+128.8
+</td>
+<td style="text-align:center;">
+-11.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+167.0
+</td>
+<td style="text-align:center;">
+157.3
+</td>
+<td style="text-align:center;">
+-9.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+158.5
+</td>
+<td style="text-align:center;">
+155.4
+</td>
+<td style="text-align:center;">
+-3.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+145.2
+</td>
+<td style="text-align:center;">
+132.3
+</td>
+<td style="text-align:center;">
+-12.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+159.6
+</td>
+<td style="text-align:center;">
+145.8
+</td>
+<td style="text-align:center;">
+-13.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+155.1
+</td>
+<td style="text-align:center;">
+145.1
+</td>
+<td style="text-align:center;">
+-10.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+51
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+136.0
+</td>
+<td style="text-align:center;">
+124.8
+</td>
+<td style="text-align:center;">
+-11.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+52
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+147.5
+</td>
+<td style="text-align:center;">
+134.0
+</td>
+<td style="text-align:center;">
+-13.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+53
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+138.8
+</td>
+<td style="text-align:center;">
+137.8
+</td>
+<td style="text-align:center;">
+-1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+155.4
+</td>
+<td style="text-align:center;">
+143.5
+</td>
+<td style="text-align:center;">
+-11.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+142.3
+</td>
+<td style="text-align:center;">
+134.8
+</td>
+<td style="text-align:center;">
+-7.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+147.2
+</td>
+<td style="text-align:center;">
+140.3
+</td>
+<td style="text-align:center;">
+-6.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+57
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+135.2
+</td>
+<td style="text-align:center;">
+112.3
+</td>
+<td style="text-align:center;">
+-22.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+58
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+138.5
+</td>
+<td style="text-align:center;">
+133.2
+</td>
+<td style="text-align:center;">
+-5.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+59
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+151.6
+</td>
+<td style="text-align:center;">
+155.6
+</td>
+<td style="text-align:center;">
+4.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+DASH
+</td>
+<td style="text-align:center;">
+138.0
+</td>
+<td style="text-align:center;">
+129.9
+</td>
+<td style="text-align:center;">
+-8.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+61
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+148.3
+</td>
+<td style="text-align:center;">
+140.1
+</td>
+<td style="text-align:center;">
+-8.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+62
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+152.0
+</td>
+<td style="text-align:center;">
+160.5
+</td>
+<td style="text-align:center;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+147.6
+</td>
+<td style="text-align:center;">
+147.7
+</td>
+<td style="text-align:center;">
+0.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+64
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+146.5
+</td>
+<td style="text-align:center;">
+152.6
+</td>
+<td style="text-align:center;">
+6.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+65
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+129.2
+</td>
+<td style="text-align:center;">
+128.9
+</td>
+<td style="text-align:center;">
+-0.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+146.7
+</td>
+<td style="text-align:center;">
+149.6
+</td>
+<td style="text-align:center;">
+2.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+67
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+128.4
+</td>
+<td style="text-align:center;">
+138.0
+</td>
+<td style="text-align:center;">
+9.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+68
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+163.8
+</td>
+<td style="text-align:center;">
+167.1
+</td>
+<td style="text-align:center;">
+3.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+69
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+138.0
+</td>
+<td style="text-align:center;">
+139.0
+</td>
+<td style="text-align:center;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+151.8
+</td>
+<td style="text-align:center;">
+144.4
+</td>
+<td style="text-align:center;">
+-7.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+71
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+156.2
+</td>
+<td style="text-align:center;">
+158.9
+</td>
+<td style="text-align:center;">
+2.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+150.1
+</td>
+<td style="text-align:center;">
+144.8
+</td>
+<td style="text-align:center;">
+-5.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+73
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+166.2
+</td>
+<td style="text-align:center;">
+181.6
+</td>
+<td style="text-align:center;">
+15.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+74
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+139.8
+</td>
+<td style="text-align:center;">
+140.6
+</td>
+<td style="text-align:center;">
+0.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+75
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+155.3
+</td>
+<td style="text-align:center;">
+146.9
+</td>
+<td style="text-align:center;">
+-8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+76
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+138.3
+</td>
+<td style="text-align:center;">
+149.4
+</td>
+<td style="text-align:center;">
+11.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+175.5
+</td>
+<td style="text-align:center;">
+169.8
+</td>
+<td style="text-align:center;">
+-5.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+78
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+158.3
+</td>
+<td style="text-align:center;">
+143.6
+</td>
+<td style="text-align:center;">
+-14.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+79
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+145.9
+</td>
+<td style="text-align:center;">
+135.5
+</td>
+<td style="text-align:center;">
+-10.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+159.4
+</td>
+<td style="text-align:center;">
+157.8
+</td>
+<td style="text-align:center;">
+-1.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+81
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+136.1
+</td>
+<td style="text-align:center;">
+130.7
+</td>
+<td style="text-align:center;">
+-5.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+82
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+168.1
+</td>
+<td style="text-align:center;">
+169.8
+</td>
+<td style="text-align:center;">
+1.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+83
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+136.1
+</td>
+<td style="text-align:center;">
+132.3
+</td>
+<td style="text-align:center;">
+-3.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+84
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+131.3
+</td>
+<td style="text-align:center;">
+114.5
+</td>
+<td style="text-align:center;">
+-16.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+85
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+149.3
+</td>
+<td style="text-align:center;">
+145.0
+</td>
+<td style="text-align:center;">
+-4.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+86
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+160.2
+</td>
+<td style="text-align:center;">
+172.3
+</td>
+<td style="text-align:center;">
+12.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+87
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+149.9
+</td>
+<td style="text-align:center;">
+144.3
+</td>
+<td style="text-align:center;">
+-5.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+140.9
+</td>
+<td style="text-align:center;">
+134.2
+</td>
+<td style="text-align:center;">
+-6.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+89
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+164.1
+</td>
+<td style="text-align:center;">
+161.1
+</td>
+<td style="text-align:center;">
+-3.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+179.0
+</td>
+<td style="text-align:center;">
+190.2
+</td>
+<td style="text-align:center;">
+11.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+91
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+126.5
+</td>
+<td style="text-align:center;">
+117.5
+</td>
+<td style="text-align:center;">
+-9.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+92
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+167.7
+</td>
+<td style="text-align:center;">
+171.9
+</td>
+<td style="text-align:center;">
+4.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+93
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+144.3
+</td>
+<td style="text-align:center;">
+137.4
+</td>
+<td style="text-align:center;">
+-6.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+94
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+161.8
+</td>
+<td style="text-align:center;">
+157.2
+</td>
+<td style="text-align:center;">
+-4.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+128.1
+</td>
+<td style="text-align:center;">
+123.3
+</td>
+<td style="text-align:center;">
+-4.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+96
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+146.9
+</td>
+<td style="text-align:center;">
+151.1
+</td>
+<td style="text-align:center;">
+4.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+97
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+138.5
+</td>
+<td style="text-align:center;">
+141.4
+</td>
+<td style="text-align:center;">
+2.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+98
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+144.1
+</td>
+<td style="text-align:center;">
+150.7
+</td>
+<td style="text-align:center;">
+6.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+137.1
+</td>
+<td style="text-align:center;">
+143.6
+</td>
+<td style="text-align:center;">
+6.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+154.4
+</td>
+<td style="text-align:center;">
+169.7
+</td>
+<td style="text-align:center;">
+15.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+101
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+164.6
+</td>
+<td style="text-align:center;">
+163.2
+</td>
+<td style="text-align:center;">
+-1.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+102
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+144.1
+</td>
+<td style="text-align:center;">
+121.8
+</td>
+<td style="text-align:center;">
+-22.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+103
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+147.3
+</td>
+<td style="text-align:center;">
+140.9
+</td>
+<td style="text-align:center;">
+-6.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+104
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+136.7
+</td>
+<td style="text-align:center;">
+128.5
+</td>
+<td style="text-align:center;">
+-8.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+105
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+161.9
+</td>
+<td style="text-align:center;">
+157.6
+</td>
+<td style="text-align:center;">
+-4.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+106
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+156.7
+</td>
+<td style="text-align:center;">
+164.0
+</td>
+<td style="text-align:center;">
+7.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+107
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+131.2
+</td>
+<td style="text-align:center;">
+124.7
+</td>
+<td style="text-align:center;">
+-6.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+108
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+167.8
+</td>
+<td style="text-align:center;">
+159.3
+</td>
+<td style="text-align:center;">
+-8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+109
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+136.0
+</td>
+<td style="text-align:center;">
+137.9
+</td>
+<td style="text-align:center;">
+1.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+110
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+137.4
+</td>
+<td style="text-align:center;">
+141.0
+</td>
+<td style="text-align:center;">
+3.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+111
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+132.3
+</td>
+<td style="text-align:center;">
+128.4
+</td>
+<td style="text-align:center;">
+-3.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+112
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+135.7
+</td>
+<td style="text-align:center;">
+137.0
+</td>
+<td style="text-align:center;">
+1.3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+113
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+145.8
+</td>
+<td style="text-align:center;">
+147.8
+</td>
+<td style="text-align:center;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+114
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+156.4
+</td>
+<td style="text-align:center;">
+157.3
+</td>
+<td style="text-align:center;">
+0.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+115
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+141.5
+</td>
+<td style="text-align:center;">
+134.9
+</td>
+<td style="text-align:center;">
+-6.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+116
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+147.6
+</td>
+<td style="text-align:center;">
+151.5
+</td>
+<td style="text-align:center;">
+3.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+117
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+146.6
+</td>
+<td style="text-align:center;">
+126.5
+</td>
+<td style="text-align:center;">
+-20.1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+118
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+164.1
+</td>
+<td style="text-align:center;">
+167.0
+</td>
+<td style="text-align:center;">
+2.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+119
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+177.5
+</td>
+<td style="text-align:center;">
+178.7
+</td>
+<td style="text-align:center;">
+1.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+120
+</td>
+<td style="text-align:center;">
+Typical
+</td>
+<td style="text-align:center;">
+137.2
+</td>
+<td style="text-align:center;">
+151.6
+</td>
+<td style="text-align:center;">
+14.4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="statistical-model" class="section level3 hasAnchor" number="2.2.8">
+<h3><span class="header-section-number">2.2.8</span> Statistical model<a href="scientific-workflow-connecting-ideas-to-data.html#statistical-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>statistical model</strong> is a mathematical description designed to connect the sample data to the estimand and measure uncertainty in the quantities we estimate. Below is an example statistical model that could be used for the blood pressure study. The first line of the model says that the change in blood pressure (<em>c</em>) for each individual <em>i</em> follows a normal probability distribution with mean <span class="math inline">\(\mu_i\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. The second line says the expected mean blood pressure change for each individual <em>i</em> is defined by the mean for its diet treatment, <span class="math inline">\(\alpha_{diet}\)</span>. The third and fourth lines mathematically represent our prior knowledge about the parameters in the model before looking at the data.</p>
+<p><span class="math display">\[
+\begin{array}{l}
+c_i \sim \mathrm{Normal}(\mu_i, \sigma) \\
+\mu_i = \alpha_{diet} \\
+\alpha_{diet} \sim \mathrm{Normal}(0, 5) \\
+\sigma \sim \mathrm{Exponential}(0.1)
+\end{array}
+\]</span></p>
+<p>Don’t worry about the details here. For now, the point is to show you that we’ll need a mathematical tool to connect the data to the research idea, and that’s the statistical model. Here the model allows us to estimate the mean change in blood pressure for each diet group, which can then be used to estimate the difference in blood pressure change between groups (the estimand). The model also allows for additional sources of variation in blood pressure change among individuals (represented by the standard deviation). These sources of variation could be any number of things, such as differences among individuals in medication, exercise, age, and so on. We don’t need to enumerate all those sources of variation individually, but we do need a way to say - mathematically - that diet isn’t the only source of variation in blood pressure change. We will build statistical models carefully later in the book.</p>
+</div>
+<div id="estimate" class="section level3 hasAnchor" number="2.2.9">
+<h3><span class="header-section-number">2.2.9</span> Estimate<a href="scientific-workflow-connecting-ideas-to-data.html#estimate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An <strong>estimate</strong> is a numerical quantity computed from the sample data. For this study design, the estimate of the estimand is the the difference in the mean change in systolic blood pressure between the DASH and typical diet groups based on the sample data. The graph below shows the observed change in blood pressure for all 120 individuals in the study, separated by diet type. We can clearly see that individuals within each diet treatment vary in their blood pressure change, which is exactly what we expect because people vary in ways other than diet that might affect their blood pressure. But notice how the cloud of points tends to hover around 0 for the Typical diet, whereas individuals in the DASH treatment tend to have more of a reduction in blood pressure. In other words, it appears qualitatively that the <em>average</em> change in blood pressure during the study looks more substantial for the DASH diet than the typical diet.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-1" tabindex="-1"></a><span class="fu">ggplot</span>(d_toy, <span class="fu">aes</span>(<span class="at">x =</span> diet, <span class="at">y =</span> sbp.change)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-2" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.12</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-4" tabindex="-1"></a>  <span class="co">#geom_point(</span></span>
+<span id="cb3-5"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-5" tabindex="-1"></a>  <span class="co">#  data = diet_summ,</span></span>
+<span id="cb3-6"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-6" tabindex="-1"></a>  <span class="co">#  aes(x = diet, y = mu),</span></span>
+<span id="cb3-7"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-7" tabindex="-1"></a>  <span class="co">#  inherit.aes = FALSE,</span></span>
+<span id="cb3-8"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-8" tabindex="-1"></a>  <span class="co">#  size = 3</span></span>
+<span id="cb3-9"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-9" tabindex="-1"></a>  <span class="co">#) +</span></span>
+<span id="cb3-10"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-10" tabindex="-1"></a>  <span class="co">#geom_errorbar(</span></span>
+<span id="cb3-11"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-11" tabindex="-1"></a>  <span class="co">#  data = diet_summ,</span></span>
+<span id="cb3-12"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-12" tabindex="-1"></a>  <span class="co">#  aes(x = diet, ymin = lwr, ymax = upr),</span></span>
+<span id="cb3-13"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-13" tabindex="-1"></a>  <span class="co">#  inherit.aes = FALSE,</span></span>
+<span id="cb3-14"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-14" tabindex="-1"></a>  <span class="co">#  width = 0.15</span></span>
+<span id="cb3-15"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-15" tabindex="-1"></a>  <span class="co">#) +</span></span>
+<span id="cb3-16"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-16" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Diet group&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Change in systolic blood pressure (mmHg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="scientific-workflow-connecting-ideas-to-data.html#cb3-17" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="ch02_workflow_files/figure-html/c02_chunk06-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>But we can’t just rely on our eyes to detect patterns. We need to estimate the parameters in the statistical model, and specifically the estimand, the difference in blood pressure change between diets. We’ll spend a great deal of time learning how to do this later in the book, for now I went ahead and fit the statistical model with the sample data so you can see the types of outputs you can expect. The graph below represents two outputs germain to the reserach question. In the left panel we see probability distributions for the average blood pressure change for each diet group. A probability distribution is just a technical term for saying some values of the mean blood pressure change are more likely than others. The figure suggests that the most likely values of blood pressure change are around -6.5 mmHg for the DASH diet, and -1 mmHg for the typical diet. The probability distributions emphasize that we can’t be <em>certain</em> about the particular value of the mean blood pressure change in each group, but we can say - based on the data we collected - that some values are more likely than others. And it appears that the mean blood pressure decrease was more substantial in the DASH diet than the typical diet.</p>
+<p>How substantial? We can estimate that too. Indeed, the difference in mean blood pressure change between diets is the estimand, so we definitely need to estimate the quantity. The panel on the right represents our estimate, being the probability distribution for the difference in mean blood pressure change between diets. Here we can see it’s most likely that the DASH diet reduces systolic blood pressure by about 5-6 mmHg more than the typical diet. Importantly, we see it’s extremely unlikely that the two diets have the same mean blood pressure change (represented by the value 0). Again, we can’t be certain about the exact magnitude of the difference, but we can make probabilistic statements. Ultimately the inferences we make about our research question with data require <em>probabalistic reasoning</em>.</p>
+</div>
+<div id="summary" class="section level3 hasAnchor" number="2.2.10">
+<h3><span class="header-section-number">2.2.10</span> Summary<a href="scientific-workflow-connecting-ideas-to-data.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Overall the synthetic study here suggests it’s very <em>likely</em> that the DASH diet leads to greater reductions in systolic blood pressure than the typical diet. Thus we’ve come full circle. We started with a research question informed by theory, used a generative model to inform our research design and analysis, and fit a statistical model that allows us to make an inference about the research question in the target population of interest. Of course the science doesn’t end there. This particular study has updated our knowledge on the effect of diet on blood pressure change, and it raises plenty of new questions that could be addressed next (e.g., What explains the variation in blood pressure change within the DASH diet? What are the physiological mechanisms underlying the blood pressure reduction with the DASH diet? How would variation in fruit and vegetable intake affect blood pressure reduction, and how much fruit and vegetable intake should be recommend to maximize blood pressure reduction?). In this way we see that science is an iterative process.</p>
+<div class="alert alert-block alert-info">
+<p><b>Scientific workflow example</b></p>
+<ul>
+<li><strong>Research question:</strong> Does a DASH diet lower systolic blood pressure compared to a typical diet?</li>
+<li><strong>Theory:</strong> Diet can plausibly influence blood pressure via physiological pathways.</li>
+<li><strong>Generative model:</strong> Factors like health consciousness can confound the relationship between diet and blood pressure and need to be considered in the study design and analysis to estimate the causal effect of diet.</li>
+<li><strong>Estimand:</strong> The difference in average systolic blood pressure change under DASH vs typical diet in the <i>target population</i></li>
+<li><strong>Target population:</strong> The group we want to generalize about (e.g., adults with elevated blood pressure eligible for the study).</li>
+<li><strong>Study design:</strong> Randomized experiment assigning participants to DASH or typical diet and measuring systolic blood pressure before and after.</li>
+<li><strong>Sample data:</strong> The subset of individuals from the population selected for the study. One row per participant including diet group and blood pressure measurements.</li>
+<li><strong>Statistical model:</strong> A model that connects sample data to the estimand and allows us to describe uncertainty in our estimates.</li>
+<li><strong>Estimate:</strong> The difference in mean blood pressure change between diets based on the sample data and described with uncertainty.</li>
+</ul>
+</div>
+<p>That’s basically the whole ball game in one short chapter. The rest of the book will flesh out the details for each step of the workflow, building up a toolkit you can use to connect your own research questions to empirical data.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="why-statistics-the-problem-of-uncertainty.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction-to-data-and-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true,
+    "toc_depth": 2
+  },
+  "toolbar": {
+    "position": "fixed"
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -14,9 +14,8 @@ A good research question clearly identifies the main task for using data. Do you
 
 Consider the general topic of birds and city parks again. There are plenty of research questions one could ask about that study system. Table \@ref(tab:c02c01) provides a classification of research questions by primary goal, illustrating how different types of questions align with descriptions, predictions, and explanations.
 
-<table class="table table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c02c01)(#tab:c02c01) <span style="color:black; font-weight:bold;">Classification of research questions by primary goal</span>
-</caption>
+<table class="table table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:c02c01)(\#tab:c02c01) Examples of description, prediction, and explanation questions.</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Description </th>
@@ -28,12 +27,12 @@ Consider the general topic of birds and city parks again. There are plenty of re
   <tr>
    <td style="text-align:left;"> What is the average number of bird species in city parks? </td>
    <td style="text-align:left;"> How many bird species will be in a park with particular attributes, such as size, amount of forest, or number of visitors? </td>
-   <td style="text-align:left;"> Does increasing the size of parks increase the number of bird species? </td>
+   <td style="text-align:left;"> Does increasing the amount of forest in a park cause the number of bird species to increase? </td>
   </tr>
   <tr>
    <td style="text-align:left;"> How different are the types of bird species from park to park? </td>
    <td style="text-align:left;"> What will the total number of birds be in the park next year? </td>
-   <td style="text-align:left;"> Will adding forest to parks change the types of bird species present? </td>
+   <td style="text-align:left;"> Does restricting visitor access increase the number of bird species? </td>
   </tr>
 </tbody>
 </table>

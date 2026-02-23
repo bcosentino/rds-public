@@ -136,7 +136,7 @@
 \makeatother
 \subtitle{An Introductory Course}
 \author{Bradley J. Cosentino}
-\date{Updated on 2026-01-15}
+\date{Updated on 2026-02-23}
 
 \begin{document}
 \maketitle
@@ -262,17 +262,18 @@ A good research question clearly identifies the main task for using data. Do you
 Consider the general topic of birds and city parks again. There are plenty of research questions one could ask about that study system. Table \ref{tab:c02c01} provides a classification of research questions by primary goal, illustrating how different types of questions align with descriptions, predictions, and explanations.
 
 \begin{table}[!h]
+\centering\centering
+\caption{\label{tab:c02c01}\label{tab:c02c01} Examples of description, prediction, and explanation questions.}
 \centering
-\caption{\label{tab:c02c01}Classification of research questions by primary goal}
-\centering
-\begin{tabular}[t]{p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lll}
 \toprule
 Description & Prediction & Explanation\\
 \midrule
-What is the average number of bird species in city parks? & How many bird species will be in a park with particular attributes, such as size, amount of forest, or number of visitors? & Does increasing the size of parks increase the number of bird species?\\
-How different are the types of bird species from park to park? & What will the total number of birds be in the park next year? & Will adding forest to parks change the types of bird species present?\\
+What is the average number of bird species in city parks? & How many bird species will be in a park with particular attributes, such as size, amount of forest, or number of visitors? & Does increasing the amount of forest in a park cause the number of bird species to increase?\\
+How different are the types of bird species from park to park? & What will the total number of birds be in the park next year? & Does restricting visitor access increase the number of bird species?\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{Identify the scope of inference: The who, what, when, and where of your study.}\label{identify-the-scope-of-inference-the-who-what-when-and-where-of-your-study.}
@@ -2431,7 +2432,7 @@ Let's look at how to compare quantitative data between categories of a qualitati
 \FunctionTok{ggplot}\NormalTok{(d, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ distance)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \DecValTok{300}\NormalTok{, }\AttributeTok{boundary =} \DecValTok{0}\NormalTok{, }
                  \AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"lightblue"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{facet\_grid}\NormalTok{(origin }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\FunctionTok{vars}\NormalTok{(origin), }\AttributeTok{ncol=}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Flight distance (miles)"}\NormalTok{,}
        \AttributeTok{y =} \StringTok{"Number of flights"}\NormalTok{)}
 \end{Highlighting}
@@ -4253,11 +4254,11 @@ dataframe \texttt{d}.
 
 \begin{figure}
 
-{\centering \includegraphics{ch07_estimation_files/figure-latex/c0c15-1} 
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c15-1} 
 
 }
 
-\caption{Likelihood distribution showing the probability of the observed data (1 out of 15 positive tests) conditional on each value of the prevalence of infection.}\label{fig:c0c15}
+\caption{Likelihood distribution showing the probability of the observed data (1 out of 15 positive tests) conditional on each value of the prevalence of infection.}\label{fig:c07c15}
 \end{figure}
 
 Figure \ref{fig:c07c15} shows the likelihood distribution. Each point in
@@ -4939,7 +4940,27 @@ Let's take a look:
          \AttributeTok{formula =}\NormalTok{ m.formula,}
          \AttributeTok{prior =}\NormalTok{ m.prior,}
          \AttributeTok{refresh =} \DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{print}\NormalTok{(m)}
 \end{Highlighting}
 \end{Shaded}
@@ -5062,13 +5083,11 @@ we will get lots of practice defining statistical models, fitting them
 with data in brms, and interpreting the outputs. I will orient you to
 the key parts as we move forward.
 
-\section{Estimation for a continuous random variable}\label{estimation-for-a-continuous-random-variable}
+\chapter{Bayesian Workflow}\label{bayesian-workflow}
 
-The test result data for our infection prevalence example was a discrete random variable, which we modeled with a binomial probability distribution. In this section we I will show you how we can do Bayesian estimation with continuous random variables too. Like infection prevalence, the research question we'll focus on is descriptive: What is the average resting heart rate for adults in the U.S.?The data we'll
-use are included in an R packages called \emph{NHANES}, which stands for the
-U.S. National Health and Nutrition Examination study. NHANES is a survey
-of a variety of health parameters for people in the U.S. Let's start by
-loading the data:
+In this chapter we extend the process Bayesian estimation in two ways. First, we will look at estimation of a model with parameters for a continuous random variable. Second, we will begin practicing a consistent approach to estimating parameters that includes explicit steps of picking an appropriate statistical model, checking the performance of the model with chosen prior distributions, fitting the model, and checking the performance of the fitted model. This kind of systematic approach to model selection and checking is called \textbf{Bayesian workflow}. To explore the components of Bayesian workflow in this chapter, we will consider the following question: What is the average resting heart rate for adults in the United States?
+
+The data we'll this chapter use are included in an R packages called \emph{NHANES}, which stands for the U.S. National Health and Nutrition Examination study. NHANES is a survey of a variety of health parameters for people in the U.S. Let's start by loading the data:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5115,25 +5134,39 @@ old, leaving observations for 7216 adults (excluding missing observations):
 ## [1] 7216
 \end{verbatim}
 
-Now let's turn our attention now to estimating the resting heart rate in this sample. Heart rate is a continuous random variable, and our estimand is the mean heart rate. As we know from the last chapter, one probability distribution that uses the mean to describe central tendency is the normal distribution, and here we can use it as our generative model. By using the normal distribution, we assume heart rates are observed at random with variation around a population mean (\(\mu\)) and with among-individual variation described by a standard deviation (\(\sigma\)). We also assume that heart rate is measured without error.
+\section{Step 1: Choose an appropriate model for the likelihood}\label{step-1-choose-an-appropriate-model-for-the-likelihood}
 
-Unlike the binomial distribution - which has just a single parameter - the normal distribution has two parameters - mean and standard deviation. Because we are assuming heart rates come from a normal distribution, we have to include both the mean and the standard deviation in our statistical model. Indeed, when we assume a variable is drawn from a particular probability distribution, we have to estimate (or assume values for) all the parameters for that probability distribution whether we want them or not. That's why it's useful to differentiate between types of parameters, the estimands being the parameters that we are most interested in.
+How are the observed data of resting heart rates \emph{generated}? That's the question we have to address first. We need a model that characterizes how our sample data are created. In the broader context of scientific workflow introduced in Chapter 2, this process represents the arrow from the generative model to the statistical model. We need a statistical model that adequately represents the assumptions made in the generative model.
 
-Here's the statistical model we will use:
+In the last chapter, our main example focused on estimating the prevalence of a respiratory infection in a population. The observed data consisted of \emph{X} people who tested positive for the infection out of a sample of \emph{N} people tested. When we do statistical analysis, we have to make a decision about how best to characterize how the observed data were generated. This part of our statistical model is called the \textbf{likelihood model}. For infection prevalence, we recognized that the observed data was a discrete random variable that could be described by the binomial distribution. The binomial distribution simply functioned as a model we thought was appropriate to describe how the observed number of infections was generated given the true probability of infection (the parameter we wanted to learn) and the number of people sampled.
+
+We're going to need a different kind of likelihood model for estimating the mean resting heart rate. Resting heart rate is a continuous random variable, so the binomial distribution isn't an appropriate description of how heart rates are generated and observed. As we learned in Chapter 6, one probability distribution that can be useful for describing a continuous random variable is the normal (Gaussian) distribution. The normal distribution isn't the only probability distribution that describes continuous random variables, and for some continuous variables we need something else, but it's a good starting point.
+
+So the first step in Bayesian workflow is selecting an appropriate likelihood model, and for resting heart rate we'll use the normal distribution for this purpose. By using the normal distribution, we assume resting heart rates are observed at random with variation around a population mean (\(\mu\)) and with among-individual variation described by a standard deviation (\(\sigma\)). We also assume that heart rate is measured without error.
+
+Unlike the binomial distribution - which has just a single parameter - the normal distribution has two parameters - mean and standard deviation. Because we are assuming heart rates come from a normal distribution, we have to include both the mean and the standard deviation in our likelihood model. Indeed, when we assume a variable is drawn from a particular probability distribution, we have to estimate (or assume values for) all the parameters for that probability distribution whether we want them or not. That's why it's useful to differentiate between types of parameters, the estimands being the parameters that we are most interested in.
+
+Here's how we can communicate our choice of the normal distribution for the likelihood with statistical notation:
 
 \[
-\begin{array}{l}
-r_i \sim \mathrm{Normal}(\mu, \sigma) \\
-\mu \sim \mathrm{Normal}(75, 10) \\
-\sigma \sim \mathrm{Uniform}(0, 20)
-\end{array}
+r_i \sim \mathrm{Normal}(\mu, \sigma)
 \]
 
-Let's walk through each line of the model. First we have \(r_i \sim \mathrm{Normal}(\mu, \sigma)\). Here we are defining the observed values of heart rate \emph{r} for each individual \emph{i} as a random variable following a normal distribution with parameters mean = \(\mu\) and standard deviation = \(\sigma\). Remember the tilde symbol (\textasciitilde) defines a relationship as stochastic, meaning the observed values \(r_i\) are probabilistic. The normal distribution with its parameters defines the probability of drawing particular values of heart rate. We don't know what those parameter values are, so we will have to estimate them. In the context of Bayesian estimation, this line represents the likelihood.
+What does the likelihood model say? Here we are defining the observed values of heart rate \emph{r} for each individual \emph{i} as a random variable following a normal distribution with parameters mean = \(\mu\) and standard deviation = \(\sigma\). Remember the tilde symbol (\textasciitilde) defines a relationship as stochastic, meaning the observed values \(r_i\) are probabilistic. The normal distribution with its parameters defines the probability of drawing particular values of heart rate. We don't know what those parameter values are, so we will have to estimate them.
 
-The second and third lines are prior distributions, representing our prior knowledge about the mean and standard deviation of heart rates. What does each prior distribution say? The first prior is for the mean heart rate: \(\mu \sim \mathrm{Normal}(75, 10)\). Remember prior distributions are probability distributions, in this case describing the probability of the \emph{mean} taking on different values, prior to seeing the data. We're using a normal probability distribution to characterize our prior knowledge, specifically a normal distribution with a mean of 75 and standard deviation of 10. This can be confusing, because our likelihood assumes the individual heart rates are described by a normal distribution, and now we have a normal distribution describing our prior knowledge for a parameter. Effectively we're using a normal probability distribution to describe our beliefs about a parameter - the mean - for another normal probability distribution, the individual heart rates.
+\section{Step 2: Decide on prior distributions for each parameter in the likelihood}\label{step-2-decide-on-prior-distributions-for-each-parameter-in-the-likelihood}
 
-What does the prior for the mean heart rate say? First, it says that the most plausible value for the average heart rate is 75 bpm. Remember that the normal distribution is bell-shaped, so although 75 bpm is the most plausible value, the mean could be more or less than that. How much? How much more or less? That's where the standard deviation comes into play. The standard deviation describes variation around the mean. Our normal prior for the mean heart rate specifies a standard deviation of 10 bpm. Here we can apply the empirical rule to get a sense for the plausibility of different values of the mean heart rate based on this normal prior. The empirical rule says about two thirds of the observations of a normal distribution are within one standard deviation of the mean, and 95\% of the observations are within two standard deviations of the mean. Thus if the normal distribution is defined with a mean of 75 and standard deviation of 10, it's effectively saying I think there's a two-thirds chance that the mean resting pulse rate is 65-85 bpm, and there's a 95\% chance that it's 55-95 bpm. Values outside those bounds collectively have only a 5\% probability. Of course, we could also use R to plot the distribution:
+Once your likelihood model is defined, it is necessary to define prior distributions for \emph{every} parameter in the likelihood model. How should we go about doing this? At this point in the book I want to introduce two considerations for choosing priors. Prior distributions should be selected in a way that a) respects the mathematical constraints of the parameter of interest and b) allows us to adequately specify our beliefs about values of the parameters that are more or less likely based on our prior knowledge.
+
+First, consider the mathematical constraints of a parameter. Remember our example in the last chapter about estimating the prevalence of an infection? Our model for infection prevalence had just a single parameter, the probability of infection. Probability is bounded between the values of 0 and 1, so it is wise to choose a prior distribution that respects those boundaries. That's why we eventually landed on using the beta distribution as an appropriate probability distribution for the prior, as the beta distribution is bounded between 0 and 1. It makes values outside of the bounds of 0 and 1 impossible, and that makes good mathematical sense.
+
+Let's apply this principle to the question before us this chapter of estimating the mean resting heart rate. Our likelihood model has two parameters, the mean and standard deviation, so we need a prior for both. Let's consider the mean first. Are there any mathematical constraints on the mean resting heart rate? The only constraint that comes to mind is that the mean resting heart rate can't be negative. It could be any real positive value, but it can't be less than 0.
+
+Which probability distribution might be appropriate for the mean heart rate? At this point in the book we've encountered four probability distributions: binomial, uniform, beta, and normal. The binomial and beta distributions are clearly not appropriate in this case. What about the uniform distribution? Suppose we're 100\% confident that the mean resting heart rate of our target population is not less than 50 or greater than 100. We could specify a uniform prior for the mean that rules out values below 50 and above 100: \(\mu \sim \mathrm{Uniform}(50, 100)\), which meets our goal of respecting the mathematical constraints of the parameter, namely that the mean heart rate can't be negative.
+
+But now let's consider our other goal of selecting a prior that adequately reflects our prior beliefts about the parameter. The downside of the uniform distribution is that it doesn't give us any wiggle room to make some values within the range of 50 to 100 more likely than others. We might think the most plausible values for the mean resting heart rate are around 75 bpm, but the uniform distribution we defined says all the values between 50 and 100 are equally plausible. So let's consider another possibility.
+
+What about the normal distribution? Could we use the normal distribution to define a prior for the mean heart rate? It certainly addresses the problem we just faced with the uniform distribution in that we could specify a normal prior that makes values of the mean around 75 bpm more likely than other values. For example, suppose based on prior knowledge that you are 95\% confident that the true mean resting heart rate is between 55 and 95 bpm, but it's more likely to be around 75 than values at the margins. We could define the prior distribution for the mean with a normal distribution having a mean of 75 bpm and a standard deviation of 10 bpm: \(\mu \sim \mathrm{Normal}(75, 10)\). That's a nice application of the empirical rule, which says that 95\% of the values of a normal distribution are within two standard deviations of the mean. This could work!
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5147,53 +5180,149 @@ What does the prior for the mean heart rate say? First, it says that the most pl
   \FunctionTok{geom\_area}\NormalTok{(}\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Mean resting heart rate (bpm)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Probability Density"}\NormalTok{,}
-       \AttributeTok{title =} \StringTok{"Prior distribution for the mean resting heart rate"}\NormalTok{) }\SpecialCharTok{+}
+       \AttributeTok{title =} \FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Prior distribution: "}\NormalTok{, mu, }\StringTok{" \textasciitilde{} Normal(75, 10)"}\NormalTok{))) }\SpecialCharTok{+}
   \FunctionTok{theme\_classic}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{ch07_estimation_files/figure-latex/c07c39-1} \end{center}
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c04-1} \end{center}
 
-How did I know to use those particular values for the normal prior (mean = 75, standard deviation = 10). This is where domain knowledge is helpful. Based on prior knowledge from the medical literature and my own experience on track and cross country teams where we often measured our heart rates, I have a general sense about the most plausible values for average heart rate. I don't know it for sure, but I think it's around 75 bpm. It could be more or less, but I think it's \emph{very} unlikely that hte \emph{typical} heart rate is less than 50 bpm or over 100 bpm. I also don't think it's equally plausible that the mean heart rate is anywhere between 50 and 100 bpm. I think it's most likely around 75, with decreasing probability moving away from 75. The normal distribution captures that prior knowledge nicely (albeit imperfectly, as every model is imperfect).
+How did I know to use those particular values for the normal prior (mean = 75, standard deviation = 10). This is where domain knowledge is helpful. Based on prior knowledge from the medical literature and my own experience on track and cross country teams where we often measured our heart rates, I have a general sense about the most plausible values for average heart rate. I don't know it for sure, but I think it's around 75 bpm. It could be more or less, but I think it's \emph{very} unlikely that the \emph{typical} heart rate is less than 50 bpm or over 100 bpm. I also don't think it's equally plausible that the mean heart rate is anywhere between 50 and 100 bpm. I think it's most likely around 75, with decreasing probability moving away from 75. The normal distribution captures that prior knowledge nicely (albeit imperfectly, as every model is imperfect).
 
-What about the standard deviation? Admittedly, I feel like I know less about the variation among people in their heart rates than I do about the average heart rate. I wish I could just ignore the standard deviation, but because it's a parameter in my statistical model, it needs a prior. The prior I chose for the standard deviation is a uniform distribution between 0 bpm and 20 bpm. Let's take a look at that distribution:
+One potential problem with the normal distribution is that it it allows for values that are positive or negative. So here we face a trade-off. We've landed on a probability distribution that allows us to specify our prior belief about values near 70 bpm being most likely for the mean, but it allows negative values (as well as extremely high positive values, like one 10,000 bpm). What do we do? We have a few options. We could ditch the normal distribution and look around for another probability distribution that has a similar shape as the normal distribution (high probability density at the mean and lower elsewhere), but only allows for real values above zero. There are options, such as the gamma distribution. On the other hand, we could proceed with the normal distribution and be comfortable with the fact that the probability density of negative values and extreme positive values are minuscule. Remember that a Bayesian analysis uses both the prior \emph{and} the observed data to quantify the posterior distribution that we make inferences with. Extremely unlikely values based on the prior probability alone will not have high posterior probability unless the observed data and likelihood model are very consistent with those values. So for now, let's proceed with the normal distribution as our prior for the mean resting heart rate.
+
+Wow, that was a lot of effort to select a prior distribution for just a single parameter in our likelihood model. And we still have another parameter to deal with! What should we select as a prior for the standard deviation? First, let's just remember what the standard deviation represents. It represents the typical variation in resting heart rate among individuals in the target population. Admittedly, I feel like I know less about the variation among people in their heart rates than I do about the average heart rate. I wish I could just ignore the standard deviation, but because it's a parameter in my likelihood model, it needs a prior.
+
+Now although I don't know much about variation in heart rates, I do know there's a mathematical constraint we can respect. The standard deviation cannot be less than 0. Variation either exists, in which case the standard deviation is positive, or it doesn't, in which case the standard deviation is 0. So I want to use a prior distribution that says the standard deviation is zero or positive values only, is possible.
+
+How large could the standard deviation be? That's where things are murky for me, although if I push myself, I do think there are some obvious limits that come to mind. For example, it seems absurd the the standard deviation could be something like 30 bpm. How do I know that? Well let's suppose I'm right that the mean resting heart rate is 75 bpm. A normal distribution with a mean of 75 bpm and standard deviation of 30 bpm would allow a not insignificant portion of the population to have absurd resting heart rates, like less than 30 bpm (just 1.5 standard deviations below the mean) or greater than 110 bpm (just 1.5 standard deviations above the mean). A standard deviation of 30 bpm seems too high. What about 20 bpm? If I'm right that the mean resting heart rate is 75 bpm, a standard deviation of 20 bpm would imply that 95\% of the population has a resting heart rate between 35 bpm and 115 bpm. Honestly that still seems too high, but I'm not sure where exactly to draw the line, so I'm going to draw it a tad higher than I think is believable.
+
+Now you probably think that some values within the range of 0 to 20 bpm are more plausible for the standard deviation than others. I do too, and we could consider a normal distribution as our prior here. But I'm going to caution against that. Unlike the mean resting heart rate, the range of values for the standard deviation are much closer to 0, and I'm concerned about giving too much credence to negative values for the standard deviation. So for now, let's choose a uniform distribution between 0 and 20 as our prior for the standard deviation: \(\mu \sim \mathrm{Uniform}(50, 100)\). This simply says that, before seeing the data, we consider any value of the standard deviation between 0 and 20 bpm to be equally plausible. The lower bound of 0 makes good sense because standard deviations cannot be negative (there can't be negative variation). The upper bound of 20 bpm is also conservative. Uniform distributions can work well as prior distribution for paramter that are only positive and when we only know enough to define hard limits on possible values. Yet the uniform distribution isn't completely uninformative. Indeed, it makes a rather strong assumption that values anywhere in the range of 0 and 20 are equally plausible, and other values are impossible.
+
+So there we have it. We've selected a likelihood model, and we've selected prior distributions for each parameter in our likelihood model. This is our full statistical model that we've defined:
+
+\[
+\begin{array}{l}
+r_i \sim \mathrm{Normal}(\mu, \sigma) \\
+\mu \sim \mathrm{Normal}(75, 10) \\
+\sigma \sim \mathrm{Uniform}(0, 20)
+\end{array}
+\]
+
+\section{Step 3: Prior predictive check}\label{step-3-prior-predictive-check}
+
+Are the prior distributions we selected reasonable? We can - and indeed we should - interrogate this question before we fit the model. This is the goal of a \textbf{prior predictive check}. We want to formally look at what the prior distributions we selected imply about the data, independently of the observed data. For simple models like ours, this is a straightforward task that we can accomplish by simulating data. Our prior distributions allow for an infinite number of combinations of mean and stadnard deviation for the resting heart rate, but they make some combinations more likely than others. The goal here is to evaluate the \emph{joint distribution} of the mean and standard deviation bsaed on the priors and ensure that we're not implying values that make no sense.
+
+Let's simulate some data so you can see what I mean:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{a }\OtherTok{\textless{}{-}} \DecValTok{0}
-\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{15}
+\CommentTok{\#from https://bookdown.org/content/4857/geocentric{-}models.html\#a{-}language{-}for{-}describing{-}models}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{10000}
 
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{, }\DecValTok{20}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{2000}\NormalTok{)}
-\NormalTok{dens }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(x }\SpecialCharTok{\textless{}}\NormalTok{ a }\SpecialCharTok{|}\NormalTok{ x }\SpecialCharTok{\textgreater{}}\NormalTok{ b, }\DecValTok{0}\NormalTok{, }\FunctionTok{dunif}\NormalTok{(x, }\AttributeTok{min =}\NormalTok{ a, }\AttributeTok{max =}\NormalTok{ b))}
-\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{x =}\NormalTok{ x, }\AttributeTok{dens =}\NormalTok{ dens)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 
-\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ x, }\AttributeTok{y =}\NormalTok{ dens)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_area}\NormalTok{(}\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_step}\NormalTok{(}\AttributeTok{direction =} \StringTok{"hv"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Parameter value"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Probability Density"}\NormalTok{, }\AttributeTok{title =} 
-         \StringTok{"Prior distribution for the standard deviation of heart rate"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{17}\NormalTok{))}
+\CommentTok{\#randomly draw means from the prior}
+\NormalTok{mu.sim }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(n, }\AttributeTok{mean =} \DecValTok{75}\NormalTok{, }\AttributeTok{sd =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{\#randomly draw SDs from the prior}
+\NormalTok{sigma.sim }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(n, }\AttributeTok{min =} \DecValTok{0}\NormalTok{, }\AttributeTok{max =} \DecValTok{20}\NormalTok{)}
+
+\CommentTok{\#randomly draw values of resting heart rate from the combined means and SDs}
+\NormalTok{r.sim }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(n, }\AttributeTok{mean =}\NormalTok{ mu.sim, }\AttributeTok{sd =}\NormalTok{ sigma.sim)}
+
+\CommentTok{\#plot the simulated distribution of heart rates}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{r.sim =}\NormalTok{ r.sim)}
+
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ r.sim)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{fill =} \StringTok{"lightblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"darkblue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Implied distribution of resting heart rate from priors"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Resting heart rate (bpm)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Density"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{ch07_estimation_files/figure-latex/c07c40-1} \end{center}
+\begin{figure}
 
-The uniform distribution is simple. A \(\mathrm{Uniform}(0, 20)\) prior for the standard deviation says that, before seeing the data, we consider any value of the standard deviation between 0 and 20 bpm to be equally plausible. The lower bound of 0 makes good sense because standard deviations cannot be negative (there can't be negative variation). The upper bound of 15 bpm is also conservative. If the true standard deviation was 20 bpm, it would imply that95\% of all the heart rates to be within 40 bpm of the mean, and that's a large range. Uniform distributions work well as prior distributions when the parameter of interest is only positive and when we only know enough to define hard limits on possible values. Yet the uniform distribution isn't completely uninformative. Indeed, it makes a rather strong assumption that values anywhere in the range of 0 and 20 are equally plausible, and other values are impossible.
+{\centering \includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c06-1} 
 
-With our statistical model in defined, let's proceed with estimation in \texttt{brms}:
+}
+
+\caption{TODO: caption.}\label{fig:c08c06}
+\end{figure}
+
+What is this code doing? First, we randomly draw 10,000 values of the mean resting heart rate from the prior distribution that we defined for the mean (a normal distribution with mean = 75 and SD = 10). Next, we randomly draw 10,000 values for the standard deviation from the prior distribution we defined for that parameter (a uniform distribution between 0 and 20). Finally, we randomly draw 10,000 values of individual resting heart rates from the normal distributions implied by the simualted means and standard deviations from our priors. Then we plot the implied distribution of resting heart rates.
+
+What do we learn here? We can see the distribution of heart rate implied by the priors has a mean right around 75 bpm as expected, so that's good. But what's not good is that the variation around that mean looks a bit unrealistic. The priors are implying that people (albeit only a few) can have a resting heart rate of 0 or even negative values, or resting heart rates approaching 150 bpm. Good thing we did this prior predictive simulation. This is exactly why you'd do such a thing; to see if the priors you assumed are realistic. Clearly the priors we're using can be improved.
+
+How should we improve the priors? We have two choices here, we could tighten the normal distribution for the mean, and we could reduce the maximum value for the standard deviation. Either of those alone should tighten the distribution of resting heart rates implied by the priors. I'm going to suggest we do both. Let's tighten the normal prior for the mean to have a mean of 75 and standard deviation of 7.5 (implying a 95\% probability that the mean resting heart rate is between 60 and 90; still probabily a bit wide). Let's also trim the upper bound of the standard deviation to 15 bpm. Here's our revised statistical model:
+
+\[
+\begin{array}{l}
+r_i \sim \mathrm{Normal}(\mu, \sigma) \\
+\mu \sim \mathrm{Normal}(75, 7.5) \\
+\sigma \sim \mathrm{Uniform}(0, 15)
+\end{array}
+\]
+Now let's see if that implies a more realistic distribution of resting heart rates:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#model formula: heart rate is normally distributed}
+\CommentTok{\#from https://bookdown.org/content/4857/geocentric{-}models.html\#a{-}language{-}for{-}describing{-}models}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{10000}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+
+\CommentTok{\#randomly draw means from the prior}
+\NormalTok{mu.sim }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(n, }\AttributeTok{mean =} \DecValTok{75}\NormalTok{, }\AttributeTok{sd =} \FloatTok{7.5}\NormalTok{)}
+
+\CommentTok{\#randomly draw SDs from the prior}
+\NormalTok{sigma.sim }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(n, }\AttributeTok{min =} \DecValTok{0}\NormalTok{, }\AttributeTok{max =} \DecValTok{15}\NormalTok{)}
+
+\CommentTok{\#randomly draw values of resting heart rate from the combined means and SDs}
+\NormalTok{r.sim }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(n, }\AttributeTok{mean =}\NormalTok{ mu.sim, }\AttributeTok{sd =}\NormalTok{ sigma.sim)}
+
+\CommentTok{\#plot the simulated distribution of heart rates}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{r.sim =}\NormalTok{ r.sim)}
+
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ r.sim)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{fill =} \StringTok{"lightblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"darkblue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Implied distribution of resting heart rate from priors"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Resting heart rate (bpm)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Density"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c07-1} 
+
+}
+
+\caption{TODO: caption.}\label{fig:c08c07}
+\end{figure}
+
+Now we see no negative values implied by the priors, and the upper extreme values have been reduced to a maximum of around 125 bpm. Honestly these prior may still be a bit too wide, but those extreme values are very rare, and the data will have a lot to say about where the posterior distributions end up. Let's proceed!
+
+\section{Step 4: Fit the statistical model with the observed data}\label{step-4-fit-the-statistical-model-with-the-observed-data}
+
+With our statistical model in defined, let's proceed to estimate the parameters in \texttt{brms}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(brms)}
+
+\CommentTok{\#Likelihood model: heart rates normally distributed}
 \NormalTok{m1.formula }\OtherTok{\textless{}{-}} \FunctionTok{bf}\NormalTok{(Pulse }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{family =} \FunctionTok{gaussian}\NormalTok{())}
 
 \CommentTok{\# Priors:}
 \CommentTok{\#   Intercept (mu) \textasciitilde{} Normal(75, 10)}
 \CommentTok{\#   sigma \textasciitilde{} Uniform(0, 20)}
 \NormalTok{m1.prior }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}
-  \FunctionTok{prior}\NormalTok{(}\FunctionTok{normal}\NormalTok{(}\DecValTok{75}\NormalTok{, }\DecValTok{10}\NormalTok{), }\AttributeTok{class =} \StringTok{"Intercept"}\NormalTok{),}
-  \FunctionTok{prior}\NormalTok{(}\FunctionTok{uniform}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{), }\AttributeTok{class =} \StringTok{"sigma"}\NormalTok{, }\AttributeTok{lb =} \DecValTok{0}\NormalTok{, }\AttributeTok{ub =} \DecValTok{20}\NormalTok{)}
+  \FunctionTok{prior}\NormalTok{(}\FunctionTok{normal}\NormalTok{(}\DecValTok{75}\NormalTok{, }\FloatTok{7.5}\NormalTok{), }\AttributeTok{class =} \StringTok{"Intercept"}\NormalTok{),}
+  \FunctionTok{prior}\NormalTok{(}\FunctionTok{uniform}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{15}\NormalTok{), }\AttributeTok{class =} \StringTok{"sigma"}\NormalTok{, }\AttributeTok{lb =} \DecValTok{0}\NormalTok{, }\AttributeTok{ub =} \DecValTok{15}\NormalTok{)}
 \NormalTok{)}
 
 \CommentTok{\# Fit model}
@@ -5202,71 +5331,87 @@ With our statistical model in defined, let's proceed with estimation in \texttt{
   \AttributeTok{formula =}\NormalTok{ m1.formula,}
   \AttributeTok{prior =}\NormalTok{ m1.prior,}
   \AttributeTok{seed =} \DecValTok{123}\NormalTok{,}
-  \AttributeTok{chains =} \DecValTok{4}\NormalTok{, }\AttributeTok{iter =} \DecValTok{2000}\NormalTok{, }\AttributeTok{cores =} \DecValTok{4}\NormalTok{,}
+  \AttributeTok{chains =} \DecValTok{4}\NormalTok{, }\AttributeTok{warmup =} \DecValTok{1000}\NormalTok{, }\AttributeTok{iter =} \DecValTok{2000}\NormalTok{, }\AttributeTok{cores =} \DecValTok{4}\NormalTok{,}
   \AttributeTok{refresh =} \DecValTok{0}
 \NormalTok{)}
-
-\FunctionTok{print}\NormalTok{(m1)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  Family: gaussian 
-##   Links: mu = identity 
-## Formula: Pulse ~ 1 
-##    Data: d (Number of observations: 7216) 
-##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-##          total post-warmup draws = 4000
-## 
-## Regression Coefficients:
-##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept    72.57      0.14    72.29    72.85 1.00     3326     2552
-## 
-## Further Distributional Parameters:
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma    11.96      0.10    11.77    12.16 1.00     3624     2726
-## 
-## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
-## and Tail_ESS are effective sample size measures, and Rhat is the potential
-## scale reduction factor on split chains (at convergence, Rhat = 1).
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
 \end{verbatim}
 
-Let's walk through this. We've defined the likelihood with the \texttt{bf} function, where the formula \texttt{Pulse\ \textasciitilde{}\ 1} tells \texttt{brms} that we want to fit a model with only an intercept, which is just a fancy way of saying we want the mean of the normal distribution that we specified with \texttt{family\ =\ gaussian} (recall ``Gaussian'' is another name for the normal distribution). We then define our priors. In \texttt{brms}, each parameter getting a prior needs a distribution for the prior. You can see we specify \texttt{normal(75,\ 10)} for the mean and \texttt{uniform(0,\ 20)} for the standard deviation in this case. The \texttt{class} argument is required to indicate the type of variable, here being an \texttt{Intercept} for the mean and \texttt{sigma} for the standard deviation.
+Let's walk through this. We've defined the likelihood with the \texttt{bf} function, where the formula \texttt{Pulse\ \textasciitilde{}\ 1} tells \texttt{brms} that we want to fit a model with only an intercept, which is just a fancy way of saying we want the mean of the normal distribution that we specified with \texttt{family\ =\ gaussian} (recall ``Gaussian'' is another name for the normal distribution). We then define our priors. In \texttt{brms}, each parameter getting a prior needs a distribution for the prior. You can see we specify \texttt{normal(75,\ 7.5)} for the mean and \texttt{uniform(0,\ 15)} for the standard deviation in this case. The \texttt{class} argument is required to indicate the type of variable, here being an \texttt{Intercept} for the mean and \texttt{sigma} for the standard deviation. Note that when defining a uniform prio, you not only need to define the limits within the \texttt{uniform} call, but also with the \texttt{lb} and \texttt{ub} arguments. Any inconsistencies here will lead to an error.
 
-After fitting the model, we print the model output (\texttt{print(m1)}) to see same basic numerical summaries of the posterior distributions for the parameters we estimated. Our estimate for the mean heart rate is listed under ``Regression Coefficients'' as the ``Intercept''. Remember that our estimate is an entire probability distribution, and \texttt{brms} defaults to showing you the mean of the posterior as the ``Estimate''. Thus we see that them ean of the posterior distribution for resting heart rate is 72.57 bpm. The ``Est.Error'' represents the standard deviation of the posterior distribution, and we also see limits of a 95\% credible interval (CI). Based on the analysis, we can say there's a 95\% probability that the mean resting heart rate is between 72.29 bpm and 72.85 bpm.
+I'll just note right here that the process of fitting model can be much more complex than I'm suggesting in this section. For example, there are decisions to make about the particular MCMC engine to use, the number of chains to run, the length to run each chain (iterations), whether or not to thin the iterations, and how to fit the model efficiently using CPU's in parallel. For the purpose of an introductory statistics book, I've chosen to leave many of these details out and using relatively consistent model fitting decisions, especially for the relatively simple models addressed in a beginner's class. Thus you will almost always see that we fit models with four chains, 2000 iterations for each chain, 1000 iterations of warmup (more on that below), and with the chains fitted in parallel across four CPU's (\texttt{cores}) for efficiency. I've set the \texttt{seed} value so that the particular output in this book is reproducable, and I've set the \texttt{refresh} argument to 0 to minimize the amount of messages you get from \texttt{brms} during model fitting. All of these decisions can and should be open for discussion when fitting a particular model, and often these settings will need to be adjusted. But I consider these more advanced topics better approached when you have a basic handle on the general steps of Bayesian analysis, and other books cover these topics in detail and much more effectively than I could here.
 
-In addition to the mean heart rate, we also get a posterior distribution for the standard deviation, here denoted ``sigma'' under ``Further Distributional Parameters''. There we see the posterior mean is 11.96 bpm, and there's a 95\% probability that the standard deviation is between 11.77 and 12.16 bpm. Note that the credible intervals for the mean and standard deviation of resting heart rates are both quite narrow, indicating that we've estimated these parameters with a high degree of precision.
+\section{Step 5: Evaluating and applying a fitted model}\label{step-5-evaluating-and-applying-a-fitted-model}
 
-It's worth noting here that although \texttt{brms} shows 95\% credible intervals by default, there's nothing special about the 95\% level. Indeed, a confidence level of 94\% or 96\% would probably tell the same story about uncertainty. The use of 95\% is largely historical and related to the use of particular thresholds of ``statistical significance'' with frequentist approaches to estimation. But there's no reason to obsess about using a 95\% credible interval. One just needs to be aware that credible intervals will widen as you increase the probability level, and they'll decrease as you narrow the probability level. And it's straightforward to ask \texttt{brms} to show credible intervals at different probability levels using the \texttt{prob} argument in the \texttt{summary} function. Here you can see a summary of the posterior distribution with a 92\% credible interval:
+\subsection{A quick glance at the estimates}\label{a-quick-glance-at-the-estimates}
+
+After fitting the model, we print the model output (\texttt{print(m1)}) to see same basic numerical summaries of the posterior distributions for the parameters we estimated. Our estimate for the mean heart rate is listed under ``Regression Coefficients'' as the ``Intercept''. Remember that our estimate is an entire probability distribution, and \texttt{brms} defaults to showing you the mean of the posterior as the ``Estimate''. Thus we see that the mean of the posterior distribution for resting heart rate is 72.57 bpm. The ``Est.Error'' represents the standard deviation of the posterior distribution, and we also see limits of a 95\% credible interval (CI). Based on the analysis, we can say there's a 95\% probability that the mean resting heart rate is between 72.30 bpm and 72.85 bpm.
+
+In addition to the mean heart rate, we also get a posterior distribution for the standard deviation, here denoted ``sigma'' under ``Further Distributional Parameters''. There we see the posterior mean is 11.96 bpm, and there's a 95\% probability that the standard deviation is between 11.77 and 12.15 bpm. Note that the credible intervals for the mean and standard deviation of resting heart rates are both quite narrow, indicating that we've estimated these parameters with a high degree of precision.
+
+\subsection{Checking for convergence}\label{checking-for-convergence}
+
+Before you dive into applying the posterior distributions for inferences, one thing you need to do is see if the sampling algorithm (the MCMC process) reached a stable set of posterior distributions. Remember the MCMC process is basically using a sampling process to estimate the posterior distributions, starting with some initial values that are supplied by the user or internally by the algorithm. Early in the sampling process the sampled values are biased by the initial values and can vary widely from iteration to iteration. This is called a \textbf{burn-in} or \textbf{warmup} period, and we generally do not want to use samples from this period for estimation. Indeed, the samples from the defined warmup period are entirely discarded. If the estimation process goes well, the values in each iteration stabilize and remain consistent, and it is these consistent values that we want to use for inference. We use the term \textbf{convergence} to describe a sampler that has reached the point of stability for a parameter. tIndeed, the samples from the defined warmup period are entirely discarded.
+
+In our models, we run the sampling process for 2000 iterations with a warmup period of 1000 iterations. This means the first 1000 iterations are dropped entirely, and only the final 1000 iterations are retained. This is done in parallel across four chains, so we end up with a total of 4000 sampled values for each parameter.
+
+Although we are discarding the first 1000 iterations entirely, we still need to check that the sampling process reached convergence in the final 1000 iterations we're retaining for inference. There are two ways we'll evaluate convergence in this book. First, you can execute the \texttt{plot} function on the object for your fitted model, which will produce a plot fo the posterior distributions for each parameter, as well as \textbf{trace plots} that can be used to evaluate convergence qualitatively:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{summary}\NormalTok{(m1, }\AttributeTok{prob=}\FloatTok{0.92}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(m1)}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c09-1} \end{center}
+
+The left panel shows the posterior distributions for the mean (\texttt{b\_Intercept}) and standard deviation (\texttt{sigma}) parameters, and the right side of the panel shows trace plots for each panel. Trace plots allow you to view the value of each parameter for each iteration of the model in each chain. What we're looking for here is relative consistency in the parameter values \emph{within and among} the chains, that is convergence of the parameter values. Notice that for both of these parameters, the sampled values in sequence are relatively consistent, and sampled values across the chains converged around the same values (i.e., the chains are \textbf{well-mixed}). These trace plots indicate solid convergence because the values for each chain overlap extensively and hover around a common value.
+
+In addition to evaluating convergence qualitatively, we can also evaluate it numerically in the printed model output above. Note that for each parameter an \texttt{Rhat} value is reported. This is known as the **Gelman-Rubin statistic (\(\hat{R}\)), and it reflects the degree of convergence of each parameter. Values close to 1 imply convergence, and we genearlly want to see \texttt{Rhat} values less than 1.01. The \texttt{Rhat} values for our two parameters are reported as 1.00, implying convergence of our model.
+
+\section{Checking the shape of the posterior distribution}\label{checking-the-shape-of-the-posterior-distribution}
+
+One other visual check you should make is of the posterior distributions, which can point to problems with the prior distributions (among other issues). For example, imagine that instead of using a uniform prior for the standard deviation between 0 and 15, I used a uniform prior between 0 and 12, which says the standard deviation can \emph{only} take on values between 0 and 12. Values below 0 and above 12 are impossible.
+
+Below is the output from the \texttt{plot} function for the fitted model using this new prior. Look closely at the posterior distribution for the standard deviation. Notice how the posterior distribution is strongly skewed to the left, with most of the values around 12 and a hard cut-off at 12? This is good evidence that the prior I used was too constraining, and that it's very possible that the standard deviation takes on values greater than 12. Basically the observed data via the likelihood are saying the standard deviation may well be above 12, but my prior distribution doesn't allow it. You can also see in the trace plot for the standard deviation that there's a hard limit at 12. These are good signs that my priors need to be relaxed and the model refit.
+
 \begin{verbatim}
-##  Family: gaussian 
-##   Links: mu = identity 
-## Formula: Pulse ~ 1 
-##    Data: d (Number of observations: 7216) 
-##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-##          total post-warmup draws = 4000
-## 
-## Regression Coefficients:
-##           Estimate Est.Error l-92% CI u-92% CI Rhat Bulk_ESS Tail_ESS
-## Intercept    72.57      0.14    72.33    72.83 1.00     3326     2552
-## 
-## Further Distributional Parameters:
-##       Estimate Est.Error l-92% CI u-92% CI Rhat Bulk_ESS Tail_ESS
-## sigma    11.96      0.10    11.79    12.14 1.00     3624     2726
-## 
-## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
-## and Tail_ESS are effective sample size measures, and Rhat is the potential
-## scale reduction factor on split chains (at convergence, Rhat = 1).
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
 \end{verbatim}
 
-Just like we did with our model of infection prevalence, we can use the samples of the posterior distribution to characterize it however we'd like. We could, for example, make a plot of the full posterior distributions for both the mean and standard deviation:
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c10-1} \end{center}
+
+\subsection{Inference and posterior predictive check}\label{inference-and-posterior-predictive-check}
+
+Finally, we should make a detailed inspection and summary of the posterior distributions and draw conclusions if all looks good. We start this process by using the \texttt{as\_draws\_df} function to retrieve the samples.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5278,15 +5423,27 @@ Just like we did with our model of infection prevalence, we can use the samples 
 
 \begin{verbatim}
 ##   b_Intercept    sigma Intercept    lprior      lp__ .chain .iteration .draw
-## 1    72.67079 12.05158  72.67079 -6.244382 -28148.87      1          1     1
-## 2    72.37915 12.02905  72.37915 -6.251600 -28149.36      1          2     2
-## 3    72.90687 11.99027  72.90687 -6.239162 -28151.05      1          3     3
-## 4    72.76516 12.07201  72.76516 -6.242229 -28149.77      1          4     4
-## 5    72.69316 12.07822  72.69316 -6.243863 -28149.28      1          5     5
-## 6    72.44472 11.98501  72.44472 -6.249903 -28148.62      1          6     6
+## 1    72.60770 11.96995  72.60770 -5.692764 -28148.35      1          1     1
+## 2    72.52242 11.87165  72.52242 -5.696455 -28148.70      1          2     2
+## 3    72.48102 11.93042  72.48102 -5.698294 -28148.54      1          3     3
+## 4    72.56183 11.83219  72.56183 -5.694733 -28149.06      1          4     4
+## 5    72.62127 11.90600  72.62127 -5.692188 -28148.48      1          5     5
+## 6    72.75178 11.89091  72.75178 -5.686821 -28149.33      1          6     6
 \end{verbatim}
 
-We could use these samples to plot the full posterior distribution for both parameters.
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nrow}\NormalTok{(m1.post)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4000
+\end{verbatim}
+
+We've printed the first six rows, where we see values for the mean (\texttt{b\_intercept}) and standard deviation (\texttt{sigma}). We also see that we have 4000 samples in total, exactly what we expect when we fit the model with 2000 iterations with 1000 warmup iterations discarded across four chains.
+
+Now we can use the samples to plot the full posterior distribution for both parameters.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5294,7 +5451,7 @@ We could use these samples to plot the full posterior distribution for both para
 
 \NormalTok{p\_mu }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(m1.post, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ b\_Intercept)) }\SpecialCharTok{+}
   \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \FunctionTok{expression}\NormalTok{(mu}\SpecialCharTok{\textasciitilde{}}\StringTok{"(Mean heart rate"}\NormalTok{),}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \FunctionTok{expression}\NormalTok{(mu}\SpecialCharTok{\textasciitilde{}}\StringTok{"(Mean heart rate)"}\NormalTok{),}
        \AttributeTok{y =} \StringTok{"Probability Density"}\NormalTok{,}
        \AttributeTok{title =} \StringTok{"Posterior for the mean"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{theme\_classic}\NormalTok{()}
@@ -5310,9 +5467,20 @@ We could use these samples to plot the full posterior distribution for both para
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{ch07_estimation_files/figure-latex/c07c44-1} \end{center}
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c12-1} \end{center}
 
-We could also compute other summary statistics that are automatically reported by \texttt{brms} in the summary:
+To answer our initial question, our posterior dsitribution for the mean implies that the mean resting heart rate for adults in the U.S. is very likely around 72.5 bpm. We could of course compute some summary statistics:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#posterior mean}
+\FunctionTok{mean}\NormalTok{(m1.post}\SpecialCharTok{$}\NormalTok{b\_Intercept)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 72.57146
+\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5322,7 +5490,7 @@ We could also compute other summary statistics that are automatically reported b
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 72.57247
+## [1] 72.56715
 \end{verbatim}
 
 \begin{Shaded}
@@ -5333,33 +5501,39 @@ We could also compute other summary statistics that are automatically reported b
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1952223
+## [1] 0.1888912
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#probability that the mean height is \textgreater{}75 bpm}
-\FunctionTok{mean}\NormalTok{(m1.post}\SpecialCharTok{$}\NormalTok{b\_Intercept}\SpecialCharTok{\textgreater{}}\DecValTok{75}\NormalTok{)}
+\CommentTok{\#90\% credible interval}
+\FunctionTok{quantile}\NormalTok{(m1.post}\SpecialCharTok{$}\NormalTok{b\_Intercept, }\AttributeTok{probs=}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.95}\NormalTok{)))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0
+##       5%      95% 
+## 72.34078 72.80674
 \end{verbatim}
+
+Here we can be more specific and say that the mean of the posterior distribution for resting heart rate is 72.57 bpm, and the 90\% credible interval says there's a 90\% chance that the mean heart rate is between 72.34 and 72.81 bpm. That's a very high degree of precision, due in part to our large sample size of 7481 individuals.
+
+We can also compute other probabilities of interest. For example, maybe you want to know the probability that the mean resting heart rate is greater than 73. That's easy to compute with the samples:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#80\% credible interval}
-\FunctionTok{quantile}\NormalTok{(m1.post}\SpecialCharTok{$}\NormalTok{b\_Intercept, }\AttributeTok{probs=}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\FloatTok{0.9}\NormalTok{)))}
+\CommentTok{\#probability that the mean resting rate is \textgreater{}73 bpm}
+\FunctionTok{mean}\NormalTok{(m1.post}\SpecialCharTok{$}\NormalTok{b\_Intercept}\SpecialCharTok{\textgreater{}}\DecValTok{73}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##      10%      90% 
-## 72.38971 72.75560
+## [1] 0.00225
 \end{verbatim}
 
-The posterior distributions estimated from our model are about the population mean and standard deviation. But what if we were interested in what the model implied about the \emph{individual} heart rates? For example, how likely is it, based on our model, that an individual has tachycardia, defined as a resting heart rate over 100 bpm? We can interrogate questions like this by combining the information from our posterior distributions on the mean and standard deviation. As we can see in the header of the posterior samples above (\texttt{head(m1.post)}), every sample of the posterior ditribution includes a value of the mean (\texttt{b\_Intercept}) and standard deviation (\texttt{sigma}) of resting heart rates. These values vary from sample to sample, collectively describing the uncertainty about the parametrs. We can leverage that variation to derive a posterior distribution for the individual heart rates implied by the mean and standard deviation. One simple way to do this is by simulation, drawing a random value of an individual's heart rate from the normal distribution implied by each sample in the posterior:
+There's only a 0.2\% chance that the mean resting heart rate is greater than 73 bpm.
+
+Before reporting our conclusions, one final thing we should do is to check what the posterior distribution implies about the data (i.e., the individual heart rates). This is analogous to the prior predictive check, except now instead of using only the prior distribution to simulate the data, we use the posterior distribution. Let's go ahead and do this, drawing samples from the posterior distributions for the mean and standard deviation, and then randomly simulating observations of resting heart rate from the normal distributions of heart rate implied by the posterior.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5370,6 +5544,7 @@ The posterior distributions estimated from our model are about the population me
 
 \CommentTok{\# Create data frame for plotting}
 \NormalTok{df\_post }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{pulse =}\NormalTok{ post\_r)}
+\NormalTok{df\_obs  }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{pulse =}\NormalTok{ d}\SpecialCharTok{$}\NormalTok{Pulse)}
 
 \FunctionTok{ggplot}\NormalTok{(df\_post, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pulse)) }\SpecialCharTok{+}
   \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{fill =} \StringTok{"slategray3"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
@@ -5380,9 +5555,35 @@ The posterior distributions estimated from our model are about the population me
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{ch07_estimation_files/figure-latex/c07c46-1} \end{center}
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c15-1} \end{center}
 
-The resulting distribution is called a \textbf{joint posterior distribution}, and we could summarize it just as we would one of the individual posterior distribution, the main difference being that here we are talking about individual heart rates. For example, we can use the joint posterior to compute the probability that an individual in this population has tachycardia:
+The resulting distribution is called the \textbf{joint posterior distribution}, and it describes the distribution of the \emph{individual} resting heart rates. One thing that would make us feel confident with our model is if the distribution of individual heart rates implied by the model reflects the data we actually observed. We can visually check that by overlaying a density plot of the observed data on top of the joint posterior distribution:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Organize the two data sources}
+\NormalTok{df\_pred }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{pulse =}\NormalTok{ df\_post}\SpecialCharTok{$}\NormalTok{pulse, }\AttributeTok{source =} \StringTok{"Posterior predictive"}\NormalTok{)}
+\NormalTok{df\_obs  }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{pulse =}\NormalTok{ d}\SpecialCharTok{$}\NormalTok{Pulse, }\AttributeTok{source =} \StringTok{"Observed"}\NormalTok{)}
+
+\CommentTok{\# Overlay densities}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df\_pred, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pulse, }\AttributeTok{fill =}\NormalTok{ source),}
+               \AttributeTok{alpha =} \FloatTok{0.4}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df\_obs, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pulse, }\AttributeTok{color =}\NormalTok{ source),}
+               \AttributeTok{linewidth =} \FloatTok{1.1}\NormalTok{, }\AttributeTok{show.legend =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Posterior predictive"} \OtherTok{=} \StringTok{"slategray3"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observed"} \OtherTok{=} \StringTok{"firebrick"}\NormalTok{, }\StringTok{"Posterior predictive"} \OtherTok{=} \StringTok{"black"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Posterior predictive vs observed resting heart rates"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Individual resting heart rate (bpm)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Density"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c16-1} \end{center}
+
+Here we can see that the posterior predictive and observed distributions have a close fit! That means the resting heart rates implied by the posterior distribution do a good job at describing the observed data. We can be reasonably confident in the model output for inference. Visually that would be the area under the posterior predictive distribution that's greater than 100, but we can easily compute that probability with the observations of heart rate randomly drawn from our model:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5391,7 +5592,7 @@ The resulting distribution is called a \textbf{joint posterior distribution}, an
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.0115
+## [1] 0.01175
 \end{verbatim}
 
 We see that based on our statistical model, we expect 1.15\% of the population has tachycardia. We could do the same thing for bradycardia, which is defined as a slow heart rate usually less than 60 bpm:
@@ -5403,34 +5604,14 @@ We see that based on our statistical model, we expect 1.15\% of the population h
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.14475
+## [1] 0.14575
 \end{verbatim}
 
 There's a much greater portion of the population that likely has bradycardia than tachycardia. This isn't too surprising, however, because bradycardia is common in people who exercise a lot, indicating high conditioning.
 
-\section{Next steps}\label{next-steps-1}
+\section{Summary}\label{summary-1}
 
-This chapter has introduced you to the basic steps of estimating unknown parameters from statistical models with Bayesian inference. In the next chapter, we elaborate the steps of a Bayesian analysis to help ensure that the statistical models we choose are appropriate for th goals of our analysis. Then we will ramp up the level of complexity of our statistical models as look more directly at research questions that are focused on explanation more than description.
-
-\chapter{Bayesian Workflow}\label{bayesian-workflow}
-
-TBD
-
-\section{Prior distribution choices}\label{prior-distribution-choices}
-
-TBD
-
-\section{Prior predictive checks}\label{prior-predictive-checks}
-
-TBD
-
-\section{Posterior predictive checks}\label{posterior-predictive-checks}
-
-TBD
-
-\section{Next steps}\label{next-steps-2}
-
-TBD
+That's it! There are five basic components to Bayesian workflow, and we will try to make a habit of working through each of these components as we wrestle with new questions and models in the remainder of the book. Because the primary goal of this book is to teach the basic elements of statistic elements, we may not always cover each of these steps in the exact order or with the same degree of detail with every new example and model. But I do believe the workflow outlined here should be a starting point for anyone just starting out with statistical analysis, taking basic steps to ensure the model specification is adequate before drawing conclusions.
 
 \chapter{The linear model}\label{the-linear-model}
 
@@ -5531,11 +5712,11 @@ How did I know to use those particular values for the normal prior (mean = 5, st
 
 \begin{figure}
 
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c02, -1} 
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c02-1} 
 
 }
 
-\caption{TODO: caption.}(\#fig:c09c02, )
+\caption{TODO: caption.}\label{fig:c09c02}
 \end{figure}
 
 Remember that Bayesian inference combines the prior and likelihood to quantify the posterior distributions for each a parameter. We're going to use \texttt{brms} to do just that, but before doing so, it can be very useful to do that's called a \textbf{prior predictive simulation}. The idea is that we can use the prior distributions to simulate data to get a sense for what the prior distributions imply about what the data should look like. For the ryegrass example, the idea is to get a sense for the different possible combinations of the mean and standard deviation of root length, and the resulting distribution of root length implied by the priors:
@@ -5644,7 +5825,27 @@ There are still some negative values implied by the priors, but now they are qui
          \AttributeTok{prior =}\NormalTok{ m1.prior,}
          \AttributeTok{refresh =} \DecValTok{0}\NormalTok{,}
          \AttributeTok{seed=}\DecValTok{123}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{print}\NormalTok{(m1)}
 \end{Highlighting}
 \end{Shaded}
@@ -5860,7 +6061,27 @@ To estimate the posterior in \texttt{brms}, we need to use the formula to specif
          \AttributeTok{prior =}\NormalTok{ m2.prior,}
          \AttributeTok{refresh =} \DecValTok{0}\NormalTok{,}
          \AttributeTok{seed=}\DecValTok{123}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{print}\NormalTok{(m2)}
 \end{Highlighting}
 \end{Shaded}
@@ -6089,174 +6310,6 @@ Notice that although the estimated values are similar to the estimates from \tex
 
 Here we've used the \texttt{geom\_ribbon} function to add the prediction interval to the last version of our figure. This figure now shows the observed data (red points), the posterior mean prediction line (solid black line), uncertainty in the predicted mean (95\% credible interval in dark gray shading), and uncertainty in the individual observations (95\% prediction interval in light gray shading). Whereas the credible interval shows uncertainty about the expected mean, the 95\% prediction interval in light gray shows where we would expect 95\% of the root length values to occur at any particular value of herbicide concentration.
 
-\subsection{How a frequentist might do it}\label{how-a-frequentist-might-do-it}
-
-Let's look at how we would fit the same model with frequentist inference. When we fit a linear model with frequentist inference, we use the data to compute point estimates for the intercept and slope. Remember the idea in frequentist inference is that if we were to repeat sampling and estimate the intercept and slope over and over again, we would see variation in the estimates due to sampling error. So in addition to computing point estimates for the linear model parmaeters, we'll also compute the standard error and confidence intervals for those parameters as indices of uncertainty.
-
-In R we can fit a linear model with the \texttt{lm} function, using a formula with the \texttt{\textasciitilde{}} operator to specify the relationship of the response variable to the explanatory variable. Just like in \texttt{brms}, the response variable is specified first on the left of the tilde, and the explanatory variable on the right of the tilde. I've included a \texttt{1} on the right side of the formula to specify an intercept as I did in \texttt{brms}, but note that the \texttt{lm} includes an intercept by default, so \texttt{rootl\ \textasciitilde{}\ conc} would produce the same output.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#fit the linear model}
-\NormalTok{m.f }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(rootl }\SpecialCharTok{\textasciitilde{}} \DecValTok{1} \SpecialCharTok{+}\NormalTok{ conc, }\AttributeTok{data =}\NormalTok{ d)}
-\FunctionTok{summary}\NormalTok{(m.f)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Call:
-## lm(formula = rootl ~ 1 + conc, data = d)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.15416 -0.29959 -0.05154  0.55401  1.15418 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   9.3813     0.5592  16.776 6.54e-07 ***
-## conc         -1.6806     0.2253  -7.459 0.000142 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.7894 on 7 degrees of freedom
-## Multiple R-squared:  0.8882, Adjusted R-squared:  0.8723 
-## F-statistic: 55.64 on 1 and 7 DF,  p-value: 0.0001421
-\end{verbatim}
-
-The key part of the model is under the heading \texttt{Coefficients}, where we see point estimates (\texttt{Estimate}) and the standard error (\texttt{Std.\ Error}) for the intercept and slope. The point estimate for the intercept is 9.38, whereas the slope estimate is -1.68. In addition to providing the point estimate and the standard error, the \texttt{lm} function computes a null hypothesis test for the intercept and slope. For both the intercept and slope, the null hypothesis is that the parameter value is 0. Often that doesn't make too much sense for the intercept. After all, it woudln't make sense for root length to be 0 when herbicide is applied. The slope is the main parameter where the null hypothesis is of interest. A slope of 0 implies no relationship between root length and herbicide concentration.
-
-The particular test statistics for testing the null hypothesis in this case is the \emph{t} value, which we have seen before. Effectively this is a ``t-test'' for the null hypothesis that the slope is 0, where \(t = \frac{b - \beta}{SE_b}\), with \(\beta\) being the null hypothesized value for the slope, and \(b\) being the estimated slope. Here R reports a \emph{t} value of -7.46, which we could just recreate as \(t = \frac{b - \beta}{SE_b} = \frac{-1.6806 - 0}{0.2253}=-7.459.\) The degrees of freedom for a linear model like this is \emph{n-2}, and we see the \emph{P}-value reported is 0.00142. With a significance value of 0.05, we would reject the null hypothesis and conclude there's a significant negative relationship between root length and herbicide concentration.
-
-In addition to the standard error and null hypothesis test, we can obtain confidence intervals for the regression coefficients:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#confidence intervals}
-\FunctionTok{confint}\NormalTok{(m.f, }\AttributeTok{level =} \FloatTok{0.95}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                 2.5 %    97.5 %
-## (Intercept)  8.058986 10.703562
-## conc        -2.213322 -1.147807
-\end{verbatim}
-
-We can also create a scatterplot with the best-fit line and a shaded area corresponding to the confidence interval for the predicted mean root length, as well as a prediction interval for the distribution of observed values around the expected mean.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#values of herbicide concentration for which to predict root length}
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\FunctionTok{min}\NormalTok{(d}\SpecialCharTok{$}\NormalTok{conc), }\FunctionTok{max}\NormalTok{(d}\SpecialCharTok{$}\NormalTok{conc), }\AttributeTok{length.out=}\DecValTok{100}\NormalTok{)}
-
-\CommentTok{\# Get confidence and prediction intervals}
-\NormalTok{preds }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(m.f, }\AttributeTok{newdata=}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{conc=}\NormalTok{x), }
-                 \AttributeTok{interval =} \StringTok{"confidence"}\NormalTok{, }\AttributeTok{level =} \FloatTok{0.95}\NormalTok{)}
-\NormalTok{preds\_pi }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(m.f, }\AttributeTok{newdata=}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{conc=}\NormalTok{x), }
-                    \AttributeTok{interval =} \StringTok{"prediction"}\NormalTok{, }\AttributeTok{level =} \FloatTok{0.95}\NormalTok{)}
-
-\CommentTok{\# Combine into a data frame for plotting}
-\NormalTok{pred\_df }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\AttributeTok{conc=}\NormalTok{x, }
-                 \AttributeTok{fit =}\NormalTok{ preds[, }\StringTok{"fit"}\NormalTok{],}
-                 \AttributeTok{lwr\_ci =}\NormalTok{ preds[, }\StringTok{"lwr"}\NormalTok{],}
-                 \AttributeTok{upr\_ci =}\NormalTok{ preds[, }\StringTok{"upr"}\NormalTok{],}
-                 \AttributeTok{lwr\_pi =}\NormalTok{ preds\_pi[, }\StringTok{"lwr"}\NormalTok{],}
-                 \AttributeTok{upr\_pi =}\NormalTok{ preds\_pi[, }\StringTok{"upr"}\NormalTok{])}
-
-\CommentTok{\#plot}
-\FunctionTok{ggplot}\NormalTok{(d, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ conc, }\AttributeTok{y =}\NormalTok{ rootl)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_ribbon}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred\_df, }
-              \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ conc, }\AttributeTok{y =}\NormalTok{ fit, }\AttributeTok{ymin =}\NormalTok{ lwr\_ci, }\AttributeTok{ymax =}\NormalTok{ upr\_ci),}
-              \AttributeTok{fill =} \StringTok{"grey83"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred\_df,}
-              \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ conc, }\AttributeTok{y =}\NormalTok{ fit, }\AttributeTok{ymin =}\NormalTok{ lwr\_pi, }\AttributeTok{ymax =}\NormalTok{ upr\_pi),}
-              \AttributeTok{stat =} \StringTok{"identity"}\NormalTok{,}
-              \AttributeTok{fill =} \StringTok{"grey70"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{, }\AttributeTok{linewidth =} \DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color=}\StringTok{"firebrick"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(,}
-    \AttributeTok{x =} \StringTok{"Herbicide concentration (mM)"}\NormalTok{,}
-    \AttributeTok{y =} \StringTok{"Root Length (cm)"}
-\NormalTok{  ) }\SpecialCharTok{+}
-  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{)) }\SpecialCharTok{+} 
-  \FunctionTok{theme\_classic}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c22-1} 
-
-}
-
-\caption{TODO: caption.}\label{fig:c09c22}
-\end{figure}
-
-Note that we use the \texttt{predict} function here to compute the confidence and prediction intervals, specifying each with the \texttt{interval} argument. At a surface level the output is similar to the Bayesian output, mainly because this is a very simple model with only weakly informative prior distribution. But remember that the interpretation is very different from the Bayesian ouptut. We can't interpret the frequentist output as the probability that the parmater value takes on a particular value, or the probability that the parameter value is in some interval. Indeed, the interpretation of the P-value is that it would be very unlikely (P = 0.000142) to get an estimated slope of -1.68, or more extreme slopes, assuming the true slope is exactly 0. Setting aside teh value of using prior information in the estimation process, even with an uninformative prior the Bayesian output can be interpreted more intuitively as the probability of the hypothessis (any particular value of the slope) given the data we observed.
-
-I'd liek to point out two other pieces of the model output that are commonly referred to in the literature. First, the \texttt{lm} computes an \texttt{R-squared} value. The \(R^2\) value is called the \textbf{coefficient of determination}, and it measures the proportion of the variation in the response variable ``explained'' by the explanatory variable. In other words, of all the variation observed among root length, what proportion of that variation is explained by herbicide concentration? The adjusted \(R^2\) (usually preferred) is 0.8723, indicating that 87.23\% of the variation in root length is explained by herbicide concentration. Essentially the \(R^2\) value reflects how much scatter there is in the observed values of the response variable around the prediction line (i.e., the expected mean root length for each value of herbicide concentration. The less scatter, the higher the \(R^2\). Indeed, if all the points fell on the line, \(R^2\) would be 1. Essentially \(R^2\) gives us a quantitative estimate of the predictive ability of the explanatory variable.
-
-Second, the output reports some basic information about the residuals. Indeed, that scatter around the prediction line is residual variation. The residuals simply measure how far each observed data point is away from the expected mean for its herbicide concentration. When the herbicide concentration is 1.88 mM, the expected mean root length is \(\mu_i = 9.3813 -1.6806 \cdot 1.88 = 6.22\). Let's see the root lengths we observed at 1.88 mM herbicide concetration:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{d[d}\SpecialCharTok{$}\NormalTok{conc}\SpecialCharTok{==}\FloatTok{1.88}\NormalTok{,]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##      rootl conc
-## 4 6.871429 1.88
-## 5 6.450000 1.88
-## 6 5.922222 1.88
-\end{verbatim}
-
-None of them are exactly 6.22. The unexplained, residual variation is just the difference between each observed value and the expected mean: \(e_i = r_i - \hat{\mu_i}\), where \(e_i\) is the residual. For the three observations where herbicide concentration is 1.88 mM, the residuals are:
-
-\[
-\begin{array}{l}
-e_1 = 6.78 - 6.22 = 0.56 \\
-e_2 = 6.45 - 6.22 = 0.23 \\
-e_3 = 5.92 - 6.22 = -0.30 
-\end{array}
-\]
-
-Notice that the residuals are positive when the observed value is greater than the expected mean, and negative when the observed value is less than the expected mean. The linear model that we used assumes that the residuals have a normal distribution with a mean of 0 and a standard deviation of \(\sigma\). When you fit a linear model with frequentist inference with the \texttt{lm} function, it provides some summary statistics for the residuals. But we can easily compute and analyzed the residuals with the \texttt{residuals} function:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{m.f.res }\OtherTok{\textless{}{-}} \FunctionTok{residuals}\NormalTok{(m.f)}
-\FunctionTok{head}\NormalTok{(m.f.res)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##           1           2           3           4           5           6 
-##  0.55401210 -0.88725775 -0.05154346  0.64961581  0.22818724 -0.29959054
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(m.f.res)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] -2.467162e-17
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(m.f.res)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.7384323
-\end{verbatim}
-
-We can see the estimated mean residual is basically 0, and the estimated standard deviation is 0.74. If we had a bigger sample size, we might also generate a histogram of the residuals to evaluate whether the distribution is approximately normal, which is what the model assumes.
-
 \section{Linear models with categorical predictors}\label{linear-models-with-categorical-predictors}
 
 Linear models are flexible and can be modified to accomodate different types of data. So far we've looked at a simple model when we have a continuous response variable and a continuous predictor variable. In this section we look at what happens when the response is continous and the explanatory variable is categorical.
@@ -6286,11 +6339,11 @@ We begin by plotting the tail autotomy data and comparing between morphs, using 
 
 \begin{figure}
 
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c26-1} 
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c21-1} 
 
 }
 
-\caption{TODO: caption.}\label{fig:c09c26}
+\caption{TODO: caption.}\label{fig:c09c21}
 \end{figure}
 
 We need to fit a model that allows us to estimate the mean SVL for each color morph and compare the mean between morphs. Here's our statistical model:
@@ -6349,7 +6402,7 @@ We begin the analysis with a prior predictive check:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c28-1} \end{center}
+\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c23-1} \end{center}
 
 We see the priors imply no difference in the distribution of individual SVLs, but certainly they allow for it. The only issue here is that the priors imply a few negative values for SVL, which of course doesn't make sense. However those observations are extremely rare, and we proceed to fit the model:
 
@@ -6373,18 +6426,38 @@ All we want here is the estimation of a mean for each group, so we don't want to
          \AttributeTok{prior =}\NormalTok{ m2.prior,}
          \AttributeTok{refresh =} \DecValTok{0}\NormalTok{,}
          \AttributeTok{seed=}\DecValTok{123}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{plot}\NormalTok{(m2)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c29-1} 
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c24-1} 
 
 }
 
-\caption{TODO: caption.}\label{fig:c09c29}
+\caption{TODO: caption.}\label{fig:c09c24}
 \end{figure}
 
 We see the plot function returns posterior distributions for three parameters, including the mean for each morph and the standard deviation. The means for each morph are labeled with the appropriate index level, specifically \texttt{morph.i1} for striped and \texttt{morph.i2} for unstriped. The traceplots look pretty good, so we turn our attention to the model summary:
@@ -6453,7 +6526,7 @@ Is there a difference in the mean SVL between color morphs? The posterior distri
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c31-1} \end{center}
+\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c26-1} \end{center}
 
 We can see in the plot what we thought was apparent in the credibel intervals: the bulk of the posterior distribution for mean SVL for striped is greater than unstriped, but there is some overlap. If we are really interested in the difference between the mean SVL of each morph, we should quantify that difference directly from the samples and examine the posterior distribution of the difference in means. This is as simple is adding a new column to \texttt{m2.post} as the difference in means between the morphs, then we can summarize that posterior distribution. This is called a \textbf{contrast}.
 
@@ -6472,11 +6545,11 @@ We can see in the plot what we thought was apparent in the credibel intervals: t
 
 \begin{figure}
 
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c32-1} 
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c27-1} 
 
 }
 
-\caption{TODO: caption.}\label{fig:c09c32}
+\caption{TODO: caption.}\label{fig:c09c27}
 \end{figure}
 
 \begin{Shaded}
@@ -6550,7 +6623,7 @@ In addition to examining the posterior distribution for the mean SVL, we can als
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c34-1} \end{center}
+\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c29-1} \end{center}
 
 Here the \texttt{rnorm} function is generating a random SVL for each color morph drawn from a distribution specified by the sampled mean and standard deviation from the posterior distributions for striped and unstriped morphs. Plotting the density of those 10,000 SVLs for each morph allows us to visualize the posterior distributions of individual SVL by morph. We can clearly see that the center of the distributions is greater for the striped than unstriped morph (as we saw previously), but that individual weights overlap quite a bit between color morphs.
 
@@ -6571,11 +6644,11 @@ We can also quantify a contrast for the individual SVLs. This gives us the poste
 
 \begin{figure}
 
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c35-1} 
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c30-1} 
 
 }
 
-\caption{TODO: caption.}\label{fig:c09c35}
+\caption{TODO: caption.}\label{fig:c09c30}
 \end{figure}
 
 \begin{Shaded}
@@ -6601,194 +6674,6 @@ We can also quantify a contrast for the individual SVLs. This gives us the poste
 \end{verbatim}
 
 This contrast indicate that if we randomly select one striped morph and one unstriped morph from their respective SVL distributions, we can expect the striped morph to have a longer SVL than the unstriped morph 71\% of the time, whereas we expect the unstriped morph to have a greater SVL 29\% of the time.
-
-\subsubsection{How a frequentist might analyze it}\label{how-a-frequentist-might-analyze-it}
-
-Now let's take a look at how to fit a linear model with a binary categorical explanatory variable with frequentist inference. In frequentist inference with categorical explanatory variables, a common approach is to use an \emph{indicator variable} for the categorical predicator. An indicator variable is simply a binary numeric indicator of whether or not each individual in the dataset is part of the particular category of interest. So for the question about color morph, we can use an indicator variable for ``striped'', where a ``1'' indicates the individual is striped, and a ``0'' indicates the individual is not striped. Because our categorical variable of color morph in this case is binary, a ``0'' for striped means the individual is unstriped. Let's go ahead and create the indicator variable:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tail}\SpecialCharTok{$}\NormalTok{striped }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(tail}\SpecialCharTok{$}\NormalTok{morph }\SpecialCharTok{==} \StringTok{"striped"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-When we use an indicator variable such as \texttt{male} to model the effect of sex on weight, the statistical model looks a bit different than what it looked like when we used an index:
-
-\(\hat{l}_i = \alpha + \beta X_i\)
-
-Here we are predicting the expected SVL of individuals \(\hat{l}_i\) based on an intercept and a slope representing the effect of color morph on SVL. In this model, \(X_i\) represents the indicator variable for ``striped'' and takes on values of 0 or 1, and \(\beta\) represents the effect of being striped on SVL. Note than when \(X_i = 0\), \(\hat{l}_i = \alpha\). In other words, \(\alpha\) is the expected mean SVL for the unstriped morph, and \(\beta\) represents the difference in mean weight between striped and unstriped morphs. This is a little different than our Bayesian model which directly estimated the posterior distribution of average weights for striped and unstriped morphs directly.
-
-Let's go ahead and fit this model:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#fit the regression model}
-\NormalTok{m2.f }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(length.cm }\SpecialCharTok{\textasciitilde{}}\NormalTok{ striped, }\AttributeTok{data=}\NormalTok{tail)}
-\FunctionTok{summary}\NormalTok{(m2.f)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Call:
-## lm(formula = length.cm ~ striped, data = tail)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -0.6600 -0.2800 -0.0075  0.2450  0.7400 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)  3.46000    0.08093  42.754   <2e-16 ***
-## striped      0.29500    0.11445   2.578    0.014 *  
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.3619 on 38 degrees of freedom
-## Multiple R-squared:  0.1488, Adjusted R-squared:  0.1264 
-## F-statistic: 6.644 on 1 and 38 DF,  p-value: 0.01395
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#confidence interval}
-\FunctionTok{confint}\NormalTok{(m2.f, }\AttributeTok{level =} \FloatTok{0.95}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                  2.5 %    97.5 %
-## (Intercept) 3.29616982 3.6238302
-## striped     0.06330913 0.5266909
-\end{verbatim}
-
-Let's start by breaking down the model output. We can see the estimate for the intercept is 3.46. This represents the estimate of mean unstriped SVL. The \emph{lm} function also conducts a hypothesis test of whether the intercept is significantly different from 0. We see the P-value is very low, so we would reject teh null hypothesis that the intercept is different from 0. But often this kind of hypothesis test doesnt' make sense. Why do we care if the intercept, representing the mean weight of the unstriped morph, is different than 0?
-
-Turning our attention to the slope for the effect of color morph, we see the estiamte is 0.295. What does this mean? It means that our best estimate of how different the mean striped morph is from the mean unstriped morph is 0.295 cm greater. In other words, the indicator parameterization of our model directly estimates the contrast between males and females, and whether that contrast is significantly different from 0. Here the P-value is 0.014, so using the typical significance value of 0.05, we would reject the null hypothesis that there is no difference in the mean SVL between morphs and conclude the average SVL for the striped morph is larger.
-
-Let's plot the regression line so we can visually see what the model is doing:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#values of male}
-\NormalTok{x\_vals }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
-
-\CommentTok{\#confidence interval for the mean weight for each sex}
-\NormalTok{preds }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(m2.f, }\AttributeTok{newdata=}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{striped=}\NormalTok{x\_vals), }
-                 \AttributeTok{interval =} \StringTok{"confidence"}\NormalTok{, }\AttributeTok{level =} \FloatTok{0.95}\NormalTok{)}
-
-\CommentTok{\#prediction interval}
-\NormalTok{preds\_pi }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(m2.f, }\AttributeTok{newdata=}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{striped=}\NormalTok{x\_vals), }
-                    \AttributeTok{interval =} \StringTok{"prediction"}\NormalTok{, }\AttributeTok{level =} \FloatTok{0.95}\NormalTok{)}
-
-\CommentTok{\# Combine into a data frame for plotting}
-\NormalTok{pred\_df }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\AttributeTok{striped=}\NormalTok{x\_vals,}
-                 \AttributeTok{fit =}\NormalTok{ preds[, }\StringTok{"fit"}\NormalTok{],}
-                 \AttributeTok{lwr\_ci =}\NormalTok{ preds[, }\StringTok{"lwr"}\NormalTok{],}
-                 \AttributeTok{upr\_ci =}\NormalTok{ preds[, }\StringTok{"upr"}\NormalTok{],}
-                 \AttributeTok{lwr\_pi =}\NormalTok{ preds\_pi[, }\StringTok{"lwr"}\NormalTok{],}
-                 \AttributeTok{upr\_pi =}\NormalTok{ preds\_pi[, }\StringTok{"upr"}\NormalTok{])}
-
-\CommentTok{\#plot}
-\FunctionTok{ggplot}\NormalTok{(tail, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ striped, }\AttributeTok{y =}\NormalTok{ length.cm)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred\_df, }
-              \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ striped, }\AttributeTok{y =}\NormalTok{ fit)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{shape =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{color =} \StringTok{"firebrick"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(,}
-    \AttributeTok{x =} \StringTok{"Colr morph indicator"}\NormalTok{,}
-    \AttributeTok{y =} \StringTok{"SVL (cm)"}
-\NormalTok{  ) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c38-1} 
-
-}
-
-\caption{TODO: caption.}\label{fig:c09c38}
-\end{figure}
-
-This scatterplot shows all the data for striped and unstriped color morphs. The regression line begins at the estimated mean for the unstriped morph (indicator = 0) and ends at the estimated mean for the striped morph (indicator = 1). The slope of that regression line represents the difference in means between striped and unstriped morphs.
-
-Note that the \emph{predict} function allowed us to directly compute the estimated means for \emph{both} striped and unstriped morphs:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{cbind.data.frame}\NormalTok{(}\AttributeTok{male=}\NormalTok{x\_vals, preds)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   male   fit     lwr     upr
-## 1    0 3.460 3.29617 3.62383
-## 2    1 3.755 3.59117 3.91883
-\end{verbatim}
-
-What can we conclude from this model? The estimated mean weights were 3.46 for the unstriped morph (95\% CI: 3.3-3.6) and 3.76 for the striped morph (95\% CI: 3.59-3.92). The striped morph was significantly longer than the unstriped morph (beta = 0.295, 95\% CI: 0.06-0.53, t = 2.58, df = 38, P = 0.014).
-
-One handy way of plotting the data and estimates of mean weight from a model with categorical explanatory variables is to use a stripchart:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Add sex to prediction data}
-\NormalTok{pred.df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{male =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{),}
-  \AttributeTok{morph =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"unstriped"}\NormalTok{, }\StringTok{"striped"}\NormalTok{)),}
-  \AttributeTok{fit =}\NormalTok{ preds[,}\StringTok{"fit"}\NormalTok{],}
-  \AttributeTok{lwr =}\NormalTok{ preds[,}\StringTok{"lwr"}\NormalTok{],}
-  \AttributeTok{upr =}\NormalTok{ preds[,}\StringTok{"upr"}\NormalTok{]}
-\NormalTok{)}
-
-\CommentTok{\# Plot}
-\FunctionTok{ggplot}\NormalTok{(tail, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ morph, }\AttributeTok{y =}\NormalTok{ length.cm)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{shape =} \DecValTok{1}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ morph)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred.df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ morph, }\AttributeTok{y =}\NormalTok{ fit), }\AttributeTok{size =} \FloatTok{2.5}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_segment}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred.df,}
-               \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ morph, }\AttributeTok{xend =}\NormalTok{ morph, }\AttributeTok{y =}\NormalTok{ lwr, }\AttributeTok{yend =}\NormalTok{ upr), }\AttributeTok{linewidth =} \FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"unstriped"} \OtherTok{=} \StringTok{"red"}\NormalTok{, }\StringTok{"unstriped"} \OtherTok{=} \StringTok{"slategray"}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Sex"}\NormalTok{, }\AttributeTok{y =} \StringTok{"SVL (cm)"}\NormalTok{, }\AttributeTok{color =} \StringTok{"Morph"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c40-1} 
-
-}
-
-\caption{TODO: caption.}\label{fig:c09c40}
-\end{figure}
-
-Here this shows all the data plust the means and their 95\% confidence intervals for each color morph.
-
-A final word on frequentist estimation with a categorical explanatory variable that is binary. The linear model that we just fit is equivalent to a \emph{two-sample t-test} that assumes the variance of SVL is equivalent for striped and unstriped morphs. One can do the same analysis with the \emph{t.test} function specifying that the comparison is not paired (more on that later) and that variances are equal (var.equal=TRUE):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{t.test}\NormalTok{(tail}\SpecialCharTok{$}\NormalTok{length.cm }\SpecialCharTok{\textasciitilde{}}\NormalTok{ tail}\SpecialCharTok{$}\NormalTok{morph, }
-       \AttributeTok{mu =} \DecValTok{0}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{,}
-       \AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##  Two Sample t-test
-## 
-## data:  tail$length.cm by tail$morph
-## t = 2.5776, df = 38, p-value = 0.01395
-## alternative hypothesis: true difference in means between group striped and group unstriped is not equal to 0
-## 95 percent confidence interval:
-##  0.06330913 0.52669087
-## sample estimates:
-##   mean in group striped mean in group unstriped 
-##                   3.755                   3.460
-\end{verbatim}
 
 \subsection{Categorical predictors with more than two categories}\label{categorical-predictors-with-more-than-two-categories}
 
@@ -7451,7 +7336,27 @@ For the sake of brevity, I'll skip the presentation of a prior predictive check 
          \AttributeTok{prior =}\NormalTok{ m1.prior,}
          \AttributeTok{refresh =} \DecValTok{0}\NormalTok{,}
          \AttributeTok{seed=}\DecValTok{123}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\#values }
 \NormalTok{x\_vals }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\FunctionTok{min}\NormalTok{(d}\SpecialCharTok{$}\NormalTok{sales.c), }\FunctionTok{max}\NormalTok{(d}\SpecialCharTok{$}\NormalTok{sales.c), }\AttributeTok{length.out=}\DecValTok{100}\NormalTok{)}
 
@@ -7655,7 +7560,27 @@ Let's go ahead and estimate the parameters in the multiple regression model, and
          \AttributeTok{prior =}\NormalTok{ m2.prior,}
          \AttributeTok{refresh =} \DecValTok{0}\NormalTok{,}
          \AttributeTok{seed=}\DecValTok{123}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
+## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
+## using SDK: ‘MacOSX15.4.sdk’
+## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
+## In file included from <built-in>:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
+## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
+## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+##   679 | #include <cmath>
+##       |          ^~~~~~~
+## 1 error generated.
+## make: *** [foo.o] Error 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{plot}\NormalTok{(m2)}
 \end{Highlighting}
 \end{Shaded}

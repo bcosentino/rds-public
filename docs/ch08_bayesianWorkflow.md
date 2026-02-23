@@ -239,22 +239,6 @@ m1 <- brm(
 )
 ```
 
-```
-## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
-## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
-## using SDK: ‘MacOSX15.4.sdk’
-## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
-## In file included from <built-in>:1:
-## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
-## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
-## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
-## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
-##   679 | #include <cmath>
-##       |          ^~~~~~~
-## 1 error generated.
-## make: *** [foo.o] Error 1
-```
-
 Let's walk through this. We've defined the likelihood with the `bf` function, where the formula `Pulse ~ 1` tells `brms` that we want to fit a model with only an intercept, which is just a fancy way of saying we want the mean of the normal distribution that we specified with `family = gaussian` (recall "Gaussian" is another name for the normal distribution). We then define our priors. In `brms`, each parameter getting a prior needs a distribution for the prior. You can see we specify `normal(75, 7.5)` for the mean and `uniform(0, 15)` for the standard deviation in this case. The `class` argument is required to indicate the type of variable, here being an `Intercept` for the mean and `sigma` for the standard deviation. Note that when defining a uniform prio, you not only need to define the limits within the `uniform` call, but also with the `lb` and `ub` arguments. Any inconsistencies here will lead to an error.
 
 I'll just note right here that the process of fitting model can be much more complex than I'm suggesting in this section. For example, there are decisions to make about the particular MCMC engine to use, the number of chains to run, the length to run each chain (iterations), whether or not to thin the iterations, and how to fit the model efficiently using CPU's in parallel. For the purpose of an introductory statistics book, I've chosen to leave many of these details out and using relatively consistent model fitting decisions, especially for the relatively simple models addressed in a beginner's class. Thus you will almost always see that we fit models with four chains, 2000 iterations for each chain, 1000 iterations of warmup (more on that below), and with the chains fitted in parallel across four CPU's (`cores`) for efficiency. I've set the `seed` value so that the particular output in this book is reproducable, and I've set the `refresh` argument to 0 to minimize the amount of messages you get from `brms` during model fitting. All of these decisions can and should be open for discussion when fitting a particular model, and often these settings will need to be adjusted. But I consider these more advanced topics better approached when you have a basic handle on the general steps of Bayesian analysis, and other books cover these topics in detail and much more effectively than I could here. 
@@ -291,23 +275,6 @@ In addition to evaluating convergence qualitatively, we can also evaluate it num
 One other visual check you should make is of the posterior distributions, which can point to problems with the prior distributions (among other issues). For example, imagine that instead of using a uniform prior for the standard deviation between 0 and 15, I used a uniform prior between 0 and 12, which says the standard deviation can *only* take on values between 0 and 12. Values below 0 and above 12 are impossible. 
 
 Below is the output from the `plot` function for the fitted model using this new prior. Look closely at the posterior distribution for the standard deviation. Notice how the posterior distribution is strongly skewed to the left, with most of the values around 12 and a hard cut-off at 12? This is good evidence that the prior I used was too constraining, and that it's very possible that the standard deviation takes on values greater than 12. Basically the observed data via the likelihood are saying the standard deviation may well be above 12, but my prior distribution doesn't allow it. You can also see in the trace plot for the standard deviation that there's a hard limit at 12. These are good signs that my priors need to be relaxed and the model refit. 
-
-
-```
-## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
-## using C compiler: ‘Apple clang version 17.0.0 (clang-1700.0.13.3)’
-## using SDK: ‘MacOSX15.4.sdk’
-## clang -arch arm64 -std=gnu2x -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/arm64/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk    -fPIC  -falign-functions=64 -Wall -g -O2  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -c foo.c -o foo.o
-## In file included from <built-in>:1:
-## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
-## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Dense:1:
-## In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/Core:19:
-## /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
-##   679 | #include <cmath>
-##       |          ^~~~~~~
-## 1 error generated.
-## make: *** [foo.o] Error 1
-```
 
 <img src="ch08_bayesianWorkflow_files/figure-html/c08c10-1.png" alt="" width="672" style="display: block; margin: auto;" />
 

@@ -49,7 +49,7 @@ dbinom(x = 8, size = 100, prob = 0.11)
 ## [1] 0.0880522
 ```
 
-So we see that when we take a random sample of 100 people from a population with a true prevalence of 11%, the probability of our point estimate being 8% is 0.088. How does that compare to other possible values of the point estimate? Well, we can easily compute the probability of all possible outcomes for the number of positive tests and then plot the resulting distribution (Figure \@ref(fig:a01_chunk02)):
+So we see that when we take a random sample of 100 people from a population with a true prevalence of 11%, the probability of our point estimate being 8% is 0.088. How does that compare to other possible values of the point estimate? Well, we can easily compute the probability of all possible outcomes for the number of positive tests and then plot the resulting distribution (Figure \@ref(fig:a01c02)):
 
 
 ``` r
@@ -71,11 +71,11 @@ ggplot(d, aes(x = x, y = p.hat)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk02-1.png" alt="Sampling distribution of the estimated prevalence of infection based on a sample of N = 100 individuals from a population where the true prevalence of the infection is 11%." width="70%" />
-<p class="caption">(\#fig:a01_chunk02)Sampling distribution of the estimated prevalence of infection based on a sample of N = 100 individuals from a population where the true prevalence of the infection is 11%.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c02-1.png" alt="Sampling distribution of the estimated prevalence of infection based on a sample of N = 100 individuals from a population where the true prevalence of the infection is 11%." width="70%" />
+<p class="caption">(\#fig:a01c02)Sampling distribution of the estimated prevalence of infection based on a sample of N = 100 individuals from a population where the true prevalence of the infection is 11%.</p>
 </div>
 
-The resulting probability distribution (Figure \@ref(fig:a01_chunk02)) shows the probability of each possible point estimate for the prevalence of the infection when we take a random sample of N = 100 from a population where the *true* prevalence is 8%. This is a *sampling distribution*! Sampling distributions show the probability distribution of all possible values for an *estimate* of a parameter when we take a random sample from the target population.
+The resulting probability distribution (Figure \@ref(fig:a01c02)) shows the probability of each possible point estimate for the prevalence of the infection when we take a random sample of N = 100 from a population where the *true* prevalence is 8%. This is a *sampling distribution*! Sampling distributions show the probability distribution of all possible values for an *estimate* of a parameter when we take a random sample from the target population.
 
 This is an extremely important concept. I have tried to make the case that the primary reason we need statistics is to guide decision-making about hypotheses in light of uncertainty. From a frequentist perspective, **the sampling distribution is an illustration of uncertainty about estimates taken from samples.** In this case, it shows us that when we take a random sample of 100 people, we won't necessarily find 11 positives (to give us an estimate of 11% prevalence) even if the true prevalence of the disease is 11%. It's certainly possible to get an estimate of 11% from a sample of N = 100, but it's almost just as likely to get an estimate of 10%, or 12%. Fundamentally these deviations in our estimates from the true parameter value are caused by random sampling error.
 
@@ -142,11 +142,11 @@ ggplot(d_all, aes(x = p.hat, y = prob)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk04-1.png" alt="Sampling distributions of the estimated prevalence of infection based on samples of size N = 10, 100, and 1000 individuals from a population where the true prevalence of the infection is 11%." width="70%" />
-<p class="caption">(\#fig:a01_chunk04)Sampling distributions of the estimated prevalence of infection based on samples of size N = 10, 100, and 1000 individuals from a population where the true prevalence of the infection is 11%.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c04-1.png" alt="Sampling distributions of the estimated prevalence of infection based on samples of size N = 10, 100, and 1000 individuals from a population where the true prevalence of the infection is 11%." width="70%" />
+<p class="caption">(\#fig:a01c04)Sampling distributions of the estimated prevalence of infection based on samples of size N = 10, 100, and 1000 individuals from a population where the true prevalence of the infection is 11%.</p>
 </div>
 
-What do we notice about the sampling distributions under different sample sizes in Figure \@ref(fig:a01_chunk04)? First, each sampling distribution remains centered on the true parameter value of 11% prevalence. The point estimate of a parameter remains an unbiased estimate of the parameter no matter the sample size. In other words, sample size has no effect on the *accuracy* of estimates.
+What do we notice about the sampling distributions under different sample sizes in Figure \@ref(fig:a01c04)? First, each sampling distribution remains centered on the true parameter value of 11% prevalence. The point estimate of a parameter remains an unbiased estimate of the parameter no matter the sample size. In other words, sample size has no effect on the *accuracy* of estimates.
 
 Second, as the sample size increases, the width of the sampling distribution decreases. We expect the estimated prevalence to change much more from sample to sample when the sample size is 10 than when it is 100 or 1000. Greater sample sizes lead to more precise estimates. This should make sense. After all, if you increase the sample size all the way to the size of the target population, there would be no variation at all in estimates from sample to sample.
 
@@ -223,17 +223,17 @@ ggplot(sim.law.large, aes(x = n, y = p.hat.infected)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk07-1.png" alt="Illustration of the Law of Large numbers, showing that as the sample size approaches the size of the target population, the point estimate converges on the true parameter value." width="70%" />
-<p class="caption">(\#fig:a01_chunk07)Illustration of the Law of Large numbers, showing that as the sample size approaches the size of the target population, the point estimate converges on the true parameter value.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c07-1.png" alt="Illustration of the Law of Large numbers, showing that as the sample size approaches the size of the target population, the point estimate converges on the true parameter value." width="70%" />
+<p class="caption">(\#fig:a01c07)Illustration of the Law of Large numbers, showing that as the sample size approaches the size of the target population, the point estimate converges on the true parameter value.</p>
 </div>
 
-Figure \@ref(fig:a01_chunk07) illustrates the Law of Large numbers nicely. We see that the point estimate of the parameter moves around wildly when sample size is small, but eventually the sample size converges on the true value of 0.11. There are deviations between the point estimate and the true parameter value at basically every sample size below the size of the target population, but these deviations get smaller as the sample size increases. This phenomenon is true when trying to estimate any type of parameter, whether it is a proportion, mean, median, variance, etc.
+Figure \@ref(fig:a01c07) illustrates the Law of Large numbers nicely. We see that the point estimate of the parameter moves around wildly when sample size is small, but eventually the sample size converges on the true value of 0.11. There are deviations between the point estimate and the true parameter value at basically every sample size below the size of the target population, but these deviations get smaller as the sample size increases. This phenomenon is true when trying to estimate any type of parameter, whether it is a proportion, mean, median, variance, etc.
 
 #### Variance affects precision
 
-Sample size is not the *only* factor that affects precision. Precision is also affected by the variance of the underlying random variable. Precision of a point estimate decreases as variance increases. This should make intuitive sense. The idea is that when there's greater variability in the underying distribution of the random variable, there's greater potential to select extreme observations into the sample, which increases the variability of the point estimate.
+Sample size is not the *only* factor that affects precision. Precision is also affected by the variance of the underlying random variable. Precision of a point estimate decreases as variance increases. This should make intuitive sense. The idea is that when there's greater variability in the underlying distribution of the random variable, there's greater potential to select extreme observations into the sample, which increases the variability of the point estimate.
 
-We can see this for our example of estimate disease prevalence. Remember that for the binomial distribution, the variance is determiend by the true proportion: $p(1-p)$ The variance reaches its maximum value when $p = 0.5$. Figure \@ref(fig:a01_chunk08) compares sampling distributions for when the prevalence is 11% vs. 50% with an identical sample size of N=100.
+We can see this for our example of estimate disease prevalence. Remember that for the binomial distribution, the variance is determined by the true proportion: $p(1-p)$ The variance reaches its maximum value when $p = 0.5$. Figure \@ref(fig:a01c08) compares sampling distributions for when the prevalence is 11% vs. 50% with an identical sample size of N=100.
 
 
 ``` r
@@ -270,17 +270,17 @@ ggplot(d_all, aes(x = p.hat, y = prob)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk08-1.png" alt="Sampling distributions of the estimated prevalence of infection based on a sample size of 100 when the prevalence of infection is 11% (low variance) vs. 50% (high variance)." width="70%" />
-<p class="caption">(\#fig:a01_chunk08)Sampling distributions of the estimated prevalence of infection based on a sample size of 100 when the prevalence of infection is 11% (low variance) vs. 50% (high variance).</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c08-1.png" alt="Sampling distributions of the estimated prevalence of infection based on a sample size of 100 when the prevalence of infection is 11% (low variance) vs. 50% (high variance)." width="70%" />
+<p class="caption">(\#fig:a01c08)Sampling distributions of the estimated prevalence of infection based on a sample size of 100 when the prevalence of infection is 11% (low variance) vs. 50% (high variance).</p>
 </div>
 
-Figure \@ref(fig:a01_chunk08) shows that the sampling distributions are centered in different locations, each being centered on the true parameter value (11% vs. 50%). But what you should also notice is that sampling distribution is wider (less precise) when the prevalence is 50% (higher variance) than when it is 11% (lower variance). The take-home here is that estimates will be less precise when sampling from random variables that have greater variance. Unlike sample size, this isn't something you can control.
+Figure \@ref(fig:a01c08) shows that the sampling distributions are centered in different locations, each being centered on the true parameter value (11% vs. 50%). But what you should also notice is that sampling distribution is wider (less precise) when the prevalence is 50% (higher variance) than when it is 11% (lower variance). The take-home here is that estimates will be less precise when sampling from random variables that have greater variance. Unlike sample size, this isn't something you can control.
 
-This might make more sense with a different type of variable. Imagine that you're estimating the mean height of a group of people. We'll assume height follows a normal distribution where the true mean height is $\mu = 65$ inches. Let's further assume that we draw a sample of 100 people to estimate the height, but let's do so from two populations that differ in the variance of height. In one population, we'll assume the standard deviation is $\sigma = 5$ inches, and in the other population we'll assume the standard deviation is $sigma = 2$ inches. We can visualize these normal distributions and see that there's more variation among individual height when $\sigma = 5$ than when $\sigma = 2$ (Figure \@ref(fig:a01_chunk09))
+This might make more sense with a different type of variable. Imagine that you're estimating the mean height of a group of people. We'll assume height follows a normal distribution where the true mean height is $\mu = 65$ inches. Let's further assume that we draw a sample of 100 people to estimate the height, but let's do so from two populations that differ in the variance of height. In one population, we'll assume the standard deviation is $\sigma = 5$ inches, and in the other population we'll assume the standard deviation is $sigma = 2$ inches. We can visualize these normal distributions and see that there's more variation among individual height when $\sigma = 5$ than when $\sigma = 2$ (Figure \@ref(fig:a01c09))
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk09-1.png" alt="Assumed distributions of height where the mean height is 65 inches and the standard deviation is either 2 or 5 inches." width="70%" />
-<p class="caption">(\#fig:a01_chunk09)Assumed distributions of height where the mean height is 65 inches and the standard deviation is either 2 or 5 inches.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c09-1.png" alt="Assumed distributions of height where the mean height is 65 inches and the standard deviation is either 2 or 5 inches." width="70%" />
+<p class="caption">(\#fig:a01c09)Assumed distributions of height where the mean height is 65 inches and the standard deviation is either 2 or 5 inches.</p>
 </div>
 
 We now go ahead and generate 10,000 replicate samples of N = 100 from the underlying populations, one where $\mu=65$ and $\sigma=2$ and the other where $\mu=65$ and $\sigma=5$.
@@ -323,17 +323,17 @@ ggplot(sampling_results, aes(x = sample_mean)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk10-1.png" alt="Sampling distributions of the estimated mean height from samples of N = 100 when the true mean is 65 inches but the standard deviations of height are either 2 vs. 5." width="70%" />
-<p class="caption">(\#fig:a01_chunk10)Sampling distributions of the estimated mean height from samples of N = 100 when the true mean is 65 inches but the standard deviations of height are either 2 vs. 5.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c10-1.png" alt="Sampling distributions of the estimated mean height from samples of N = 100 when the true mean is 65 inches but the standard deviations of height are either 2 vs. 5." width="70%" />
+<p class="caption">(\#fig:a01c10)Sampling distributions of the estimated mean height from samples of N = 100 when the true mean is 65 inches but the standard deviations of height are either 2 vs. 5.</p>
 </div>
 
-Figure \@ref(fig:a01_chunk10) shows that while both sampling distributions are centered on the true value of 65 inches (that is, the estimates are accurate), the sampling distribution generated from the population with $\sigma=5$ is much wider than the sampling distribution generated from the population with $\sigma=2$. In other words, precision is much lower when drawing samples from the population with greater variability of individual height, assuming equivalent sample sizes.
+Figure \@ref(fig:a01c10) shows that while both sampling distributions are centered on the true value of 65 inches (that is, the estimates are accurate), the sampling distribution generated from the population with $\sigma=5$ is much wider than the sampling distribution generated from the population with $\sigma=2$. In other words, precision is much lower when drawing samples from the population with greater variability of individual height, assuming equivalent sample sizes.
 
 The take-home here is that precision will be greatest and uncertainty will be minimized when drawing large sample sizes from populations that have low variance. While you can control sample size as part of the study design, you can't control the underlying variance of the random variable being studied. Assuming equivalent sample size, estimates from distributions with more variation will more noisy than estimates from distributions with less variation.
 
 ### Sample size affects the shape of sampling distributions
 
-Going back to the original comparison of sampling distributions at different sample sizes in Figure \@ref(fig:a01_chunk11), you might ahve noticed that the shape of the sampling distribution increasingly resembles a normal distribution as the sample size increases. This happens to be a consequence of the **Central Limit Theorem**, which states that the distribution of a sample estimates will be approximately normal at large sample sizes regardless of the shape of probability distribution for the underlying probability distribution.
+Going back to the original comparison of sampling distributions at different sample sizes in Figure \@ref(fig:a01c11), you might ahve noticed that the shape of the sampling distribution increasingly resembles a normal distribution as the sample size increases. This happens to be a consequence of the **Central Limit Theorem**, which states that the distribution of a sample estimates will be approximately normal at large sample sizes regardless of the shape of probability distribution for the underlying probability distribution.
 
 Let me illustrate this last point with a different example, this time with a quantitative random variable. Suppose you were interested in estimating the average distance people live from an ice cream shop. We'll assume that the distribution of distances people live from an ice cream shop is skewed to the right. This means most people live close to an ice cream shop, and fewer and fewer people live far from an ice cream shop. This kind of random variable can be described by a **poisson distribution**, which is a probability distribution that often describes things we can count. Let's create a graph of the probability distribution assuming that the true mean distance to ice cream shop is 1 km:
 
@@ -355,11 +355,11 @@ ggplot(d, aes(x = x, y = prob)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk11-1.png" alt="Probability distribution of distance to ice cream shop. Distance to ice cream shop was assumed to follow a poisson distribution with a mean of 1 km." width="70%" />
-<p class="caption">(\#fig:a01_chunk11)Probability distribution of distance to ice cream shop. Distance to ice cream shop was assumed to follow a poisson distribution with a mean of 1 km.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c11-1.png" alt="Probability distribution of distance to ice cream shop. Distance to ice cream shop was assumed to follow a poisson distribution with a mean of 1 km." width="70%" />
+<p class="caption">(\#fig:a01c11)Probability distribution of distance to ice cream shop. Distance to ice cream shop was assumed to follow a poisson distribution with a mean of 1 km.</p>
 </div>
 
-We can clearly see in Figure \@ref(fig:a01_chunk11) that the underlying distribution of distances is not normal! It's strongly skewed to the right and represents a poisson distribution. Now let's simualate the process of randomly sampling homes to estimate the mean distance people live from an ice cream shop.
+We can clearly see in Figure \@ref(fig:a01c11) that the underlying distribution of distances is not normal! It's strongly skewed to the right and represents a poisson distribution. Now let's simulate the process of randomly sampling homes to estimate the mean distance people live from an ice cream shop.
 
 
 ``` r
@@ -399,11 +399,11 @@ ggplot(sampling_results, aes(x = sample_mean)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk12-1.png" alt="Sampling distribution for the estimated mean distance people live from an ice cream shop based on samples of size N = 1, 2, 5, 10, 50, 100, 500, and 1000. Note that the scale of the x-axis varies among plots (becoming more narrow as sample size increases) in order to highlight the shape of each sampling distribution." width="672" />
-<p class="caption">(\#fig:a01_chunk12)Sampling distribution for the estimated mean distance people live from an ice cream shop based on samples of size N = 1, 2, 5, 10, 50, 100, 500, and 1000. Note that the scale of the x-axis varies among plots (becoming more narrow as sample size increases) in order to highlight the shape of each sampling distribution.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c12-1.png" alt="Sampling distribution for the estimated mean distance people live from an ice cream shop based on samples of size N = 1, 2, 5, 10, 50, 100, 500, and 1000. Note that the scale of the x-axis varies among plots (becoming more narrow as sample size increases) in order to highlight the shape of each sampling distribution." width="672" />
+<p class="caption">(\#fig:a01c12)Sampling distribution for the estimated mean distance people live from an ice cream shop based on samples of size N = 1, 2, 5, 10, 50, 100, 500, and 1000. Note that the scale of the x-axis varies among plots (becoming more narrow as sample size increases) in order to highlight the shape of each sampling distribution.</p>
 </div>
 
-Figure \@ref(fig:a01_chunk12) shows that as the sample size increases, the shape of the sampling distribution increasingly resembles a normal distribution. This happens even though the underlying probability distribution for the random variable is not normal. Indeed, we can see that when the sample size is only one, the sampling distribution is identical to the distribution of the underlying variable. But it doesn't take many observations for the sampling distribution to take on the classic bell shape of a normal distribution.
+Figure \@ref(fig:a01c12) shows that as the sample size increases, the shape of the sampling distribution increasingly resembles a normal distribution. This happens even though the underlying probability distribution for the random variable is not normal. Indeed, we can see that when the sample size is only one, the sampling distribution is identical to the distribution of the underlying variable. But it doesn't take many observations for the sampling distribution to take on the classic bell shape of a normal distribution.
 
 ### Summary points on sampling distributions
 
@@ -473,11 +473,11 @@ qnorm(0.025, mean = 0, sd = 1, lower.tail=TRUE)
 ## [1] -1.959964
 ```
 
-Here we see that 2.5% of observations are below the value Z = -1.96. Because the normal distribution is symmetric, this means that 2.5% of observations are also above the value Z = 1.96. Figure \@ref(fig:a01_chunk14) shows the standard normal distribution highlighting the middle 95% of observations.
+Here we see that 2.5% of observations are below the value Z = -1.96. Because the normal distribution is symmetric, this means that 2.5% of observations are also above the value Z = 1.96. Figure \@ref(fig:a01c14) shows the standard normal distribution highlighting the middle 95% of observations.
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk14-1.png" alt="Standard normal distribution showing hte middle 95% of observations between Z = -1.96 and Z = 1.96." width="672" />
-<p class="caption">(\#fig:a01_chunk14)Standard normal distribution showing hte middle 95% of observations between Z = -1.96 and Z = 1.96.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c14-1.png" alt="Standard normal distribution showing hte middle 95% of observations between Z = -1.96 and Z = 1.96." width="672" />
+<p class="caption">(\#fig:a01c14)Standard normal distribution showing hte middle 95% of observations between Z = -1.96 and Z = 1.96.</p>
 </div>
 
 If we think about a standard normal distribution representing a sampling distribution, by definition there is a 95% chance that a point estimate of a parameter from a randomly drawn sample will be between Z = -1.96 standard errors below the true parameter value and 1.96 standard errors above the true parameter value. The Z score for our particular point estimate is
@@ -536,7 +536,7 @@ z <- abs(qnorm(alpha/2, mean = 0, sd = 1, lower.tail=TRUE)) #abs for positive Z
 ## [1] 0.1293456
 ```
 
-We see that the 90% confidence interval for the point estimate 0.08 and standard error 0.03 is 3% - 13%. In other words, we can be 90% confident that the true proportion infected is between 3% and 13%. Notice that the range of confindence interval narrows as the confidence level decreases.
+We see that the 90% confidence interval for the point estimate 0.08 and standard error 0.03 is 3% - 13%. In other words, we can be 90% confident that the true proportion infected is between 3% and 13%. Notice that the range of confidence interval narrows as the confidence level decreases.
 
 #### Quantifying confidence intervals when you don't know the standard deviation
 
@@ -557,8 +557,8 @@ How does it work? Rather than using the standard normal distribution, we use a n
 The particular shape of a *t* distribution is specified by the **degrees of freedom**, which in this case is defined as $df=N-1$. Thus, the appropriate *t*-distribution for a sample of size N = 50 has $df = 50 - 1 = 49$. As the sample size increases, the *t*-distribution converges on the standard normal distribution, which can be seen in Figure \@ref(fig:a01_chunk16).
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk16-1.png" alt="Comparisong of t-distributions with varying degrees of freedom to the standard normal distribution (Z)" width="672" />
-<p class="caption">(\#fig:a01_chunk16)Comparisong of t-distributions with varying degrees of freedom to the standard normal distribution (Z)</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c16-1.png" alt="Comparisong of t-distributions with varying degrees of freedom to the standard normal distribution (Z)" width="672" />
+<p class="caption">(\#fig:a01c16)Comparisong of t-distributions with varying degrees of freedom to the standard normal distribution (Z)</p>
 </div>
 
 Now that you have a sense for how the *t*-distribution compares to the standard normal, let's look at how confidence intervals are quantified with the *t*-distribution. 
@@ -704,11 +704,11 @@ ggplot(ci.data, aes(y = Interval, xmin = LCL, xmax = UCL, color = ContainsTruth)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="appendix01_estimation_freq_files/figure-html/a01_chunk19-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:a01_chunk19)TODO: caption.</p>
+<img src="appendix01_estimation_freq_files/figure-html/a01c19-1.png" alt="TODO: caption." width="672" />
+<p class="caption">(\#fig:a01c19)TODO: caption.</p>
 </div>
 
-Figure \@ref(fig:a01_chunk19) shows 20 randomly selected 95% confidence intervals for the proportion infected, highlighting confidence intervals that either do or do not include the true value of 11% infected. Note that of the 20 randomly-selected confidence intervals, 19 of 20 contain the truth, which is what we expect for a 95% confidence interval. If we look at the entire sample of 1000 random samples, 93.9% of them contained the true parameter of 11%. Why wasn't it exactly 95%? Well, there's sampling error even in our simulation process because we're not generating an infinite number of samples [^ch08-2].
+Figure \@ref(fig:a01c19) shows 20 randomly selected 95% confidence intervals for the proportion infected, highlighting confidence intervals that either do or do not include the true value of 11% infected. Note that of the 20 randomly-selected confidence intervals, 19 of 20 contain the truth, which is what we expect for a 95% confidence interval. If we look at the entire sample of 1000 random samples, 93.9% of them contained the true parameter of 11%. Why wasn't it exactly 95%? Well, there's sampling error even in our simulation process because we're not generating an infinite number of samples [^ch08-2].
 
 [^ch08-2]: It turns out there's also a little bias due to the tendency to underestimate the standard deviation at low sample size. 
 

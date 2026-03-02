@@ -96,7 +96,9 @@ ggplot(df, aes(x = x, y = dens)) +
   theme_classic()
 ```
 
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c04-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c04-1} \end{center}
 
 How did I know to use those particular values for the normal prior (mean = 75, standard deviation = 10). This is where domain knowledge is helpful. Based on prior knowledge from the medical literature and my own experience on track and cross country teams where we often measured our heart rates, I have a general sense about the most plausible values for average heart rate. I don't know it for sure, but I think it's around 75 bpm. It could be more or less, but I think it's *very* unlikely that the *typical* heart rate is less than 50 bpm or over 100 bpm. I also don't think it's equally plausible that the mean heart rate is anywhere between 50 and 100 bpm. I think it's most likely around 75, with decreasing probability moving away from 75. The normal distribution captures that prior knowledge nicely (albeit imperfectly, as every model is imperfect).
 
@@ -155,10 +157,14 @@ ggplot(df, aes(x = r.sim)) +
   theme_minimal()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c06-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c08c06)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c06-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c08c06)
+\end{figure}
 
 What is this code doing? First, we randomly draw 10,000 values of the mean resting heart rate from the prior distribution that we defined for the mean (a normal distribution with mean = 75 and SD = 10). Next, we randomly draw 10,000 values for the standard deviation from the prior distribution we defined for that parameter (a uniform distribution between 0 and 20). Finally, we randomly draw 10,000 values of individual resting heart rates from the normal distributions implied by the simualted means and standard deviations from our priors. Then we plot the implied distribution of resting heart rates. 
 
@@ -202,10 +208,14 @@ ggplot(df, aes(x = r.sim)) +
   theme_minimal()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c07-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c08c07)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c07-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c08c07)
+\end{figure}
 
 Now we see no negative values implied by the priors, and the upper extreme values have been reduced to a maximum of around 125 bpm. Honestly these prior may still be a bit too wide, but those extreme values are very rare, and the data will have a lot to say about where the posterior distributions end up. Let's proceed!
 
@@ -264,7 +274,9 @@ Although we are discarding the first 1000 iterations entirely, we still need to 
 plot(m1)
 ```
 
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c09-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c09-1} \end{center}
 
 The left panel shows the posterior distributions for the mean (`b_Intercept`) and standard deviation (`sigma`) parameters, and the right side of the panel shows trace plots for each panel. Trace plots allow you to view the value of each parameter for each iteration of the model in each chain. What we're looking for here is relative consistency in the parameter values *within and among* the chains, that is convergence of the parameter values. Notice that for both of these parameters, the sampled values in sequence are relatively consistent, and sampled values across the chains converged around the same values (i.e., the chains are **well-mixed**). These trace plots indicate solid convergence because the values for each chain overlap extensively and hover around a common value. 
 
@@ -276,7 +288,8 @@ One other visual check you should make is of the posterior distributions, which 
 
 Below is the output from the `plot` function for the fitted model using this new prior. Look closely at the posterior distribution for the standard deviation. Notice how the posterior distribution is strongly skewed to the left, with most of the values around 12 and a hard cut-off at 12? This is good evidence that the prior I used was too constraining, and that it's very possible that the standard deviation takes on values greater than 12. Basically the observed data via the likelihood are saying the standard deviation may well be above 12, but my prior distribution doesn't allow it. You can also see in the trace plot for the standard deviation that there's a hard limit at 12. These are good signs that my priors need to be relaxed and the model refit. 
 
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c10-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c10-1} \end{center}
 
 ### Inference and posterior predictive check
 
@@ -332,7 +345,9 @@ p_sigma <- ggplot(m1.post, aes(x = sigma)) +
 p_mu + p_sigma
 ```
 
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c12-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c12-1} \end{center}
 
 To answer our initial question, our posterior dsitribution for the mean implies that the mean resting heart rate for adults in the U.S. is very likely around 72.5 bpm. We could of course compute some summary statistics:
 
@@ -411,7 +426,9 @@ ggplot(df_post, aes(x = pulse)) +
   theme_minimal()
 ```
 
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c15-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c15-1} \end{center}
 
 The resulting distribution is called the **joint posterior distribution**, and it describes the distribution of the *individual* resting heart rates. One thing that would make us feel confident with our model is if the distribution of individual heart rates implied by the model reflects the data we actually observed. We can visually check that by overlaying a density plot of the observed data on top of the joint posterior distribution:
 
@@ -436,7 +453,9 @@ ggplot() +
   theme_minimal()
 ```
 
-<img src="ch08_bayesianWorkflow_files/figure-html/c08c16-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch08_bayesianWorkflow_files/figure-latex/c08c16-1} \end{center}
 
 Here we can see that the posterior predictive and observed distributions have a close fit! That means the resting heart rates implied by the posterior distribution do a good job at describing the observed data. We can be reasonably confident in the model output for inference. Visually that would be the area under the posterior predictive distribution that's greater than 100, but we can easily compute that probability with the observations of heart rate randomly drawn from our model:
 

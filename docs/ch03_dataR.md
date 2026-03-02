@@ -8,430 +8,76 @@ In scientific research, **data** consist of information collected via observatio
 
 For our purposes, these kinds of observations and measurements don't really qualify as data. In scientific research, data has the distinction of consisting of multiple observations or measurements that can be used to draw conclusions. At my university, courses in statistics address a general education goal on **quantitative reasoning**. Ultimately data are structured measurements or observations that can be used in reasoning, such as making a decision about a hypothesis.
 
-<div class="figure" style="text-align: center">
-<img src="images/03_plciMorph.jpg" alt="Unstriped (left) and striped color morphs of red-backed salamanders." width="50%" />
-<p class="caption">(\#fig:c03c01)Unstriped (left) and striped color morphs of red-backed salamanders.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/03_plciMorph} 
+
+}
+
+\caption{Unstriped (left) and striped color morphs of red-backed salamanders.}(\#fig:c03c01)
+\end{figure}
 
 Let's start by examining an example dataset. A **dataset** is simply a collection of data, often with multiple types. This example dataset is about a phenomenon in biology called tail autotomy, which is the ability of organisms like salamanders and lizards to drop their tail when attacked by a predator. The tail continues to move after it's severed, which is thought to be an adaptation to avoid being eaten. In this case, tail autotomy data was collected for red-backed salamanders (*Plethodon cinereus*), including two different color morphs (striped and unstriped) that are known to differ in behavioral and physiological traits (Figure \@ref(fig:c03c01)). The dataset was collected by a former undergraduate student in my lab, [Dr. Banan Otaibi](https://surgery.arizona.edu/person/banan-wael-otaibi-md), now a surgeon at the University of Arizona. Dr. Otaibi's research question focused on whether tail autotomy behavior differs between color morphs.
 
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; "><table class="table table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c03c02)(\#tab:c03c02) Dataset on tail autotomy in red-backed salamanders.</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> individual </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> morph </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> tail.sec </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> tail.vel </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> mass.g </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> length.cm </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> easting </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> northing </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 16O300 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 110 </td>
-   <td style="text-align:center;"> 3.0 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 3.9 </td>
-   <td style="text-align:center;"> 350827 </td>
-   <td style="text-align:center;"> 4699989 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O301 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 160 </td>
-   <td style="text-align:center;"> 2.3 </td>
-   <td style="text-align:center;"> 0.7 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 350827 </td>
-   <td style="text-align:center;"> 4699989 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O302 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 250 </td>
-   <td style="text-align:center;"> 2.8 </td>
-   <td style="text-align:center;"> 0.9 </td>
-   <td style="text-align:center;"> 3.9 </td>
-   <td style="text-align:center;"> 350831 </td>
-   <td style="text-align:center;"> 4699988 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O303 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 360 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 1.0 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 350831 </td>
-   <td style="text-align:center;"> 4699988 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O304 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 220 </td>
-   <td style="text-align:center;"> 4.6 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:center;"> 350831 </td>
-   <td style="text-align:center;"> 4699988 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O306 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 120 </td>
-   <td style="text-align:center;"> 3.0 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 352128 </td>
-   <td style="text-align:center;"> 4702166 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O308 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 310 </td>
-   <td style="text-align:center;"> 3.5 </td>
-   <td style="text-align:center;"> 1.2 </td>
-   <td style="text-align:center;"> 4.2 </td>
-   <td style="text-align:center;"> 352121 </td>
-   <td style="text-align:center;"> 4702172 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O309 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 220 </td>
-   <td style="text-align:center;"> 2.6 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 3.7 </td>
-   <td style="text-align:center;"> 352122 </td>
-   <td style="text-align:center;"> 4702174 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O310 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 360 </td>
-   <td style="text-align:center;"> 2.4 </td>
-   <td style="text-align:center;"> 0.7 </td>
-   <td style="text-align:center;"> 3.6 </td>
-   <td style="text-align:center;"> 352116 </td>
-   <td style="text-align:center;"> 4702169 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O311 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 410 </td>
-   <td style="text-align:center;"> 2.6 </td>
-   <td style="text-align:center;"> 0.9 </td>
-   <td style="text-align:center;"> 3.8 </td>
-   <td style="text-align:center;"> 352119 </td>
-   <td style="text-align:center;"> 4702170 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O312 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 190 </td>
-   <td style="text-align:center;"> 2.2 </td>
-   <td style="text-align:center;"> 1.0 </td>
-   <td style="text-align:center;"> 3.8 </td>
-   <td style="text-align:center;"> 352110 </td>
-   <td style="text-align:center;"> 4702167 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O314 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 460 </td>
-   <td style="text-align:center;"> 2.9 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 3.5 </td>
-   <td style="text-align:center;"> 352089 </td>
-   <td style="text-align:center;"> 4702122 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O315 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 420 </td>
-   <td style="text-align:center;"> 2.2 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:center;"> 352090 </td>
-   <td style="text-align:center;"> 4702135 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O316 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 440 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 352088 </td>
-   <td style="text-align:center;"> 4702129 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O317 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 400 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:center;"> 0.9 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 352071 </td>
-   <td style="text-align:center;"> 4702177 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O300 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 180 </td>
-   <td style="text-align:center;"> 3.5 </td>
-   <td style="text-align:center;"> 1.1 </td>
-   <td style="text-align:center;"> 4.4 </td>
-   <td style="text-align:center;"> 351010 </td>
-   <td style="text-align:center;"> 4700176 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O302 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 270 </td>
-   <td style="text-align:center;"> 3.8 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 3.2 </td>
-   <td style="text-align:center;"> 350989 </td>
-   <td style="text-align:center;"> 4700122 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O303 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 1.7 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.6 </td>
-   <td style="text-align:center;"> 350962 </td>
-   <td style="text-align:center;"> 4700106 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O304 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 340 </td>
-   <td style="text-align:center;"> 3.2 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 350946 </td>
-   <td style="text-align:center;"> 4700091 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O305 </td>
-   <td style="text-align:center;"> striped </td>
-   <td style="text-align:center;"> 300 </td>
-   <td style="text-align:center;"> 3.2 </td>
-   <td style="text-align:center;"> 1.0 </td>
-   <td style="text-align:center;"> 4.1 </td>
-   <td style="text-align:center;"> 350939 </td>
-   <td style="text-align:center;"> 4700088 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O305 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 10 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 0.4 </td>
-   <td style="text-align:center;"> 3.1 </td>
-   <td style="text-align:center;"> 352130 </td>
-   <td style="text-align:center;"> 4702168 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O307 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.9 </td>
-   <td style="text-align:center;"> 3.6 </td>
-   <td style="text-align:center;"> 352119 </td>
-   <td style="text-align:center;"> 4702157 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O313 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 20 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 0.4 </td>
-   <td style="text-align:center;"> 2.9 </td>
-   <td style="text-align:center;"> 352090 </td>
-   <td style="text-align:center;"> 4702123 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16O318 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 10 </td>
-   <td style="text-align:center;"> 1.1 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 352075 </td>
-   <td style="text-align:center;"> 4702046 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O301 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 70 </td>
-   <td style="text-align:center;"> 1.9 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 350990 </td>
-   <td style="text-align:center;"> 4700114 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O306 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 70 </td>
-   <td style="text-align:center;"> 2.0 </td>
-   <td style="text-align:center;"> 0.3 </td>
-   <td style="text-align:center;"> 2.8 </td>
-   <td style="text-align:center;"> 350910 </td>
-   <td style="text-align:center;"> 4700059 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O307 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 10 </td>
-   <td style="text-align:center;"> 0.9 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 4.2 </td>
-   <td style="text-align:center;"> 350910 </td>
-   <td style="text-align:center;"> 4700057 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O308 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 30 </td>
-   <td style="text-align:center;"> 1.7 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 350887 </td>
-   <td style="text-align:center;"> 4700003 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O309 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 1.2 </td>
-   <td style="text-align:center;"> 1.0 </td>
-   <td style="text-align:center;"> 3.9 </td>
-   <td style="text-align:center;"> 350889 </td>
-   <td style="text-align:center;"> 4699994 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O310 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 1.3 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:center;"> 350893 </td>
-   <td style="text-align:center;"> 4700009 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O311 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 3.5 </td>
-   <td style="text-align:center;"> 350855 </td>
-   <td style="text-align:center;"> 4699997 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O312 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 350871 </td>
-   <td style="text-align:center;"> 4700003 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O313 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 1.6 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 3.9 </td>
-   <td style="text-align:center;"> 350838 </td>
-   <td style="text-align:center;"> 4700072 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O314 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 20 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 0.4 </td>
-   <td style="text-align:center;"> 3.0 </td>
-   <td style="text-align:center;"> 350982 </td>
-   <td style="text-align:center;"> 4700003 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O315 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 20 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:center;"> 350957 </td>
-   <td style="text-align:center;"> 4699969 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O316 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 1.8 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 3.5 </td>
-   <td style="text-align:center;"> 350795 </td>
-   <td style="text-align:center;"> 4699993 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O317 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 2.0 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 3.6 </td>
-   <td style="text-align:center;"> 350789 </td>
-   <td style="text-align:center;"> 4700005 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O318 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 40 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:center;"> 350811 </td>
-   <td style="text-align:center;"> 4700018 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O319 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 1.9 </td>
-   <td style="text-align:center;"> 0.4 </td>
-   <td style="text-align:center;"> 3.1 </td>
-   <td style="text-align:center;"> 350806 </td>
-   <td style="text-align:center;"> 4700007 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17O320 </td>
-   <td style="text-align:center;"> unstriped </td>
-   <td style="text-align:center;"> 80 </td>
-   <td style="text-align:center;"> 1.4 </td>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 350812 </td>
-   <td style="text-align:center;"> 4700030 </td>
-  </tr>
-</tbody>
-</table></div>
+\begin{table}[!h]
+\centering
+\caption{(\#tab:c03c02)(\#tab:c03c02) Dataset on tail autotomy in red-backed salamanders.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{cccccccc}
+\toprule
+individual & morph & tail.sec & tail.vel & mass.g & length.cm & easting & northing\\
+\midrule
+16O300 & striped & 110 & 3.0 & 0.8 & 3.9 & 350827 & 4699989\\
+16O301 & striped & 160 & 2.3 & 0.7 & 4.0 & 350827 & 4699989\\
+16O302 & striped & 250 & 2.8 & 0.9 & 3.9 & 350831 & 4699988\\
+16O303 & striped & 360 & 3.3 & 1.0 & 4.0 & 350831 & 4699988\\
+16O304 & striped & 220 & 4.6 & 0.6 & 3.4 & 350831 & 4699988\\
+\addlinespace
+16O306 & striped & 120 & 3.0 & 0.6 & 3.3 & 352128 & 4702166\\
+16O308 & striped & 310 & 3.5 & 1.2 & 4.2 & 352121 & 4702172\\
+16O309 & striped & 220 & 2.6 & 0.8 & 3.7 & 352122 & 4702174\\
+16O310 & striped & 360 & 2.4 & 0.7 & 3.6 & 352116 & 4702169\\
+16O311 & striped & 410 & 2.6 & 0.9 & 3.8 & 352119 & 4702170\\
+\addlinespace
+16O312 & striped & 190 & 2.2 & 1.0 & 3.8 & 352110 & 4702167\\
+16O314 & striped & 460 & 2.9 & 0.8 & 3.5 & 352089 & 4702122\\
+16O315 & striped & 420 & 2.2 & 0.5 & 3.4 & 352090 & 4702135\\
+16O316 & striped & 440 & 4.0 & 0.6 & 3.3 & 352088 & 4702129\\
+16O317 & striped & 400 & 3.4 & 0.9 & 4.0 & 352071 & 4702177\\
+\addlinespace
+17O300 & striped & 180 & 3.5 & 1.1 & 4.4 & 351010 & 4700176\\
+17O302 & striped & 270 & 3.8 & 0.5 & 3.2 & 350989 & 4700122\\
+17O303 & striped & 50 & 1.7 & 0.6 & 3.6 & 350962 & 4700106\\
+17O304 & striped & 340 & 3.2 & 0.8 & 4.0 & 350946 & 4700091\\
+17O305 & striped & 300 & 3.2 & 1.0 & 4.1 & 350939 & 4700088\\
+\addlinespace
+16O305 & unstriped & 10 & 0.5 & 0.4 & 3.1 & 352130 & 4702168\\
+16O307 & unstriped & 0 & 0.0 & 0.9 & 3.6 & 352119 & 4702157\\
+16O313 & unstriped & 20 & 0.8 & 0.4 & 2.9 & 352090 & 4702123\\
+16O318 & unstriped & 10 & 1.1 & 0.6 & 3.3 & 352075 & 4702046\\
+17O301 & unstriped & 70 & 1.9 & 0.5 & 3.3 & 350990 & 4700114\\
+\addlinespace
+17O306 & unstriped & 70 & 2.0 & 0.3 & 2.8 & 350910 & 4700059\\
+17O307 & unstriped & 10 & 0.9 & 0.8 & 4.2 & 350910 & 4700057\\
+17O308 & unstriped & 30 & 1.7 & 0.8 & 4.0 & 350887 & 4700003\\
+17O309 & unstriped & 50 & 1.2 & 1.0 & 3.9 & 350889 & 4699994\\
+17O310 & unstriped & 50 & 1.3 & 0.6 & 3.4 & 350893 & 4700009\\
+\addlinespace
+17O311 & unstriped & 0 & 0.0 & 0.5 & 3.5 & 350855 & 4699997\\
+17O312 & unstriped & 0 & 0.0 & 0.8 & 4.0 & 350871 & 4700003\\
+17O313 & unstriped & 50 & 1.6 & 0.8 & 3.9 & 350838 & 4700072\\
+17O314 & unstriped & 20 & 0.6 & 0.4 & 3.0 & 350982 & 4700003\\
+17O315 & unstriped & 20 & 0.6 & 0.6 & 3.4 & 350957 & 4699969\\
+\addlinespace
+17O316 & unstriped & 50 & 1.8 & 0.5 & 3.5 & 350795 & 4699993\\
+17O317 & unstriped & 50 & 2.0 & 0.6 & 3.6 & 350789 & 4700005\\
+17O318 & unstriped & 40 & 0.8 & 0.5 & 3.4 & 350811 & 4700018\\
+17O319 & unstriped & 50 & 1.9 & 0.4 & 3.1 & 350806 & 4700007\\
+17O320 & unstriped & 80 & 1.4 & 0.5 & 3.3 & 350812 & 4700030\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 ### Variables and observations
 
@@ -467,49 +113,26 @@ It's good practice to use a consistent naming style for your variables. Notice t
 
 It's also a good idea to get in the habit of generating metadata for your datasets. Metadata is a description of the dataset, including variable definitions, their units of measure, and more. Here's some metadata describing the variables in the example dataset:
 
-<table class="table table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c03c03)(\#tab:c03c03) Variable descriptions for the tail autotomy dataset.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Variable </th>
-   <th style="text-align:left;"> Description </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> individual </td>
-   <td style="text-align:left;"> Unique identification code for each individual salamander. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> morph </td>
-   <td style="text-align:left;"> Color morph (striped or unstriped) for each salamander. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tail.sec </td>
-   <td style="text-align:left;"> Total tail movement time (seconds). </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tail.vel </td>
-   <td style="text-align:left;"> Initial tail movement velocity, measured as the maximum observed oscillations per second. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> mass.g </td>
-   <td style="text-align:left;"> Mass in grams </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> length.cm </td>
-   <td style="text-align:left;"> Snout-vent-length in cm </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> easting </td>
-   <td style="text-align:left;"> Longitudinal geographic coordinate in UTM zone 18 projection (meters). </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> northing </td>
-   <td style="text-align:left;"> Latitudinal geographic coordinate in UTM zone 18 projection (meters). </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}[!h]
+\centering
+\caption{(\#tab:c03c03)(\#tab:c03c03) Variable descriptions for the tail autotomy dataset.}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+Variable & Description\\
+\midrule
+individual & Unique identification code for each individual salamander.\\
+morph & Color morph (striped or unstriped) for each salamander.\\
+tail.sec & Total tail movement time (seconds).\\
+tail.vel & Initial tail movement velocity, measured as the maximum observed oscillations per second.\\
+mass.g & Mass in grams\\
+\addlinespace
+length.cm & Snout-vent-length in cm\\
+easting & Longitudinal geographic coordinate in UTM zone 18 projection (meters).\\
+northing & Latitudinal geographic coordinate in UTM zone 18 projection (meters).\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 ## Introduction to R
 
@@ -527,10 +150,14 @@ There are also ways of using R and RStudio via cloud-based platforms, such as [P
 
 When initially opened, the RStudio interface includes three sections (Figure \@ref(fig:c03c04)). The console pane is on the left side, which is where you work with the R environment by typing in or executing code. For numerical data processing, output of your code will generally be displayed in the console (though not always automatically). Graphical output will be displayed in the output pane on the bottom right when viewing the Plots tab. Other tabs in the bottom right allow one to navigate to files on your hard drive, examine help documents, and more. The section at the top right is the Environment pane, which shows the objects that you have loaded in R. We'll dig in first on how to compose and execute code in the R Console.
 
-<div class="figure" style="text-align: center">
-<img src="images/03_rStudio.png" alt="RStudio interface showing the R console (left), working environment (top right), and output (bottom right) panes." width="80%" />
-<p class="caption">(\#fig:c03c05)RStudio interface showing the R console (left), working environment (top right), and output (bottom right) panes.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/03_rStudio} 
+
+}
+
+\caption{RStudio interface showing the R console (left), working environment (top right), and output (bottom right) panes.}(\#fig:c03c05)
+\end{figure}
 
 ### Basic data manipulation in R
 
@@ -790,10 +417,14 @@ How did I know which arguments are included in the `round` function? Built-in fu
 
 When you execute the code, the bottom right panel in RStudio will show you the "Help" document for the round function. You'll see an "Arguments" section, and there you'll see that the round function has two arguments (Figure \@ref(fig:c03f30).
 
-<div class="figure" style="text-align: center">
-<img src="images/03_documentation.png" alt="Documentation for the round function." width="80%" />
-<p class="caption">(\#fig:c03f30)Documentation for the round function.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/03_documentation} 
+
+}
+
+\caption{Documentation for the round function.}(\#fig:c03f30)
+\end{figure}
 
 So we see here that the `round` function requires a numerical value `x` to round and the number of `digits` to round to. When you execute code with a function, you can go ahead and use the name of each argument and then specify the value of the argument following an equal sign, like I did above. If you are naming the arguments, the order in which you present the arguments does not matter:
 
@@ -853,37 +484,22 @@ There are many, many functions in R. For example, the function `class` makes R s
 
 We know that datasets are made up of one or more variables, each with multiple observations. In R, we can store variables with multiple observations as **vectors**. A vector in R usually corresponds to a single variable (one column of your dataset). For example, suppose we have data on body temperature for five individuals of different ages:
 
-<table class="table table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c03c36)(\#tab:c03c36) Example vectors for age and body temperature.</caption>
- <thead>
-  <tr>
-   <th style="text-align:right;"> Age </th>
-   <th style="text-align:right;"> Temperature (Fahrenheit) </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 98.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 28 </td>
-   <td style="text-align:right;"> 99.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 34 </td>
-   <td style="text-align:right;"> 99.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 43 </td>
-   <td style="text-align:right;"> 98.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 50 </td>
-   <td style="text-align:right;"> 98.9 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}[!h]
+\centering
+\caption{(\#tab:c03c36)(\#tab:c03c36) Example vectors for age and body temperature.}
+\centering
+\begin{tabular}[t]{rr}
+\toprule
+Age & Temperature (Fahrenheit)\\
+\midrule
+22 & 98.2\\
+28 & 99.1\\
+34 & 99.3\\
+43 & 98.4\\
+50 & 98.9\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 We can use the concatenate function, `c`, to create vector for age and temperature:
 
@@ -1269,9 +885,13 @@ How do you make a script? It's really easy in RStudio? In your toolbar, just cli
 
 For example, Figure \@ref(fig:c03c62) shows a simple script to perform some basic descriptive statistical analysis on the salamander tails data. I included some notes to delineate different sections of the script. The dashes are not necessary, but I often use them because they allow me to visually demarcate the different sections of the script, and RStudio recognizes those sections and allows you to navigate among the different sections using the drop-down in the bottom left corner of the script panel.
 
-<div class="figure" style="text-align: center">
-<img src="images/03_exampleScript.png" alt="Unstriped (left) and striped color morphs of red-backed salamanders." width="90%" />
-<p class="caption">(\#fig:c03c62)Unstriped (left) and striped color morphs of red-backed salamanders.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/03_exampleScript} 
+
+}
+
+\caption{Unstriped (left) and striped color morphs of red-backed salamanders.}(\#fig:c03c62)
+\end{figure}
 
 How do you execute the code in a script? It’s easy! Just highlight the code that you want to execute, then click the “Run” button in the top right corner of the script panel. You’ll see the code executed in the R console in the bottom left panel, along with any generated output.

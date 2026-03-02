@@ -6,17 +6,25 @@
 
 I like ice cream. A lot. So I became alarmed when I saw the graph below, suggesting that the number of drownings in the United States is positively related to ice cream sales.
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c01, -1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c11c01, )TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c01, -1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c11c01, )
+\end{figure}
 
 Why would the number of drownings be related to ice cream sales? Well, one hypothesis is that ice cream consumption causally increases risk of drowning. Perhaps eating a lot of ice cream compromises one's ability to swim. The DAG below represents this hypothesis.
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c02, -1.png" alt="Initial DAG for the causal effect of greenspace on mental health." width="288" />
-<p class="caption">(\#fig:c11c02, )Initial DAG for the causal effect of greenspace on mental health.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c02, -1} 
+
+}
+
+\caption{Initial DAG for the causal effect of greenspace on mental health.}(\#fig:c11c02, )
+\end{figure}
 
 The DAG here shows that the number of drownings (D) is indirectly affected by ice cream sales (IC) via the mediators ice cream consumption (C) and swimming performance (SP), which are unobserved. If this DAG was correct, we would expect that the number drownings is related to ice cream sales. We have monthly data available on those measurements as seen in the graph above, but we should build a linear model to more rigorously examine the relationship than by simply eye balling it. Here's our statistical model. Note we're mean-centering the monthly ice-cream sales:
 
@@ -79,19 +87,27 @@ ggplot(d, aes(x = ice_cream_sales_millions, y = drownings)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c03-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c11c03)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c03-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c11c03)
+\end{figure}
 
 From the model we see the expected increase in drownings per every one million more ice cream sales is 0.28 with a 95% credible interval of 0.26 to 0.30. In other words, we confirmed what we saw with our eyes. The average number of drownings per month is positively related to ice cream sales. This means ice cream causes drownings, right?
 
 Well, no. Good for you if you've remained skeptical to this point. We've confirmed here that there is indeed a positive association between drownings per month and ice cream sales. But that doesn't mean the association is causal. Just because we have a DAG doesn't make the association we find causal. The scientific hypothesis represented by our DAG might be wrong. And in this case, it's almost certainly wrong. Here's a DAG representing an alternative hypothesis:
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c04, -1.png" alt="Initial DAG for the causal effect of greenspace on mental health." width="288" />
-<p class="caption">(\#fig:c11c04, )Initial DAG for the causal effect of greenspace on mental health.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c04, -1} 
+
+}
+
+\caption{Initial DAG for the causal effect of greenspace on mental health.}(\#fig:c11c04, )
+\end{figure}
 
 What does this DAG say? First, we see the same causal pathway that we saw before from ice cream sales to drowning via consumption and swimming performance. But now we've added another pathway by which drownings is linked to ice cream sales. The new causal pathway shows that air temperature (T) affects ice cream sales, which makes sense as people tend to eat more ice cream when it's warm. Air temperature also affects the number of swimmers (S), which is an unobserved variable. People are more likely to swim when it's warm! Numerically we expect more drownings when there's more swimmers, so there's a direct effect of swimmers on drownings.
 
@@ -205,10 +221,14 @@ ggplot(lines_df, aes(x = c_vals+mean(d$ice_cream_sales_millions), y = y, group =
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c06-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c11c06)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c06-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c11c06)
+\end{figure}
 
 Compared to the last chapter, note that we now have to include a term in our model for the additional predictor variable. Just as we specify values for the predictor of interest, we have to specify values for the other predictor variables. One common approach is to hold other predictor variables constant at their mean while examining what the priors imply about other model terms. And that's what I've done here. Notice that I'm plotting what the priors imply about the relationship between drownings and ice cream sales (`c_vals`) while setting the value of temperature to 0, which is the mean on the mean-centered scale. Our priors aren't perfect, as we can see some negative values of drownings implied. We could consider tightening up the priors for the slopes, but my sense (without having much domain knowledge here) is that these priors are already pretty conservative, in that they say there's a 95% probability that the change in drownings per unit change in ice cream sales (or temperature) is no more than 0.5 while holding the other predictor variable constant. We'll proceed with these priors.
 
@@ -240,10 +260,14 @@ m2 <- brm(data = d,
 plot(m2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c07-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c11c07)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c07-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c11c07)
+\end{figure}
 
 Our initial plot of the posteriors and the traceplots look good. It looks like each of the four parameters has converged. Let's take a look at the model summary:
 
@@ -355,10 +379,14 @@ ggplot(y.pred) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c11-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c11c11)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c11-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c11c11)
+\end{figure}
 
 Here we see that if we hold the air temperature constant at its mean, there appears to be a mild decrease in the number of drownings. But note there's a lot of uncertainty around the posterior mean estimate as indicated by the 95% credible interval in blue. You could fit some pretty flat or even weakly positive slopes in that credible interval. 
 
@@ -387,10 +415,14 @@ ggplot(y.pred) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch11_causalInferenceWithLinearModels_files/figure-html/c11c12-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c11c12)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch11_causalInferenceWithLinearModels_files/figure-latex/c11c12-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c11c12)
+\end{figure}
 
 Here we shoudl expect drownings to strongly increase with air temperature while holding ice cream sales constant. Remember that in our DAG we assumed temperature affects drownings by mediating the number of swimmers or along the ice cream sales pathway. Because we are holding ice cream sales constant, the prediction plot repesents the causal effect of air temperature on drownings via the indirect pathway involving the number of swimmers. We could generate another plot that represents the total effect of air temperature on predicted number of drownings, but we would need a different linear model that estimates the total effect. In the current linear model, the effect of temperature is estimated while holding ice cream sales constant. 
 

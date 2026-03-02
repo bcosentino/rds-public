@@ -69,7 +69,7 @@ Once you've loaded a file and named a data frame for it, it's a good idea to ins
 
 ``` r
 > str(d)
-tibble [336,776 × 19] (S3: tbl_df/tbl/data.frame)
+tibble [336,776 x 19] (S3: tbl_df/tbl/data.frame)
  $ year          : int [1:336776] 2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
  $ month         : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...
  $ day           : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...
@@ -187,7 +187,9 @@ ggplot(origin_freq, aes(x = origin, y = n)) +
        y = "Departing flights in 2013")
 ```
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c14-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c14-1} \end{center}
 
 We see the code created a graph with two axes, the horizontal x-axis and the vertical y-axis. The variables are mapped to the `x` and `y` axes by the `aes` function. The `geom_col` layer is included to specify a bar chart where the actual frequencies of each category are displayed on the y-axis, and the `labs` layer lets you define the x- and y-axis labels. Note that the `aes` function can be added as a layer outside the `ggplot` function. Including `aes` as an argument within the `ggplot` function is more common because it applies the axis mapping as the default for all subsequent layers.
 
@@ -204,7 +206,9 @@ ggplot(origin_prop, aes(x = origin, y = p)) +
        y = "Proportion departing flights in 2013")
 ```
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c15-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c15-1} \end{center}
 
 Note that I added a `fill` argument here in `geom_col` to specify a different color for the bars. There are many more arguments you can use to customize these figures. Throughout the book I'll add various options like this to plots and point them out.
 
@@ -233,7 +237,9 @@ ggplot(d.as, aes(x = dep_delay)) +
        y = "Number of Alaska flights")
 ```
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c17-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c17-1} \end{center}
 
 A histogram combines multiple observations into bins of a particular size and shows the frequency of those observations. In this histogram, I set the `binwidth` to 10 minutes. I also set the `boundary` to 0, which forces 0 to be a boundary between bins, allowing us to clearly differentiate between early- and late-departing flights. You don't need to set these values, but sometimes it helps when you want to make the bin size meaningful. Just beware that setting bin sizes too small or too large will make it impossible to see the shape of the distribution.
 
@@ -245,7 +251,8 @@ The shape of distributions of quantitative variables can vary substantially from
 
 \-*Bell-shaped* distributions have a single peak around the most typical values, with a similar number of of observations above and below the most typical values -*Bimodal* distributions have two peaks that can be distinguished with a gap of fewer observations in between. -*Skewed* distributions have a long tail of observations extending above (skewed to the right) or below (skewed to the left) the most typical values. -*Uniform* distributions have a similar nubmer of observations in each bin.
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c18-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c18-1} \end{center}
 
 Like qualitative data, we can summarize quantitative data using the absolute count of observations as we've done, or we can display the relative frequency (probability) of each bin. To do this we use the same code as our initial histogram, but add a y-axis computing proportions for each bin with the `after_stat` function.
 
@@ -260,7 +267,9 @@ ggplot(d.as, aes(x = dep_delay,
        y = "Probability")
 ```
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c19-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c19-1} \end{center}
 
 We don't learn anything new about the shape of the distribution, but now we can see, for example, that over half of Alaska flights depart on time or early, and just over half depart late. With so many observations, it was difficult to eyeball those proportions when plotting the absolute counts.
 
@@ -383,7 +392,9 @@ ggplot(d.as, aes(x = air_time,
        y = "Probability")
 ```
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c25-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c25-1} \end{center}
 
 Because there are not extreme values with strong skew towards one end of the distribution, the mean and median will be similar.
 
@@ -608,7 +619,9 @@ ggplot(d.as, aes(y = air_time)) +
        y = "Air time (minutes)")
 ```
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c33-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c33-1} \end{center}
 
 -   Median: represented by the thick horizontal line as a metric of central tendency.
 
@@ -652,7 +665,9 @@ ggplot() +
   labs(y = "Air time (minutes)")
 ```
 
-<img src="ch04_descriptiveStats_files/figure-html/c04c34-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch04_descriptiveStats_files/figure-latex/c04c34-1} \end{center}
 
 ## Describing relationships between variables
 
@@ -670,19 +685,27 @@ ggplot(d.as, aes(x = dep_delay, y = arr_delay)) +
        y = "Arrival delay (minutes)")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch04_descriptiveStats_files/figure-html/c04c35-1.png" alt="TODO: caption" width="384" />
-<p class="caption">(\#fig:c04c35)TODO: caption</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch04_descriptiveStats_files/figure-latex/c04c35-1} 
+
+}
+
+\caption{TODO: caption}(\#fig:c04c35)
+\end{figure}
 
 The scatterplot shows a clear and expected pattern. When a flight has a long departure delay, it tends to have a long arrival delay. In other words, we see a positive relationship between the two variables. Scatterplots can also reveal a negative relationships, where the value of one variable tends to decrease as the value of the other variable increases.
 
 The figure below shows a range of possible patterns that one might encounter in scatterplots. Note that in addition to describing the nature of the relationship between variables, we can also describe the magnitude of the relationship. For example, the graph shows two positive relationships in the top row, but the pattern looks much stronger in the scatterplot on the left than the scatterplot on the right.
 
-<div class="figure" style="text-align: center">
-<img src="ch04_descriptiveStats_files/figure-html/c04c36-1.png" alt="TODO: caption" width="384" />
-<p class="caption">(\#fig:c04c36)TODO: caption</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch04_descriptiveStats_files/figure-latex/c04c36-1} 
+
+}
+
+\caption{TODO: caption}(\#fig:c04c36)
+\end{figure}
 
 The **correlation coefficient (r)** is a numerical metric used to describe both the direction and strength of an association. It has a bit of a messy formula:
 
@@ -708,10 +731,14 @@ ggplot(d, aes(x = distance)) +
        y = "Number of flights")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch04_descriptiveStats_files/figure-html/c04c37-1.png" alt="TODO: caption" width="70%" />
-<p class="caption">(\#fig:c04c37)TODO: caption</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{ch04_descriptiveStats_files/figure-latex/c04c37-1} 
+
+}
+
+\caption{TODO: caption}(\#fig:c04c37)
+\end{figure}
 
 What can we learn from this figure. First, we can see that the shape of the distribution of flight distance varies among airports. LGA has a largely bell-shaped distribution with no skew, whereas the EWR and JFK distributions are more bimodal (perhaps trimodal for JFK). The peak of flight distances between 2000-3000 miles for EWR and JFK suggests those airports specialize more in long-haul flights in comparison to LGA. Indeed, the most common flight distance out of JFK is about 2500 miles.
 
@@ -741,10 +768,14 @@ ggplot(d, aes(x = origin, fill = carrier2)) +
   labs(x = "Origin", y = "Proportion of flights", fill = "Carrier")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch04_descriptiveStats_files/figure-html/c04c38-1.png" alt="TODO: caption" width="384" />
-<p class="caption">(\#fig:c04c38)TODO: caption</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch04_descriptiveStats_files/figure-latex/c04c38-1} 
+
+}
+
+\caption{TODO: caption}(\#fig:c04c38)
+\end{figure}
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 # The linear model
 
-- change this chapter to use the BAC example in HW9
+
 
 
 
@@ -46,10 +46,14 @@ ggplot(data = d, aes(x = rootl)) +
   theme_minimal()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c01-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c01)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c01-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c01)
+\end{figure}
 
 The histogram doesn't tell us much with only nine observations, but we do know root length is a continuous random variable. Root length in this dataset is being used to measure the growth of ryegrass in the lab. Growth rates and plant size typically exhibit bell-shaped, approximately normal distributions. Indeed, any attribute that is influenced by many processes with non-trivial effects (e.g., many genes and environmental factors) tends to exhibit an approximately normal distribution. So we will generate a simple statistical model that describes root length with a normal distribution.
 
@@ -78,10 +82,14 @@ Now consider what each prior distribution says. The first prior is for the mean 
 
 How did I know to use those particular values for the normal prior (mean = 5, standard deviation = 2). This is where domain knowledge is helpful. Based on prior knowledge from people who have worked with ryegrass in this kind of experimental setting (growing plants in petri dishes), we know the mean root lengths are going to be relatively small, likely somewhere in the range of 0-10 cm. The values at the extremes of that range are much less likely than values in the middle - indeed, it's not even possible to have a root length of 0 cm. The normal distribution captures that prior knowledge nicely (albeit imperfectly, as every model is imperfect).
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c02-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c02)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c02-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c02)
+\end{figure}
 
 Remember that Bayesian inference combines the prior and likelihood to quantify the posterior distributions for each a parameter. We're going to use `brms` to do just that, but before doing so, it can be very useful to do that's called a **prior predictive simulation**. The idea is that we can use the prior distributions to simulate data to get a sense for what the prior distributions imply about what the data should look like. For the ryegrass example, the idea is to get a sense for the different possible combinations of the mean and standard deviation of root length, and the resulting distribution of root length implied by the priors:
 
@@ -112,10 +120,14 @@ ggplot(df, aes(x = r.sim)) +
   theme_minimal()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c03-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c03)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c03-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c03)
+\end{figure}
 
 We can see the distribution of root length implied by the priors has a mean right around 5 cm as expected, so that's good. But what's not good is that the variation around that mean is unrealistic. The priors are implying a non-trivial chance of seeing root lengths that are 0 or negative! Good thing we did this prior predictive simulation. This is exactly why you'd do such a thing; to see if the priors you assumed are realistic. Clearly the priors we're using can be improved. Let's tighten things up with a revised statsitical model:
 
@@ -156,10 +168,14 @@ ggplot(df, aes(x = r.sim)) +
   theme_minimal()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c04-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c04)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c04-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c04)
+\end{figure}
 
 There are still some negative values implied by the priors, but now they are quite rare. One of the reasons we continue to see some very small proportion of negative root lengths is that we're assuming a normal distribution for root length, and the normal distribution can have negative values. As we'll see later in the book, there are other probability distributions that may be more effective. In this case, it would be helpful to use a probability distribution that has a bell-shaped curve, but that does not allow negative values. Stay tuned. For now, this prior distribution will suffice. Let's proceed with estimation in `brms`:
 
@@ -211,10 +227,14 @@ Let's walk through this. We've defined the likelihood with the `bf` function, wh
 plot(m1)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c06-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c06)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c06-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c06)
+\end{figure}
 
 The left panel shows the posterior distributions for the mean (`b_Intercept`) and standard deviation (`sigma`) parameters, and the right side of the panel shows **trace plots** for each panel. Trace plots allow you to view the value of each parameter for each iteration of the model in each chain. What we're looking for here is relative consistency in the parameter values among the chains, that is **convergence** of the parameter values. These trace plots indicate solid convergence because the values for each chain overlap extensively and hover around a common value. Numerically, the `Rhat` values near 1 also indicate convergence.
 
@@ -254,10 +274,14 @@ We see there's a 78% chance that the mean root length is \>5 cm.
 
 As it turns out, the researchers who generated the data we just analyzed were not simply interested in describing the mean growth rate of ryegrass. Because ryegrass can be invasive, they were interested in understanding the effect of a new herbicide on ryegrass growth. Each petri dish with ryegrass was randomly assigned an herbicide concentration, and they measured root length as an index of plant growth. This is a simple experimental design in which all other resource levels were controlled (e.g., water, light, nutrients). Because there were no concerns about post-treatment bias (e.g., non-random dropout), we can represent the scientific model with a simple DAG:
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c08-1.png" alt="Initial DAG for the causal effect of greenspace on mental health." width="288" />
-<p class="caption">(\#fig:c09c08)Initial DAG for the causal effect of greenspace on mental health.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c08-1} 
+
+}
+
+\caption{Initial DAG for the causal effect of greenspace on mental health.}(\#fig:c09c08)
+\end{figure}
 
 Recall that our DAG is a scientific model of factors affecting root length. Like any model, it's a simplified representation of the system in that we are proposing the only non-trivial cause of root length variation is herbicide concentration. In reality we know there are plenty of other factors that affect plant growth - water, light, nutrients, etc. Those factors were controlled in this experiment, such that the different petri dishes were assigned identical levels of resources regardless of herbicide concentration. Because of measurement error, the resource levels won't be perfectly identical. Some petri dishes will inevitably receive a few microliters more or less of water, for example. That variation may well affect root length, but because the impact is expected to be so miniscule, we leave causes like that out of the DAG. Again, models are simplified representations of reality.
 
@@ -275,10 +299,14 @@ ggplot(d, aes(x = conc, y = rootl)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c09-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c09)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c09-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c09)
+\end{figure}
 
 We can see there were three levels of herbicide concentration assigned to three replicates for nine total observations. Visually it looks like there is a negative relationship between root length and herbicide concentration, root length decreases as herbicide concentration increases. We need a statistical model to estimate that association. Linear models are extremely useful for this task.
 
@@ -340,10 +368,14 @@ ggplot(lines_df, aes(x = x, y = y, group = id)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c10-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c10)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c10-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c10)
+\end{figure}
 
 The graph of the prior predictive simulations shows the priors allow for both positive and negative relationships between root length and herbicide concentration. The priors also allow for a range in the expected rooth length when the herbicide concentration is 0 (the intercept). One thing I don't like about these priors is that in some simulations they allow for relationships with negative expected values of root length, which of course is not possible. But the vast majority of the simulations appear realistic, and for our purposes this is sufficient to combine with the data to estimate the posterior. 
 
@@ -399,10 +431,14 @@ How do we interpret the output?  Remember that the summary for `brms` models sho
 plot(m2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c12-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c12)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c12-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c12)
+\end{figure}
 
 Indeed, we see a posterior distribution that is entirely negative for the slope. This is strong evidence that the herbicide has a negative effect on root length, and that the suppression of plant growth increases with increasing herbicide concentration. We can also see from the traceplots that there is excellent convergence of the three parameters in our model (the third being the residual error). 
 
@@ -446,10 +482,14 @@ ggplot(d, aes(x = conc, y = rootl)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c14-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c14)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c14-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c14)
+\end{figure}
 
 It's worth bearing in mind that this prediction line represents the posterior mean, so it doesn't communicate the uncertainty about our estimate. To see what I mean, let's add prediction lines for a selection of the posterior samples to get a sense for the variation To do so, we need to first extract the samples with `as_draws_df`:
 
@@ -487,10 +527,14 @@ ggplot(d, aes(x = conc, y = rootl)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c16-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c16)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c16-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c16)
+\end{figure}
 
 This plot shows the prediction line for every single posterior sample from our model. I leveraged the `geom_abline` function to make this easy, as it automatically adds a line to the graph based on a supplied intercept and slope. I made the line width small and the lines transparent (`alpha = 0.3`) so that you could see the the points, the posterior mean prediction, and where most of the lines are concentrated. What we see is that the posterior mean prediction is in the center of the cluster, and the variation around it represents uncertainty. The more variation in the predictions from individual samples, the more uncertainty we have about the estimated relationship. Including predictions from each draw of the posterior can effective for displaying uncertainty, but an alternative would be to plot a credible interval at a particular level of probability around the posterior mean prediciton. Here's the same plot but with a 95% credible interval for the prediction line:
 
@@ -510,10 +554,14 @@ ggplot(d, aes(x = conc, y = rootl)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c17-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c17)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c17-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c17)
+\end{figure}
 
 Here we're drawing on the predictions we made with the `fitted` function, which computed the 95% credible interval. The `geom_smooth` function adds the prediction line and a shaded area for the 95% credible interval. 
 
@@ -559,10 +607,14 @@ ggplot(d, aes(x = conc, y = rootl)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c19-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c19)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c19-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c19)
+\end{figure}
 
 Here we've used the `geom_ribbon` function to add the prediction interval to the last version of our figure. This figure now shows the observed data (red points), the posterior mean prediction line (solid black line), uncertainty in the predicted mean (95% credible interval in dark gray shading), and uncertainty in the individual observations (95% prediction interval in light gray shading). Whereas the credible interval shows uncertainty about the expected mean, the 95% prediction interval in light gray shows where we would expect 95% of the root length values to occur at any particular value of herbicide concentration. 
 
@@ -591,10 +643,14 @@ ggplot(tail, aes(x = morph, y = length.cm)) +
   theme(legend.position = "none")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c21-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c21)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c21-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c21)
+\end{figure}
 
 We need to fit a model that allows us to estimate the mean SVL for each color morph and compare the mean between morphs. Here's our statistical model:
 
@@ -650,7 +706,9 @@ ggplot() +
   theme_minimal()
 ```
 
-<img src="ch09_linearModels_files/figure-html/c09c23-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c23-1} \end{center}
 
 We see the priors imply no difference in the distribution of individual SVLs, but certainly they allow for it. The only issue here is that the priors imply a few negative values for SVL, which of course doesn't make sense. However those observations are extremely rare, and we proceed to fit the model:
 
@@ -678,10 +736,14 @@ m2 <- brm(data = tail,
 plot(m2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c24-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c24)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c24-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c24)
+\end{figure}
 
 We see the plot function returns posterior distributions for three parameters, including the mean for each morph and the standard deviation. The means for each morph are labeled with the appropriate index level, specifically `morph.i1` for striped and `morph.i2` for unstriped. The traceplots look pretty good, so we turn our attention to the model summary:
 
@@ -745,7 +807,9 @@ ggplot() +
   theme_classic()
 ```
 
-<img src="ch09_linearModels_files/figure-html/c09c26-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c26-1} \end{center}
 
 We can see in the plot what we thought was apparent in the credibel intervals: the bulk of the posterior distribution for mean SVL for striped is greater than unstriped, but there is some overlap. If we are really interested in the difference between the mean SVL of each morph, we should quantify that difference directly from the samples and examine the posterior distribution of the difference in means. This is as simple is adding a new column to `m2.post` as the difference in means between the morphs, then we can summarize that posterior distribution. This is called a **contrast**. 
 
@@ -761,10 +825,14 @@ ggplot(m2.post, aes(x = morph.delta)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c27-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c27)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c27-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c27)
+\end{figure}
 
 ``` r
 #mean and credible interval
@@ -829,7 +897,9 @@ ggplot() +
   theme_classic()
 ```
 
-<img src="ch09_linearModels_files/figure-html/c09c29-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch09_linearModels_files/figure-latex/c09c29-1} \end{center}
 
 Here the `rnorm` function is generating a random SVL for each color morph drawn from a distribution specified by the sampled mean and standard deviation from the posterior distributions for striped and unstriped morphs. Plotting the density of those 10,000 SVLs for each morph allows us to visualize the posterior distributions of individual SVL by morph. We can clearly see that the center of the distributions is greater for the striped than unstriped morph (as we saw previously), but that individual weights overlap quite a bit between color morphs.
 
@@ -847,10 +917,14 @@ ggplot(df_post, aes(x = l_contrast)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch09_linearModels_files/figure-html/c09c30-1.png" alt="TODO: caption." width="672" />
-<p class="caption">(\#fig:c09c30)TODO: caption.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch09_linearModels_files/figure-latex/c09c30-1} 
+
+}
+
+\caption{TODO: caption.}(\#fig:c09c30)
+\end{figure}
 
 ``` r
 #proportion above zero

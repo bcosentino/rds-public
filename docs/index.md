@@ -2,7 +2,7 @@
 title: "Research Design and Statistics"
 subtitle: "An Introductory Course"
 author: "Bradley J. Cosentino"
-date: "Updated on 2026-02-23"
+date: "Updated on 2026-03-02"
 documentclass: book
 description: "An introduction to research design and statistics"
 always_allow_html: true
@@ -30,7 +30,8 @@ Some of the formatting for this book was modified from Michi Tobler's excellent 
 
 ## Copyright {.unnumbered}
 
-<img src="images/i_cc-logo.f0ab4ebe.png" alt="" width="10%" style="display: block; margin: auto auto auto 0;" />
+
+\begin{flushleft}\includegraphics[width=0.1\linewidth]{images/i_cc-logo.f0ab4ebe} \end{flushleft}
 
 This work © 2025 by Bradley J. Cosentino is licensed under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/) 
  

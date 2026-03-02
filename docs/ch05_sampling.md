@@ -18,7 +18,8 @@ We have both color morphs of gray squirrels in my own backyard in Rochester, NY,
 
 But let's expand now. What if I lived on a property with 20 acres of woods (if only I were so lucky), and let's say there are 300 eastern gray squirrels in my woods. Measuring the proportion of black squirrels isn't so simple now. I can't track down all 300 squirrels, but I could measure the coat color in a subset of squirrels. The subset of individuals measured from the population of interest is called the **sample**. Again, for the sake of argument, let's assume that of the 300 squirrels in my woods, 210 are gray and 90 are black, meaning the true proportion of black squirrels is $\frac{90}{300}= 0.3$. Now I don't know this in reality, which is the entire problem we face here. I can't find all 300 squirrels, but I can *estimate* the proportion black with a sample of them. Suppose I take a sample of 30 squirrels and find 6 are black. Based on my sample, I quantify the proportion of black squirrels ss $\frac{6}{30}=0.2$.
 
-<img src="ch05_sampling_files/figure-html/c05c01-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics{ch05_sampling_files/figure-latex/c05c01-1} \end{center}
 
 ```
 ## Population black count:90of300 (0.3)
@@ -30,7 +31,8 @@ But let's expand now. What if I lived on a property with 20 acres of woods (if o
 
 In this example, note that the sampling process is about individual squirrels. But sometimes sampling can be hierarchical. For example, let's rephrase the research question and ask *What proportion of squirrels in all backyards in Rochester, NY are black*? There are too many backyards in Rochester to visit them all, so I will need to select a sample of backyards. Moreover, I can't guarantee that I will observe every single squirrel in every back yard, so there's additional sampling going on within each backyard. In other words, the population is nested. Of the population of all backyards in Rochester, I can only visit a subset of them. And among the backyards I visit, I can only measure a subset of squirrels. There are two, nested layers of sampling here that can cause deviations between the true proportion of black squirrels in Rochester backyards and the estimate from my sampling.
 
-<img src="ch05_sampling_files/figure-html/c05c02-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics{ch05_sampling_files/figure-latex/c05c02-1} \end{center}
 
 ```
 ## Population black count: 90 of 300
@@ -76,10 +78,14 @@ On average, how close is an estimate from the truth? Let's reconsider our squirr
 
 Are these estimates accurate? In the strict sense that the estimates are not identical to the truth, you might be tempted to say they are not accurate. But that's not how we define accuracy in a statistical sense. To describe whether a sample estimate is accurate, we have to consider the entire distribution of possible estimates from a sample of 30 squirrels. In other words, imagine that I repeated this process of sampling 30 squirrels 1000 times, each time estimating the proportion black. The figure below shows a histogram of the estimates: (\@ref(fig:c05c03).
 
-<div class="figure" style="text-align: center">
-<img src="ch05_sampling_files/figure-html/c05c03-1.png" alt="Distribution of estimates of the proportion of black squirrels from 1000 unique samples each with 30 squirrels." width="672" />
-<p class="caption">(\#fig:c05c03)Distribution of estimates of the proportion of black squirrels from 1000 unique samples each with 30 squirrels.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch05_sampling_files/figure-latex/c05c03-1} 
+
+}
+
+\caption{Distribution of estimates of the proportion of black squirrels from 1000 unique samples each with 30 squirrels.}(\#fig:c05c03)
+\end{figure}
 
 Notice that this distribution is centered right on 0.3 (dotted vertical line), which is exactly what the truth is. In other words, when considering our sampling process, repeatedly conducted many times, we get a sense for the entire distribution of possible estimates, and we see that our estimate is - **on average** - accurate. Any particular estimate can be low or high. The point here is that there is no *systematic* difference between the estimate and the truth, and in that sense, we would conclude the sampling process is accurate. This distribution of possible outcomes of an estimate based on our sampling process is called a **sampling distribution**. If the sampling distribution is centered on the true value of a parameter, then the estimates are by definition accurate.
 
@@ -125,10 +131,14 @@ ggplot(d, aes(x = phat)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch05_sampling_files/figure-html/c05c04-1.png" alt="Example of a sampling distribution showing biased estimates." width="672" />
-<p class="caption">(\#fig:c05c04)Example of a sampling distribution showing biased estimates.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch05_sampling_files/figure-latex/c05c04-1} 
+
+}
+
+\caption{Example of a sampling distribution showing biased estimates.}(\#fig:c05c04)
+\end{figure}
 
 Here we can see there's a clear problem in our sampling process. There's variation in the possible estimates just like the first case, but notice that the estimates are more consistently overestimates than underestimates. On average, our estimates are too high. If the estimates tend to systematically differ from the truth, then the estimates are ***biased***. Bias is a consistent discrepancy between the estimates and the true value of the parameter. Estimates may be biased high or biased low. When we design a study and sampling process, it is important to use strategies to maximize accuracy (minimize bias). More on that in a bit.
 
@@ -140,10 +150,14 @@ When we examine the range of possible estimates based on a sampling design, we c
 
 From a coarse perspective, we can gauge the precision of an estimate by examining the width of a sampling distribution. To illustrate this, consider two sampling processes for estimating the proportion of black squirrels, one where we sample 30 squirrels each time, and another where we sample 60 squirrels each time. I've simulated each sampling process 1000 times and show the results in (Figure \@ref(fig:c05c05). What do you notice that's different between these sampling distributions?
 
-<div class="figure" style="text-align: center">
-<img src="ch05_sampling_files/figure-html/c05c05-1.png" alt="Sampling distributions for estimates of the proportion of black squirrels based on samples of size 30 (left) vs. 60 (right)." width="672" />
-<p class="caption">(\#fig:c05c05)Sampling distributions for estimates of the proportion of black squirrels based on samples of size 30 (left) vs. 60 (right).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch05_sampling_files/figure-latex/c05c05-1} 
+
+}
+
+\caption{Sampling distributions for estimates of the proportion of black squirrels based on samples of size 30 (left) vs. 60 (right).}(\#fig:c05c05)
+\end{figure}
 
 These sampling distributions differ in a couple important ways. First, notice that the sampling distribution for N = 30 squirrels is wider than the sampling distribution for N = 60 squirrels. There is a clear difference in precision between the two sampling approaches. Sampling with N = 30 squirrels leads to less precise estimates of the proportion black than sampling with N = 60 squirrels. With fewer squirrels, you should expect to see much more variation in the potential estimates. If you're having trouble understanding why, consider a more extreme example. What if I had only sampled N = 2 squirrels? The only possible estimates of the proportion black would be 0, 0.5, and 1. Conversely, suppose I sample all N = 300 squirrels? In that case, I would get 0.3 every time. Increasing sample size increases precision.
 
@@ -153,10 +167,14 @@ Second, notice that regardless of whether the sample size is N = 30 or 60 squirr
 
 When designing a study to sample individuals from a population of interest, your goal should be to design sampling schemes that maximize accuracy and precision of estimates. Both matter, and one doesn't guarantee the other. In other words, you can have samples that are accurate and precise accurate and imprecise, inaccurate and precise, or inaccurate and imprecise. The figure below shows each of these four outcomes for our example of estimating the proportion of black squirrels. The ideal situation is obtaining an estimate that is accurate and precise, in other words consistently getting the right answer. The worst outcome is inconsistently getting the wrong answer (inaccurate and imprecise).
 
-<div class="figure" style="text-align: center">
-<img src="ch05_sampling_files/figure-html/c05c06-1.png" alt="Four combinations of accuracy and precision. Precision increases with sample size (n = 100 vs n = 30). Inaccuracy is illustrated by a 25% detection bias favoring black squirrels." width="768" />
-<p class="caption">(\#fig:c05c06)Four combinations of accuracy and precision. Precision increases with sample size (n = 100 vs n = 30). Inaccuracy is illustrated by a 25% detection bias favoring black squirrels.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch05_sampling_files/figure-latex/c05c06-1} 
+
+}
+
+\caption{Four combinations of accuracy and precision. Precision increases with sample size (n = 100 vs n = 30). Inaccuracy is illustrated by a 25\% detection bias favoring black squirrels.}(\#fig:c05c06)
+\end{figure}
 
 ## Maximizing accuracy and precision of estimates
 

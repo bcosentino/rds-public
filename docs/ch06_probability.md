@@ -152,38 +152,22 @@ $$
 
 The vertical bar (\|) means "given", so $P(A|B)$ reads "the probability of A given B". For example, the probability of infection status among vaccinated people can be written as $P(\text{infected | vaccinated})$.
 
-<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c06c01)<span style="color:black; font-weight:bold;">Counts of Infection Status vs. Vaccination (N = 10,000)</span>
-</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Status </th>
-   <th style="text-align:right;"> Vaccinated Count </th>
-   <th style="text-align:right;"> Unvaccinated Count </th>
-   <th style="text-align:right;"> Total Count </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Infected </td>
-   <td style="text-align:right;"> 210 </td>
-   <td style="text-align:right;"> 290 </td>
-   <td style="text-align:right;"> 500 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Not Infected </td>
-   <td style="text-align:right;"> 6790 </td>
-   <td style="text-align:right;"> 2710 </td>
-   <td style="text-align:right;"> 9500 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 7000 </td>
-   <td style="text-align:right;"> 3000 </td>
-   <td style="text-align:right;"> 10000 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\caption{(\#tab:c06c01)<span style='color:black; font-weight:bold;'>Counts of Infection Status vs. Vaccination (N = 10,000)</span>}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+Status & Vaccinated Count & Unvaccinated Count & Total Count\\
+\hline
+Infected & 210 & 290 & 500\\
+\hline
+Not Infected & 6790 & 2710 & 9500\\
+\hline
+Total & 7000 & 3000 & 10000\\
+\hline
+\end{tabular}
+\end{table}
 
 Consider Table \@ref(tab:c06c01), which shows our population of 10,000 people broken down by infection status and vaccine status. First, notice that the overall probability of infection is 5% as assumed (500 infected out of 10,000), and the overall probability of vaccination is 70% (7,000 vaccinated out of 10,000). These are **marginal probabilities** because they are computed by aggregating across the levels of the other variable. In other words, to compute the marginal probability of infection, we have to consider the number of people infected among those who are vaccinated (210) and not vaccinated (290). Together there are 500 people infected, which is 5% of the total population.
 
@@ -279,19 +263,27 @@ Suppose you go ahead and randomly select two individuals and find that one of th
 
 Let's examine the issue by assuming the true prevalence of the infection is 25% ($p_{infected} = 0.25$), meaning that just one of the four people in the population is infected. If only one of the four people are infected, how likely were we to see one positive out of two tests? To answer that question, let's look at all the possible outcomes when we conduct two tests, given that only one individual is infected. Figure \@ref(fig:c06c02) shows these possibilities in the format of a branching tree.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c02-1.png" alt="Probability tree showing the possible outcomes of testing when one of four people in the household are infected. Pink boxes with + indicate a positive test, and white boxes with - indicate a negative test." width="672" />
-<p class="caption">(\#fig:c06c02)Probability tree showing the possible outcomes of testing when one of four people in the household are infected. Pink boxes with + indicate a positive test, and white boxes with - indicate a negative test.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c02-1} 
+
+}
+
+\caption{Probability tree showing the possible outcomes of testing when one of four people in the household are infected. Pink boxes with + indicate a positive test, and white boxes with - indicate a negative test.}(\#fig:c06c02)
+\end{figure}
 
 The boxes in each branch of the tree represents the four individuals in the population. Only one of the four members is truly infected in this scenario, so for the 1st test, we see there's three more ways to see a negative test than a positive test. In other words, when we randomly select an individual for the first test, there's a 25% chance of a positive test and a 75% chance of a negative test when one of four individuals is infected. We then repeat that process for the 2nd test. Because we're sampling with replacement, the possibilities on the 2nd test are the same as the 1st test.
 
 We see that when only one of the four people is truly infected, there are 16 possible outcomes when we conduct two tests: one outcome where both tests are positive, six outcomes where one test is positive and one test is negative, and nine outcomes when both tests are negative. Of these 16 possible outcomes, six outcomes are consistent with the data we observed, one positive test and one negative test. In other words, there was a 6 in 16 chance (37.5%) of getting the data we observed. Those outcomes are highlighted with bold lines in Figure \@ref(fig:c06c03).
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c03-1.png" alt="Probability tree showing the possible outcomes of testing when one of four people in the household are infected, highlighting outcomes consistent with the observed data." width="672" />
-<p class="caption">(\#fig:c06c03)Probability tree showing the possible outcomes of testing when one of four people in the household are infected, highlighting outcomes consistent with the observed data.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c03-1} 
+
+}
+
+\caption{Probability tree showing the possible outcomes of testing when one of four people in the household are infected, highlighting outcomes consistent with the observed data.}(\#fig:c06c03)
+\end{figure}
 
 
 Probability trees like this are really handy for looking at all the possible outcomes of joint events, but we can also apply our probability rules to compute the probability of one positive out of two tests when the probability of infection is 0.25. You might be tempted to apply the multiplication rule, because we want to know the probability of a positive test *and* a negative test. Applying that rule, we find $P(+\ \text{and}\ -) = P(+)P(-) = 0.25*0.75=0.1875$. Why isn't this correct? The problem is not independence. We can reasonably assume the test results are independent if we are randomly picking people for each test. The problem is that there are multiple ways of observing exactly one positive test and one negative test! You can see this in the probability tree. It could be that the first test is positive and the second test is negative ("+-"), which can happen in three ways, or it could be that the first test is negative and the second test is positive ("-+"), which can also happen in three ways. We can separately quantify $P(+\ \text{and}\ -)$ and $P(-\ \text{and}\ +)$, and then apply our addition rule because these outcomes are mutually exclusive.
@@ -367,10 +359,14 @@ Second, we could apply our probability rules:
 
 The probabilities for each possible of outcome, no matter how we quantify them, form a probability distribution. This particular example is a **discrete probability distribution** because the sample space is composed of discrete, mutually exclusive outcomes where we can quantify the probability of each as we have done. Figure \@ref(fig:c06c06) shows the probability distribution.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c06-1.png" alt="Discrete probability distribution of the number of positive tests out of two trials." width="672" />
-<p class="caption">(\#fig:c06c06)Discrete probability distribution of the number of positive tests out of two trials.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c06-1} 
+
+}
+
+\caption{Discrete probability distribution of the number of positive tests out of two trials.}(\#fig:c06c06)
+\end{figure}
 
 The probability of discrete outcomes is referred to as **probability mass**, but as Figure \@ref(fig:c06c06) shows, the y-axis of discrete probability distributions will often just be labeled "probability".
 
@@ -407,17 +403,25 @@ dbinom(x = 1, size = 15, prob = 0.05)
 
 We can apply the `dbinom` formula to efficiently compute the binomial probability of all possible values of X positive tests out of 15 trials, when the probability of infection is 0.05, and then display the probability distribution in a graph (Figure \@ref(fig:c06c08)):
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c08-1.png" alt="Discrete probability distribution of the number of positive tests out of 15 trials when 5% of the population is infected." width="672" />
-<p class="caption">(\#fig:c06c08)Discrete probability distribution of the number of positive tests out of 15 trials when 5% of the population is infected.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c08-1} 
+
+}
+
+\caption{Discrete probability distribution of the number of positive tests out of 15 trials when 5\% of the population is infected.}(\#fig:c06c08)
+\end{figure}
 
 The probability distribution shows that the most likely outcome is no positives out of 15 when the prevalence is 0.05, and the probability of each outcome decreases as the number of positives increases. In fact, there's virtually no chance of observing six or more positives out of 15 tests when the true prevalence is only 5%. The probability distribution would look much different if 50% of the population was infected (Figure \@ref(fig:c06c09)).
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c09-1.png" alt="Discrete probability distribution of the number of positive tests out of 15 trials when 50% of the population is infected." width="672" />
-<p class="caption">(\#fig:c06c09)Discrete probability distribution of the number of positive tests out of 15 trials when 50% of the population is infected.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c09-1} 
+
+}
+
+\caption{Discrete probability distribution of the number of positive tests out of 15 trials when 50\% of the population is infected.}(\#fig:c06c09)
+\end{figure}
 
 When 50% of the population is infected, the most likely outcomes are 7 or 8 tests out of 15, but note that many other values are plausible. In fact, it's more likely that we'll see a value other than 7 or 8 positives out of a sample of 15, even though X = 7 and X = 8 are the most likely outcomes:
 
@@ -511,10 +515,14 @@ $$
 
 Here we see that probability densities can be greater than 1. That's because probability density is a measure of how concentrated the probability is within a particular interval (a density!) rather than a probability of a particular observation. In this way probability density is similar to measuring human population density in a city. A city can have densities well over one person per square kilometer, even though the probability of finding one person in a randomly selected square kilometer is very low.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c13-1.png" alt="Probability distribution of incubation period with intervals of 0.1 days." width="672" />
-<p class="caption">(\#fig:c06c13)Probability distribution of incubation period with intervals of 0.1 days.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c13-1} 
+
+}
+
+\caption{Probability distribution of incubation period with intervals of 0.1 days.}(\#fig:c06c13)
+\end{figure}
 
 If we can quantify probability mass for a discrete interval, why do we use probability density? We use probability density because we want to describe the distribution continuously, without being constrained by arbitrary interval sizes. Narrower intervals result in smaller probability masses, approaching zero as the interval size approaches zero. The pdf allows us to describe the relative likelihood of observations without relying on a fixed bin size. Given a pdf, we can quantify the probability mass of *any* interval by applying integrals from calculus, which represents the area under the curve of the pdf over the interval of interest. The total probability over the entire sample space remains one, satisfying the basic rules of probability.
 
@@ -536,10 +544,14 @@ where $f(X)$ is the probabilty density of value $X$, $\mu$ is the mean, and $\si
 
 In R we can use the `dnorm` function to compute the probability density of $X$ given values for $\mu$ and $\sigma$. For example, suppose body temperature of people with a viral infection follows a normal distribution with $\mu$ = 100.4°F and $\sigma$ = 0.8°F.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c14-1.png" alt="Probability density function assuming a normal distribution of incubation period mean = 100.4 and SD = 0.8 days." width="672" />
-<p class="caption">(\#fig:c06c14)Probability density function assuming a normal distribution of incubation period mean = 100.4 and SD = 0.8 days.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c14-1} 
+
+}
+
+\caption{Probability density function assuming a normal distribution of incubation period mean = 100.4 and SD = 0.8 days.}(\#fig:c06c14)
+\end{figure}
 
 Figure \@ref(fig:c06_f7) shows the resulting probability density function, which we can use to highlight important characteristics of the normal distribution:
 
@@ -575,26 +587,38 @@ pnorm(99, mean = 100.4, sd = 0.8, lower.tail=TRUE) # P(X < 99)
 
 2.  The mean controls location. The mean is the expected value of the normal distribution and specifies the central tendency of the distribution. Figure \@ref(fig:c06c17) shows three normal distributions each with different means. Notice the changing $\mu$ shifts the center of the distribution but leaves its width unchanged.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c17-1.png" alt="Probability density functions with varying means but identical standard deviations." width="672" />
-<p class="caption">(\#fig:c06c17)Probability density functions with varying means but identical standard deviations.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c17-1} 
+
+}
+
+\caption{Probability density functions with varying means but identical standard deviations.}(\#fig:c06c17)
+\end{figure}
 
 3. The standard deviation controls spread. The standard deviation $\sigma$ affects how variable the observations are around the mean. Figure \@ref(fig:c06c18) shows three normal distributions each with identical means but different standard deviations. Notice how the width of the normal distribution grows as the standard deviation increases.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c18-1.png" alt="Probability density functions with identical means but varying standard deviations." width="672" />
-<p class="caption">(\#fig:c06c18)Probability density functions with identical means but varying standard deviations.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c18-1} 
+
+}
+
+\caption{Probability density functions with identical means but varying standard deviations.}(\#fig:c06c18)
+\end{figure}
 
 ##### Probability mass and the empirical rule
 
 Recall that we can quantify probability mass as area under the probability density function for any interval of interest. Consider again the normal distribution with $\mu = 100.4°F$ and $\sigma = 0.8°F$. What's the probability that body tempearture is between 99.6°F and 101.2°F? The interval of interest is shaded in the probability density function in Figure \@ref(fig:c06c19).
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c19-1.png" alt="Probability density function highlighting the interval 99.6°F to 101.2°F" width="672" />
-<p class="caption">(\#fig:c06c19)Probability density function highlighting the interval 99.6°F to 101.2°F</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c19-1} 
+
+}
+
+\caption{Probability density function highlighting the interval 99.6°F to 101.2°F}(\#fig:c06c19)
+\end{figure}
 
 We can compute the probability mass with `pnorm`:
 
@@ -609,10 +633,14 @@ pnorm(101.2, 100.4, 0.8, lower.tail=TRUE) - pnorm(99.6, 100.4, 0.8, lower.tail=T
 
 This interval encompasses exactly one standard deviation above and below the mean and includes 68.3% of the observations. Let's expand the interval to include values between 98.8°F and 102°F (Figure \@ref(fig:c06c21)))?
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c21-1.png" alt="Probability density function highlighting the interval 98.8°F to 102°F" width="672" />
-<p class="caption">(\#fig:c06c21)Probability density function highlighting the interval 98.8°F to 102°F</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c21-1} 
+
+}
+
+\caption{Probability density function highlighting the interval 98.8°F to 102°F}(\#fig:c06c21)
+\end{figure}
 
 
 ``` r
@@ -627,19 +655,27 @@ This interval encompasses exactly two standard deviations above and below the me
 
 This illustrates what's known as the **empirical rule**. For a normal distribution, about 68% of the observations are within 1 standard deviation of the mean (i.e., $\mu \pm 1\sigma$), whereas about 95% of the observations are within 2 standard deviations of the mean (i.e., $\mu \pm 2\sigma$). Figure \@ref(fig:c06c23) shows the empirical rule graphically for our example normal distribution of body temperature.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c23-1.png" alt="Normal probability density function showing the empirical rule, namely that about 68% of observations are within one standard deviation of the mean, and about 95% of observations are within two standard deviations of the mean. In this example, the mean body temperature is 100.4°F and the standard deviation is 0.8°F." width="672" />
-<p class="caption">(\#fig:c06c23)Normal probability density function showing the empirical rule, namely that about 68% of observations are within one standard deviation of the mean, and about 95% of observations are within two standard deviations of the mean. In this example, the mean body temperature is 100.4°F and the standard deviation is 0.8°F.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c23-1} 
+
+}
+
+\caption{Normal probability density function showing the empirical rule, namely that about 68\% of observations are within one standard deviation of the mean, and about 95\% of observations are within two standard deviations of the mean. In this example, the mean body temperature is 100.4°F and the standard deviation is 0.8°F.}(\#fig:c06c23)
+\end{figure}
 
 ##### Standard normal distribution
 
 Any combination of $\mu$ and $\sigma$ produces a unique normal distribution, so there's an infinite variety of possible normal distributions. However, any normal distribution can be converted to a **standard normal distribution**, which is a normal distribution with $\mu = 0$ and $\sigma = 1$ (Figure \@ref(fig:c06c24)). Because the standard deviation is one, the values of the standard normal distribution are in units of standard deviations. The values of a standard normal distribution are denoted $Z$, or $Z-scores$.
 
-<div class="figure" style="text-align: center">
-<img src="ch06_probability_files/figure-html/c06c24-1.png" alt="Standard normal distribution with mean = 0 and standard deviation = 1. The values Z of a standard normal distribution are in units of standard deviations away from the mean." width="672" />
-<p class="caption">(\#fig:c06c24)Standard normal distribution with mean = 0 and standard deviation = 1. The values Z of a standard normal distribution are in units of standard deviations away from the mean.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch06_probability_files/figure-latex/c06c24-1} 
+
+}
+
+\caption{Standard normal distribution with mean = 0 and standard deviation = 1. The values Z of a standard normal distribution are in units of standard deviations away from the mean.}(\#fig:c06c24)
+\end{figure}
 
 We can convert any observation $X$ drawn from a normal distribution to a Z-score using the following formula:
 

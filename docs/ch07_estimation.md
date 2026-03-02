@@ -190,7 +190,8 @@ number of positive tests out of 15, in that case when we assumed a
 prevalence of 5%. The graph below shows the binomial distribution of
 positive test results out of 15 when the prevalence is 8%:
 
-<img src="ch07_estimation_files/figure-html/c07c06-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics{ch07_estimation_files/figure-latex/c07c06-1} \end{center}
 
 We can also use the binomial distribution to *simulate* data. This can
 be done with the `rbinom` function. Here I use the `rbinom` function to
@@ -289,7 +290,9 @@ ggplot(d) +
   theme_classic()
 ```
 
-<img src="ch07_estimation_files/figure-html/c07c10-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch07_estimation_files/figure-latex/c07c10-1} \end{center}
 
 You can see that as the number of individuals samples increases, the
 width of the sampling distribution decreases, meaning you can expect
@@ -348,37 +351,22 @@ probabilities are shown for test results (positive and negative) and
 disease status (does or does not have breast cancer). For example, we
 can see that 0.87% of individuals have breast cancer and test positive.
 
-<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c07c11)Joint and marginal probabilities for mammogram screening tests</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Disease Status </th>
-   <th style="text-align:right;"> Positive Test </th>
-   <th style="text-align:right;"> Negative Test </th>
-   <th style="text-align:right;"> Total </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Breast Cancer </td>
-   <td style="text-align:right;"> 0.0087 </td>
-   <td style="text-align:right;"> 0.0013 </td>
-   <td style="text-align:right;"> 0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> No Breast Cancer </td>
-   <td style="text-align:right;"> 0.1089 </td>
-   <td style="text-align:right;"> 0.8811 </td>
-   <td style="text-align:right;"> 0.99 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 0.1176 </td>
-   <td style="text-align:right;"> 0.8824 </td>
-   <td style="text-align:right;"> 1.00 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\caption{(\#tab:c07c11)Joint and marginal probabilities for mammogram screening tests}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+Disease Status & Positive Test & Negative Test & Total\\
+\hline
+Breast Cancer & 0.0087 & 0.0013 & 0.01\\
+\hline
+No Breast Cancer & 0.1089 & 0.8811 & 0.99\\
+\hline
+Total & 0.1176 & 0.8824 & 1.00\\
+\hline
+\end{tabular}
+\end{table}
 
 How well does the test perform? From the joint probabilities in Table
 \@ref(tab:c07c11), we can quantify the probability of test outcomes
@@ -726,10 +714,14 @@ Once the grid of possible values of the parameter is created, the
 `dunif` function is used to compute the prior probability distribution,
 `p.prior`.
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c12-1.png" alt="Uniform prior distribution of the proportion infected." width="672" />
-<p class="caption">(\#fig:c07c12)Uniform prior distribution of the proportion infected.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c12-1} 
+
+}
+
+\caption{Uniform prior distribution of the proportion infected.}(\#fig:c07c12)
+\end{figure}
 
 We see in Figure \@ref(fig:c07c12) that the prior probability
 distribution for the prevalence is completely flat. Indeed, the uniform
@@ -781,10 +773,14 @@ can do this by specifying our grid of values, `p.grid` as the `prob`
 argument in the `dbinom` function, saving the output as `lik` in our
 dataframe `d`.
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c15-1.png" alt="Likelihood distribution showing the probability of the observed data (1 out of 15 positive tests) conditional on each value of the prevalence of infection." width="672" />
-<p class="caption">(\#fig:c07c15)Likelihood distribution showing the probability of the observed data (1 out of 15 positive tests) conditional on each value of the prevalence of infection.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c15-1} 
+
+}
+
+\caption{Likelihood distribution showing the probability of the observed data (1 out of 15 positive tests) conditional on each value of the prevalence of infection.}(\#fig:c07c15)
+\end{figure}
 
 Figure \@ref(fig:c07c15) shows the likelihood distribution. Each point in
 the graph shows the likelihood of the observed data for each value of
@@ -820,10 +816,14 @@ Finally we are ready to compute the posterior probability distribution,
 namely the probability of each possible value of the prevalence given
 the data we observed. All we need to do here is apply Bayes Theorem:
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c17-1.png" alt="Posterior probability distribution for the infection prevalence conditional on the observed data (1 out of 15 positives)." width="672" />
-<p class="caption">(\#fig:c07c17)Posterior probability distribution for the infection prevalence conditional on the observed data (1 out of 15 positives).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c17-1} 
+
+}
+
+\caption{Posterior probability distribution for the infection prevalence conditional on the observed data (1 out of 15 positives).}(\#fig:c07c17)
+\end{figure}
 
 There we have it. Figure \@ref(fig:c07c17) shows the posterior
 distribution of the infection prevalence. From the posterior
@@ -904,20 +904,28 @@ values of the prevalence from 0.001 to 0.15 are equally likely, and that
 all values outside of that range are impossible. Let's create the grid
 and visualize the prior:
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c20-1.png" alt="Uniform prior distribution of the proportion infected ruling out values above 15% prevalence." width="672" />
-<p class="caption">(\#fig:c07c20)Uniform prior distribution of the proportion infected ruling out values above 15% prevalence.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c20-1} 
+
+}
+
+\caption{Uniform prior distribution of the proportion infected ruling out values above 15\% prevalence.}(\#fig:c07c20)
+\end{figure}
 
 Figure \@ref(fig:c07c20) shows the expected prior distribution, with
 uniform probability from 0 to 0.15 and all other values being plausible.
 Now we can combine this prior with the data and compute the posterior
 distribution:
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c21-1.png" alt="Revised posterior probability distribution for the infection prevalence conditional on the observed data when using a uniform prior from 0 to 15%." width="672" />
-<p class="caption">(\#fig:c07c21)Revised posterior probability distribution for the infection prevalence conditional on the observed data when using a uniform prior from 0 to 15%.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c21-1} 
+
+}
+
+\caption{Revised posterior probability distribution for the infection prevalence conditional on the observed data when using a uniform prior from 0 to 15\%.}(\#fig:c07c21)
+\end{figure}
 
 We see here a slight difference in the posterior distribution.
 Graphically the most likely value still appears to be 0.07, but let's
@@ -996,10 +1004,14 @@ ggplot(p.samples, aes(x = p.samples)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c23-1.png" alt="Histogram and overlaid probability density for 1000 sampled values of prevlaence from the posterior distribution." width="672" />
-<p class="caption">(\#fig:c07c23)Histogram and overlaid probability density for 1000 sampled values of prevlaence from the posterior distribution.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c23-1} 
+
+}
+
+\caption{Histogram and overlaid probability density for 1000 sampled values of prevlaence from the posterior distribution.}(\#fig:c07c23)
+\end{figure}
 
 We can see the most likely values of the prevalence among the sampled
 values are 0.05-0.10, and no values below 0.01 or above 0.15 were
@@ -1195,10 +1207,14 @@ applications](https://mathlets.org/mathlets/beta-distribution/) on the
 web that allow you to visualize the beta distribution while changing the
 shape parameters with a slider.
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c29-1.png" alt="Example beta distributions with varying parameters alpha and beta." width="672" />
-<p class="caption">(\#fig:c07c29)Example beta distributions with varying parameters alpha and beta.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c29-1} 
+
+}
+
+\caption{Example beta distributions with varying parameters alpha and beta.}(\#fig:c07c29)
+\end{figure}
 
 Let's apply a beta prior to the infection prevalence example. Let's
 assume we are very confident the infection prevalence is most likely
@@ -1227,20 +1243,28 @@ ggplot(d, aes(x = p.grid, y = prior)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c30-1.png" alt="Prior distribution of prevalence specified as a beta distribution with alpha = 2.5 and beta = 30" width="672" />
-<p class="caption">(\#fig:c07c30)Prior distribution of prevalence specified as a beta distribution with alpha = 2.5 and beta = 30</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c30-1} 
+
+}
+
+\caption{Prior distribution of prevalence specified as a beta distribution with alpha = 2.5 and beta = 30}(\#fig:c07c30)
+\end{figure}
 
 Looks good! We can see this prior distribution says that the most likely
 value of prevalence is 5%, and that 0% and values above 25% are
 basically implausible. Now we continue by computing the likelihood,
 marginal likelihood, and posterior distribution:
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c31-1.png" alt="Posterior distribution of the infection prevalence when using a beta prior distribution." width="672" />
-<p class="caption">(\#fig:c07c31)Posterior distribution of the infection prevalence when using a beta prior distribution.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c31-1} 
+
+}
+
+\caption{Posterior distribution of the infection prevalence when using a beta prior distribution.}(\#fig:c07c31)
+\end{figure}
 
 For comparison, let's compute the MAP and the probability that the
 prevalence is greater than 10% based on this posterior
@@ -1520,10 +1544,14 @@ posterior distribution. We could use this to illustrate the posterior
 distribution and quantify any of the descriptors of the posterior we
 discussed earlier in the chapter:
 
-<div class="figure" style="text-align: center">
-<img src="ch07_estimation_files/figure-html/c07c35-1.png" alt="Posterior distribution of the infection prevalence estimated with brms." width="672" />
-<p class="caption">(\#fig:c07c35)Posterior distribution of the infection prevalence estimated with brms.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch07_estimation_files/figure-latex/c07c35-1} 
+
+}
+
+\caption{Posterior distribution of the infection prevalence estimated with brms.}(\#fig:c07c35)
+\end{figure}
 
 ```
 ## [1] 0.07432989

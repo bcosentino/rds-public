@@ -14,28 +14,20 @@ A good research question clearly identifies the main task for using data. Do you
 
 Consider the general topic of birds and city parks again. There are plenty of research questions one could ask about that study system. Table \@ref(tab:c02c01) provides a classification of research questions by primary goal, illustrating how different types of questions align with descriptions, predictions, and explanations.
 
-<table class="table table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c02c01)(\#tab:c02c01) Examples of description, prediction, and explanation questions.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Description </th>
-   <th style="text-align:left;"> Prediction </th>
-   <th style="text-align:left;"> Explanation </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> What is the average number of bird species in city parks? </td>
-   <td style="text-align:left;"> How many bird species will be in a park with particular attributes, such as size, amount of forest, or number of visitors? </td>
-   <td style="text-align:left;"> Does increasing the amount of forest in a park cause the number of bird species to increase? </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> How different are the types of bird species from park to park? </td>
-   <td style="text-align:left;"> What will the total number of birds be in the park next year? </td>
-   <td style="text-align:left;"> Does restricting visitor access increase the number of bird species? </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}[!h]
+\centering\centering
+\caption{(\#tab:c02c01)(\#tab:c02c01) Examples of description, prediction, and explanation questions.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lll}
+\toprule
+Description & Prediction & Explanation\\
+\midrule
+What is the average number of bird species in city parks? & How many bird species will be in a park with particular attributes, such as size, amount of forest, or number of visitors? & Does increasing the amount of forest in a park cause the number of bird species to increase?\\
+How different are the types of bird species from park to park? & What will the total number of birds be in the park next year? & Does restricting visitor access increase the number of bird species?\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 ### Identify the scope of inference: The who, what, when, and where of your study.
 
@@ -178,10 +170,14 @@ rethinking::drawdag(
 )
 ```
 
-<div class="figure" style="text-align: center">
-<img src="ch02_workflow_files/figure-html/c02c02-1.png" alt="Observational setting: health consciousness confounds the relationship between diet and blood pressure change" width="672" />
-<p class="caption">(\#fig:c02c02)Observational setting: health consciousness confounds the relationship between diet and blood pressure change</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{ch02_workflow_files/figure-latex/c02c02-1} 
+
+}
+
+\caption{Observational setting: health consciousness confounds the relationship between diet and blood pressure change}(\#fig:c02c02)
+\end{figure}
 
 This DAG implies that a simple association between diet and blood pressure change could reflect not only the effect of diet, but also differences in health consciousness and exercise between people who eat different diets. This is the basic idea of **confounding**: other variables can create associations that complicate causal interpretation. The confounding pathway is highlighted in red in the DAG. One value of creating a DAG like this is that it tells the researcher and scientific community alike that the confounding effect of health consciousness must be controlled either as part of the study design or statistical analysis.
 
@@ -219,860 +215,161 @@ Let's take a look at how the sample data might look for our study. Datasets are 
 
 -   `sbp_change` = difference in systolic blood pressure between the beginning and end of the study.
 
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; "><table class="table table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:c02c03)(\#tab:c02c03) Toy dataset for the DASH example (synthetic values): one row per participant.</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> id </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> diet </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> sbp.pre </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> sbp.post </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> sbp.change </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 156.2 </td>
-   <td style="text-align:center;"> 163.5 </td>
-   <td style="text-align:center;"> 7.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 137.0 </td>
-   <td style="text-align:center;"> 146.1 </td>
-   <td style="text-align:center;"> 9.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 151.7 </td>
-   <td style="text-align:center;"> 145.5 </td>
-   <td style="text-align:center;"> -6.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 149.0 </td>
-   <td style="text-align:center;"> 148.2 </td>
-   <td style="text-align:center;"> -0.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 142.0 </td>
-   <td style="text-align:center;"> 120.1 </td>
-   <td style="text-align:center;"> -21.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 119.8 </td>
-   <td style="text-align:center;"> 115.6 </td>
-   <td style="text-align:center;"> -4.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 7 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 141.2 </td>
-   <td style="text-align:center;"> 128.8 </td>
-   <td style="text-align:center;"> -12.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 8 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 137.8 </td>
-   <td style="text-align:center;"> 128.4 </td>
-   <td style="text-align:center;"> -9.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 9 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 151.4 </td>
-   <td style="text-align:center;"> 147.8 </td>
-   <td style="text-align:center;"> -3.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 10 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 144.3 </td>
-   <td style="text-align:center;"> 144.6 </td>
-   <td style="text-align:center;"> 0.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 11 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 145.1 </td>
-   <td style="text-align:center;"> 136.7 </td>
-   <td style="text-align:center;"> -8.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 12 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 141.2 </td>
-   <td style="text-align:center;"> 154.3 </td>
-   <td style="text-align:center;"> 13.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 13 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 147.3 </td>
-   <td style="text-align:center;"> 144.1 </td>
-   <td style="text-align:center;"> -3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 14 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 147.3 </td>
-   <td style="text-align:center;"> 137.7 </td>
-   <td style="text-align:center;"> -9.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 15 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 119.4 </td>
-   <td style="text-align:center;"> 115.0 </td>
-   <td style="text-align:center;"> -4.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 16 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 166.2 </td>
-   <td style="text-align:center;"> 157.4 </td>
-   <td style="text-align:center;"> -8.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 17 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 157.4 </td>
-   <td style="text-align:center;"> 140.6 </td>
-   <td style="text-align:center;"> -16.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 18 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 152.6 </td>
-   <td style="text-align:center;"> 148.6 </td>
-   <td style="text-align:center;"> -4.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 19 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 140.3 </td>
-   <td style="text-align:center;"> 139.9 </td>
-   <td style="text-align:center;"> -0.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 20 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 158.3 </td>
-   <td style="text-align:center;"> 153.3 </td>
-   <td style="text-align:center;"> -4.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 21 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 146.1 </td>
-   <td style="text-align:center;"> 141.0 </td>
-   <td style="text-align:center;"> -5.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 22 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 148.0 </td>
-   <td style="text-align:center;"> 141.3 </td>
-   <td style="text-align:center;"> -6.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 23 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 133.3 </td>
-   <td style="text-align:center;"> 132.1 </td>
-   <td style="text-align:center;"> -1.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 24 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 167.6 </td>
-   <td style="text-align:center;"> 149.3 </td>
-   <td style="text-align:center;"> -18.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 25 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 150.6 </td>
-   <td style="text-align:center;"> 151.8 </td>
-   <td style="text-align:center;"> 1.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 26 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 172.9 </td>
-   <td style="text-align:center;"> 157.6 </td>
-   <td style="text-align:center;"> -15.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 27 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 170.8 </td>
-   <td style="text-align:center;"> 165.5 </td>
-   <td style="text-align:center;"> -5.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 28 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 150.7 </td>
-   <td style="text-align:center;"> 148.9 </td>
-   <td style="text-align:center;"> -1.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 29 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 157.7 </td>
-   <td style="text-align:center;"> 151.6 </td>
-   <td style="text-align:center;"> -6.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 30 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 170.7 </td>
-   <td style="text-align:center;"> 150.2 </td>
-   <td style="text-align:center;"> -20.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 31 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 143.7 </td>
-   <td style="text-align:center;"> 135.8 </td>
-   <td style="text-align:center;"> -7.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 32 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 152.0 </td>
-   <td style="text-align:center;"> 146.7 </td>
-   <td style="text-align:center;"> -5.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 33 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 146.9 </td>
-   <td style="text-align:center;"> 146.9 </td>
-   <td style="text-align:center;"> -0.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 34 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 154.0 </td>
-   <td style="text-align:center;"> 150.0 </td>
-   <td style="text-align:center;"> -4.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 35 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 152.2 </td>
-   <td style="text-align:center;"> 148.8 </td>
-   <td style="text-align:center;"> -3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 36 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 164.0 </td>
-   <td style="text-align:center;"> 165.1 </td>
-   <td style="text-align:center;"> 1.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 37 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 157.1 </td>
-   <td style="text-align:center;"> 143.5 </td>
-   <td style="text-align:center;"> -13.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 38 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 139.3 </td>
-   <td style="text-align:center;"> 126.4 </td>
-   <td style="text-align:center;"> -12.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 39 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 156.9 </td>
-   <td style="text-align:center;"> 148.9 </td>
-   <td style="text-align:center;"> -8.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 40 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 140.1 </td>
-   <td style="text-align:center;"> 134.8 </td>
-   <td style="text-align:center;"> -5.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 41 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 136.1 </td>
-   <td style="text-align:center;"> 139.4 </td>
-   <td style="text-align:center;"> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 42 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 159.3 </td>
-   <td style="text-align:center;"> 144.4 </td>
-   <td style="text-align:center;"> -14.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 43 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 135.5 </td>
-   <td style="text-align:center;"> 120.6 </td>
-   <td style="text-align:center;"> -15.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 44 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 153.7 </td>
-   <td style="text-align:center;"> 151.9 </td>
-   <td style="text-align:center;"> -1.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 45 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 140.0 </td>
-   <td style="text-align:center;"> 128.8 </td>
-   <td style="text-align:center;"> -11.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 46 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 167.0 </td>
-   <td style="text-align:center;"> 157.3 </td>
-   <td style="text-align:center;"> -9.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 47 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 158.5 </td>
-   <td style="text-align:center;"> 155.4 </td>
-   <td style="text-align:center;"> -3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 48 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 145.2 </td>
-   <td style="text-align:center;"> 132.3 </td>
-   <td style="text-align:center;"> -12.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 49 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 159.6 </td>
-   <td style="text-align:center;"> 145.8 </td>
-   <td style="text-align:center;"> -13.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 155.1 </td>
-   <td style="text-align:center;"> 145.1 </td>
-   <td style="text-align:center;"> -10.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 51 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 136.0 </td>
-   <td style="text-align:center;"> 124.8 </td>
-   <td style="text-align:center;"> -11.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 52 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 147.5 </td>
-   <td style="text-align:center;"> 134.0 </td>
-   <td style="text-align:center;"> -13.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 53 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 138.8 </td>
-   <td style="text-align:center;"> 137.8 </td>
-   <td style="text-align:center;"> -1.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 54 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 155.4 </td>
-   <td style="text-align:center;"> 143.5 </td>
-   <td style="text-align:center;"> -11.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 55 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 142.3 </td>
-   <td style="text-align:center;"> 134.8 </td>
-   <td style="text-align:center;"> -7.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 56 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 147.2 </td>
-   <td style="text-align:center;"> 140.3 </td>
-   <td style="text-align:center;"> -6.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 57 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 135.2 </td>
-   <td style="text-align:center;"> 112.3 </td>
-   <td style="text-align:center;"> -22.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 58 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 138.5 </td>
-   <td style="text-align:center;"> 133.2 </td>
-   <td style="text-align:center;"> -5.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 59 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 151.6 </td>
-   <td style="text-align:center;"> 155.6 </td>
-   <td style="text-align:center;"> 4.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 60 </td>
-   <td style="text-align:center;"> DASH </td>
-   <td style="text-align:center;"> 138.0 </td>
-   <td style="text-align:center;"> 129.9 </td>
-   <td style="text-align:center;"> -8.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 61 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 148.3 </td>
-   <td style="text-align:center;"> 140.1 </td>
-   <td style="text-align:center;"> -8.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 62 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 152.0 </td>
-   <td style="text-align:center;"> 160.5 </td>
-   <td style="text-align:center;"> 8.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 63 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 147.6 </td>
-   <td style="text-align:center;"> 147.7 </td>
-   <td style="text-align:center;"> 0.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 64 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 146.5 </td>
-   <td style="text-align:center;"> 152.6 </td>
-   <td style="text-align:center;"> 6.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 65 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 129.2 </td>
-   <td style="text-align:center;"> 128.9 </td>
-   <td style="text-align:center;"> -0.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 66 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 146.7 </td>
-   <td style="text-align:center;"> 149.6 </td>
-   <td style="text-align:center;"> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 67 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 128.4 </td>
-   <td style="text-align:center;"> 138.0 </td>
-   <td style="text-align:center;"> 9.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 68 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 163.8 </td>
-   <td style="text-align:center;"> 167.1 </td>
-   <td style="text-align:center;"> 3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 69 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 138.0 </td>
-   <td style="text-align:center;"> 139.0 </td>
-   <td style="text-align:center;"> 1.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 70 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 151.8 </td>
-   <td style="text-align:center;"> 144.4 </td>
-   <td style="text-align:center;"> -7.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 71 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 156.2 </td>
-   <td style="text-align:center;"> 158.9 </td>
-   <td style="text-align:center;"> 2.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 72 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 150.1 </td>
-   <td style="text-align:center;"> 144.8 </td>
-   <td style="text-align:center;"> -5.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 73 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 166.2 </td>
-   <td style="text-align:center;"> 181.6 </td>
-   <td style="text-align:center;"> 15.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 74 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 139.8 </td>
-   <td style="text-align:center;"> 140.6 </td>
-   <td style="text-align:center;"> 0.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 75 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 155.3 </td>
-   <td style="text-align:center;"> 146.9 </td>
-   <td style="text-align:center;"> -8.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 76 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 138.3 </td>
-   <td style="text-align:center;"> 149.4 </td>
-   <td style="text-align:center;"> 11.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 77 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 175.5 </td>
-   <td style="text-align:center;"> 169.8 </td>
-   <td style="text-align:center;"> -5.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 78 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 158.3 </td>
-   <td style="text-align:center;"> 143.6 </td>
-   <td style="text-align:center;"> -14.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 79 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 145.9 </td>
-   <td style="text-align:center;"> 135.5 </td>
-   <td style="text-align:center;"> -10.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 80 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 159.4 </td>
-   <td style="text-align:center;"> 157.8 </td>
-   <td style="text-align:center;"> -1.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 81 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 136.1 </td>
-   <td style="text-align:center;"> 130.7 </td>
-   <td style="text-align:center;"> -5.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 82 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 168.1 </td>
-   <td style="text-align:center;"> 169.8 </td>
-   <td style="text-align:center;"> 1.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 83 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 136.1 </td>
-   <td style="text-align:center;"> 132.3 </td>
-   <td style="text-align:center;"> -3.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 84 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 131.3 </td>
-   <td style="text-align:center;"> 114.5 </td>
-   <td style="text-align:center;"> -16.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 85 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 149.3 </td>
-   <td style="text-align:center;"> 145.0 </td>
-   <td style="text-align:center;"> -4.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 86 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 160.2 </td>
-   <td style="text-align:center;"> 172.3 </td>
-   <td style="text-align:center;"> 12.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 87 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 149.9 </td>
-   <td style="text-align:center;"> 144.3 </td>
-   <td style="text-align:center;"> -5.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 88 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 140.9 </td>
-   <td style="text-align:center;"> 134.2 </td>
-   <td style="text-align:center;"> -6.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 89 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 164.1 </td>
-   <td style="text-align:center;"> 161.1 </td>
-   <td style="text-align:center;"> -3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 90 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 179.0 </td>
-   <td style="text-align:center;"> 190.2 </td>
-   <td style="text-align:center;"> 11.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 91 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 126.5 </td>
-   <td style="text-align:center;"> 117.5 </td>
-   <td style="text-align:center;"> -9.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 92 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 167.7 </td>
-   <td style="text-align:center;"> 171.9 </td>
-   <td style="text-align:center;"> 4.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 93 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 144.3 </td>
-   <td style="text-align:center;"> 137.4 </td>
-   <td style="text-align:center;"> -6.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 94 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 161.8 </td>
-   <td style="text-align:center;"> 157.2 </td>
-   <td style="text-align:center;"> -4.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 95 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 128.1 </td>
-   <td style="text-align:center;"> 123.3 </td>
-   <td style="text-align:center;"> -4.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 96 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 146.9 </td>
-   <td style="text-align:center;"> 151.1 </td>
-   <td style="text-align:center;"> 4.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 97 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 138.5 </td>
-   <td style="text-align:center;"> 141.4 </td>
-   <td style="text-align:center;"> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 98 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 144.1 </td>
-   <td style="text-align:center;"> 150.7 </td>
-   <td style="text-align:center;"> 6.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 99 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 137.1 </td>
-   <td style="text-align:center;"> 143.6 </td>
-   <td style="text-align:center;"> 6.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 100 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 154.4 </td>
-   <td style="text-align:center;"> 169.7 </td>
-   <td style="text-align:center;"> 15.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 101 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 164.6 </td>
-   <td style="text-align:center;"> 163.2 </td>
-   <td style="text-align:center;"> -1.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 102 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 144.1 </td>
-   <td style="text-align:center;"> 121.8 </td>
-   <td style="text-align:center;"> -22.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 103 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 147.3 </td>
-   <td style="text-align:center;"> 140.9 </td>
-   <td style="text-align:center;"> -6.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 104 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 136.7 </td>
-   <td style="text-align:center;"> 128.5 </td>
-   <td style="text-align:center;"> -8.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 105 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 161.9 </td>
-   <td style="text-align:center;"> 157.6 </td>
-   <td style="text-align:center;"> -4.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 106 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 156.7 </td>
-   <td style="text-align:center;"> 164.0 </td>
-   <td style="text-align:center;"> 7.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 107 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 131.2 </td>
-   <td style="text-align:center;"> 124.7 </td>
-   <td style="text-align:center;"> -6.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 108 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 167.8 </td>
-   <td style="text-align:center;"> 159.3 </td>
-   <td style="text-align:center;"> -8.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 109 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 136.0 </td>
-   <td style="text-align:center;"> 137.9 </td>
-   <td style="text-align:center;"> 1.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 110 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 137.4 </td>
-   <td style="text-align:center;"> 141.0 </td>
-   <td style="text-align:center;"> 3.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 111 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 132.3 </td>
-   <td style="text-align:center;"> 128.4 </td>
-   <td style="text-align:center;"> -3.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 112 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 135.7 </td>
-   <td style="text-align:center;"> 137.0 </td>
-   <td style="text-align:center;"> 1.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 113 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 145.8 </td>
-   <td style="text-align:center;"> 147.8 </td>
-   <td style="text-align:center;"> 2.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 114 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 156.4 </td>
-   <td style="text-align:center;"> 157.3 </td>
-   <td style="text-align:center;"> 0.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 115 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 141.5 </td>
-   <td style="text-align:center;"> 134.9 </td>
-   <td style="text-align:center;"> -6.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 116 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 147.6 </td>
-   <td style="text-align:center;"> 151.5 </td>
-   <td style="text-align:center;"> 3.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 117 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 146.6 </td>
-   <td style="text-align:center;"> 126.5 </td>
-   <td style="text-align:center;"> -20.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 118 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 164.1 </td>
-   <td style="text-align:center;"> 167.0 </td>
-   <td style="text-align:center;"> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 119 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 177.5 </td>
-   <td style="text-align:center;"> 178.7 </td>
-   <td style="text-align:center;"> 1.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 120 </td>
-   <td style="text-align:center;"> Typical </td>
-   <td style="text-align:center;"> 137.2 </td>
-   <td style="text-align:center;"> 151.6 </td>
-   <td style="text-align:center;"> 14.4 </td>
-  </tr>
-</tbody>
-</table></div>
+\begin{table}[!h]
+\centering
+\caption{(\#tab:c02c03)Toy dataset for the DASH example (synthetic values): one row per participant.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{ccccc}
+\toprule
+id & diet & sbp.pre & sbp.post & sbp.change\\
+\midrule
+1 & DASH & 156.2 & 163.5 & 7.2\\
+2 & DASH & 137.0 & 146.1 & 9.1\\
+3 & DASH & 151.7 & 145.5 & -6.1\\
+4 & DASH & 149.0 & 148.2 & -0.8\\
+5 & DASH & 142.0 & 120.1 & -21.9\\
+\addlinespace
+6 & DASH & 119.8 & 115.6 & -4.2\\
+7 & DASH & 141.2 & 128.8 & -12.4\\
+8 & DASH & 137.8 & 128.4 & -9.3\\
+9 & DASH & 151.4 & 147.8 & -3.6\\
+10 & DASH & 144.3 & 144.6 & 0.3\\
+\addlinespace
+11 & DASH & 145.1 & 136.7 & -8.4\\
+12 & DASH & 141.2 & 154.3 & 13.1\\
+13 & DASH & 147.3 & 144.1 & -3.3\\
+14 & DASH & 147.3 & 137.7 & -9.6\\
+15 & DASH & 119.4 & 115.0 & -4.5\\
+\addlinespace
+16 & DASH & 166.2 & 157.4 & -8.8\\
+17 & DASH & 157.4 & 140.6 & -16.7\\
+18 & DASH & 152.6 & 148.6 & -4.0\\
+19 & DASH & 140.3 & 139.9 & -0.4\\
+20 & DASH & 158.3 & 153.3 & -4.9\\
+\addlinespace
+21 & DASH & 146.1 & 141.0 & -5.0\\
+22 & DASH & 148.0 & 141.3 & -6.7\\
+23 & DASH & 133.3 & 132.1 & -1.2\\
+24 & DASH & 167.6 & 149.3 & -18.3\\
+25 & DASH & 150.6 & 151.8 & 1.3\\
+\addlinespace
+26 & DASH & 172.9 & 157.6 & -15.3\\
+27 & DASH & 170.8 & 165.5 & -5.3\\
+28 & DASH & 150.7 & 148.9 & -1.8\\
+29 & DASH & 157.7 & 151.6 & -6.1\\
+30 & DASH & 170.7 & 150.2 & -20.5\\
+\addlinespace
+31 & DASH & 143.7 & 135.8 & -7.8\\
+32 & DASH & 152.0 & 146.7 & -5.3\\
+33 & DASH & 146.9 & 146.9 & -0.1\\
+34 & DASH & 154.0 & 150.0 & -4.0\\
+35 & DASH & 152.2 & 148.8 & -3.4\\
+\addlinespace
+36 & DASH & 164.0 & 165.1 & 1.1\\
+37 & DASH & 157.1 & 143.5 & -13.7\\
+38 & DASH & 139.3 & 126.4 & -12.9\\
+39 & DASH & 156.9 & 148.9 & -8.1\\
+40 & DASH & 140.1 & 134.8 & -5.3\\
+\addlinespace
+41 & DASH & 136.1 & 139.4 & 3.2\\
+42 & DASH & 159.3 & 144.4 & -14.9\\
+43 & DASH & 135.5 & 120.6 & -15.0\\
+44 & DASH & 153.7 & 151.9 & -1.8\\
+45 & DASH & 140.0 & 128.8 & -11.2\\
+\addlinespace
+46 & DASH & 167.0 & 157.3 & -9.7\\
+47 & DASH & 158.5 & 155.4 & -3.2\\
+48 & DASH & 145.2 & 132.3 & -12.9\\
+49 & DASH & 159.6 & 145.8 & -13.8\\
+50 & DASH & 155.1 & 145.1 & -10.1\\
+\addlinespace
+51 & DASH & 136.0 & 124.8 & -11.1\\
+52 & DASH & 147.5 & 134.0 & -13.5\\
+53 & DASH & 138.8 & 137.8 & -1.0\\
+54 & DASH & 155.4 & 143.5 & -11.8\\
+55 & DASH & 142.3 & 134.8 & -7.5\\
+\addlinespace
+56 & DASH & 147.2 & 140.3 & -6.9\\
+57 & DASH & 135.2 & 112.3 & -22.9\\
+58 & DASH & 138.5 & 133.2 & -5.2\\
+59 & DASH & 151.6 & 155.6 & 4.0\\
+60 & DASH & 138.0 & 129.9 & -8.1\\
+\addlinespace
+61 & Typical & 148.3 & 140.1 & -8.2\\
+62 & Typical & 152.0 & 160.5 & 8.5\\
+63 & Typical & 147.6 & 147.7 & 0.1\\
+64 & Typical & 146.5 & 152.6 & 6.1\\
+65 & Typical & 129.2 & 128.9 & -0.3\\
+\addlinespace
+66 & Typical & 146.7 & 149.6 & 2.9\\
+67 & Typical & 128.4 & 138.0 & 9.6\\
+68 & Typical & 163.8 & 167.1 & 3.3\\
+69 & Typical & 138.0 & 139.0 & 1.0\\
+70 & Typical & 151.8 & 144.4 & -7.4\\
+\addlinespace
+71 & Typical & 156.2 & 158.9 & 2.6\\
+72 & Typical & 150.1 & 144.8 & -5.3\\
+73 & Typical & 166.2 & 181.6 & 15.4\\
+74 & Typical & 139.8 & 140.6 & 0.7\\
+75 & Typical & 155.3 & 146.9 & -8.4\\
+\addlinespace
+76 & Typical & 138.3 & 149.4 & 11.1\\
+77 & Typical & 175.5 & 169.8 & -5.7\\
+78 & Typical & 158.3 & 143.6 & -14.7\\
+79 & Typical & 145.9 & 135.5 & -10.4\\
+80 & Typical & 159.4 & 157.8 & -1.7\\
+\addlinespace
+81 & Typical & 136.1 & 130.7 & -5.5\\
+82 & Typical & 168.1 & 169.8 & 1.7\\
+83 & Typical & 136.1 & 132.3 & -3.8\\
+84 & Typical & 131.3 & 114.5 & -16.9\\
+85 & Typical & 149.3 & 145.0 & -4.3\\
+\addlinespace
+86 & Typical & 160.2 & 172.3 & 12.1\\
+87 & Typical & 149.9 & 144.3 & -5.5\\
+88 & Typical & 140.9 & 134.2 & -6.7\\
+89 & Typical & 164.1 & 161.1 & -3.0\\
+90 & Typical & 179.0 & 190.2 & 11.2\\
+\addlinespace
+91 & Typical & 126.5 & 117.5 & -9.0\\
+92 & Typical & 167.7 & 171.9 & 4.2\\
+93 & Typical & 144.3 & 137.4 & -6.9\\
+94 & Typical & 161.8 & 157.2 & -4.6\\
+95 & Typical & 128.1 & 123.3 & -4.8\\
+\addlinespace
+96 & Typical & 146.9 & 151.1 & 4.2\\
+97 & Typical & 138.5 & 141.4 & 2.9\\
+98 & Typical & 144.1 & 150.7 & 6.6\\
+99 & Typical & 137.1 & 143.6 & 6.5\\
+100 & Typical & 154.4 & 169.7 & 15.3\\
+\addlinespace
+101 & Typical & 164.6 & 163.2 & -1.4\\
+102 & Typical & 144.1 & 121.8 & -22.3\\
+103 & Typical & 147.3 & 140.9 & -6.3\\
+104 & Typical & 136.7 & 128.5 & -8.2\\
+105 & Typical & 161.9 & 157.6 & -4.4\\
+\addlinespace
+106 & Typical & 156.7 & 164.0 & 7.2\\
+107 & Typical & 131.2 & 124.7 & -6.6\\
+108 & Typical & 167.8 & 159.3 & -8.4\\
+109 & Typical & 136.0 & 137.9 & 1.9\\
+110 & Typical & 137.4 & 141.0 & 3.6\\
+\addlinespace
+111 & Typical & 132.3 & 128.4 & -3.9\\
+112 & Typical & 135.7 & 137.0 & 1.3\\
+113 & Typical & 145.8 & 147.8 & 2.0\\
+114 & Typical & 156.4 & 157.3 & 0.9\\
+115 & Typical & 141.5 & 134.9 & -6.6\\
+\addlinespace
+116 & Typical & 147.6 & 151.5 & 3.9\\
+117 & Typical & 146.6 & 126.5 & -20.1\\
+118 & Typical & 164.1 & 167.0 & 2.9\\
+119 & Typical & 177.5 & 178.7 & 1.2\\
+120 & Typical & 137.2 & 151.6 & 14.4\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 ### Statistical model
 
@@ -1114,7 +411,9 @@ ggplot(d_toy, aes(x = diet, y = sbp.change)) +
   theme_minimal()
 ```
 
-<img src="ch02_workflow_files/figure-html/c02c04-1.png" alt="" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{ch02_workflow_files/figure-latex/c02c04-1} \end{center}
 
 
 

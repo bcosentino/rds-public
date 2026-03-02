@@ -106,10 +106,14 @@ ggplot(d, aes(x = x, y = p.hat, fill = pval)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="appendix02_decision_freq_files/figure-html/a02c02-1.png" alt="Null distribution of the prevalence of infection based on a sample of N = 100 assuming the true prevalence is 10%. The values highlighted in orange make up the P-value for a two-sided hypothesis test when there are X = 8 positives." width="70%" />
-<p class="caption">(\#fig:a02c02)Null distribution of the prevalence of infection based on a sample of N = 100 assuming the true prevalence is 10%. The values highlighted in orange make up the P-value for a two-sided hypothesis test when there are X = 8 positives.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{appendix02_decision_freq_files/figure-latex/a02c02-1} 
+
+}
+
+\caption{Null distribution of the prevalence of infection based on a sample of N = 100 assuming the true prevalence is 10\%. The values highlighted in orange make up the P-value for a two-sided hypothesis test when there are X = 8 positives.}(\#fig:a02c02)
+\end{figure}
 
 Figure \@ref(fig:a02c02) illustrates the null distribution assuming the true prevalence is 10%, and it highlights the values used to quantify the P-value. This includes the actual observation of 8 positive tests, plus all lower values, as well as observations of 12 and above. We can quantify the P-value in this way:
 
@@ -154,10 +158,14 @@ ggplot(d, aes(x = x, y = p.hat, fill = pval)) +
   theme_classic()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="appendix02_decision_freq_files/figure-html/a02c04-1.png" alt="Null distribution of the prevalence of infection based on a sample of N = 100 assuming the true prevalence is 10%. The values highlighted in orange make up the P-value for a one-sided hypothesis test when there are X = 8 positives." width="70%" />
-<p class="caption">(\#fig:a02c04)Null distribution of the prevalence of infection based on a sample of N = 100 assuming the true prevalence is 10%. The values highlighted in orange make up the P-value for a one-sided hypothesis test when there are X = 8 positives.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{appendix02_decision_freq_files/figure-latex/a02c04-1} 
+
+}
+
+\caption{Null distribution of the prevalence of infection based on a sample of N = 100 assuming the true prevalence is 10\%. The values highlighted in orange make up the P-value for a one-sided hypothesis test when there are X = 8 positives.}(\#fig:a02c04)
+\end{figure}
 
 The P-value for the one-sided test is:
 
@@ -191,10 +199,14 @@ sum(dbinom(x = 17:100, size = 100, prob=0.1))
 ## [1] 0.02059881
 ```
 
-<div class="figure" style="text-align: center">
-<img src="appendix02_decision_freq_files/figure-html/a02c07-1.png" alt="Null distribution of the prevalence of infection based on a sample of N = 100 individuals assuming the true prevalence is 10%. The values highlighted in orange make up the P-value for a one-sided hypothesis test when there are X = 17 positives." width="70%" />
-<p class="caption">(\#fig:a02c07)Null distribution of the prevalence of infection based on a sample of N = 100 individuals assuming the true prevalence is 10%. The values highlighted in orange make up the P-value for a one-sided hypothesis test when there are X = 17 positives.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{appendix02_decision_freq_files/figure-latex/a02c07-1} 
+
+}
+
+\caption{Null distribution of the prevalence of infection based on a sample of N = 100 individuals assuming the true prevalence is 10\%. The values highlighted in orange make up the P-value for a one-sided hypothesis test when there are X = 17 positives.}(\#fig:a02c07)
+\end{figure}
 
 We see the P-value in this case with X = 17 positives is only 2%. Figure \@ref(fig:a02c07) illustrates the null distribution and highlights the values used to compute the P-value in this case. The interpretation here is that there was only a 2% chance of getting 17 or greater positives if the true prevalence was 10%. Because the P-value is below the significance value of 0.05, we would reject the null hypothesis and conclude the data support the alternative hypothesis that the prevalence is greater than 10%.
 
@@ -250,10 +262,14 @@ Why do we see cases like this? The problem is that P-values are affected by samp
 
 It's important to note that not finding statistical significance does not rule out practical importance. Because P-values are affected by sample size, one might find what appears to be a strong effect even with a P-value above 0.05. Consider our example of fish populations and pollution. Suppose you find a mean difference in fish populations of 100 between polluted and unpolluted water such as a mean difference of N = 40 individuals between polluted and unpolluted waters. Also assume the standard deviation of population size among locations is 50. If these estimates were made with a sample size of N = 50 polluted and unpolluted locations each, the P-value would be 0.0002. However, if the same estimates were made with a sample size of N = 10 polluted and unpolluted locations each, the P-value would be 0.08. Same effect size, but a borderline P-value when the sample size is low. Rather than outright accepting the null hypotheses, a better practice would be to consider the effect size in light of the low sample size.
 
-<div class="figure" style="text-align: center">
-<img src="appendix02_decision_freq_files/figure-html/a02c08-1.png" alt="Simulated relationship of genetic distance to physical distance between individuals in a wildlife population. There are 3000 data points and the P-value for the null hypothesis that the slope of the line relating genetic distance to physical distance is P = 0.02, which would lead to rejecting the null hypothesis." width="70%" />
-<p class="caption">(\#fig:a02c08)Simulated relationship of genetic distance to physical distance between individuals in a wildlife population. There are 3000 data points and the P-value for the null hypothesis that the slope of the line relating genetic distance to physical distance is P = 0.02, which would lead to rejecting the null hypothesis.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{appendix02_decision_freq_files/figure-latex/a02c08-1} 
+
+}
+
+\caption{Simulated relationship of genetic distance to physical distance between individuals in a wildlife population. There are 3000 data points and the P-value for the null hypothesis that the slope of the line relating genetic distance to physical distance is P = 0.02, which would lead to rejecting the null hypothesis.}(\#fig:a02c08)
+\end{figure}
 
 ### Type I errors become more likely with multiple tests
  
